@@ -1,0 +1,146 @@
+// out: ../common.css, compress: true
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html { font-size: 1.125em; }
+
+/* ---------- DEFAULTS ------------------------------ */
+
+a {
+    outline: none;
+    text-decoration: none;
+}
+
+img { border: none; }
+h1, ul, li { margin: 0; padding: 0; }
+h2, h3, h4, h5, p { margin: 0 0 1em; padding: 0; }
+li { list-style-type: none; }
+
+/* ---------- VARIABLES, MIX-INS, ETC. ------------------------------ */
+
+@theme-primary: #900;
+@theme-secondary: #500;
+
+/* ---------- ELEMENTS ------------------------------ */
+
+.btn {
+    display: inline-block;
+    padding: .4em .8em;
+    background-color: @theme-primary;
+    color: #fff;
+    text-shadow: 1px 1px 1px fade(shade(@theme-primary,50%), 50%);
+
+    &:hover{
+        color: #fff;
+        text-shadow: 1px 1px 1px fade(shade(@theme-primary, 50%), 75%);
+    }
+
+    &.primary {
+        background-color: @theme-secondary;
+        background-image: linear-gradient(to bottom, transparent, fade(@theme-primary, 50%));
+        font-size: 1.25em;
+    }
+}
+
+.strip {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        width: 100vw;
+        margin-left: calc(~'50% - 50vw');
+        background-color: inherit;
+    }
+}
+
+/* ---------- RESPONSIVE ------------------------------ */
+
+// Breakpoints
+
+@bp-phone-max:           600px;
+@bp-tablet-orientation:  900px;
+@bp-desktop-min:         1200px;
+
+/* ---------- LAYOUT ------------------------------ */
+
+.site-header {
+    margin-bottom: 2rem;
+    padding: 1em 2rem;
+    background-color: @theme-primary;
+}
+
+.custom-logo-link {
+    height: 8em;
+}
+
+.custom-logo {
+    width: auto;
+    height: 100%;
+}
+
+.site-title { margin: 0 0 1em; }
+
+.site-title a {
+    color: #fff;
+    font-size: 2em;
+    line-height: 1.1em;
+    text-decoration: none;
+}
+
+.site-branding, .main-navigation {
+    max-width: @bp-desktop-min;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.main-navigation {
+    float: none;
+
+    ul {
+        margin-left: -.5em; // offset padding
+    }
+
+    a {
+        display: inline-block;
+        padding: .25em .5em;
+        color: #fff;
+        font-size: 1.125em;
+
+        &:hover {
+            background-color: fade(shade(@theme-primary, 15%), 50%);
+            border-color: rgba(0,0,0,.1);
+            color: #fff;
+        }
+    }
+
+    li:not(:first-child) { margin-left: 2em; }
+
+    li:last-child a {
+        background-color: @theme-secondary;
+        background-image: linear-gradient(to bottom, transparent, fade(@theme-primary, 25%));
+    }
+}
+
+.site-content {
+    max-width: @bp-desktop-min;
+    box-sizing: content-box;
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+}
+
+.site-footer {
+    background-color: #000;
+    padding: 2rem;
+    text-align: center;
+}
