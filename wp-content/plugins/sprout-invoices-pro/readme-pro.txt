@@ -4,7 +4,7 @@ Donate link: https://sproutapps.co/
 Tags: invoicing, estimates, payments, web invoice, bill, paypal, invoice, pay, online payment, send invoice, bill clients, credit cards, stripe, freshbooks, harvest, wp-invoice
 Requires at least: 3.8
 Tested up to: 4.9
-Stable tag: 16.6.0.1
+Stable tag: 16.7
 
 == Description ==
 
@@ -22,6 +22,11 @@ The plugin should already be installed at this point. If you still need help che
 **Please visit the [FAQ at Sprout Apps](https://sproutapps.co/support/knowledgebase/sprout-invoices/faqs/).**
 
 == Changelog ==
+
+= 16.7 =
+
+* NEW: More options to change the colors for the default theme in the customizer
+* Update: Adjustments for better PDF add-on support
 
 = 16.6.0.1 =
 
