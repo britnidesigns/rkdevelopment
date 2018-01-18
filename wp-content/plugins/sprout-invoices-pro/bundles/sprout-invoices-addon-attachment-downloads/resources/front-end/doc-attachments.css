@@ -1,0 +1,21 @@
+#header_attachments_info {
+    padding: 1em;
+    padding-top: 0em;
+    background-color: #FAFAFA;
+    width: 100%;
+    margin-top: 10px;
+}
+.attachments_info ul {
+    margin:0px;
+    padding: 0px;
+    list-style-type: none;
+}
+.attachments_info li {
+    display: inline-block;
+    float: left;
+    margin-right: 15px;
+}
+.attachments_info li img.doc_attachment {
+    height: 40px;
+    width: auto;
+}

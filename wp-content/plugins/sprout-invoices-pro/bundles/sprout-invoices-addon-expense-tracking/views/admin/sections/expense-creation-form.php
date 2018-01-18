@@ -1,0 +1,11 @@
+<div id="expense_creation_modal">
+	<div id="tt_body" class="admin_fields clearfix">
+		<?php sa_admin_fields( $fields, 'expense' ); ?>
+	</div><!-- #tt_body -->
+	<div id="tt_save">
+		<p>
+			<a href="javascript:void(0)" id="create_expense_category" class="button button-large button-primary"><?php _e( 'Create Category', 'sprout-invoices' ) ?></a>
+		</p>
+	</div><!-- #tt_save -->
+
+</div><!-- #expense_creation_modal -->

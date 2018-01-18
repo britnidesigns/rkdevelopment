@@ -1,0 +1,1 @@
+<b><?php _e( 'Invoice paid:' , 'sprout-invoices' ) ?></b>&nbsp;<?php printf( '<a class="payments_link" title="%s" href="%s&s=%s">%s</a>', __( 'Review Payments' , 'sprout-invoices' ), get_admin_url( '','/edit.php?post_type=sa_invoice&page=sprout-apps/invoice_payments' ), $invoice_id, __( 'Payments' , 'sprout-invoices' ) ); ?>

@@ -1,0 +1,81 @@
+.cim_delete_card span { opacity: .3; } 
+.cim_delete_card:hover span { opacity: 1.0; }
+span.sa-form-field-radio.clearfix {
+    display: block;
+}
+#credit_card_fields span.sa-form-field-radio.clearfix {
+    display: block;
+    margin-bottom: 5px;
+    padding: 10px 5px;
+    background-color: #eee;
+    clear: both;
+}
+
+.sa-form-aligned .sa-control-group .sa-form-field-radio label {
+    text-align: left;
+    display: block;
+    width: auto;
+    margin: 0;
+}
+
+#billing_cc_fields .sa-form-field-radio input {
+    width: 2em;
+}
+#billing_cc_fields input#sa_credit_store_payment_profile, #billing_cc_fields  input#sa_bank_store_payment_profile {
+    width: auto;
+}
+#billing_cc_fields label.sa-checkbox {
+    text-align: right;
+    width: 100%;
+}
+#credit_card_fields .sa-controls.input_wrap {
+    margin: 0;
+    display: block;
+    clear: both;
+}
+.sa-form-field-bypass legend {
+    margin-top: 20px;
+}
+span.sa-form-field.sa-form-field-checkbox {
+    display: inline-block;
+    margin-right: 10px;
+}
+#billing_cc_fields input#sa_credit_store_payment_profile,
+#billing_cc_fields input#sa_bank_store_payment_profile,
+#billing_cc_fields input#sa_billing_allow_to_autobill {
+    width: auto;
+}
+
+.invoice_totals_wrap .hide_by_default {
+    display: none;
+}
+.invoice_totals_wrap {
+    margin-top: 10px;
+    width: 60%;
+    float: right;
+    text-align: right;
+    /* border-top: 1px solid #eee; */
+    /* padding-top: 20px; */
+}
+.invoice_totals_wrap > div {
+    border-bottom: solid 1px #eee;
+    padding: 5px 15px
+}
+.invoice_totals_wrap > div.service_fee {
+    background-color: #eee;
+}
+.invoice_totals_wrap > div.total_with_fee,
+.invoice_totals_wrap > div.total_without_fee {
+    background-color: #363B3F;
+    color: #fff;
+}
+.invoice_totals_wrap b {
+    float: left;
+}
+#credit_card_submit {
+    margin-top: 0px;
+    clear: both;
+}
+#credit_card_submit {
+    background-color: #ff5b4d;
+}

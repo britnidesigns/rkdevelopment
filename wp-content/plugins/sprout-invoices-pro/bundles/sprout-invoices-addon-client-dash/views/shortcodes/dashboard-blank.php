@@ -1,0 +1,1 @@
+<p><?php _e( 'No invoices or estimates available.', 'sprout-invoices' ) ?></p>

@@ -1,0 +1,83 @@
+.cim_delete_card span { opacity: .3; } 
+.cim_delete_card:hover span { opacity: 1.0; }
+span.sa-form-field-radio.clearfix {
+    display: block;
+}
+#credit_card_fields span.sa-form-field-radio.clearfix {
+    display: block;
+    margin-bottom: 5px;
+    padding: 10px 5px;
+    background-color: #eee;
+}
+
+.sa-form-aligned .sa-control-group .sa-form-field-radio label {
+    text-align: left;
+    display: block;
+    width: auto;
+    margin: 0;
+}
+
+#billing_cc_fields .sa-form-field-radio input {
+    width: 2em;
+}
+#billing_cc_fields input#sa_credit_store_payment_profile, #billing_cc_fields  input#sa_bank_store_payment_profile {
+    width: auto;
+}
+#billing_cc_fields label.sa-checkbox {
+    text-align: right;
+    width: 100%;
+}
+#credit_card_fields .sa-controls.input_wrap {
+    margin: 0;
+    display: block;
+    clear: both;
+}
+.sa-form-field-bypass legend {
+    margin-top: 20px;
+}
+span.sa-form-field.sa-form-field-checkbox {
+    display: inline-block;
+    margin-right: 10px;
+}
+#billing_cc_fields input#sa_credit_store_payment_profile,
+#billing_cc_fields input#sa_bank_store_payment_profile,
+#billing_cc_fields input#sa_billing_allow_to_autobill {
+    width: auto;
+}
+#billing_cc_fields .sa-control-group.billingallow_to_autobill  {
+    float: right;
+    clear: both;
+    width: 80%;
+}
+.sa-control-group.billingautopay_billdate {
+    float: right;
+    clear: both;
+}
+
+#credit_card_submit {
+    clear:both;
+}
+
+#billing_cc_fields #modify_deposit_amount.sa-fieldset {
+    float: right;   
+}
+#billing_cc_fields .sa-form-field-radio input#si_payment_amount_input_option {
+    width: 5em;
+}
+#billing_cc_fields #modify_invoice_start_date .sa-fieldset {
+    float: right;   
+}
+#billing_cc_fields .sa-control-group.billingallow_to_autobill   {
+    float: right;
+    width: 64%;
+}
+#billing_cc_fields .billingallow_to_autobill label.sa-checkbox {
+    text-align: left;
+}
+
+#billing_cc_fields #modify_invoice_start_date_wrap.sa-fieldset {
+    float: right;
+}
+#billing_cc_fields #modify_invoice_start_date_wrap input {
+    width: 3.5em;
+}

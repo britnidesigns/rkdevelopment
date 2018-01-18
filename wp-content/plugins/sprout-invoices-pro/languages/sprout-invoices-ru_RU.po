@@ -1,0 +1,4957 @@
+# Translation of Development (trunk) in Russian
+# This file is distributed under the same license as the Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2016-03-02 08:58-0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.5.7\n"
+"Project-Id-Version: Development (trunk)\n"
+"POT-Creation-Date: \n"
+"Last-Translator: Dan Cameron <l10n@sproutapps.co>\n"
+"Language-Team: \n"
+
+#: controllers/invoices/Invoices_Deposit.php:33
+msgid "Upgrade Sprout Invoices to enable deposits."
+msgstr ""
+
+#: controllers/invoices/Invoices_Deposit.php:40
+msgid "Set the amount due for the next payment&mdash;amount due will be used 0"
+msgstr ""
+
+#: controllers/payment-processing/Payment_Processors.php:181
+msgid ""
+"<strong>Missing Paypal Express Checkout?</strong> The add-on is available "
+"for <b>free</b> on the <a href=\"%s\">Sprout Apps marketplace</a>."
+msgstr ""
+
+#: controllers/payment-processing/Payment_Processors.php:184
+msgid "More Payment Gateways Available:"
+msgstr ""
+
+#: controllers/payment-processing/Payment_Processors.php:184
+msgid "Checkout the Sprout Apps <a href=\"%s\">marketplace</a>."
+msgstr ""
+
+#: languages/SI_Strings.php:81
+msgid "No Time found in Trash"
+msgstr ""
+
+#: languages/SI_Strings.php:82
+msgid "Search Invoices"
+msgstr ""
+
+#: languages/SI_Strings.php:83
+msgid "Search Estimates"
+msgstr ""
+
+#: languages/SI_Strings.php:84
+msgid "Search Clients"
+msgstr ""
+
+#: languages/SI_Strings.php:85
+msgid "Search Projects"
+msgstr "Поиск проектов"
+
+#: languages/SI_Strings.php:86
+msgid "Search Payments"
+msgstr "Поиск в платежах"
+
+#: languages/SI_Strings.php:87
+msgid "Search Notifications"
+msgstr ""
+
+#: languages/SI_Strings.php:88
+msgid "Search Time"
+msgstr ""
+
+#: languages/SI_l10n.php:80
+msgid ""
+"<span class=\"dashicons dashicons-megaphone\"></span> <b>%1$s</b> does not "
+"have a translation for <b>%2$s</b>, please help the community translate at "
+"<a href=\"%3$s\" target=\"_blank\">%3$s</a>. Supporting translators receive "
+"major discounts on <a href=\"%4$s\" target=\"_blank\">pro licenses</a> and "
+"<a href=\"%5$s\" target=\"_blank\">add-ons</a>."
+msgstr ""
+
+#: views/admin/addons/marketplace.php:34
+#: views/admin/sprout-apps-dashboard.php:57
+msgid "Bundled w/ Business License Only"
+msgstr ""
+
+#: views/admin/meta-boxes/estimates/information.php:182
+#: views/admin/meta-boxes/invoices/information.php:176
+msgid "The discount is applied after tax."
+msgstr ""
+
+#: views/admin/meta-boxes/estimates/information.php:202
+#: views/admin/meta-boxes/estimates/information.php:223
+#: views/admin/meta-boxes/invoices/information.php:196
+#: views/admin/meta-boxes/invoices/information.php:217
+msgid "Tax is applied before the discount."
+msgstr ""
+
+#: languages/SI_Strings.php:76
+msgid "No Estimate found in Trash"
+msgstr ""
+
+#: languages/SI_Strings.php:77
+msgid "No Client found in Trash"
+msgstr ""
+
+#: languages/SI_Strings.php:78
+msgid "No Project found in Trash"
+msgstr ""
+
+#: languages/SI_Strings.php:79
+msgid "No Payment found in Trash"
+msgstr ""
+
+#: languages/SI_Strings.php:80
+msgid "No Notification found in Trash"
+msgstr ""
+
+#: languages/SI_Strings.php:65
+msgid "View Payment"
+msgstr "Просмотреть платёж"
+
+#: languages/SI_Strings.php:66
+msgid "View Notification"
+msgstr ""
+
+#: languages/SI_Strings.php:67 languages/SI_Strings.php:74
+msgid "No Time found"
+msgstr ""
+
+#: languages/SI_Strings.php:68
+msgid "No Invoice found"
+msgstr ""
+
+#: languages/SI_Strings.php:69
+msgid "No Estimate found"
+msgstr ""
+
+#: languages/SI_Strings.php:70
+msgid "No Client found"
+msgstr ""
+
+#: languages/SI_Strings.php:71
+msgid "No Project found"
+msgstr ""
+
+#: languages/SI_Strings.php:72
+msgid "No Payment found"
+msgstr ""
+
+#: languages/SI_Strings.php:73
+msgid "No Notification found"
+msgstr ""
+
+#: languages/SI_Strings.php:75
+msgid "No Invoice found in Trash"
+msgstr ""
+
+#: languages/SI_Strings.php:58
+msgid "New Payment"
+msgstr "Новый платёж"
+
+#: languages/SI_Strings.php:59
+msgid "New Notification"
+msgstr ""
+
+#: languages/SI_Strings.php:60
+msgid "New Time"
+msgstr ""
+
+#: languages/SI_Strings.php:63
+msgid "View Client"
+msgstr ""
+
+#: languages/SI_Strings.php:64
+msgid "View Project"
+msgstr "Просмотр проекта"
+
+#: languages/SI_Strings.php:54
+msgid "New Invoice"
+msgstr ""
+
+#: languages/SI_Strings.php:55
+msgid "New Estimate"
+msgstr ""
+
+#: languages/SI_Strings.php:56
+msgid "New Client"
+msgstr ""
+
+#: languages/SI_Strings.php:57
+msgid "New Project"
+msgstr "Новый проект"
+
+#: languages/SI_Strings.php:45
+msgid "Add New Notification"
+msgstr ""
+
+#: languages/SI_Strings.php:46
+msgid "Add New Time"
+msgstr ""
+
+#: languages/SI_Strings.php:47
+msgid "Edit Invoice"
+msgstr ""
+
+#: languages/SI_Strings.php:48
+msgid "Edit Estimate"
+msgstr ""
+
+#: languages/SI_Strings.php:49
+msgid "Edit Client"
+msgstr ""
+
+#: languages/SI_Strings.php:50
+msgid "Edit Project"
+msgstr "Редактировать проект"
+
+#: languages/SI_Strings.php:51
+msgid "Edit Payment"
+msgstr "Редактировать платёж"
+
+#: languages/SI_Strings.php:52
+msgid "Edit Notification"
+msgstr "Редактировать оповещение"
+
+#: languages/SI_Strings.php:53
+msgid "Edit Time"
+msgstr ""
+
+#: languages/SI_Strings.php:33
+msgid "Add Invoice"
+msgstr ""
+
+#: languages/SI_Strings.php:34
+msgid "Add Estimate"
+msgstr ""
+
+#: languages/SI_Strings.php:35
+msgid "Add Client"
+msgstr ""
+
+#: languages/SI_Strings.php:36
+msgid "Add Project"
+msgstr ""
+
+#: languages/SI_Strings.php:37
+msgid "Add Payment"
+msgstr ""
+
+#: languages/SI_Strings.php:38
+msgid "Add Notification"
+msgstr "Добавить оповещение"
+
+#: languages/SI_Strings.php:39
+msgid "Add Time"
+msgstr ""
+
+#: languages/SI_Strings.php:40
+msgid "Add New Invoice"
+msgstr ""
+
+#: languages/SI_Strings.php:41
+msgid "Add New Estimate"
+msgstr ""
+
+#: languages/SI_Strings.php:42
+msgid "Add New Client"
+msgstr ""
+
+#: languages/SI_Strings.php:43
+msgid "Add New Project"
+msgstr "Добавить новый проект"
+
+#: languages/SI_Strings.php:44
+msgid "Add New Payment"
+msgstr "Добавить новый платёж"
+
+#: languages/SI_Strings.php:25
+msgid "Time Type"
+msgstr ""
+
+#: languages/SI_Strings.php:32
+msgid "Time"
+msgstr "Время"
+
+#: views/templates/checkout/confirmation.php:117
+#: views/templates/invoice/invoice.php:136
+msgid "Invoice Number"
+msgstr "Номер Счета"
+
+#: views/templates/checkout/confirmation.php:131
+#: views/templates/invoice/invoice.php:150
+msgid "Invoice Due"
+msgstr "Счёт до"
+
+#: views/templates/checkout/confirmation.php:145
+#: views/templates/invoice/invoice.php:164
+msgid "Deposit Total"
+msgstr "Задаток Всего"
+
+#: views/templates/checkout/confirmation.php:231
+#: views/templates/estimate/estimate.php:234
+#: views/templates/invoice/invoice.php:268
+msgid "Powered by Sprout Invoices"
+msgstr "Работает на Sprout Invoices"
+
+#: views/templates/checkout/credit-card/form.php:7
+msgid "Billing"
+msgstr "Биллинг"
+
+#: views/templates/checkout/credit-card/form.php:12
+msgid "Credit Card"
+msgstr "Кредитная Карта"
+
+#: views/templates/checkout/credit-card/review.php:5
+msgid "Your Payment Information"
+msgstr "Ваша платежная информация"
+
+#: views/templates/checkout/credit-card/review.php:31
+msgid "Submit Order"
+msgstr "Отправить Заказ"
+
+#: views/templates/estimate/estimate.php:33
+msgid "Estimate %s"
+msgstr "Смета %s"
+
+#: views/templates/estimate/estimate.php:37
+msgid "Accept Estimate"
+msgstr "Принять Смету"
+
+#: views/templates/estimate/estimate.php:39
+msgid "Accepted"
+msgstr "Принято"
+
+#: views/templates/estimate/estimate.php:42
+msgid "Decline Estimate"
+msgstr "Снижение Сметы"
+
+#: views/templates/estimate/estimate.php:116
+msgid "Estimate Number"
+msgstr "Номер Сметы"
+
+#: views/templates/estimate/estimate.php:138
+msgid "Estimate Total"
+msgstr "Всего по смете"
+
+#: views/templates/invoice/invoice.php:88
+msgid "Payment Pending"
+msgstr "Платёж в ожидании"
+
+#: views/templates/invoice/invoice.php:92
+msgid "TEMP"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://sproutapps.co/sprout-invoices/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"App allows for any WordPress site to accept estimates, create invoices and "
+"receive invoice payments. Learn more at <a href=\"https://sproutapps.co"
+"\">Sprout Apps</a>."
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://sproutapps.co"
+msgstr ""
+
+#: views/templates/checkout/confirmation.php:36
+#: views/templates/invoice/invoice.php:39
+msgid "Invoice %s"
+msgstr "Счет %s"
+
+#: views/templates/checkout/confirmation.php:40
+#: views/templates/checkout/confirmation.php:72
+msgid "Deposit Made"
+msgstr "Задаток, внесенный"
+
+#: views/templates/checkout/confirmation.php:40
+msgid "Paid in Full"
+msgstr "Оплата в полном объеме"
+
+#: views/templates/checkout/confirmation.php:82
+#: views/templates/estimate/estimate.php:81
+#: views/templates/invoice/invoice.php:101
+msgid "From"
+msgstr "Место отправления"
+
+#: views/templates/checkout/confirmation.php:92
+#: views/templates/estimate/estimate.php:91
+#: views/templates/invoice/invoice.php:111
+msgid "To"
+msgstr "на"
+
+#: views/admin/sprout-invoices-dashboard.php:66
+msgid "Where do I start?"
+msgstr "Где я могу начать?"
+
+#: views/admin/sprout-invoices-dashboard.php:69
+msgid ""
+"Start <a href='%s'>importing</a> your data from other services (i.e. WP-"
+"Invoice, Freshbooks or Harvest)."
+msgstr ""
+
+#: views/admin/sprout-invoices-dashboard.php:70
+msgid ""
+"Even with the defaults set in <a href='%s'>General Settings</a> the 'Company "
+"Info' should be filled out first."
+msgstr ""
+"Даже с настройками по умолчанию, установленных в <a href='%s'>Общих "
+"настройках</a> \"Информация о компании\" должна быть заполнена в первую "
+"очередь."
+
+#: views/admin/sprout-invoices-dashboard.php:71
+msgid ""
+"Review your <a href='%s'>Payment Settings</a> and provide different methods "
+"of payments for your clients. Don't let your client find out you've "
+"configured the payment processor incorrectly&mdash;make sure to test."
+msgstr ""
+"Просмотрите свои <a href='%s'>Настройки оплаты</a> и обеспечьте различные "
+"методы оплаты для своих клиентов. Не позволяйте вашему клиенту узнать о "
+"неправильных настройках платежной системы &mdash; протестируйте."
+
+#: views/admin/sprout-invoices-dashboard.php:72
+msgid ""
+"There are a lot of <a href='%s'>notifications</a> sent throughout the entire "
+"client acquisition process, make sure they have your personality and "
+"represent your brand well. You can send HTML emails, check your <a "
+"href='%s'>General Settings</a> for more information."
+msgstr ""
+"Существует много <a href='%s'>уведомлений</a>, отправленных в течение всего "
+"процесса приобретения клиента, убедитесь, что они имеют свою "
+"индивидуальность и представляют Вашу марку хорошо. Вы можете отправить "
+"электронную почту HTML, проверьте свои <a href='%s'>Общие настройки</a> для "
+"получения дополнительной информации."
+
+#: views/admin/sprout-invoices-dashboard.php:73
+msgid ""
+"Grow your business while not forgetting about your loved ones...and the "
+"occasional round of golf."
+msgstr ""
+"Развивайте свой бизнес, не забывая о своих близких... и иногда играйте в "
+"гольф."
+
+#: views/admin/sprout-invoices-dashboard.php:79
+msgid "How well am I doing?"
+msgstr "Хорошо ли я делаю?"
+
+#: views/admin/sprout-invoices-dashboard.php:80
+msgid ""
+"The <a href='%s'>Reports Dashboard</a> should key you on how well your're "
+"growing your business. There are reports for the estimates, invoices, "
+"payments and clients available for filtering and exporting."
+msgstr ""
+"<a href='%s'>Консоль Отчетов</a> информирует вас о том, как хорошо растет "
+"ваш бизнес. Существуют отчеты для смет, счетов, платежей и клиентов, "
+"доступна фильтрация и экспорт."
+
+#: views/admin/sprout-invoices-dashboard.php:85
+msgid "Clients &amp; WordPress Users?"
+msgstr "Клиентов и WordPress пользователей?"
+
+#: views/admin/sprout-invoices-dashboard.php:86
+msgid ""
+"<a href='%s'>Clients</a> have WordPress users associated with them and "
+"clients are not limited to a single user either. This allows for you to have "
+"multiple points of contact for a company/client."
+msgstr ""
+"<a href='%s'>Клиенты</a> имеют связанных с ними пользователей WordPress,  и "
+"клиенты не ограничиваются также одним пользователем. Это позволяет вам иметь "
+"несколько точек соприкосновения для компании/клиента."
+
+#: views/admin/sprout-invoices-dashboard.php:90
+msgid "What are Predefined Line Items?"
+msgstr "Что такое Предопределенные Позиции?"
+
+#: views/admin/sprout-invoices-dashboard.php:91
+msgid ""
+"Predefined line-tems help with the creation of your estimates and invoices "
+"by pre-filling line items. Create some tasks that matter to your business "
+"before creating your first estimate or invoice and you'll see how they can "
+"save you a lot of time."
+msgstr ""
+"Предопределенные позиции помогают при создании ваших смет и счетов по "
+"предварительно заполненным позициям. Создайте несколько задач, которые важны "
+"для вашего бизнеса, прежде чем создавать свой первую смету или счёт, и вы "
+"увидите, как они помогут сохранить вам много времени."
+
+#: views/admin/sprout-invoices-dashboard.php:96
+msgid "Can I import from X service or WP-Invoice?"
+msgstr "Могу ли я импортировать из X службы или WP-Invoice?"
+
+#: views/admin/sprout-invoices-dashboard.php:97
+msgid "Yes! WP-Invoice, Harvest and Freshbooks importers are now available."
+msgstr "Да!  Импорт WP-Invoice, Harvest и Freshbooks теперь доступны."
+
+#: views/admin/sprout-invoices-dashboard.php:100
+msgid "I need help! Where is the support?"
+msgstr "Мне нужна помощь! Где поддержка?"
+
+#: views/admin/sprout-invoices-dashboard.php:101
+msgid ""
+"We want to make sure using Sprout Invoices is enjoyable and not a hassle. "
+"Sprout Apps has some pretty awesome <a href='%s'>support</a> and a budding "
+"<a href='%s'>knowledgebase</a> that will help you get anything resolved. "
+"Support and documentation is limited for this free version."
+msgstr ""
+"Мы хотим убедиться, что использование Sprout Invoices является приятным и не "
+"хлопотным. Sprout Invoices имеет некоторую, довольно удивительную, <a "
+"href='%s'>поддержку</a> и многообещающую <a href='%s'>базу знаний</a>, "
+"которая поможет вам получить любые решения. Поддержка и документация имеет "
+"ограничения для бесплатной версии."
+
+#: views/templates/checkout/checks/form.php:9
+#: views/templates/checkout/credit-card/form.php:19
+#: views/templates/estimate/estimate-submission-form.php:18
+msgid "Submit"
+msgstr "Удалить сообщение"
+
+#: views/admin/sections/estimate-status-change-drop.php:8
+msgid "Currently Pending."
+msgstr "В настоящее время на рассмотрении."
+
+#: views/admin/sections/estimate-status-change-drop.php:10
+msgid "Currently Approved."
+msgstr "В настоящее время утверждено."
+
+#: views/admin/sections/estimate-status-change-drop.php:12
+msgid "Currently Declined."
+msgstr "В настоящее время Отклонено."
+
+#: views/admin/sections/estimate-status-change-drop.php:14
+msgid "New Estimate Request"
+msgstr "Новый Запрос Сметы"
+
+#: views/admin/sections/estimate-status-change-drop.php:14
+msgid "Submission"
+msgstr "Отправка"
+
+#: views/admin/sections/estimate-status-change-drop.php:16
+msgid "Pending Estimate Request."
+msgstr "Запрос Сметы в ожидании"
+
+#: views/admin/sections/estimate-status-change-drop.php:24
+msgid "Mark Pending"
+msgstr "Пометить В ожидании"
+
+#: views/admin/sections/estimate-status-change-drop.php:24
+msgid "<b>Pending: </b> Waiting for Review"
+msgstr "<b>В ожидании:</b> В ожидании рассмотрения"
+
+#: views/admin/sections/estimate-status-change-drop.php:27
+msgid "Mark Approved"
+msgstr "Пометить Утверждено"
+
+#: views/admin/sections/estimate-status-change-drop.php:27
+msgid "<b>Complete:</b> Estimate Approved"
+msgstr "<b>Завершено:</b> Смета утверждена"
+
+#: views/admin/sections/estimate-status-change-drop.php:30
+msgid "Mark Declined"
+msgstr "Пометить Отклонено"
+
+#: views/admin/sections/estimate-status-change-drop.php:30
+msgid "<b>Void:</b> Estimate Declined"
+msgstr "<b>Аннулировать:</b> Смета Отклонена"
+
+#: views/admin/sections/estimate-status-change-drop.php:35
+msgid "Delete Estimate"
+msgstr "Удалить Смету"
+
+#: views/admin/sections/estimate-status-change-drop.php:35
+msgid "<b>Delete:</b> Trash Estimate"
+msgstr "<b>Удалить:</b> Смету в корзину"
+
+#: views/admin/sections/invoice-status-change-drop.php:8
+msgid "Pending payment(s)"
+msgstr "В ожидании платежа(ей)"
+
+#: views/admin/sections/invoice-status-change-drop.php:8
+msgid "Pending Payment(s)"
+msgstr "В ожидании Платежа(ей)"
+
+#: views/admin/sections/invoice-status-change-drop.php:10
+msgid "Fully Paid"
+msgstr "Полностью оплачено"
+
+#: views/admin/sections/invoice-status-change-drop.php:14
+msgid "Written-off"
+msgstr "Списанно"
+
+#: views/admin/sections/invoice-status-change-drop.php:16
+#: views/admin/sections/invoice-status-change-drop.php:18
+msgid "Temp Invoice"
+msgstr "Временный Счёт"
+
+#: views/admin/sections/invoice-status-change-drop.php:26
+msgid "Mark Pending Payment(s)"
+msgstr "Отметить В ожидании Платежа(ей)"
+
+#: views/admin/sections/invoice-status-change-drop.php:26
+msgid "<b>Active:</b> Pending Payment(s)"
+msgstr "<b>Активно:</b> В ожидании платежа(ей)"
+
+#: views/admin/sections/invoice-status-change-drop.php:30
+msgid "Outstanding Balance."
+msgstr "Непогашенный остаток."
+
+#: views/admin/sections/invoice-status-change-drop.php:30
+msgid "<b>Active:</b> Partial Payment Received"
+msgstr "<b>Активно:</b> Поступила Частичная проплата"
+
+#: views/admin/sections/invoice-status-change-drop.php:33
+msgid "Mark as Paid."
+msgstr "Пометить как Оплачено."
+
+#: views/admin/sections/invoice-status-change-drop.php:33
+msgid "<b>Complete:</b> Paid in Full"
+msgstr "<b>Завершено:</b> Полная оплата"
+
+#: views/admin/sections/invoice-status-change-drop.php:37
+msgid "Make Temporary"
+msgstr "Сделать временным"
+
+#: views/admin/sections/invoice-status-change-drop.php:37
+msgid "<b>Temp:</b> Drafted Invoice"
+msgstr "<b>Временно:</b> Черновик счёта"
+
+#: views/admin/sections/invoice-status-change-drop.php:41
+msgid "Write-off Invoice"
+msgstr "Списать Счёт"
+
+#: views/admin/sections/invoice-status-change-drop.php:41
+msgid "<b>Void:</b> Write-off Invoice"
+msgstr "<b>Аннулировать:</b> Счёт списан"
+
+#: views/admin/sections/invoice-status-change-drop.php:45
+msgid "Delete Invoice"
+msgstr "Удалить счёт"
+
+#: views/admin/sections/invoice-status-change-drop.php:45
+msgid "<b>Delete:</b> Trash Invoice"
+msgstr "<b>Удалить:</b> Счет в корзину"
+
+#: views/admin/settings.php:22
+msgid "Reset Defaults"
+msgstr "Сбросить по умолчанию"
+
+#: views/admin/sprout-apps-dashboard.php:5
+msgid "Welcome to <a href=\"%s\">Sprout Apps</a>!"
+msgstr "Добро пожаловать в <a href=\"%s\">Sprout Apps</a>!"
+
+#: views/admin/sprout-apps-dashboard.php:7
+msgid ""
+"Our mission is to build a suite of apps to help small businesses and "
+"freelancers work more efficiently by reducing the tedious business tasks "
+"associated with client management...<em>seriously though</em>, I'm trying to "
+"build something awesome that you will love. Thank you for your support."
+msgstr ""
+"Наша миссия состоит в том, чтобы построить набор приложений, в помощь малым "
+"предприятиям и фрилансерам для более эффективной работы за счет сокращения "
+"трудоемких бизнес-задач, связанных с вопросами управления клиентом... "
+"<em>серьезно, хотя,</em> я пытаюсь построить что-то удивительное, что вы "
+"будете любить. Спасибо за поддержку."
+
+#: views/admin/sprout-apps-dashboard.php:11
+msgid "Sprout Apps News and Updates"
+msgstr "Новости и обновления Sprout Apps"
+
+#: views/admin/sprout-apps-dashboard.php:23
+msgid "Could not connect to SIserver for updates."
+msgstr "Не удается подключиться к SIserver за обновлениями."
+
+#: views/admin/sprout-apps-dashboard.php:41
+msgid "Sprout Apps Marketplace"
+msgstr "Торговая площадка Sprout Apps"
+
+#: views/admin/sprout-apps-dashboard.php:42
+#: views/admin/sprout-apps-dashboard.php:81
+msgid "View More Add-ons"
+msgstr "Просмотреть больше Дополнений"
+
+#: views/admin/sprout-invoices-dashboard.php:3
+msgid "Thanks for using <a href=\"%s\">Sprout Invoices</a>!"
+msgstr "Спасибо за использование <a href=\"%s\">Sprout Invoices</a>!"
+
+#: views/admin/sprout-invoices-dashboard.php:5
+msgid ""
+"The future of <a href=\"%s\">Sprout Invoices</a> relies on happy customers "
+"supporting Sprout Apps by purchasing upgraded versions. If you like this "
+"free version of Sprout Invoices please consider <a href=\"%s\">purchasing an "
+"upgrade</a>."
+msgstr ""
+"Будущее <a href=\"%s\">Sprout Invoices</a> полагается на счастливых "
+"клиентов, поддерживающих Sprout Apps приобретением расширенных версий. Если "
+"вам понравилась эта бесплатная версия Sprout Invoices пожалуйста, "
+"рассмотрите <a href=\"%s\">покупку апгрейда</a>."
+
+#: views/admin/sprout-invoices-dashboard.php:17
+msgid "Get a free Sprout Apps license instantly..."
+msgstr "Получить бесплатную лицензию Sprout Apps мгновенно..."
+
+#: views/admin/sprout-invoices-dashboard.php:20
+msgid "Enter your email."
+msgstr "Введите адрес электронной почты."
+
+#: views/admin/sprout-invoices-dashboard.php:21
+msgid "Get License"
+msgstr "Получить лицензию"
+
+#: views/admin/sprout-invoices-dashboard.php:26
+msgid ""
+"Generating a free license key is not required but takes seconds! Your email "
+"will be used to create a unique Sprout Apps license key that will enable "
+"future features (i.e. easy add-on installs from <a href=\"%s\">https://"
+"sproutapps.co</a>)."
+msgstr ""
+
+#: views/admin/sprout-invoices-dashboard.php:33
+msgid "The Sprout Invoices Flow"
+msgstr "Поток Sprout Invoices"
+
+#: views/admin/sprout-invoices-dashboard.php:39
+msgid ""
+"Receiving estimate requests on your site is simplified with Sprout Invoices. "
+"<a href='%s'>General Settings</a> has more information on how to add a form "
+"to your site as well as settings to integrate with an advanced form plugin, "
+"e.g. Gravity Forms or Ninja Forms."
+msgstr ""
+"Прием сметных запросов на вашем сайте упрощается с Sprout Invoices. <a "
+"href='%s'>Общие настройки</a> содержат больше информации о том, как добавить "
+"форму на ваш сайт, а также параметры интеграции с продвинутыми плагинами для "
+"форм, например, Gravity Forms или Ninja Forms."
+
+#: views/admin/sprout-invoices-dashboard.php:44
+msgid "Estimating"
+msgstr "Оценка"
+
+#: views/admin/sprout-invoices-dashboard.php:45
+msgid ""
+"A new <a href='%s'>estimate</a> is automatically created and notifications "
+"are sent after every estimate request submission. The <a "
+"href='%s'>notification</a> to you will provide a link to this new estimate; "
+"allowing you to review, update, and send the estimate to your prospective "
+"client without having to communicate via email."
+msgstr ""
+"Новая <a href='%s'>смета</a> создается автоматически и после подачи каждого "
+"сметного запроса отправляются уведомления. <a href='%s'>Уведомление</a> "
+"предоставит вам ссылку на эту новую смету; позволит просматривать, обновлять "
+"и отправить смету вашему потенциальному клиенту без общения через "
+"электронную почту."
+
+#: views/admin/sprout-invoices-dashboard.php:50
+msgid "Invoicing"
+msgstr "Выставление счета"
+
+#: views/admin/sprout-invoices-dashboard.php:51
+msgid ""
+"An <a href='%s'>invoice</a> is automatically created from an accepted "
+"estimate. By default these newly created invoices are <em>not</em> sent to "
+"the client, instead you  will need to review them before sending. Your <a "
+"href='%s'>notifications</a> are meant to be setup to help review, mark, and "
+"send them out quickly."
+msgstr ""
+"<a href='%s'>Счёт</a> создается автоматически из принятой сметы. По "
+"умолчанию, эти вновь созданные счета <em>не</em> отправляются клиенту, а вам "
+"нужно будет рассмотреть их перед отправкой. Ваши <a href='%s'>уведомления</"
+"a> предназначены, для настройки, помощи в рассмотрении, маркировке и быстрой "
+"их  отправке."
+
+#: views/admin/sprout-invoices-dashboard.php:62
+msgid "FAQs"
+msgstr "FAQ"
+
+#: views/admin/reports/premium/clients.php:68
+#: views/admin/reports/premium/estimates.php:60
+#: views/admin/reports/premium/invoices.php:61
+#: views/admin/reports/premium/payments.php:62
+msgid "%o records(s) of %o added."
+msgstr "%o запись(и) из %o добавлено."
+
+#: views/admin/reports/premium/estimates.php:22
+#: views/admin/reports/premium/invoices.php:22
+msgid "Issue Date"
+msgstr "Дата выдачи"
+
+#: views/admin/reports/premium/payments.php:13
+msgid "From... mm/dd/yyy "
+msgstr "От... мм/дд/ггг"
+
+#: views/admin/reports/premium/payments.php:23
+msgid "Method"
+msgstr "Метод"
+
+#: views/admin/reports/premium/payments.php:30
+msgid "Voided Total"
+msgstr "Всего Аннулированных"
+
+#: views/admin/sections/add-line-item.php:3
+msgid "Add"
+msgstr "Добавить"
+
+#: views/admin/reports/premium/clients.php:23
+msgid "#Estimates"
+msgstr "#Сметы"
+
+#: views/admin/reports/premium/clients.php:24
+msgid "#Accepted"
+msgstr "#Принято"
+
+#: views/admin/reports/premium/clients.php:25
+msgid "#Invoices"
+msgstr "#Счета"
+
+#: views/admin/reports/premium/clients.php:26
+msgid "#Paid"
+msgstr "#Оплачено"
+
+#: views/admin/reports/premium/clients.php:27
+msgid "Total Invoiced"
+msgstr "Всего по счетам"
+
+#: views/admin/reports/premium/clients.php:28
+msgid "Total Payments"
+msgstr "Общая сумма выплат"
+
+#: views/admin/reports/premium/clients.php:29
+msgid "Total Outstanding"
+msgstr "Общая сумма задолженности"
+
+#: views/admin/reports/premium/clients.php:30
+msgid "Total Written-off"
+msgstr "Всего Списано"
+
+#: views/admin/reports/premium/clients.php:56
+#: views/admin/reports/premium/estimates.php:47
+#: views/admin/reports/premium/invoices.php:48
+#: views/admin/reports/premium/payments.php:50
+msgid "Preparing rows..."
+msgstr "Подготовка строка..."
+
+#: views/admin/meta-boxes/projects/info.php:6
+msgid "Project Brief"
+msgstr "Бриф проекта"
+
+#: views/admin/meta-boxes/projects/info.php:6
+msgid "General project brief."
+msgstr "Генеральный Бриф проекта."
+
+#: views/admin/meta-boxes/projects/information-doc-select.php:2
+msgid "Select an existing project."
+msgstr "Выберите существующий проект."
+
+#: views/admin/meta-boxes/projects/information-doc-select.php:5
+msgid "Select different project"
+msgstr "Выберите другой проект"
+
+#: views/admin/meta-boxes/projects/submit.php:21
+msgid "Invoices: "
+msgstr "Счета:"
+
+#: views/admin/meta-boxes/projects/submit.php:35
+msgid "Estimates: "
+msgstr "Сметы:"
+
+#: views/admin/meta-boxes/projects/submit.php:64
+msgid "Create"
+msgstr "Создать"
+
+#: views/admin/reports/premium/clients.php:13
+#: views/admin/reports/premium/estimates.php:13
+#: views/admin/reports/premium/invoices.php:13
+#: views/admin/reports/premium/payments.php:13
+msgid "From: "
+msgstr "От: "
+
+#: views/admin/reports/premium/clients.php:14
+#: views/admin/reports/premium/estimates.php:14
+#: views/admin/reports/premium/invoices.php:14
+#: views/admin/reports/premium/payments.php:14
+msgid "To: "
+msgstr "Кому: "
+
+#: views/admin/reports/premium/clients.php:21
+msgid "Name"
+msgstr "Наименование"
+
+#: languages/SI_Strings.php:62
+#: views/admin/meta-boxes/estimates/quick-links.php:44
+msgid "View Estimate"
+msgstr "Посмотреть Смету"
+
+#: views/admin/meta-boxes/estimates/quick-links.php:46
+#: views/admin/meta-boxes/invoices/quick-links.php:39
+msgid "<span class=\"helptip\" title=\"Upgrade for Private URLs\"></span>"
+msgstr "<span class=\"helptip\" title=\"Обновить для частных URLs\"></span>"
+
+#: views/admin/meta-boxes/estimates/send.php:6
+msgid "Make sure to save all information before sending your estimate."
+msgstr "Убедитесь в том, чтобы сохранить всю информацию перед отправкой сметы."
+
+#: views/admin/meta-boxes/invoices/information.php:49
+msgid "Due by:"
+msgstr "Действителен до:"
+
+#: views/admin/meta-boxes/invoices/information.php:52
+msgid "Edit due date and time"
+msgstr "Редактировать Сроки и Время"
+
+#: views/admin/meta-boxes/invoices/information.php:91
+msgid "Invoice for"
+msgstr "Счет на"
+
+#: views/admin/meta-boxes/invoices/information.php:120
+msgid "Associated Estimate:"
+msgstr "Связанная Смета:"
+
+#: views/admin/meta-boxes/invoices/information.php:127
+msgid "Invoice ID"
+msgstr "ID Счета"
+
+#: views/admin/meta-boxes/invoices/information.php:130
+msgid "Edit invoice id"
+msgstr "Редактировать ID счета"
+
+#: views/admin/meta-boxes/invoices/line-items.php:16
+msgid ""
+"Predefined line-items can be created to help with invoice creation by adding "
+"default descriptions. This is a premium feature that will be added with a "
+"pro version upgrade."
+msgstr ""
+
+#: views/admin/meta-boxes/invoices/line-items.php:19
+msgid ""
+"Any billable time can be imported from your projects into your invoices "
+"dynamically with a pro version upgrade."
+msgstr ""
+"Любое оплачиваемое время может быть импортировано из ваших проектов в ваши "
+"счета динамически при обновлении до ПРО версии."
+
+#: views/admin/meta-boxes/invoices/line-items.php:19
+msgid "Import Time"
+msgstr "Импорт Времени"
+
+#: views/admin/meta-boxes/invoices/notes.php:9
+msgid "Terms will be shown on the invoice."
+msgstr "Условия будут отображены в счёте."
+
+#: views/admin/meta-boxes/invoices/notes.php:13
+msgid "These notes will be shown on the invoice."
+msgstr "Эти примечания будут показаны в счёте."
+
+#: views/admin/meta-boxes/invoices/payments.php:6
+msgid "Quick Add"
+msgstr "Быстрое добавление"
+
+#: views/admin/meta-boxes/invoices/payments.php:6
+msgid "Add the payment now or save/update the invoice above"
+msgstr "Добавить платеж сейчас или сохранить/обновить счет выше"
+
+#: views/admin/meta-boxes/invoices/quick-links.php:25
+msgid "Send this invoice"
+msgstr "Отправить этот счет"
+
+#: views/admin/meta-boxes/invoices/quick-links.php:27
+msgid "Duplicate this invoice"
+msgstr "Дублировать этот счёт"
+
+#: languages/SI_Strings.php:61
+#: views/admin/meta-boxes/invoices/quick-links.php:37
+msgid "View Invoice"
+msgstr "Посмотреть Счёт"
+
+#: views/admin/meta-boxes/invoices/send.php:6
+msgid "Make sure to save all information before sending your invoice."
+msgstr "Убедитесь в том, чтобы сохранить всю информацию перед отправкой счёта."
+
+#: views/admin/meta-boxes/notifications/shortcodes.php:2
+msgid "Use the following shortcodes to customize the email sent."
+msgstr ""
+"Используйте следующие короткие коды, чтобы настроить отправляемую "
+"электронную почту."
+
+#: views/admin/meta-boxes/notifications/submit.php:43
+msgid "Disabled"
+msgstr "Выключена"
+
+#: views/admin/meta-boxes/projects/client-submit.php:16
+msgid "No start and/or end date set."
+msgstr "Дата начала и/или окончания не установлены."
+
+#: views/admin/meta-boxes/projects/client-submit.php:23
+msgid "No projects"
+msgstr "Нет проектов"
+
+#: views/admin/meta-boxes/estimates/information.php:126
+msgid "Create an invoice from an approved estimate."
+msgstr "Создать счёт от утвержденной сметы."
+
+#: views/admin/meta-boxes/estimates/information.php:126
+msgid "Create Invoice"
+msgstr "Создание счёта"
+
+#: views/admin/meta-boxes/estimates/information.php:133
+msgid "Estimate ID"
+msgstr "ID Сметы"
+
+#: views/admin/meta-boxes/estimates/information.php:136
+msgid "Edit estimate id"
+msgstr "Редактировать ID Сметы"
+
+#: views/admin/meta-boxes/estimates/information.php:158
+#: views/admin/meta-boxes/invoices/information.php:152
+#: views/templates/checkout/confirmation.php:124
+#: views/templates/estimate/estimate.php:123
+#: views/templates/invoice/invoice.php:143
+msgid "PO Number"
+msgstr "Номер заказа"
+
+#: views/admin/meta-boxes/estimates/information.php:161
+#: views/admin/meta-boxes/invoices/information.php:155
+msgid "Edit PO number"
+msgstr "Редактировать номер заказа"
+
+#: controllers/line-items/Line_Items.php:318
+#: controllers/line-items/Line_Items.php:368
+#: views/admin/meta-boxes/estimates/information.php:177
+#: views/admin/meta-boxes/invoices/information.php:171
+msgid "Discount"
+msgstr "Скидка"
+
+#: views/admin/meta-boxes/estimates/information.php:180
+#: views/admin/meta-boxes/invoices/information.php:174
+msgid "Edit discount"
+msgstr "Редактировать скидку"
+
+#: views/admin/meta-boxes/estimates/information.php:197
+#: views/admin/meta-boxes/estimates/information.php:218
+#: views/admin/meta-boxes/invoices/information.php:191
+#: views/admin/meta-boxes/invoices/information.php:212
+msgid "Tax"
+msgstr "Налоги"
+
+#: views/admin/meta-boxes/estimates/information.php:200
+#: views/admin/meta-boxes/estimates/information.php:221
+#: views/admin/meta-boxes/invoices/information.php:194
+#: views/admin/meta-boxes/invoices/information.php:215
+msgid "Edit tax"
+msgstr "Редактировать налог"
+
+#: views/admin/meta-boxes/estimates/line-items.php:16
+msgid ""
+"Predefined line-items can be created to help with estimate creation by "
+"adding default descriptions. This is a premium feature that will be added "
+"with a pro version upgrade."
+msgstr ""
+
+#: views/admin/meta-boxes/estimates/notes.php:9
+#: views/admin/meta-boxes/invoices/notes.php:9
+#: views/templates/checkout/confirmation.php:199
+#: views/templates/estimate/estimate.php:173
+#: views/templates/invoice/invoice.php:207
+msgid "Terms"
+msgstr "Условия"
+
+#: views/admin/meta-boxes/estimates/notes.php:9
+msgid "Terms will be shown on the estimate."
+msgstr "Условия будут показаны в смете."
+
+#: views/admin/meta-boxes/estimates/notes.php:13
+msgid "These notes will be shown on the estimate."
+msgstr "Эти примечания будут показаны в смете."
+
+#: views/admin/meta-boxes/estimates/quick-links.php:18
+#: views/admin/meta-boxes/invoices/quick-links.php:17
+msgid "Subject..."
+msgstr "Тема..."
+
+#: views/admin/meta-boxes/estimates/quick-links.php:27
+msgid "Send this estimate."
+msgstr "Отправить эту смету."
+
+#: views/admin/meta-boxes/estimates/quick-links.php:29
+msgid "Duplicate this estimate"
+msgstr "Дублировать эту смету"
+
+#: views/admin/meta-boxes/estimates/quick-links.php:33
+msgid "Delete this estimate permanently"
+msgstr "Удалить эту смету, навсегда"
+
+#: views/admin/meta-boxes/estimates/quick-links.php:42
+#: views/admin/meta-boxes/invoices/quick-links.php:35
+msgid "Permalink"
+msgstr "Постоянная ссылка"
+
+#: views/admin/meta-boxes/estimates/information.php:19
+#: views/admin/meta-boxes/invoices/information.php:19
+msgid "Select different status"
+msgstr "Выберите другой статус"
+
+#: views/admin/meta-boxes/estimates/information.php:41
+#: views/admin/meta-boxes/invoices/information.php:41
+msgid "Edit date and time"
+msgstr "Редактировать Дату и Время"
+
+#: views/admin/meta-boxes/estimates/information.php:49
+msgid "Expire on:"
+msgstr "Истекает:"
+
+#: views/admin/meta-boxes/estimates/information.php:52
+msgid "Edit expiration date and time"
+msgstr "Редактировать Дата и Время истечения"
+
+#: views/admin/meta-boxes/estimates/information.php:92
+msgid "Estimate for"
+msgstr "Смета для"
+
+#: views/admin/meta-boxes/estimates/information.php:95
+#: views/admin/meta-boxes/invoices/information.php:94
+msgid "Select different client"
+msgstr "Выберите другого клиента"
+
+#: views/admin/meta-boxes/estimates/information.php:107
+#: views/admin/meta-boxes/invoices/information.php:106
+msgid "Create new client"
+msgstr "Создать нового клиента"
+
+#: views/admin/meta-boxes/estimates/information.php:121
+msgid "Associated Invoice:"
+msgstr "Связанный Счёт:"
+
+#: views/admin/meta-boxes/estimates/history.php:11
+#: views/admin/meta-boxes/invoices/history.php:11
+msgid "Submitted by <a href=\"%s\">%s</a>"
+msgstr "Отправлено <a href=\"%s\">%s</a>"
+
+#: views/admin/meta-boxes/estimates/history.php:17
+#: views/admin/meta-boxes/invoices/history.php:17
+msgid "Added by %s"
+msgstr "Добавил %s"
+
+#: views/admin/meta-boxes/estimates/history.php:19
+#: views/admin/meta-boxes/invoices/history.php:19
+msgid "Added by SI"
+msgstr "Добавил SI"
+
+#: views/admin/meta-boxes/estimates/history.php:63
+#: views/admin/meta-boxes/invoices/history.php:63
+#: views/admin/meta-boxes/projects/history.php:60
+msgid "<span class=\"helptip\" title=\"Upgrade for Private Notes\"></span>"
+msgstr ""
+"<span class=\"helptip\" title=\"Обновить для личных примечаний\"></span>"
+
+#: views/admin/meta-boxes/estimates/history.php:71
+msgid "Form Submission"
+msgstr "Форма Отправлена"
+
+#: views/admin/meta-boxes/estimates/history.php:96
+msgid "Attachments"
+msgstr "Attachments"
+
+#: views/admin/meta-boxes/estimates/information.php:6
+#: views/admin/meta-boxes/invoices/information.php:6
+msgid "Issued on: <b>%1$s</b>"
+msgstr "Дата выставления: <b>%1$s</b>"
+
+#: views/admin/meta-boxes/estimates/information.php:9
+#: views/admin/meta-boxes/invoices/information.php:9
+msgid "Issue <b>immediately</b>"
+msgstr "Выставить <b>немедленно</b>"
+
+#: views/admin/meta-boxes/estimates/information.php:16
+#: views/admin/meta-boxes/invoices/information.php:16
+msgid "Status:"
+msgstr "статус"
+
+#: views/admin/meta-boxes/clients/submit.php:106
+#: views/admin/meta-boxes/clients/submit.php:107
+#: views/admin/meta-boxes/estimates/line-items.php:40
+#: views/admin/meta-boxes/invoices/line-items.php:41
+#: views/admin/meta-boxes/notifications/submit.php:63
+#: views/admin/meta-boxes/notifications/submit.php:64
+#: views/admin/meta-boxes/projects/submit.php:70
+#: views/admin/meta-boxes/projects/submit.php:71
+msgid "Update"
+msgstr "обновить"
+
+#: views/admin/meta-boxes/clients/submit.php:102
+#: views/admin/meta-boxes/clients/submit.php:103
+#: views/admin/meta-boxes/estimates/line-items.php:36
+#: views/admin/meta-boxes/estimates/line-items.php:37
+#: views/admin/meta-boxes/invoices/line-items.php:37
+#: views/admin/meta-boxes/invoices/line-items.php:38
+#: views/admin/meta-boxes/notifications/submit.php:59
+#: views/admin/meta-boxes/notifications/submit.php:60
+#: views/admin/meta-boxes/projects/submit.php:66
+#: views/admin/meta-boxes/projects/submit.php:67
+msgid "Submit for Review"
+msgstr "Отправить на рассмотрение"
+
+#: views/admin/meta-boxes/clients/submit.php:99
+#: views/admin/meta-boxes/clients/submit.php:100
+#: views/admin/meta-boxes/estimates/line-items.php:33
+#: views/admin/meta-boxes/invoices/line-items.php:34
+#: views/admin/meta-boxes/notifications/submit.php:56
+#: views/admin/meta-boxes/notifications/submit.php:57
+#: views/admin/meta-boxes/projects/submit.php:63
+msgid "Publish"
+msgstr "Публиковать"
+
+#: views/admin/meta-boxes/clients/history.php:77
+#: views/admin/meta-boxes/projects/history-premium.php:64
+msgid "These private notes will be added to the history."
+msgstr "Эти частные примечания будут добавлены к истории."
+
+#: views/admin/meta-boxes/clients/submit.php:21
+msgid ""
+"Clients can have multiple users associated. Each user will receive "
+"notifications."
+msgstr ""
+"Клиенты могут иметь несколько связанных пользователей. Каждый пользователь "
+"получит уведомление."
+
+#: views/admin/meta-boxes/clients/submit.php:51
+msgid "Create new user for this client"
+msgstr "Создать нового пользователя для этого клиента"
+
+#: views/admin/meta-boxes/clients/submit.php:51
+msgid "New User"
+msgstr "Новый Пользователь"
+
+#: views/admin/meta-boxes/clients/submit.php:91
+#: views/admin/meta-boxes/notifications/submit.php:48
+#: views/admin/meta-boxes/projects/submit.php:55
+msgid "Delete"
+msgstr "Удалить"
+
+#: views/admin/dashboards/premium/requests-converted-chart.php:64
+msgid "Invoices Generated"
+msgstr "Сгенерированные Счета"
+
+#: views/admin/dashboards/premium/requests-converted-chart.php:93
+msgid "Shows total estimate requests and the total converted into invoices."
+msgstr ""
+"Показывает общее число запросов сметы, и общее преобразованных в счета."
+
+#: views/admin/dashboards/requests-converted-chart.php:2
+msgid "Requests &amp; Converted Requests"
+msgstr "Запросы и Преобразованные Запросы"
+
+#: views/admin/importer/importing.php:16
+msgid "Import Clients, Users, Estimates, Invoices and Payments"
+msgstr "Импорт Клиентов, Пользователей, Смет, Счетов и Платежей"
+
+#: views/admin/importer/importing.php:21
+msgid "Select Import Source"
+msgstr "Выберите Источник Импорта"
+
+#: views/admin/importer/importing.php:39
+msgid "Start Import"
+msgstr "Начать импорт"
+
+#: views/admin/importer/importing.php:97
+msgid "Attempting to validate credentials..."
+msgstr "Попытка проверить полномочия..."
+
+#: views/admin/importer/importing.php:104
+msgid "No clients imported yet..."
+msgstr "Нет ещё импортированных клиентов..."
+
+#: views/admin/importer/importing.php:111
+msgid "No contacts imported yet..."
+msgstr "Нет ещё импортированных контактов..."
+
+#: views/admin/importer/importing.php:118
+msgid "No estimates imported yet..."
+msgstr "Нет ещё импортированных смет..."
+
+#: views/admin/importer/importing.php:125
+msgid "No invoices imported yet..."
+msgstr "Нет ещё импортированных счетов..."
+
+#: views/admin/importer/importing.php:132
+msgid "No payments imported yet..."
+msgstr "Нет ещё импортированных платежей..."
+
+#: views/admin/meta-boxes/clients/create-user-modal.php:7
+msgid "Create user"
+msgstr "Создать пользователя"
+
+#: views/admin/meta-boxes/clients/creation-modal.php:7
+#: views/admin/meta-boxes/estimates/information.php:101
+#: views/admin/meta-boxes/invoices/information.php:100
+msgid "Create client"
+msgstr "Создать клиента"
+
+#: views/admin/meta-boxes/clients/history.php:4
+#: views/admin/meta-boxes/estimates/history.php:4
+#: views/admin/meta-boxes/invoices/history.php:4
+#: views/admin/meta-boxes/projects/history-premium.php:4
+#: views/admin/meta-boxes/projects/history.php:4
+msgid "Created"
+msgstr "Создан"
+
+#: views/admin/meta-boxes/clients/history.php:25
+msgid "Estimate Updated"
+msgstr "Смета Обновлена"
+
+#: views/admin/meta-boxes/clients/history.php:29
+msgid "Estimate Viewed"
+msgstr "Смета Просмотренна"
+
+#: views/admin/meta-boxes/clients/history.php:56
+#: views/admin/meta-boxes/estimates/history.php:34
+#: views/admin/meta-boxes/invoices/history.php:33
+#: views/admin/meta-boxes/projects/history-premium.php:43
+#: views/admin/meta-boxes/projects/history.php:43
+#: views/templates/estimate/estimate.php:215
+#: views/templates/invoice/invoice.php:249
+msgid "View Message"
+msgstr "Посмотреть сообщение"
+
+#: views/admin/meta-boxes/clients/history.php:64
+#: views/admin/meta-boxes/projects/history-premium.php:51
+msgid "Edit Note"
+msgstr "Редактировать Примечание"
+
+#: views/admin/meta-boxes/clients/history.php:77
+#: views/admin/meta-boxes/clients/submit.php:16
+#: views/admin/meta-boxes/estimates/line-items.php:34
+#: views/admin/meta-boxes/estimates/line-items.php:41
+#: views/admin/meta-boxes/invoices/line-items.php:35
+#: views/admin/meta-boxes/invoices/line-items.php:42
+#: views/admin/meta-boxes/notifications/submit.php:16
+#: views/admin/meta-boxes/projects/history-premium.php:64
+#: views/admin/meta-boxes/projects/submit.php:16
+msgid "Save"
+msgstr "Экономить"
+
+#: views/admin/dashboards/premium/balances-chart.php:93
+msgid "Shows total outstanding balance and payments by week"
+msgstr "Показывает общую задолженность и платежи за неделю"
+
+#: views/admin/dashboards/premium/estimates-status-chart.php:62
+msgid "Statuses from estimates from the last 3 weeks"
+msgstr "Статусы смет за последние 3 недели"
+
+#: views/admin/dashboards/premium/invoices-status-chart.php:29
+#: views/admin/sections/invoice-status-change-drop.php:18
+msgid "Temp"
+msgstr "Временный"
+
+#: views/admin/dashboards/premium/invoices-status-chart.php:47
+msgid "Complete"
+msgstr "Завершённый"
+
+#: views/admin/dashboards/premium/invoices-status-chart.php:65
+msgid "Statuses from invoices from the last 3 weeks"
+msgstr "Состояние счетов за последние 3 недели"
+
+#: views/admin/dashboards/premium/invoices.php:33
+msgid "Paid (last year)"
+msgstr "Оплаченных (в прошлом году)"
+
+#: views/admin/dashboards/premium/payments-status-chart.php:53
+msgid "Statuses from payments from the last 3 weeks"
+msgstr "Состояние платежей за последние 3 недели"
+
+#: views/admin/dashboards/premium/requests-converted-chart.php:54
+msgid "Requests"
+msgstr "Запросы"
+
+#: views/admin/dashboards/invoices.php:2
+msgid "Invoice Dashboard"
+msgstr "Панель Счетов"
+
+#: views/admin/dashboards/invoices.php:9
+#: views/admin/dashboards/premium/invoices.php:15
+msgid "Outstanding"
+msgstr "Неуплаченный"
+
+#: views/admin/dashboards/invoices.php:12
+#: views/admin/dashboards/premium/invoices.php:18
+msgid "Paid (this week)"
+msgstr "Оплаченных (на этой неделе)"
+
+#: views/admin/dashboards/invoices.php:13
+#: views/admin/dashboards/invoices.php:16
+#: views/admin/dashboards/invoices.php:19
+#: views/admin/dashboards/invoices.php:22
+#: views/admin/dashboards/invoices.php:25
+msgid "Data available with upgraded version of Sprout Invoices"
+msgstr ""
+
+#: views/admin/dashboards/invoices.php:15
+#: views/admin/dashboards/premium/invoices.php:21
+msgid "Paid (last week)"
+msgstr "Оплаченных (на прошлой неделе)"
+
+#: views/admin/dashboards/invoices.php:18
+#: views/admin/dashboards/premium/invoices.php:24
+msgid "Paid (month to date)"
+msgstr "Оплаченных (с начала месяца)"
+
+#: views/admin/dashboards/invoices.php:21
+#: views/admin/dashboards/premium/invoices.php:27
+msgid "Paid (last month)"
+msgstr "Оплаченных (в прошлом месяце)"
+
+#: views/admin/dashboards/invoices.php:24
+#: views/admin/dashboards/premium/invoices.php:30
+msgid "Paid (year to date)"
+msgstr "Оплаченных (с начала года)"
+
+#: views/admin/dashboards/invoices.php:50
+#: views/admin/dashboards/premium/invoices.php:57
+msgid "No invoices found."
+msgstr "Счетов Не найдено."
+
+#: views/admin/dashboards/invoices.php:58
+#: views/admin/dashboards/invoices.php:66
+#: views/admin/dashboards/premium/invoices.php:65
+#: views/admin/dashboards/premium/invoices.php:73
+msgid "Overdue &amp; Unpaid"
+msgstr "Просроченные и Неоплаченные"
+
+#: views/admin/dashboards/invoices.php:61
+#: views/admin/dashboards/premium/invoices.php:68
+msgid "Due: %s"
+msgstr "К оплате: %s"
+
+#: views/admin/dashboards/invoices.php:67
+#: views/admin/dashboards/premium/invoices.php:74
+msgid "No overdue or unpaid invoices."
+msgstr "Нет просроченных или неоплаченных счетов."
+
+#: views/admin/dashboards/payments-chart.php:2
+msgid "Invoiced &amp; Payments"
+msgstr "Выставленные счета и Платежи"
+
+#: views/admin/dashboards/payments-chart.php:40
+#: views/admin/dashboards/premium/payments-chart.php:54
+#: views/admin/reports/premium/invoices.php:25
+#: views/admin/reports/premium/payments.php:26
+msgid "Invoiced"
+msgstr "По счетам"
+
+#: views/admin/dashboards/payments-chart.php:70
+#: views/admin/dashboards/premium/payments-chart.php:94
+msgid "Compares total invoiced and the total payments."
+msgstr "Сравнивает общую начисленную и итоговую сумму платежей."
+
+#: views/admin/dashboards/payments-status-chart.php:2
+msgid "Payment Status"
+msgstr "Статус Платежа"
+
+#: views/admin/dashboards/premium/balances-chart.php:7
+#: views/admin/dashboards/premium/estimates-invoices-chart.php:7
+#: views/admin/dashboards/premium/payments-chart.php:7
+#: views/admin/dashboards/premium/requests-converted-chart.php:7
+msgid "Weeks"
+msgstr "Недель"
+
+#: views/admin/dashboards/premium/balances-chart.php:8
+#: views/admin/dashboards/premium/estimates-invoices-chart.php:8
+#: views/admin/dashboards/premium/payments-chart.php:8
+#: views/admin/dashboards/premium/requests-converted-chart.php:8
+msgid "Months"
+msgstr "Месяцев"
+
+#: views/admin/dashboards/premium/balances-chart.php:10
+#: views/admin/dashboards/premium/estimates-invoices-chart.php:10
+#: views/admin/dashboards/premium/payments-chart.php:10
+#: views/admin/dashboards/premium/requests-converted-chart.php:10
+msgid "Show"
+msgstr "Показывать"
+
+#: views/admin/addons/options-admin.php:16 views/admin/settings.php:12
+msgid "Saving..."
+msgstr "Сохранение…"
+
+#: views/admin/dashboards/balances-chart.php:2
+msgid "Outstanding Balances &amp; Payments"
+msgstr "Задолженность и Платежи"
+
+#: views/admin/dashboards/estimates-invoices-chart.php:68
+#: views/admin/dashboards/premium/estimates-invoices-chart.php:95
+msgid "Shows total estimates and invoices by week."
+msgstr "Показывает общее количество смет и счетов за неделю."
+
+#: views/admin/dashboards/estimates-status-chart.php:2
+msgid "Estimate Status"
+msgstr "Состояние Сметы"
+
+#: views/admin/dashboards/estimates.php:2
+msgid "Estimate Dashboard"
+msgstr "Панель Смет"
+
+#: views/admin/dashboards/estimates.php:17
+#: views/admin/dashboards/estimates.php:25
+#: views/admin/dashboards/invoices.php:41
+#: views/admin/dashboards/invoices.php:49
+#: views/admin/dashboards/premium/estimates.php:14
+#: views/admin/dashboards/premium/estimates.php:22
+#: views/admin/dashboards/premium/invoices.php:48
+#: views/admin/dashboards/premium/invoices.php:56
+msgid "Latest Updates"
+msgstr "Последние обновления"
+
+#: views/admin/dashboards/estimates.php:26
+#: views/admin/dashboards/premium/estimates.php:23
+msgid "No recent estimates found."
+msgstr "Последних смет не найдено."
+
+#: views/admin/dashboards/estimates.php:40
+#: views/admin/dashboards/estimates.php:48
+#: views/admin/dashboards/premium/estimates.php:37
+#: views/admin/dashboards/premium/estimates.php:45
+msgid "Recent Requests"
+msgstr "Последние Запросы"
+
+#: views/admin/dashboards/estimates.php:49
+#: views/admin/dashboards/premium/estimates.php:46
+msgid "No recently requested estimates."
+msgstr "Нет недавно запрошенных смет."
+
+#: views/admin/dashboards/estimates.php:63
+#: views/admin/dashboards/estimates.php:71
+#: views/admin/dashboards/premium/estimates.php:61
+#: views/admin/dashboards/premium/estimates.php:69
+msgid "Recent Declined"
+msgstr "Последние Отклонено"
+
+#: views/admin/dashboards/estimates.php:72
+#: views/admin/dashboards/premium/estimates.php:70
+msgid "No recently declined estimates."
+msgstr "Нет недавно отклонённых смет."
+
+#: views/admin/dashboards/estimates.php:93
+#: views/admin/dashboards/estimates.php:101
+#: views/admin/dashboards/premium/estimates.php:91
+#: views/admin/dashboards/premium/estimates.php:99
+msgid "Expired &amp; Pending"
+msgstr "Просроченно и В ожидании"
+
+#: views/admin/dashboards/estimates.php:96
+#: views/admin/dashboards/premium/estimates.php:94
+msgid "Expired: %s"
+msgstr "Просрочено: %s"
+
+#: views/admin/dashboards/estimates.php:102
+#: views/admin/dashboards/premium/estimates.php:100
+msgid "No recently expired or pending estimates."
+msgstr "Нет недавно просроченных или ожидающих смет."
+
+#: template-tags/invoices.php:972
+msgid "Viewed"
+msgstr "Просмотрено"
+
+#: languages/SI_Strings.php:31 template-tags/invoices.php:976
+#: views/admin/meta-boxes/clients/history.php:33
+#: views/admin/meta-boxes/projects/history-premium.php:25
+#: views/admin/meta-boxes/projects/history.php:25
+msgid "Notification"
+msgstr "Оповещения"
+
+#: template-tags/invoices.php:980
+#: views/admin/meta-boxes/clients/history.php:37
+msgid "Invoice Created"
+msgstr "Счёт Создан"
+
+#: template-tags/invoices.php:984
+#: views/admin/meta-boxes/estimates/history.php:13
+#: views/admin/meta-boxes/invoices/history.php:13
+msgid "Submitted"
+msgstr "Отправлен"
+
+#: template-tags/invoices.php:988
+msgid "Imported"
+msgstr "Импортирован"
+
+#: template-tags/invoices.php:993
+#: views/admin/meta-boxes/clients/history.php:42
+#: views/admin/meta-boxes/projects/history-premium.php:30
+#: views/admin/meta-boxes/projects/history.php:30
+msgid "Status Update"
+msgstr "Обновление Статуса"
+
+#: template-tags/projects.php:40
+#: views/admin/meta-boxes/estimates/information.php:90
+#: views/admin/meta-boxes/invoices/information.php:89
+msgid "Client N/A"
+msgstr "Клиент недоступен"
+
+#: template-tags/projects.php:49
+msgid "Select Project"
+msgstr "Выбор проекта"
+
+#: template-tags/projects.php:61
+msgid "No <a href=\"%s\" target=\"_blank\">projects</a> found"
+msgstr "<a href=\"%s\" target=\"_blank\">Проектов</a> не найдено"
+
+#: views/admin/addons/marketplace.php:10
+msgid "Addons from the Sprout Invoices Marketplace"
+msgstr "Дополнения от Торговой площадки Sprout Invoices"
+
+#: views/admin/addons/marketplace.php:14
+#: views/admin/addons/options-admin.php:10
+msgid "Manage Bundled Addons"
+msgstr "Управление комплектом дополнений"
+
+#: views/admin/addons/marketplace.php:15
+#: views/admin/addons/options-admin.php:11
+msgid "Marketplace"
+msgstr "Торговая площадка"
+
+#: views/admin/addons/marketplace.php:36
+#: views/admin/sprout-apps-dashboard.php:59
+msgid "Bundled Free w/ License"
+msgstr "В комплекте бесплатно без Лицензии"
+
+#: views/admin/addons/marketplace.php:43
+#: views/admin/sprout-apps-dashboard.php:66
+msgid "Add to Cart"
+msgstr "Добавить в корзину"
+
+#: views/admin/addons/marketplace.php:52
+#: views/admin/sprout-apps-dashboard.php:75
+msgid "View Details"
+msgstr "Посмотреть Детали"
+
+#: models/_Model.php:193
+msgid "%s submitted."
+msgstr "%s отправлено."
+
+#: models/_Model.php:194
+msgid "%s scheduled for: <strong>%1$s</strong>."
+msgstr "%s запланировано на: <strong>%1$s</strong>."
+
+#: models/_Model.php:195
+msgid "%s draft updated."
+msgstr "%s черновик обновлён."
+
+#: controllers/estimates/Estimates_Template.php:26
+#: controllers/invoices/Invoices_Template.php:30 models/_Model.php:421
+#: views/admin/meta-boxes/estimates/quick-links.php:17
+#: views/admin/meta-boxes/invoices/quick-links.php:16
+#: views/admin/meta-boxes/projects/name.php:4
+msgid "Auto Draft"
+msgstr "Авто Черновик"
+
+#: template-tags/invoices.php:968
+msgid "Updated"
+msgstr "Обновлено"
+
+#: models/_Model.php:172 models/_Model.php:185 models/_Model.php:188
+msgid "%s updated."
+msgstr "%s обновлено."
+
+#. translators: %s: date and time of the revision
+#: models/_Model.php:174 models/_Model.php:190
+msgid "%s restored to revision from %s"
+msgstr "%s восстановлено к состоянию от %s"
+
+#: models/_Model.php:175
+msgid "%s published. <a href=\"%s\">View %s</a>"
+msgstr "%s опубликовано. <a href=\"%s\">Посмотреть %s</a>"
+
+#: models/_Model.php:176 models/_Model.php:192
+msgid "%s saved."
+msgstr "%s сохранено."
+
+#: models/_Model.php:177
+msgid "%s submitted. <a target=\"_blank\" href=\"%s\">Preview %s</a>"
+msgstr "%s отправлено. <a target=\"_blank\" href=\"%s\">Просмотреть %s</a>"
+
+#: models/_Model.php:178
+msgid ""
+"%s scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">Preview %s</a>"
+msgstr ""
+"%s запланировано на: <strong>%1$s</strong>.  <a target=\"_blank\" href=\"%2$s"
+"\">Просмотреть %s</a>"
+
+#: models/_Model.php:178 models/_Model.php:194
+#: views/admin/meta-boxes/estimates/information.php:4
+#: views/admin/meta-boxes/invoices/information.php:4
+msgid "M j, Y @ G:i"
+msgstr "d.m.Y @ g:i"
+
+#: models/_Model.php:179
+msgid "%s draft updated. <a target=\"_blank\" href=\"%s\">Preview %s</a>"
+msgstr ""
+"%s черновик обновлён. <a target=\"_blank\" href=\"%s\">Просмотреть %s</a>"
+
+#: models/_Model.php:191
+msgid "%s published."
+msgstr "%s опубликовано."
+
+#: models/_Model.php:171 models/_Model.php:187
+msgid "Custom field deleted."
+msgstr "Пользовательские поля удалены."
+
+#: models/Payment.php:56
+msgid "Partial Payment"
+msgstr "Частичная Оплата"
+
+#: models/Payment.php:57 views/templates/invoice/invoice.php:86
+msgid "Void"
+msgstr "Аннуляция"
+
+#: models/Payment.php:59
+msgid "Recurring"
+msgstr "Регулярный"
+
+#: models/Payment.php:104
+msgid "API"
+msgstr "API"
+
+#: models/Payment.php:113 models/Payment.php:123
+msgid "Payment #%d"
+msgstr "Платёж #%d"
+
+#: models/Project.php:80
+msgid "New Project: %s"
+msgstr "Новый проект: %s"
+
+#: models/_Model.php:169
+msgid "%s updated. <a href=\"%s\">View %s</a>"
+msgstr "%s обновлено. <a href=\"%s\">Посмотреть %s</a>"
+
+#: models/_Model.php:170 models/_Model.php:186
+msgid "Custom field updated."
+msgstr "Пользовательские поля обновлены."
+
+#: models/Estimate.php:86
+#: views/admin/dashboards/premium/estimates-status-chart.php:44
+#: views/admin/sections/estimate-status-change-drop.php:10
+msgid "Approved"
+msgstr "Утверждено"
+
+#: models/Estimate.php:87
+#: views/admin/dashboards/premium/estimates-status-chart.php:50
+#: views/admin/sections/estimate-status-change-drop.php:12
+#: views/templates/estimate/estimate.php:44
+msgid "Declined"
+msgstr "Отклонено"
+
+#: models/Estimate.php:161
+msgid "New Estimate: %s"
+msgstr "Новая Смета: %s"
+
+#: models/Estimate.php:246
+msgid "approve"
+msgstr "утверждено"
+
+#: models/Estimate.php:247
+msgid "accept"
+msgstr "принято"
+
+#: models/Estimate.php:250
+msgid "decline"
+msgstr "снижено"
+
+#: models/Estimate.php:251
+msgid "pushback"
+msgstr "отложено"
+
+#: models/Estimate.php:389 models/Invoice.php:432
+msgid "No client associated with this invoice."
+msgstr "Нет клиента связанного с этим счетом."
+
+#: models/Invoice.php:76
+#: views/admin/sections/invoice-status-change-drop.php:12
+msgid "Outstanding Balance"
+msgstr "Неоплаченный Баланс"
+
+#: models/Invoice.php:78
+#: views/admin/dashboards/premium/invoices-status-chart.php:53
+#: views/admin/sections/invoice-status-change-drop.php:14
+msgid "Written Off"
+msgstr "Выписанный"
+
+#: models/Invoice.php:152
+msgid "New Invoice: %s"
+msgstr "Новый Счёт: %s"
+
+#: models/Payment.php:54
+msgid "Authorized"
+msgstr "Одобрено"
+
+#: models/Payment.php:55
+msgid "Cancelled"
+msgstr "Отменено"
+
+#: models/Estimate.php:83
+#: views/admin/dashboards/premium/estimates-status-chart.php:32
+msgid "Request"
+msgstr "Запрос"
+
+#: models/Estimate.php:84 models/Invoice.php:74
+#: views/admin/dashboards/premium/estimates-status-chart.php:38
+#: views/admin/dashboards/premium/invoices-status-chart.php:35
+#: views/admin/sections/estimate-status-change-drop.php:8
+#: views/templates/checkout/confirmation.php:72
+msgid "Pending"
+msgstr "В Ожидании"
+
+#: models/Estimate.php:85 models/Invoice.php:75
+#: views/admin/sections/invoice-status-change-drop.php:16
+msgid "Scheduled"
+msgstr "Назначен"
+
+#: importers/Importer.php:159
+msgid "About Importing"
+msgstr "О Импорте"
+
+#: importers/Importer.php:160
+msgid ""
+"This feature provides a way for you to import data from external invoicing "
+"services, including Harvest, Freshbooks, or WP-Invoice."
+msgstr ""
+"Эта функция предоставляет возможность для Вас импортировать данные из "
+"внешних служб выставления счетов, в том числе Harvest, Freshbooks или WP-"
+"Invoice."
+
+#: importers/Importer.php:160
+msgid ""
+" If you have your data in one of these systems you can import all of your "
+"clients, contacts, estimates, invoices, and payments into Sprout Invoices."
+msgstr ""
+"Если у вас есть данные в одной из этих систем, возможен импорт всех ваших "
+"клиентов, контактов, смет, счетов, и платежей в Sprout Invoices."
+
+#: importers/Importer.php:160
+msgid "More Information"
+msgstr "Дополнительная Информация"
+
+#: importers/WP-Invoice.php:32
+msgid "WP-Invoice"
+msgstr "WP-Invoice"
+
+#: importers/WP-Invoice.php:49
+msgid "Delete WP-Invoices"
+msgstr "Удалить WP-Invoices"
+
+#: importers/WP-Invoice.php:54
+msgid ""
+"You must really love us to delete those WP-Invoices, since you can't go "
+"back. Settings and the log table (sigh) will be kept."
+msgstr ""
+"Вы должны действительно любить нас, чтобы удалить WP-Invoice, так как вы не "
+"сможете вернуться назад. Будут храниться настройки и таблицы журнала (вздох)."
+
+#: importers/WP-Invoice.php:99
+msgid "WP-Invoices needs to be activated before proceeding."
+msgstr "WP-Invoice необходимо активировать, прежде чем продолжить."
+
+#: importers/WP-Invoice.php:112
+msgid "We couldn't fine any WP-Invoices to import."
+msgstr "Мы не смогли нормально любой WP-Invoices импортировать."
+
+#: importers/WP-Invoice.php:127 importers/WP-Invoice.php:273
+msgid "Preparing to import from %s invoices..."
+msgstr "Подготовка к импорту из %s счетов..."
+
+#: importers/WP-Invoice.php:131
+msgid "Importing clients from %s WP-Invoice records..."
+msgstr "Импорт клиентов из %s записей WP-Invoice..."
+
+#: importers/WP-Invoice.php:135
+msgid "Importing contacts from %s WP-Invoice records..."
+msgstr "Импорт контактов из %s записей WP-Invoice..."
+
+#: importers/WP-Invoice.php:139
+msgid "No estimates will be imported, unfortunately..."
+msgstr "Сметы не будут импортированы, к сожалению..."
+
+#: importers/WP-Invoice.php:143
+msgid "Importing invoices from %s WP-Invoice records..."
+msgstr "Импорт счетов из %s записей WP-Invoice..."
+
+#: importers/WP-Invoice.php:147
+msgid "Importing payments from %s WP-Invoice records..."
+msgstr "Импорт платежей из %s записей WP-Invoice..."
+
+#: importers/WP-Invoice.php:197 importers/WP-Invoice.php:277
+msgid "Importing %s clients from %s WP-Invoice records..."
+msgstr "Импорт %s клиентов из %s записей WP-Invoice..."
+
+#: importers/WP-Invoice.php:201 importers/WP-Invoice.php:281
+msgid "Importing %s contacts from %s WP-Invoice records..."
+msgstr "Импорт %s контактов из %s записей WP-Invoice..."
+
+#: importers/WP-Invoice.php:205 importers/WP-Invoice.php:285
+msgid "No estimates were imported"
+msgstr "Нет импортированных смет"
+
+#: importers/WP-Invoice.php:209 importers/WP-Invoice.php:289
+msgid "Importing %s invoices from %s WP-Invoice records..."
+msgstr "Импорт %s  счетов из %s записей WP-Invoice..."
+
+#: importers/WP-Invoice.php:213 importers/WP-Invoice.php:293
+msgid "Importing %s payments from %s WP-Invoice records..."
+msgstr "Импорт %s платежей из %s записей WP-Invoice..."
+
+#: importers/WP-Invoice.php:472
+msgid "Notification content was not stored by WP-Invoice."
+msgstr "Содержимое уведомления не сохраняются в WP-Invoice."
+
+#: models/Client.php:91
+msgid "New Client: %s"
+msgstr "Новый клиент: %s"
+
+#: models/Estimate.php:82 models/Invoice.php:73
+#: views/admin/sections/estimate-status-change-drop.php:16
+msgid "Draft"
+msgstr "Draft"
+
+#: importers/Harvest.php:447
+msgid "The Harvest API does not permit access to your estimates."
+msgstr "API Harvest не дает доступ к вашим сметам."
+
+#: importers/Harvest.php:494
+msgid "Attempting to import your invoices and their payments..."
+msgstr "Попытка импортировать счета и платежи по ним..."
+
+#: importers/Harvest.php:498
+msgid ""
+"Currently importing invoices and their payments in increments of %s. Thank "
+"you for your patience, this is a very slow process."
+msgstr ""
+"В настоящее время импортируются счета и их платежи с шагом %s. Спасибо за "
+"ваше терпение, это очень медленный процесс."
+
+#: importers/Harvest.php:502
+msgid "Payments will be imported with new invoices"
+msgstr "Платежы будут импортированы с новыми счетами"
+
+#: importers/Harvest.php:523
+msgid "Invoice import error."
+msgstr "Ошибка импорта Счета."
+
+#: importers/Harvest.php:585
+msgid "Attempting to import %s new invoices and their payments..."
+msgstr "Попытка импортировать %s новых счетов и платежей по ним..."
+
+#: importers/Harvest.php:589
+msgid "Just imported %s more payments."
+msgstr "Просто импортировано больше %s платежей."
+
+#: importers/Harvest.php:593
+msgid ""
+"Importing invoices in increments of %s. Thank you for your patience, this is "
+"a very slow process."
+msgstr ""
+"Импорт счетов с шагом %s. Спасибо за ваше терпение, это очень медленный "
+"процесс."
+
+#: importers/Harvest.php:608
+msgid "Successfully imported a bunch of invoices..."
+msgstr "Успешно импортировано кучу счетов..."
+
+#: importers/Harvest.php:612
+msgid "Successfully imported a bunch of payments."
+msgstr "Успешно импортировано кучу платежей."
+
+#: importers/Harvest.php:616
+msgid "Finished importing your invoices!"
+msgstr "Импорт ваших счетов завершён!"
+
+#: importers/Harvest.php:626
+msgid "Successfully imported invoices already, moving on..."
+msgstr "Уже успешно импортированы счета, двигаемся дальше..."
+
+#: importers/Harvest.php:630
+msgid "Successfully imported a bunch of payments already."
+msgstr "Успешно импортировано уже кучу платежей."
+
+#: importers/Harvest.php:635
+msgid "Imported all the invoices already!"
+msgstr "Все счета уже импортированы!"
+
+#: importers/Importer.php:46
+msgid "Sprout Invoices Importing"
+msgstr "Импорт Sprout Invoices"
+
+#: importers/Importer.php:47
+msgid "Import"
+msgstr "Импортировать"
+
+#: importers/Harvest.php:76
+msgid "password"
+msgstr "Пароль"
+
+#: importers/Harvest.php:91
+msgid "https://[subdomain].harvest.com"
+msgstr "https://[subdomain].harvest.com"
+
+#: importers/Harvest.php:100
+msgid "Import inactive clients."
+msgstr "Импорт неактивных клиентов."
+
+#: importers/Harvest.php:215
+msgid "Communicating with the Harvest API..."
+msgstr "Взаимодействие с API Harvest..."
+
+#: importers/Harvest.php:254
+msgid "Client import error."
+msgstr "Ошибка импорта Клиента."
+
+#: importers/Harvest.php:277
+msgid "Attempting to import %s clients..."
+msgstr "Попытка импортировать %s клиентов..."
+
+#: importers/Harvest.php:295
+msgid "Successfully imported %s clients..."
+msgstr "Успешно импортировано %s клиентов..."
+
+#: importers/Harvest.php:299
+msgid "Imported %s clients!"
+msgstr "Импортировано %s клиентов!"
+
+#: importers/Harvest.php:309
+msgid "Successfully imported %s clients already, moving on..."
+msgstr "Уже успешно импортировано %s клиентов, двигаемся дальше..."
+
+#: importers/Harvest.php:356
+msgid "Contact import error."
+msgstr "Ошибка импорта контакта."
+
+#: importers/Harvest.php:379
+msgid "Attempting to import %s contacts..."
+msgstr "Попытка импортировать %s контактов..."
+
+#: importers/Harvest.php:383
+msgid "Imported about %s contacts so far."
+msgstr "До сих пор импортировано около %s контактов."
+
+#: importers/Harvest.php:397
+msgid "Successfully imported %s contacts..."
+msgstr "Успешно импортировано %s контактов..."
+
+#: importers/Harvest.php:401
+msgid "Imported %s contacts!"
+msgstr "Импортировано %s контактов!"
+
+#: importers/Harvest.php:411
+msgid "Successfully imported %s contacts already, moving on..."
+msgstr "Уже успешно импортировано %s контактов, двигаемся дальше..."
+
+#: importers/Harvest.php:416
+msgid "Successfully imported %s contacts already."
+msgstr "Уже успешно импортировано %s контактов."
+
+#: importers/Harvest.php:442
+msgid "Attempting to get your Harvest estimates..."
+msgstr "Попытка получить ваши сметы Harvest..."
+
+#: importers/Harvest.php:64
+msgid "user@gmail.com"
+msgstr "user@gmail.com"
+
+#: importers/Harvest.php:71
+msgid "Password"
+msgstr "Пароль"
+
+#: importers/CSV.php:192
+msgid "Uploaded CSV files being processed...Hold on to your butts..."
+msgstr "Загруженные файлы CSV обрабатываются... Только держитесь..."
+
+#: importers/CSV.php:196 importers/CSV.php:200 importers/CSV.php:234
+#: importers/CSV.php:278 importers/CSV.php:310 importers/CSV.php:348
+#: importers/CSV.php:366 importers/CSV.php:399 importers/CSV.php:437
+#: importers/CSV.php:455
+msgid "Preparing..."
+msgstr "Подготовка..."
+
+#: importers/CSV.php:221
+msgid "Skipping clients without a CSV to process..."
+msgstr "Пропуск клиентов без CSV для обработки..."
+
+#: importers/CSV.php:225 importers/CSV.php:229 importers/CSV.php:305
+#: importers/CSV.php:394 importers/CSV.php:483
+msgid "Skipped...nothing to import."
+msgstr "Пропущено... нечего импортировать."
+
+#: importers/CSV.php:265 importers/Freshbooks.php:291
+msgid ""
+"Successfully imported %s contacts and their clients already, moving on..."
+msgstr ""
+"Уже успешно импортировано %s контактов и их клиентов, двигаться дальше..."
+
+#: importers/CSV.php:269
+msgid "Successfully imported %s clients."
+msgstr "Успешно импортировано %s клиентов."
+
+#: importers/CSV.php:273
+msgid "Successfully imported more than %s contacts from their clients."
+msgstr "Успешно импортировано более %s контактов клиентов."
+
+#: importers/CSV.php:301
+msgid "Skipping estimate importing without a CSV to process..."
+msgstr "Пропуск импорта сметы без CSV для обработки ..."
+
+#: importers/CSV.php:339 importers/Freshbooks.php:379
+msgid "Successfully imported %s estimates..."
+msgstr "Успешно импортировано %s смет..."
+
+#: importers/CSV.php:343 importers/Freshbooks.php:383
+msgid "Imported %s estimates!"
+msgstr "Импортировано %s смет!"
+
+#: importers/CSV.php:357 importers/CSV.php:527 importers/Freshbooks.php:393
+#: importers/Freshbooks.php:589
+msgid "Successfully imported %s estimates already, moving on..."
+msgstr " Уже успешно импортировано %s смет, двигаемся дальше..."
+
+#: importers/CSV.php:361 importers/Freshbooks.php:398
+msgid "Successfully imported %s estimates already."
+msgstr "Уже успешно импортировано %s смет."
+
+#: importers/CSV.php:390
+msgid "Skipping invoice importing without a CSV to process..."
+msgstr "Пропуск импорта счетов без CSV для обработки..."
+
+#: importers/CSV.php:428 importers/Freshbooks.php:477
+msgid "Successfully imported %s invoices..."
+msgstr "Успешно импортировано %s счетов."
+
+#: importers/CSV.php:432 importers/Freshbooks.php:481
+#: importers/WP-Invoice.php:193
+msgid "Imported %s invoices!"
+msgstr "Импортировано %s счетов!"
+
+#: importers/CSV.php:446 importers/Freshbooks.php:491
+msgid "Successfully imported %s invoices already, moving on..."
+msgstr "Уже успешно импортировано %s счетов, двигаемся дальше..."
+
+#: importers/CSV.php:450 importers/Freshbooks.php:495
+msgid "Successfully imported %s invoices already."
+msgstr "Уже успешно импортировано %s счетов."
+
+#: importers/CSV.php:479
+msgid "Skipping payment importing without a CSV to process..."
+msgstr "Пропуск импорта платежа без CSV для обработки..."
+
+#: importers/CSV.php:513 importers/Freshbooks.php:575
+msgid "Successfully imported %s payments..."
+msgstr "Успешно импортировано %s платежей..."
+
+#: importers/CSV.php:517 importers/Freshbooks.php:579
+msgid "Imported %s payments!"
+msgstr "Импортировано %s платежей!"
+
+#: importers/CSV.php:531 importers/Freshbooks.php:593
+msgid "Successfully imported %s payments already."
+msgstr "Уже успешно импортировано %s платежей."
+
+#: importers/Freshbooks.php:39
+msgid "Freshbooks"
+msgstr "Freshbooks"
+
+#: importers/Freshbooks.php:56
+msgid "Token"
+msgstr "Токен"
+
+#: importers/Freshbooks.php:61
+msgid "6c4384e426e4b560d1227f4ad0f88b2c"
+msgstr "6c4384e426e4b560d1227f4ad0f88b2c"
+
+#: importers/Freshbooks.php:64
+msgid "Get your token form My Account > Freshbooks API "
+msgstr "Получите ваш маркер формы Мой Аккаунт > Freshbooks API"
+
+#: importers/Freshbooks.php:68 importers/Harvest.php:83
+msgid "Account/Sub-domain"
+msgstr "Аккаунт/Поддомен"
+
+#: importers/Freshbooks.php:73 importers/Harvest.php:88
+msgid "your-subdomain"
+msgstr "Ваш поддомен"
+
+#: importers/Freshbooks.php:76
+msgid "https://[subdomain].freshbooks.com"
+msgstr "https://[поддомен].freshbooks.com"
+
+#: importers/Freshbooks.php:81 importers/Harvest.php:96
+msgid "Import Archived"
+msgstr "Импорт архивов"
+
+#: importers/Freshbooks.php:85
+msgid "Import archived clients."
+msgstr "Импорт архивов клиентов."
+
+#: importers/Freshbooks.php:188 importers/Freshbooks.php:229
+#: importers/Freshbooks.php:339 importers/Freshbooks.php:437
+#: importers/Freshbooks.php:535 importers/Harvest.php:211
+msgid "Authentication error."
+msgstr "Ошибка аутентификации."
+
+#: importers/Freshbooks.php:193
+msgid "Communicating with the Freshbooks API..."
+msgstr "Общение с API Freshbooks ..."
+
+#: importers/Freshbooks.php:251
+msgid "Attempting to import %s contacts and their clients..."
+msgstr "Попытка импортировать %s контактов и их клиентов..."
+
+#: importers/Freshbooks.php:255 importers/Harvest.php:281
+msgid "Imported about %s clients so far."
+msgstr "До сих пор импортировано около %s клиентов."
+
+#: importers/Freshbooks.php:259
+msgid "Imported more than %s contacts from imported clients."
+msgstr "Импортировано более %s контактов из импортированных клиентов."
+
+#: importers/Freshbooks.php:273
+msgid "Successfully imported %s contacts and their clients..."
+msgstr "Успешно импортировано %s контактов и их клиентов."
+
+#: importers/Freshbooks.php:277
+msgid "Imported more than %s clients!"
+msgstr "Импортировано больше чем %s клиентов!"
+
+#: importers/Freshbooks.php:281
+msgid "More than %s contacts were added and assigned to their clients!"
+msgstr "Более %s контактов были добавлены и назначены для своих клиентов!"
+
+#: importers/Freshbooks.php:295 importers/Harvest.php:314
+msgid "Successfully imported %s clients already."
+msgstr "Уже успешно импортировано %s клиентов."
+
+#: importers/Freshbooks.php:299
+msgid "Successfully imported more than %s contacts from their clients already."
+msgstr "Уже успешно импортировано больше чем %s контактов и их клиентов."
+
+#: importers/Freshbooks.php:361
+msgid "Attempting to import %s estimates..."
+msgstr "Попытка импортировать %s смет..."
+
+#: importers/Freshbooks.php:365
+msgid "Imported about %s estimates so far."
+msgstr "До сих пор импортировано около %s смет."
+
+#: importers/Freshbooks.php:459
+msgid "Attempting to import %s invoices..."
+msgstr "Попытка импортировать %s счетов..."
+
+#: importers/Freshbooks.php:463
+msgid "Imported about %s invoices so far."
+msgstr "До сих пор импортировано около %s счетов."
+
+#: importers/Freshbooks.php:557
+msgid "Attempting to import %s payments..."
+msgstr "Попытка импортировать %s платежей..."
+
+#: importers/Freshbooks.php:561
+msgid "Imported about %s payments so far."
+msgstr "До сих пор импортировано около %s платежей."
+
+#: importers/Freshbooks.php:782
+msgid "Estimate Imported"
+msgstr "Смета импортирована"
+
+#: importers/Freshbooks.php:865 importers/Harvest.php:741
+#: importers/WP-Invoice.php:486
+msgid "Invoice Imported"
+msgstr "Счёт импортирован"
+
+#: importers/Harvest.php:42
+msgid "Harvest"
+msgstr "Harvest"
+
+#: importers/Harvest.php:59
+msgid "User"
+msgstr "пользователь"
+
+#: controllers/templating/Templating.php:380
+msgid "Invoice Template"
+msgstr "Шаблон Счёта"
+
+#: controllers/templating/Templating.php:383
+msgid ""
+"This invoice template will override the default invoice template, unless "
+"another template is selected when creating/editing an invoice."
+msgstr ""
+"Этот шаблон счёта будет перекрывать шаблон счёта по умолчанию, если другой "
+"шаблон не будет выбран при создании/редактировании счёта."
+
+#: controllers/templating/Templating.php:387
+msgid "Estimate Template"
+msgstr "Шаблон Сметы"
+
+#: controllers/templating/Templating.php:390
+msgid ""
+"This estimate template will override the default estimate template, unless "
+"another template is selected when creating/editing an estimate."
+msgstr ""
+"Этот шаблон сметы будет перекрывать шаблон сметы по умолчанию, если другой "
+"шаблон не будет выбран при создании/редактировании сметы."
+
+#: controllers/updates/Free_License.php:75
+msgid "Thank you for registering Sprout Invoices with Sprout Apps."
+msgstr "Спасибо за регистрацию Sprout Invoices от Sprout Apps."
+
+#: controllers/updates/Free_License.php:87
+msgid "License not created."
+msgstr "Лицензия не создана."
+
+#: importers/CSV.php:34
+msgid "CSV"
+msgstr "CSV"
+
+#: importers/CSV.php:54
+msgid ""
+"Example CSV <a href=\"%s\" target=\"_blank\">here</a>. To be safe import no "
+"more than 100 clients at a time and import all of your clients before "
+"importing invoices or payments."
+msgstr ""
+"Пример CSV ‒ <a href=\"%s\" target=\"_blank\">здесь</a>. Для безопасности "
+"импортируйте не более чем 100 клиентов в одно и то же время, и прежде чем "
+"импортировать счета или платежи, следует импортировать всех ваших клиентов."
+
+#: importers/CSV.php:61
+msgid ""
+"Example CSV <a href=\"%s\" target=\"_blank\">here</a>. To be safe import no "
+"more than 250 estimates at a time and import all of your clients."
+msgstr ""
+"Пример CSV ‒ <a href=\"%s\" target=\"_blank\">здесь</a>. Для безопасности "
+"импортируйте не более чем 250 смет в одно и то же время, и импортируйте всех "
+"ваших клиентов."
+
+#: importers/CSV.php:68
+msgid ""
+"Example CSV <a href=\"%s\" target=\"_blank\">here</a>. To be safe import no "
+"more than 250 invoices at a time, import all of your clients, and import "
+"before payments."
+msgstr ""
+"Пример CSV ‒ <a href=\"%s\" target=\"_blank\">здесь</a>. Для безопасности "
+"импортируйте не более чем 250 счетов в одно и то же время, и импортируйте "
+"всех ваших клиентов, и импортируйте перед платежами."
+
+#: importers/CSV.php:75
+msgid ""
+"Example CSV <a href=\"%s\" target=\"_blank\">here</a>. To be safe import no "
+"more than 100 payments at a time and make sure all your invoices are "
+"imported first."
+msgstr ""
+"Пример CSV ‒ <a href=\"%s\" target=\"_blank\">здесь</a>. Для безопасности "
+"импортируйте не более чем 100 платежей в одно и то же время, и убедитесь, "
+"что все ваши счета будут импортированы в первую очередь."
+
+#: importers/CSV.php:79 importers/Freshbooks.php:90 importers/Harvest.php:105
+msgid "Clear Progress"
+msgstr "Ход Очистки"
+
+#: importers/CSV.php:83 importers/Freshbooks.php:94
+msgid "Re-start the Import Process"
+msgstr "Перезапустить процесс импорта"
+
+#: importers/CSV.php:84 importers/Freshbooks.php:95 importers/Harvest.php:110
+msgid ""
+"This will start the import process from the start. Any records already "
+"imported will not be duplicated but any new records will."
+msgstr ""
+"Запустит процесс импорта с самого начала. Любые, уже импортированные, записи "
+"не будут дублироваться, только новые записи."
+
+#: controllers/templating/Templating.php:365
+#: controllers/templating/Templating.php:455
+#: views/admin/meta-boxes/estimates/information.php:32
+#: views/admin/meta-boxes/estimates/information.php:75
+#: views/admin/meta-boxes/estimates/information.php:112
+#: views/admin/meta-boxes/estimates/information.php:145
+#: views/admin/meta-boxes/estimates/information.php:170
+#: views/admin/meta-boxes/estimates/information.php:190
+#: views/admin/meta-boxes/estimates/information.php:211
+#: views/admin/meta-boxes/estimates/information.php:232
+#: views/admin/meta-boxes/invoices/information.php:32
+#: views/admin/meta-boxes/invoices/information.php:75
+#: views/admin/meta-boxes/invoices/information.php:111
+#: views/admin/meta-boxes/invoices/information.php:139
+#: views/admin/meta-boxes/invoices/information.php:164
+#: views/admin/meta-boxes/invoices/information.php:184
+#: views/admin/meta-boxes/invoices/information.php:205
+#: views/admin/meta-boxes/invoices/information.php:226
+#: views/admin/meta-boxes/projects/information-doc-select.php:14
+msgid "Cancel"
+msgstr "Адмова"
+
+#: controllers/templating/Templating.php:348
+#: controllers/templating/Templating.php:438
+msgid "Select different template"
+msgstr "Выберите другой шаблон"
+
+#: controllers/templating/Templating.php:360
+#: controllers/templating/Templating.php:450
+msgid "No <a href=\"%s\" target=\"_blank\">Custom Templates</a> Found"
+msgstr ""
+"<a href=\"%s\" target=\"_blank\">Пользовательские шаблоны</a> не найдены"
+
+#: controllers/templating/Templating.php:364
+#: controllers/templating/Templating.php:454
+#: views/admin/meta-boxes/estimates/information.php:31
+#: views/admin/meta-boxes/estimates/information.php:74
+#: views/admin/meta-boxes/estimates/information.php:111
+#: views/admin/meta-boxes/estimates/information.php:144
+#: views/admin/meta-boxes/estimates/information.php:169
+#: views/admin/meta-boxes/estimates/information.php:189
+#: views/admin/meta-boxes/estimates/information.php:210
+#: views/admin/meta-boxes/estimates/information.php:231
+#: views/admin/meta-boxes/invoices/information.php:31
+#: views/admin/meta-boxes/invoices/information.php:74
+#: views/admin/meta-boxes/invoices/information.php:110
+#: views/admin/meta-boxes/invoices/information.php:138
+#: views/admin/meta-boxes/invoices/information.php:163
+#: views/admin/meta-boxes/invoices/information.php:183
+#: views/admin/meta-boxes/invoices/information.php:204
+#: views/admin/meta-boxes/invoices/information.php:225
+#: views/admin/meta-boxes/projects/information-doc-select.php:13
+msgid "OK"
+msgstr "Выбор"
+
+#: controllers/templating/Templating.php:342
+#: controllers/templating/Templating.php:432
+msgid "invoice"
+msgstr "Счёт"
+
+#: controllers/templating/Templating.php:342
+#: controllers/templating/Templating.php:432
+msgid "estimate"
+msgstr "Смета"
+
+#: controllers/templating/Templating.php:345
+#: controllers/templating/Templating.php:435
+msgid "Select a custom %s template."
+msgstr "Выберите пользовательский %s шаблон."
+
+#: controllers/templating/Templating.php:348
+#: controllers/templating/Templating.php:438
+#: views/admin/meta-boxes/clients/history.php:64
+#: views/admin/meta-boxes/estimates/information.php:19
+#: views/admin/meta-boxes/estimates/information.php:41
+#: views/admin/meta-boxes/estimates/information.php:52
+#: views/admin/meta-boxes/estimates/information.php:95
+#: views/admin/meta-boxes/estimates/information.php:136
+#: views/admin/meta-boxes/estimates/information.php:161
+#: views/admin/meta-boxes/estimates/information.php:180
+#: views/admin/meta-boxes/estimates/information.php:200
+#: views/admin/meta-boxes/estimates/information.php:221
+#: views/admin/meta-boxes/invoices/information.php:19
+#: views/admin/meta-boxes/invoices/information.php:41
+#: views/admin/meta-boxes/invoices/information.php:52
+#: views/admin/meta-boxes/invoices/information.php:94
+#: views/admin/meta-boxes/invoices/information.php:130
+#: views/admin/meta-boxes/invoices/information.php:155
+#: views/admin/meta-boxes/invoices/information.php:174
+#: views/admin/meta-boxes/invoices/information.php:194
+#: views/admin/meta-boxes/invoices/information.php:215
+#: views/admin/meta-boxes/projects/history-premium.php:51
+#: views/admin/meta-boxes/projects/information-doc-select.php:5
+#: views/admin/sections/edit-private-note.php:7
+msgid "Edit"
+msgstr "Правка"
+
+#: controllers/templating/Customizer.php:61
+msgid "Upload a logo to replace the default estimate/invoice logo."
+msgstr "Загрузить логотип для замены логотипа сметы/счёта по умолчанию."
+
+#: controllers/templating/Customizer.php:70
+msgid "Invoice & Estimate Logo"
+msgstr "Логотип Счёта и Сметы"
+
+#: controllers/templating/Customizer.php:83
+msgid "Invoice Highlight Color"
+msgstr "Цвет выделения Счёта"
+
+#: controllers/templating/Customizer.php:96
+msgid "Estimate Highlight Color"
+msgstr "Цвет выделения Сметы"
+
+#: controllers/templating/Templating.php:91
+#: controllers/templating/Templating.php:101
+msgid "Default Template"
+msgstr "Шаблон по умолчанию."
+
+#: controllers/templating/Customizer.php:29
+msgid "Customize"
+msgstr "Настройка"
+
+#: controllers/reporting/Dashboard.php:263
+msgid "Invoices Dashboard"
+msgstr "Панель Счетов"
+
+#: controllers/reporting/Dashboard.php:272
+msgid "Estimates Dashboard"
+msgstr "Панель Смет"
+
+#: controllers/reporting/Dashboard.php:294
+#: views/admin/dashboards/premium/balances-chart.php:54
+msgid "Invoice Balances"
+msgstr "Баланс по Счетам "
+
+#: controllers/reporting/Dashboard.php:303
+msgid "Payments Status"
+msgstr "Статус Платежей"
+
+#: controllers/reporting/Dashboard.php:312
+#: views/admin/dashboards/invoices-status-chart.php:2
+msgid "Invoice Status"
+msgstr "Состояние Счета"
+
+#: controllers/reporting/Dashboard.php:321
+#: views/admin/dashboards/estimates-invoices-chart.php:2
+msgid "Estimates &amp; Invoices"
+msgstr "Сметы и Счета"
+
+#: controllers/reporting/Dashboard.php:330
+msgid "Estimate Requests Converted"
+msgstr "Запросы смет преобразованы"
+
+#: controllers/reporting/Dashboard.php:339
+msgid "Estimates Status"
+msgstr "Статус Смет"
+
+#: controllers/reporting/Reporting.php:820
+msgid "About Reports"
+msgstr "Об отчетах"
+
+#: controllers/reporting/Reporting.php:821
+msgid ""
+"The Reports dashboard links to the many single reports that Sprout Invoice "
+"provides, don’t miss them."
+msgstr ""
+"Отчёты Консоли ссылаются на многие отдельные сообщения, которые обеспечивает "
+"Sprout Invoice, не пропустите их."
+
+#: controllers/reporting/Reporting.php:821
+msgid ""
+"<b>Dashboard</b> - Is the place to get a quick status overview. See what was "
+"recently updated, what’s currently overdue or unpaid, and other important "
+"information about your business."
+msgstr ""
+"<b>Консоль</b> - Это место, для получения быстрого обзора состояния. "
+"Посмотрите, что недавно было обновлено, что в настоящее время назрело или не "
+"оплачено, и другая важная информация о вашем бизнесе."
+
+#: controllers/reporting/Reporting.php:821
+msgid ""
+"<b>Reports</b> - Reports have advanced filtering and are highly "
+"customizable. All data is dynamically updated without reloading."
+msgstr ""
+"<b>Отчеты</b> - Отчеты имеют расширенную фильтрацию и легко настраиваемые. "
+"Все данные динамически обновляются без перезагрузки."
+
+#: controllers/reporting/Reporting.php:826
+msgid "Report Tables"
+msgstr "Таблицы Отчетов"
+
+#: controllers/reporting/Reporting.php:827
+msgid ""
+"<b>Date filtering</b> is available and can be used to retrieve data between "
+"two dates, after a date, or before a date."
+msgstr ""
+
+#: controllers/reporting/Reporting.php:827
+msgid ""
+"<b>Modify columns</b> within the table with the “Show / hide columns” button."
+msgstr ""
+"<b>Изменить столбцы</b> в таблице с помощью кнопки «Показать/скрыть столбцы»."
+
+#: controllers/reporting/Reporting.php:827
+msgid ""
+"<b>Export</b> the table, filtered or not, to many formats, including CSV, "
+"Excel, PDF or your computers clipboard."
+msgstr ""
+"<b>Экспорт</b> таблицы, отфильтрованный или нет, в различных форматах, в том "
+"числе CSV, Excel, PDF или в буфер обмена вашего компьютера."
+
+#: controllers/reporting/Reporting.php:827
+msgid ""
+"Records are <em>limited to 2,500 items</em>. If you want to return more use "
+"the ‘si_reports_show_records’ filter."
+msgstr ""
+"Записи <em>ограничены 2500 элементами.</em> Если вы хотите возвратить "
+"больше, используйте фильтр ‘si_reports_show_records’."
+
+#: controllers/reporting/Reporting.php:833
+msgid "Dashboard Refresh"
+msgstr "Обновить Консоль"
+
+#: controllers/reporting/Reporting.php:834
+msgid ""
+"The reports dashboard is cached and if new invoices or estimates were just "
+"created the values under \"Invoice Dashboard\" may be out of date. Use the "
+"refresh button below to flush the cache and get the latest stats."
+msgstr ""
+"Отчёты консоли кэшируются и, если новые счета или сметы были только что "
+"созданы, значения в \"Панели счетов\" могут быть устаревшими. Используйте "
+"кнопку обновления ниже, для очистки кэша и получения последней статистики."
+
+#: controllers/reporting/Reporting.php:834
+msgid "Refresh"
+msgstr "Обновление"
+
+#: controllers/reporting/Dashboard.php:215
+#: controllers/reporting/Reporting.php:799
+msgid "Dashboard"
+msgstr "Консоль магазина"
+
+#: controllers/records/Records_Admin_Table.php:205
+msgid "Association"
+msgstr "Объединение"
+
+#: controllers/reporting/Dashboard.php:118
+msgid "Reports Dashboard"
+msgstr "Панель Отчётов"
+
+#: controllers/reporting/Dashboard.php:119
+msgid "Reports"
+msgstr "Статистика"
+
+#: controllers/records/Records_Admin_Table.php:99
+msgid "View all types"
+msgstr "Просмотреть все типы"
+
+#: controllers/records/Records_Admin_Table.php:116
+msgid "Purge"
+msgstr "Очистка"
+
+#: controllers/records/Records_Admin_Table.php:118
+msgid "Purge All Types"
+msgstr "Очискта Всех типов"
+
+#: controllers/records/Records_Admin_Table.php:182
+#: views/admin/meta-boxes/estimates/history.php:42
+#: views/admin/meta-boxes/invoices/history.php:41
+msgid "View Data"
+msgstr "Просмотр данных"
+
+#: controllers/records/Records_Admin_Table.php:202
+#: views/admin/reports/premium/clients.php:22
+#: views/admin/reports/premium/payments.php:22
+#: views/templates/checkout/confirmation.php:111
+#: views/templates/estimate/estimate.php:110
+#: views/templates/invoice/invoice.php:130
+msgid "Date"
+msgstr "Дате"
+
+#: controllers/records/Internal_Records.php:98
+msgid "Preparing purge..."
+msgstr "Подготовка к очистке..."
+
+#: controllers/records/Internal_Records.php:128
+msgid "%o records(s) of %o deleted."
+msgstr "%o запись(и) из %o удалены."
+
+#: controllers/records/Internal_Records.php:138
+msgid "Complete. %o deleted."
+msgstr "Завершено. %o удалено."
+
+#: controllers/records/Internal_Records.php:273
+msgid "Sprout Invoices Records"
+msgstr "Записи Sprout Invoices"
+
+#: controllers/records/Records_Admin_Table.php:42
+msgctxt "posts"
+msgid "Mine <span class=\"count\">(%s)</span>"
+msgid_plural "Mine <span class=\"count\">(%s)</span>"
+msgstr[0] "Мои <span class=\"count\">(%s)</span>"
+msgstr[1] "Мои <span class=\"count\">(%s)</span>"
+msgstr[2] "Мои <span class=\"count\">(%s)</span>"
+
+#: controllers/records/Records_Admin_Table.php:75
+msgctxt "posts"
+msgid "Sticky <span class=\"count\">(%s)</span>"
+msgid_plural "Sticky <span class=\"count\">(%s)</span>"
+msgstr[0] "Прилепленные <span class=\"count\">(%s)</span>"
+msgstr[1] "Прилепленные <span class=\"count\">(%s)</span>"
+msgstr[2] "Прилепленные <span class=\"count\">(%s)</span>"
+
+#: controllers/projects/Projects.php:385 languages/SI_Strings.php:29
+msgid "Project"
+msgstr "Проект"
+
+#: controllers/projects/Projects.php:422
+msgid "No associated clients"
+msgstr "Нет связанных клиентов"
+
+#: controllers/projects/Projects.php:427
+msgid "Site"
+msgstr "Обычные"
+
+#: controllers/projects/Projects.php:504 languages/SI_Strings.php:22
+#: views/admin/meta-boxes/projects/client-submit.php:2
+msgid "Projects"
+msgstr "Проекты"
+
+#: controllers/projects/Projects.php:532
+msgid "Manage Projects"
+msgstr "Управление проектами"
+
+#: controllers/records/Internal_Records.php:47
+msgid "Sprout Invoices Records and Logs"
+msgstr "Sprout Invoices Отчеты и Журналы"
+
+#: controllers/records/Internal_Records.php:48
+msgid "Sprout Records"
+msgstr "Отчеты Sprout"
+
+#: controllers/projects/Projects.php:331
+msgid "End Date"
+msgstr "Дата завершения"
+
+#: controllers/payments/Payments_Admin_Table.php:132
+#: template-tags/invoices.php:1011 views/admin/reports/premium/payments.php:29
+msgid "Payment Total"
+msgstr "Сумма Платежа"
+
+#: controllers/payments/Payments_Admin_Table.php:133
+#: views/admin/reports/premium/payments.php:28
+msgid "Invoice Balance"
+msgstr "Баланс по счёту"
+
+#: controllers/payments/Payments_Admin_Table.php:134
+#: views/templates/checkout/confirmation.php:140
+#: views/templates/checkout/confirmation.php:150
+#: views/templates/invoice/invoice.php:159
+#: views/templates/invoice/invoice.php:169
+msgid "Invoice Total"
+msgstr "Сумма Счёта"
+
+#: controllers/payments/Payments_Admin_Table.php:137
+msgid "No invoice found"
+msgstr "Не найдено счёта"
+
+#: controllers/payments/Payments_Admin_Table.php:141
+msgid "No invoice associated with this payment."
+msgstr "Нет счёта, связанного с этим платежом."
+
+#: controllers/payments/Payments_Admin_Table.php:168
+msgid "Transaction Data"
+msgstr "Данные транзакции"
+
+#: controllers/payments/Payments_Admin_Table.php:181
+#: controllers/payments/Payments_Admin_Table.php:192
+msgid "Void Payment"
+msgstr "Аннулировать Платёж"
+
+#: controllers/payments/Payments_Admin_Table.php:184
+msgid "Attempt Capture"
+msgstr "Попытка снятия"
+
+#: controllers/payments/Payments_Admin_Table.php:188
+msgid "Mark Complete"
+msgstr "Отметить Завершённым"
+
+#: controllers/payments/Payments_Admin_Table.php:192
+msgid "These notes will be added to the transaction data."
+msgstr "Эти примечания будут добавлены к данным транзакции."
+
+#: controllers/payments/Payments_Admin_Table.php:216
+#: views/admin/reports/premium/clients.php:150
+#: views/admin/reports/premium/estimates.php:88
+#: views/admin/reports/premium/invoices.php:89
+#: views/admin/reports/premium/payments.php:107
+msgid "Totals"
+msgstr "Итог"
+
+#: controllers/payments/Payments_Admin_Table.php:217
+#: controllers/records/Records_Admin_Table.php:182
+#: controllers/records/Records_Admin_Table.php:204
+msgid "Data"
+msgstr "Дата"
+
+#: controllers/projects/Projects.php:78
+msgid "Time Tracking"
+msgstr "Отслеживание времени"
+
+#: controllers/projects/Projects.php:261
+msgid "No Project Selected"
+msgstr "Не выбрано ни одного проекта"
+
+#: controllers/projects/Projects.php:298
+msgid "Project Name"
+msgstr "Название Проекта"
+
+#: controllers/projects/Projects.php:308
+msgid ""
+"Edit <a href=\"%s\">%s</a>, select another client or <a href=\"%s\">create a "
+"new client</a>."
+msgstr ""
+"Редактировать <a href=\"%s\">%s</a>, выбрать другого клиента или <a href=\"%s"
+"\">создать нового клиента</a> ."
+
+#: controllers/projects/Projects.php:308
+msgid "Select an existing client or <a href=\"%s\">create a new client</a>."
+msgstr ""
+"Выберите существующего клиента или <a href=\"%s\">создайте нового клиента</"
+"a> ."
+
+#: controllers/projects/Projects.php:322
+msgid "Start Date"
+msgstr "Дата Начала"
+
+#: controllers/payments/Payments_Admin_Table.php:114
+msgid "Associated records cannot be found."
+msgstr "Связанных записей не найдено."
+
+#: controllers/payments/Payments_Admin_Table.php:121
+msgid "unknown"
+msgstr "неизвестно"
+
+#: controllers/payments/Payments.php:207
+msgid "About Payments"
+msgstr "О платежах"
+
+#: controllers/payments/Payments.php:208
+msgid "Payment statuses include:"
+msgstr "Платежные статусы включают в себя:"
+
+#: controllers/payments/Payments.php:208
+msgid ""
+"<b>Pending</b> - the payment could be waiting for admin approval or waiting "
+"for the payment processor.<br/><b>Authorized</b> – a payment status set for "
+"signifying that the payment was authorized by the processor and a capture of "
+"the payment will be attempted later.<br/><b>Void</b> - payment was voided by "
+"the admin or declined by the payment processor after it was authorized or "
+"pending."
+msgstr ""
+"<b>В ожидании</b> - платеж может ждать одобрения администратора или "
+"платёжного процессора. <br/> <b>Одобрено</b> - статус оплаты означающий, что "
+"платеж был одобрен процессором и снятие оплаты будет предпринято позже. <br/"
+"> <b>Аннулировано</b> - оплата аннулирована администратором или отклонена "
+"платежным процессором после его одобрения или ожидания."
+
+#: controllers/payments/Payments.php:213
+msgid "Managing Payments"
+msgstr "Управление платежами"
+
+#: controllers/payments/Payments.php:214
+msgid "Hovering over a payment brings up multiple links and options:"
+msgstr "Наведение курсора на оплату вызывает несколько ссылок и опций:"
+
+#: controllers/payments/Payments.php:214
+msgid ""
+"<b>Void Payment</b> - Allows you to void a payment and add a note that will "
+"be added to the Transaction Data."
+msgstr ""
+"<b>Аннулировать Платёж</b> - Позволяет аннулировать платеж и добавить "
+"примечание, которое будет добавлено к Данным Транзакции."
+
+#: controllers/payments/Payments.php:214
+msgid ""
+"<b>Transaction Data</b> – Used to troubleshoot a payment, this is the raw "
+"data stored by a payment processor."
+msgstr ""
+"<b>Данные Транзакции</b> - Используются для разрешения проблем платежа, это "
+"необработанные данные, передаваемые платёжным процессором."
+
+#: controllers/payments/Payments.php:214
+msgid ""
+"<b>Invoice and Client</b> – A link to the associated invoice and client edit "
+"pages."
+msgstr ""
+"<b>Счёт и Клиент</b> - ссылка на связанные страницы редактирования счёта и "
+"клиента."
+
+#: controllers/payments/Payments.php:214
+msgid ""
+"The payment totals are current and are not at the moment of the payment. The "
+"payment type is shown under the Data column."
+msgstr ""
+"Итоговый платёж является текущим и не в момент оплаты. Способ оплаты показан "
+"в столбце данных."
+
+#: controllers/payments/Payments_Admin_Table.php:34
+#: controllers/records/Records_Admin_Table.php:53
+msgctxt "posts"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] "Все <span class=\"count\">(%s)</span>"
+msgstr[1] "Все <span class=\"count\">(%s)</span>"
+msgstr[2] "Все <span class=\"count\">(%s)</span>"
+
+#: controllers/payments/Payments_Admin_Table.php:62
+#: controllers/records/Records_Admin_Table.php:110
+msgid "Filter"
+msgstr "Выбрать"
+
+#: controllers/payments/Payments.php:65 models/Payment.php:58
+msgid "Refunded"
+msgstr "Возвращено"
+
+#: controllers/payments/Payments.php:97
+msgid "Admin Void"
+msgstr "Админ Аннуляция"
+
+#: controllers/payments/Payments.php:99
+msgid "Voided by User #%s on %s"
+msgstr "Аннулирована Пользователем #%s от %s"
+
+#: controllers/payments/Payments.php:119 controllers/payments/Payments.php:132
+#: controllers/payments/Payments.php:145
+msgid "Working..."
+msgstr "Работаю..."
+
+#: controllers/payments/Payments.php:129
+msgid "Are you sure? This will force a capture attempt on this payment."
+msgstr "Вы уверены? Это приведёт к попытке съёма этого платежа."
+
+#: controllers/payments/Payments.php:142
+msgid "Are you sure? This will mark the payment as complete."
+msgstr "Вы уверены? Это отметит платеж как завершённый."
+
+#: controllers/payments/Payments.php:158
+#: controllers/reporting/Dashboard.php:285
+#: views/admin/reports/premium/payments.php:81
+msgid "Invoice Payments"
+msgstr "Счета на оплату"
+
+#: controllers/payments/Payments.php:165
+msgid "Search"
+msgstr "в результатах поиска"
+
+#: controllers/payment-processing/processors/SI_Admin_Payment.php:211
+msgid "Payment Added"
+msgstr "Платёж Добавлен"
+
+#: controllers/payment-processing/processors/SI_Checks.php:43
+msgid "Check/PO Payment"
+msgstr "Платёж Чеком/Платежным поручением"
+
+#: controllers/payment-processing/processors/SI_Checks.php:47
+msgid "Check/PO"
+msgstr "Чеком/Платежным поручением"
+
+#: controllers/payment-processing/processors/SI_Checks.php:53
+msgid "Check"
+msgstr "Чек"
+
+#: controllers/payment-processing/processors/SI_Checks.php:118
+msgid "Check/PO Number"
+msgstr "Номер Чека/Платежного поручения"
+
+#: controllers/payment-processing/processors/SI_Checks.php:127
+msgid "Date Mailed"
+msgstr "Дата отправления"
+
+#: controllers/payment-processing/processors/SI_Checks.php:146
+msgid "Skip this unless you are not human."
+msgstr "Пропустить это, если вы не человек."
+
+#: controllers/payments/Payments.php:56
+msgid "Authorized/Temp"
+msgstr "Одобрено/Временно"
+
+#: controllers/payments/Payments.php:59
+#: views/admin/dashboards/premium/invoices-status-chart.php:41
+msgid "Partial"
+msgstr "Частичный"
+
+#: controllers/payments/Payments.php:62
+msgid "Voided"
+msgstr "Аннулировано"
+
+#: controllers/payment-processing/processors/SI_Admin_Payment.php:123
+msgid "Date Received"
+msgstr "Дата Получения"
+
+#: controllers/payment-processing/processors/SI_Admin_Payment.php:132
+#: controllers/payment-processing/processors/SI_Checks.php:137
+#: views/admin/meta-boxes/estimates/notes.php:13
+#: views/admin/meta-boxes/invoices/notes.php:13
+#: views/templates/checkout/confirmation.php:189
+#: views/templates/estimate/estimate.php:163
+#: views/templates/invoice/invoice.php:198
+msgid "Notes"
+msgstr "Примечания"
+
+#: controllers/payment-processing/Credit_Card_Processors.php:373
+#: controllers/payment-processing/Credit_Card_Processors.php:396
+msgid "\"%s\" field is required."
+msgstr "\"%s\" поле является обязательным."
+
+#: controllers/payment-processing/Credit_Card_Processors.php:402
+msgid "Invalid credit card number"
+msgstr "Неправильный номер кредитной карты"
+
+#: controllers/payment-processing/Credit_Card_Processors.php:409
+msgid "Invalid credit card security code"
+msgstr "Неверный защитный код кредитной карты"
+
+#: controllers/payment-processing/Credit_Card_Processors.php:416
+msgid "Credit card is expired."
+msgstr "Кредитная карта просрочена."
+
+#: controllers/payment-processing/Payment_Processors.php:141
+msgid "Sprout Invoices Payment Settings"
+msgstr "Настройки оплаты Sprout Invoices"
+
+#: controllers/payment-processing/Payment_Processors.php:142
+msgid "Payment Settings"
+msgstr "Настройки оплаты"
+
+#: controllers/payment-processing/Payment_Processors.php:161
+msgid "Payment Processors"
+msgstr "Платежные системы"
+
+#: controllers/payment-processing/Payment_Processors.php:169
+msgid ""
+"Money formatting is based on the local (%s) this WordPress install was "
+"configured with during installation. Please review the Sprout Invoices "
+"knowledgebase if this needs to be changed."
+msgstr ""
+"Денежный формат основан на локали (%s), которая была настроена во время "
+"установки WordPress. Пожалуйста, ознакомьтесь с базой знаний Sprout "
+"Invoices, если это должно быть изменено."
+
+#: controllers/payment-processing/Payment_Processors.php:198
+msgid "Offsite Processors"
+msgstr "Внешние Процессоры"
+
+#: controllers/payment-processing/Payment_Processors.php:204
+msgid "Credit Card Processors"
+msgstr "Процессоры кредитных карт"
+
+#: controllers/payment-processing/Payment_Processors.php:206
+msgid "-- None --"
+msgstr "-- Ни Одной --"
+
+#: controllers/payment-processing/Payment_Processors.php:473
+#: controllers/payment-processing/Payment_Processors.php:509
+msgid "Payment status updated."
+msgstr "Статус платежей обновляется."
+
+#: controllers/payment-processing/Payment_Processors.php:526
+msgid "01 - January"
+msgstr "01 - Январь"
+
+#: controllers/payment-processing/Payment_Processors.php:527
+msgid "02 - February"
+msgstr "02 - Февраль"
+
+#: controllers/payment-processing/Payment_Processors.php:528
+msgid "03 - March"
+msgstr "03 - Март"
+
+#: controllers/payment-processing/Payment_Processors.php:529
+msgid "04 - April"
+msgstr "04 - Апрель"
+
+#: controllers/payment-processing/Payment_Processors.php:530
+msgid "05 - May"
+msgstr "05 - Май"
+
+#: controllers/payment-processing/Payment_Processors.php:531
+msgid "06 - June"
+msgstr "06 - Июнь"
+
+#: controllers/payment-processing/Payment_Processors.php:532
+msgid "07 - July"
+msgstr "07 - Июль"
+
+#: controllers/payment-processing/Payment_Processors.php:533
+msgid "08 - August"
+msgstr "08 - Август"
+
+#: controllers/payment-processing/Payment_Processors.php:534
+msgid "09 - September"
+msgstr "09 - Сентябрь"
+
+#: controllers/payment-processing/Payment_Processors.php:535
+msgid "10 - October"
+msgstr "10 - Октябрь"
+
+#: controllers/payment-processing/Payment_Processors.php:536
+msgid "11 - November"
+msgstr "11 - Ноябрь"
+
+#: controllers/payment-processing/Payment_Processors.php:537
+msgid "12 - December"
+msgstr "12 - Декабрь"
+
+#: controllers/payment-processing/Payment_Processors.php:573
+msgid "About Payment Processing"
+msgstr "Об обработке платежей"
+
+#: controllers/payment-processing/Payment_Processors.php:574
+msgid ""
+"By default no payment processors are active. After selecting the Payment "
+"Settings tab you will find that there are two types of Payment Processors: "
+"Offsite Processors and Credit Card Processors."
+msgstr ""
+"По умолчанию нет активных платежных систем. После выбора вкладки Настройки "
+"оплаты вы обнаружите, что есть два типа платежных систем: Внешние Процессоры "
+"и Процессоры кредитных карт."
+
+#: controllers/payment-processing/Payment_Processors.php:574
+msgid ""
+"After selecting the processors you want to accept for invoice payments and "
+"saving the processor options will be shown. Each payment process has its own "
+"settings, review and complete each option before saving again"
+msgstr ""
+"После выбора процессоров, через которые вы хотите принимать платежи по "
+"счетам, сохраните их параметры которые будут показаны. Каждый процесс оплаты "
+"имеет свои собственные настройки, пересмотрите и заполните каждую опцию, "
+"перед повторным сохранением"
+
+#: controllers/payment-processing/Payment_Processors.php:580
+msgid ""
+"These are the credit card payment processors. You’ll notice that only one "
+"credit card processor can be activated at a time, this is by design since "
+"there’s no viable reason to accept CCs from multiple processors."
+msgstr ""
+"Это процессоры оплаты кредитной картой. Вы заметите, что одновременно, "
+"только один процессор кредитных карт можно активировать, это дизайн, "
+"поскольку нет жизненной необходимости принимать кредитные карты несколькими "
+"процессорами."
+
+#: controllers/payment-processing/Payment_Processors.php:580
+msgid ""
+"If you ware accepting credit card information on your site you will want to "
+"use SSL for your site to keep your client’s data secure. Having SSL on your "
+"site is highly recommended for more reasons than accepting CC information, "
+"since every WordPress site has at least a login form."
+msgstr ""
+"Если Вы хотите принимать информацию кредитной карты на Вашем сайте "
+"используйте SSL для вашего сайта, чтобы сохранить данные вашего клиента в "
+"безопасности. Иметь SSL на вашем сайте настоятельно рекомендуется по "
+"нескольким причинам, и принимать информацию кредитных карт, и так как каждый "
+"WordPress-сайт имеет по крайней мере форму входа."
+
+#: controllers/payment-processing/Payment_Processors.php:585
+msgid "Offsite Processing"
+msgstr "Внешний процессинг"
+
+#: controllers/payment-processing/Payment_Processors.php:586
+msgid ""
+"Essentially a payment processed outside of your site. These payments can "
+"include external payment providers like Paypal and Check or P.O. payments. "
+"Virtually an unlimited amount of offsite processors can be activated."
+msgstr ""
+"По сути, платёж обрабатывается за пределами вашего сайта. Эти платежи могут "
+"включать в себя внешних платёжных провайдеров таких, как Paypal и Check или "
+"платежи платежным поручением. Практически, могут быть активировано "
+"неограниченное количество внешних процессингов."
+
+#: controllers/payment-processing/Payment_Processors.php:592
+msgid ""
+"If your currency is formatted wight the symbol after the amount, place a % "
+"before your currency symbol. For example, %£."
+msgstr ""
+"Если ваша валюта будет отформатирован с символом после суммы, поместите % до "
+"Вашего символа валюты. Например, %£."
+
+#: controllers/payment-processing/processors/SI_Admin_Payment.php:77
+msgid "Admin Payment"
+msgstr "Админ Платежи"
+
+#: controllers/payment-processing/processors/SI_Admin_Payment.php:90
+msgid "Save this invoice before adding any payments."
+msgstr "Сохранить этот счёт до добавления каких-либо платежей."
+
+#: controllers/payment-processing/processors/SI_Admin_Payment.php:115
+#: views/admin/reports/premium/clients.php:20
+#: views/admin/reports/premium/estimates.php:20
+#: views/admin/reports/premium/invoices.php:20
+#: views/admin/reports/premium/payments.php:20
+msgid "ID"
+msgstr "ID"
+
+#: controllers/payment-processing/Credit_Card_Processors.php:304
+msgid "CVV"
+msgstr "CVV-код"
+
+#: controllers/payment-processing/Credit_Card_Processors.php:323
+msgid "Full Name"
+msgstr "Полное Имя"
+
+#: controllers/payment-processing/Credit_Card_Processors.php:328
+msgid "Address"
+msgstr "Адрес"
+
+#: controllers/notifications/Notifications_Control.php:226
+msgid "%s Shortcodes"
+msgstr "%s Шорткоды"
+
+#: controllers/notifications/Notifications_Control.php:513
+msgid "Notification sent to %s."
+msgstr "Уведомление отправлено %s."
+
+#: controllers/notifications/Notifications_Control.php:766
+msgid "About Notifications"
+msgstr "Сведения об уведомлениях"
+
+#: controllers/notifications/Notifications_Control.php:767
+msgid ""
+"Notifications include the emails sent to you and your clients, including "
+"responses to prospective clients after submitting an estimate request."
+msgstr ""
+"Уведомления включают письма, отправленные вам и вашим клиентам, в том числе "
+"ответы потенциальным клиентам после подачи сметного запроса."
+
+#: controllers/notifications/Notifications_Control.php:767
+msgid ""
+"Each one of your notifications can be customized; hover over the "
+"notification you want and click the edit link."
+msgstr ""
+"Каждое из ваших уведомлений может быть настроено; наведите курсор мыши на "
+"желаемое уведомление и нажмите на ссылку Изменить."
+
+#: controllers/notifications/Notifications_Control.php:772
+msgid "Disable Notifications"
+msgstr "Отключить уведомления"
+
+#: controllers/notifications/Notifications_Control.php:773
+msgid ""
+"The notifications edit screen will have an option next to the \"Update\" "
+"button to disable the notification from being sent."
+msgstr ""
+"Экран редактирования уведомления будет иметь опцию, рядом с кнопкой "
+"\"Обновить\", чтобы отключить уведомления от отправки."
+
+#: controllers/notifications/Notifications_Control.php:778
+msgid "Notification Editing"
+msgstr "Редактирование Уведомлений"
+
+#: controllers/notifications/Notifications_Control.php:779
+msgid ""
+"<b>Subject</b> - The first input is for the notifications subject. If the "
+"notification is an e-mail than it would be subject line for that e-mail "
+"notification."
+msgstr "<b>Тема</b> - Первый ввод для темы уведомлений."
+
+#: controllers/notifications/Notifications_Control.php:779
+msgid ""
+"<b>Message Body</b> - The main editor is the notification body. Use the "
+"available shortcodes to have dynamic information included when the "
+"notification is received. Make sure to change the Notification Setting if "
+"HTML formatting is added to your notifications."
+msgstr ""
+"<b>Тело сообщения</b> – Главный редактор тела уведомления. Используйте "
+"доступные шорткоды чтобы включить динамическую информацию при получении "
+"уведомления. Убедитесь, в изменении настройки уведомления, если HTML-"
+"форматирование добавляется в список уведомлений."
+
+#: controllers/notifications/Notifications_Control.php:779
+msgid ""
+"<b>Shortcodes</b> – A list of shortcodes is provided with descriptions for "
+"each."
+msgstr "<b>Шорткоды</b> – Список шорткодов снабжён описаниями для каждого."
+
+#: controllers/notifications/Notifications_Control.php:779
+msgid ""
+"<b>Update</b> - The select list can be used if you want to change the "
+"current notification to a different type; it’s recommended you go to the "
+"notification you want to edit instead of using this option. The Disabled "
+"option available to prevent this notification from sending."
+msgstr ""
+"<b>Обновить</b> - Список выбора может быть использован, если вы хотите "
+"изменить текущее уведомление к другому типу;  рекомендуется для перехода на "
+"уведомление которое вы хотите редактировать, а не использовать эту опцию. "
+"Опция Отключено доступна для предотвращения уведомления от отправки."
+
+#: controllers/notifications/Notifications_Control.php:790
+msgid "Notifications Cleanup"
+msgstr "Очистка Уведомлений"
+
+#: controllers/notifications/Notifications_Control.php:791
+msgid ""
+"In an earlier version of Sprout Invoices numerous notifications were "
+"improperly created. Click refresh below to delete all extraneous "
+"notifications. Backup any modifications that you might have made to your "
+"notifications before continuing."
+msgstr ""
+"В более ранних версиях Sprout Invoices многочисленные уведомления были "
+"неправильно созданы. Нажмите обновить ниже, чтобы удалить все посторонние "
+"уведомления. Дублируйте любые изменения ваших уведомлений, что вы могли "
+"сделать, прежде чем продолжить."
+
+#: controllers/notifications/Notifications_Control.php:791
+msgid "Clean"
+msgstr "Очистить"
+
+#: controllers/payment-processing/Credit_Card_Processors.php:92
+msgid "Cardholder Name"
+msgstr "Имя Владельца Карты"
+
+#: controllers/payment-processing/Credit_Card_Processors.php:101
+#: controllers/payment-processing/Credit_Card_Processors.php:294
+msgid "Card Number"
+msgstr "Номер Карты"
+
+#: controllers/payment-processing/Credit_Card_Processors.php:111
+#: controllers/payment-processing/Credit_Card_Processors.php:121
+#: controllers/payment-processing/Credit_Card_Processors.php:299
+#: views/templates/estimate/estimate.php:130
+msgid "Expiration Date"
+msgstr "Дата Окончания"
+
+#: controllers/payment-processing/Credit_Card_Processors.php:131
+msgid "Security Code"
+msgstr "Код Безопасности"
+
+#: controllers/payment-processing/Credit_Card_Processors.php:289
+msgid "Cardholder"
+msgstr "Владелец Карты"
+
+#: controllers/notifications/Notifications_Control.php:96
+msgid "From name"
+msgstr "От имени"
+
+#: controllers/notifications/Notifications_Control.php:103
+msgid "From email"
+msgstr "С E-mail"
+
+#: controllers/notifications/Notifications_Control.php:110
+msgid "Admin email"
+msgstr "E-mail Администратора"
+
+#: controllers/notifications/Notifications_Control.php:114
+msgid ""
+"E-mail address that receives the admin notifications (e.g. Payment "
+"Received )."
+msgstr ""
+
+#: controllers/notifications/Notifications_Control.php:118
+msgid "Email format"
+msgstr "Формат E-mail"
+
+#: controllers/notifications/Notifications_Control.php:122
+msgid "HTML"
+msgstr "HTML"
+
+#: controllers/notifications/Notifications_Control.php:123
+msgid "Plain Text"
+msgstr "Простой Текст"
+
+#: controllers/notifications/Notifications_Control.php:126
+msgid ""
+"Default notifications are in plain text. If set to HTML, custom HTML "
+"notifications are required."
+msgstr ""
+"Уведомления по умолчанию в виде обычного текста. Если установлено в HTML, "
+"требуется пользовательские HTML-уведомления."
+
+#: controllers/notifications/Notifications_Control.php:224
+#: views/admin/reports/premium/estimates.php:66
+#: views/admin/reports/premium/estimates.php:67
+#: views/admin/reports/premium/invoices.php:68
+#: views/admin/reports/premium/payments.php:82
+#: views/admin/reports/premium/payments.php:83
+msgid "N/A"
+msgstr "непригодный"
+
+#: controllers/notifications/Notifications_Admin_Table.php:91
+msgid "Message"
+msgstr "Текст сообщения"
+
+#: controllers/notifications/Notifications_Control.php:78
+#: controllers/notifications/Notifications_Control.php:79
+#: languages/SI_Strings.php:24
+msgid "Notifications"
+msgstr "Оповещения"
+
+#: controllers/notifications/Notifications_Admin_Table.php:54
+msgid "Unassigned"
+msgstr "Не назначено"
+
+#: controllers/notifications/Notifications_Admin_Table.php:56
+msgid "disabled"
+msgstr "Disabled (недоступно)"
+
+#: controllers/notifications/Notifications_Admin_Table.php:56
+msgid "active"
+msgstr "активный"
+
+#: controllers/notifications/Notifications_Admin_Table.php:90
+#: controllers/records/Records_Admin_Table.php:203
+#: views/admin/reports/premium/estimates.php:23
+#: views/admin/reports/premium/invoices.php:23
+msgid "Subject"
+msgstr "Тема:"
+
+#: controllers/notifications/Notifications.php:671
+msgid "Quantity"
+msgstr "Количестов"
+
+#: controllers/notifications/Notifications.php:672
+msgid "% Adjustment"
+msgstr "% Корректировка"
+
+#: controllers/notifications/Notifications.php:1449
+#: controllers/notifications/Notifications_Admin_Table.php:89
+#: controllers/records/Records_Admin_Table.php:116
+#: controllers/records/Records_Admin_Table.php:206
+#: views/admin/meta-boxes/estimates/history.php:77
+msgid "Type"
+msgstr "тип"
+
+#: controllers/notifications/Notifications.php:233
+msgid "Used to display the total amount due, or deposit if set."
+msgstr ""
+"Используется для отображения причитающейся суммы, или задатка, если "
+"установлен."
+
+#: controllers/notifications/Notifications.php:237
+msgid "Used to display the deposit amount due."
+msgstr "Используется для отображения суммы задатка."
+
+#: controllers/notifications/Notifications.php:241
+msgid "Used to display the total of all payments."
+msgstr "Используется для отображения общей суммы всех платежей."
+
+#: controllers/notifications/Notifications.php:245
+msgid "Used to display the client name."
+msgstr "Используется для отображения имени клиента."
+
+#: controllers/notifications/Notifications.php:249
+msgid "Used to display the client edit url."
+msgstr "Используется для отображения URL редактирования клиента."
+
+#: controllers/notifications/Notifications.php:253
+msgid "Used to display the estimate subject."
+msgstr "Используется для отображения объекта сметы."
+
+#: controllers/notifications/Notifications.php:257
+msgid "Used to display the estimate id."
+msgstr "Используется для отображения ID сметы."
+
+#: controllers/notifications/Notifications.php:261
+msgid "Used to display the edit url."
+msgstr "Используется для отображения URL редактирования."
+
+#: controllers/notifications/Notifications.php:265
+msgid "Used to display the estimate url."
+msgstr "Используется для отображения URL сметы."
+
+#: controllers/notifications/Notifications.php:269
+msgid "Used to display the estimate issue date."
+msgstr "Используется для отображения дата выдачи сметы."
+
+#: controllers/notifications/Notifications.php:273
+msgid "Used to display the estimate po number."
+msgstr "Используется для отображения номера заказа сметы."
+
+#: controllers/notifications/Notifications.php:277
+#: controllers/notifications/Notifications.php:281
+msgid "Used to display the estimate total."
+msgstr "Используется для отображения суммы сметы."
+
+#: controllers/notifications/Notifications.php:285
+msgid "Used to display the estimate tax total."
+msgstr "Используется для отображения общего налога сметы."
+
+#: controllers/notifications/Notifications.php:289
+msgid "Used to display the estimate tax."
+msgstr "Используется для отображения налога сметы."
+
+#: controllers/notifications/Notifications.php:293
+msgid "Used to display the estimate tax (2)."
+msgstr "Используется для отображения налога сметы (2)."
+
+#: controllers/notifications/Notifications.php:297
+msgid "Used to display the estimate notes."
+msgstr ""
+
+#: controllers/notifications/Notifications.php:301
+msgid "Used to display the estimate terms."
+msgstr ""
+
+#: controllers/notifications/Notifications.php:305
+msgid "Used to display the lead entries in HTML."
+msgstr "Используется для отображения лид-записей в формате HTML."
+
+#: controllers/notifications/Notifications.php:668
+msgid "#"
+msgstr "#"
+
+#: controllers/notifications/Notifications.php:669
+msgid "Description"
+msgstr "Описание"
+
+#: controllers/line-items/Line_Items.php:506
+msgid "No item given!"
+msgstr "Элемент не дан!"
+
+#: controllers/notifications/Notifications.php:47
+msgid "Lead Received"
+msgstr "Поступил Лид"
+
+#: controllers/notifications/Notifications.php:48
+msgid ""
+"Customize the email that is sent to a prospective client after a lead is "
+"submitted."
+msgstr ""
+"Настройка электронной почты, которая отправляется к потенциальному клиенту "
+"после отправки лида."
+
+#: controllers/notifications/Notifications.php:50
+#: controllers/notifications/Notifications.php:99
+msgid "%s: Estimate Request Received"
+msgstr "%s: Получен запрос сметы"
+
+#: controllers/notifications/Notifications.php:56
+msgid "Estimate Available"
+msgstr "Доступные Сметы"
+
+#: controllers/notifications/Notifications.php:57
+msgid "Customize the estimate email that is sent to selected recipients."
+msgstr "Настройка сметного письма, отправленного выбранным получателям."
+
+#: controllers/notifications/Notifications.php:59
+msgid "%s: Your Estimate is Available"
+msgstr "%s: Ваша смета доступна"
+
+#: controllers/notifications/Notifications.php:64
+msgid "Invoice Available"
+msgstr "Доступные Счета"
+
+#: controllers/notifications/Notifications.php:65
+msgid "Customize the invoice email that is sent to selected recipients."
+msgstr ""
+"Настройка электронной почты счёта, который отправляется выбранным "
+"получателям."
+
+#: controllers/notifications/Notifications.php:67
+msgid "%s: Your Invoice is Available"
+msgstr "%s: Ваше Счёт доступен"
+
+#: controllers/notifications/Notifications.php:72
+msgid "Deposit Payment Received"
+msgstr "Получена Предоплата"
+
+#: controllers/notifications/Notifications.php:73
+msgid ""
+"Customize the payment email that is sent to the client recipients when a "
+"deposit is made."
+msgstr ""
+"Настройка платежной электронной почты, отправленную клиентам, после внесения "
+"задатка."
+
+#: controllers/notifications/Notifications.php:75
+msgid "%s: Deposit Received"
+msgstr "%s: Депозит получен"
+
+#: controllers/notifications/Notifications.php:80
+msgid "Invoice Paid"
+msgstr "Счёт Оплачен"
+
+#: controllers/notifications/Notifications.php:81
+msgid ""
+"Customize the email sent to the client recipients when the final payment for "
+"an invoice is made."
+msgstr ""
+"Настройка электронной почты которая отправляется клиенту, после внесения "
+"Окончательный расчет за выставленный счет."
+
+#: controllers/notifications/Notifications.php:83
+msgid "%s: Thank You"
+msgstr "%s: Спасибо"
+
+#: controllers/notifications/Notifications.php:87
+msgid "Payment Reminder"
+msgstr "Напоминание об оплате"
+
+#: controllers/notifications/Notifications.php:88
+msgid ""
+"Customize the email that is sent to the client recipients in order to remind "
+"them that their payment is overdue."
+msgstr ""
+"Настройка электронной почты, которая отправляется клиентам, чтобы напомнить "
+"им о просрочке платежа."
+
+#: controllers/notifications/Notifications.php:90
+msgid "%s: Invoice Payment Overdue"
+msgstr "%s: Платеж по счёту Просрочен"
+
+#: controllers/notifications/Notifications.php:96
+msgid "Lead Submitted"
+msgstr "Лид отправлен"
+
+#: controllers/notifications/Notifications.php:97
+msgid ""
+"Customize the email that is sent to the site admin after an lead is "
+"submitted."
+msgstr ""
+"Настройка электронной почты, которая отправляется  администратору сайта "
+"после отправки лида."
+
+#: controllers/notifications/Notifications.php:104
+msgid "Estimate Accepted"
+msgstr "Смета Принята"
+
+#: controllers/notifications/Notifications.php:105
+#: controllers/notifications/Notifications.php:112
+msgid "Customize the email sent to the admin after an estimate is accepted."
+msgstr ""
+"Настройка электронной почты, которая отправляется  администратору сайта "
+"после принятия сметы."
+
+#: controllers/notifications/Notifications.php:107
+msgid "%s: Estimate Accepted"
+msgstr "%s: Смета Принята"
+
+#: controllers/notifications/Notifications.php:111
+msgid "Estimate Declined"
+msgstr "Смета Отклонена"
+
+#: controllers/notifications/Notifications.php:114
+msgid "%s: Estimate Declined"
+msgstr "%s: Смета Отклонена"
+
+#: controllers/notifications/Notifications.php:118
+msgid "Payment Received"
+msgstr "Платёж поступил"
+
+#: controllers/notifications/Notifications.php:119
+msgid "Customize the email sent to an admin when any payment is received."
+msgstr ""
+"Настройка электронной почты, которая отправляется  администратору сайта, "
+"после получения платежа."
+
+#: controllers/notifications/Notifications.php:121
+msgid "%s: Payment Received"
+msgstr "%s: Платёж поступил"
+
+#: controllers/notifications/Notifications.php:133
+msgid "Used to display the date."
+msgstr "Используется для отображения даты."
+
+#: controllers/notifications/Notifications.php:137
+msgid "Used to display the user&rsquo;s name."
+msgstr "Используется для отображения имён пользователей."
+
+#: controllers/notifications/Notifications.php:141
+msgid "Used to display the user&rsquo;s login."
+msgstr "Используется для отображения логинов пользователей."
+
+#: controllers/notifications/Notifications.php:145
+msgid "Used to display the note created before sending."
+msgstr "Используется для отображения сведений, созданных перед отправкой."
+
+#: controllers/notifications/Notifications.php:149
+msgid "Used to display the payment total."
+msgstr "Используется для отображения общей суммы платежа."
+
+#: controllers/notifications/Notifications.php:153
+msgid "Used to display the ."
+msgstr "Используется для отображения ."
+
+#: controllers/notifications/Notifications.php:157
+msgid ""
+"Used to display the line items for an estimate or invoice in a table format "
+"(HTML)."
+msgstr ""
+"Используется для отображения позиции сметы или счёта в табличном формате "
+"(HTML)."
+
+#: controllers/notifications/Notifications.php:161
+msgid ""
+"Used to display the line items for an estimate or invoice in a list format "
+"(HTML)."
+msgstr ""
+"Используется для отображения позиции сметы или счёта в формате списка (HTML)."
+
+#: controllers/notifications/Notifications.php:165
+msgid ""
+"Used to display the line items for an estimate or invoice in a plain text "
+"list."
+msgstr ""
+"Используется для отображения позиции сметы или счета-фактуры в простом "
+"списке текста."
+
+#: controllers/notifications/Notifications.php:169
+msgid "Used to display the invoice subject."
+msgstr "Используется для отображения объекта счёта."
+
+#: controllers/notifications/Notifications.php:173
+msgid "Used to display the invoice id."
+msgstr "Используется для отображения ID счёта."
+
+#: controllers/notifications/Notifications.php:177
+msgid "Used to display the invoice edit url."
+msgstr "Используется для отображения URL изменения счёта."
+
+#: controllers/notifications/Notifications.php:181
+msgid "Used to display the invoice url."
+msgstr "Используется для отображения URL счёта."
+
+#: controllers/notifications/Notifications.php:185
+msgid "Used to display the invoice issue date."
+msgstr "Используется для отображения даты выставления счёта."
+
+#: controllers/notifications/Notifications.php:189
+msgid "Used to display the due date."
+msgstr "Используется для отображения срока."
+
+#: controllers/notifications/Notifications.php:193
+msgid "Used to display how many days the invoice is past due."
+msgstr "Используется для отображения того, на сколько дней счёт просрочен."
+
+#: controllers/notifications/Notifications.php:197
+msgid "Used to display the invoice po number."
+msgstr "Используется для отображения номера заказа счёта."
+
+#: controllers/notifications/Notifications.php:201
+msgid "Used to display the invoice tax total."
+msgstr "Используется для отображения общего налога счёта."
+
+#: controllers/notifications/Notifications.php:205
+msgid "Used to display the invoice tax."
+msgstr "Используется для отображения налога счёта."
+
+#: controllers/notifications/Notifications.php:209
+msgid "Used to display the invoice tax (2)."
+msgstr "Используется для отображения налога счёта (2)."
+
+#: controllers/notifications/Notifications.php:213
+msgid "Used to display the invoice notes."
+msgstr ""
+
+#: controllers/notifications/Notifications.php:217
+msgid "Used to display the invoice terms."
+msgstr ""
+
+#: controllers/notifications/Notifications.php:221
+msgid "Used to display the invoice total."
+msgstr "Используется для отображения суммы счёта."
+
+#: controllers/notifications/Notifications.php:225
+msgid "Used to display the invoice calculated total."
+msgstr "Используется для отображения расчётной суммы счёта."
+
+#: controllers/notifications/Notifications.php:229
+msgid "Used to display the invoice sub total."
+msgstr "Используется для отображения итога счёта."
+
+#: controllers/line-items/Line_Items.php:303
+#: controllers/line-items/Line_Items.php:352
+#: views/admin/reports/premium/estimates.php:27
+msgid "Subtotal"
+msgstr "Итого"
+
+#: controllers/line-items/Line_Items.php:310
+#: controllers/line-items/Line_Items.php:360
+msgid "Taxes"
+msgstr "налоги"
+
+#: controllers/line-items/Line_Items.php:329
+#: controllers/line-items/Line_Items.php:379
+msgid "Total includes discounts and other fees."
+msgstr "Всего включает в себя скидки и другие сборы."
+
+#: controllers/line-items/Line_Items.php:393
+#: views/admin/reports/premium/invoices.php:27
+#: views/templates/checkout/confirmation.php:156
+#: views/templates/invoice/invoice.php:175
+msgid "Balance"
+msgstr "Баланс"
+
+#: controllers/line-items/Line_Items.php:97
+#: controllers/line-items/Line_Items.php:145
+#: controllers/line-items/Line_Items.php:195
+msgid "A percentage adjustment per line item, i.e. tax or discount"
+msgstr "Регулировка позиции  в процентах , т.е. налога или скидки"
+
+#: controllers/line-items/Line_Items.php:104
+#: controllers/line-items/Line_Items.php:152
+#: controllers/line-items/Line_Items.php:203
+#: controllers/payment-processing/processors/SI_Admin_Payment.php:107
+#: controllers/payment-processing/processors/SI_Checks.php:109
+msgid "Amount"
+msgstr "Сумма"
+
+#: controllers/line-items/Line_Items.php:116
+msgid "Products"
+msgstr "Продукты"
+
+#: controllers/line-items/Line_Items.php:123
+msgid "SKU"
+msgstr "АРТИКУЛ"
+
+#: controllers/line-items/Line_Items.php:138
+#: controllers/line-items/Line_Items.php:187
+msgid "Qty"
+msgstr "Кол-во"
+
+#: controllers/line-items/Line_Items.php:165
+msgid "Tasks"
+msgstr "Задачи"
+
+#: controllers/line-items/Line_Items.php:179
+#: controllers/notifications/Notifications.php:670
+msgid "Rate"
+msgstr "Скорость"
+
+#: controllers/invoices/Invoices_Edit.php:64
+msgid "Invoice Permalink Slug"
+msgstr "Ярлык постоянной ссылки Счета"
+
+#: controllers/invoices/Invoices_Edit.php:72
+msgid "Example invoice url: %s/%s/045b41dd14ab8507d80a27b7357630a5/"
+msgstr "Пример гиперссылки на счёт: %s/%s/045b41dd14ab8507d80a27b7357630a5/"
+
+#: controllers/invoices/Invoices_Edit.php:81
+msgid "These are the default terms for an invoice."
+msgstr "Это условия по умолчанию счёта."
+
+#: controllers/invoices/Invoices_Edit.php:90
+msgid "These are the default notes public to a client reviewing their invoice."
+msgstr ""
+"Примечания по умолчанию опубликованные клиенту который рассматривает счёт."
+
+#: controllers/invoices/Invoices_Edit.php:206
+#: views/admin/meta-boxes/invoices/send.php:6
+msgid "Send Invoice"
+msgstr "Отправить счёт"
+
+#: controllers/invoices/Invoices_Edit.php:215
+msgid "Invoice History"
+msgstr "История Счёта"
+
+#: controllers/invoices/Invoices_Edit.php:437
+msgid "Invoice updated by %s."
+msgstr "Счет обновлён %s."
+
+#: controllers/invoices/Invoices_Edit.php:454
+msgid "Save this invoice before sending."
+msgstr "Сохранить этот счёт перед отправкой."
+
+#: controllers/invoices/Invoices_Edit.php:612
+msgid ""
+"A notification will be sent if recipients are selected and this invoice is "
+"saved."
+msgstr ""
+"Уведомление будет отправлено, если выбраны получатели, и этот счёт сохранен."
+
+#: controllers/invoices/Invoices_Edit.php:622
+msgid ""
+"This note will be added to the Invoice Notification via the [admin_note] "
+"shortcode."
+msgstr ""
+"Это примечание будет добавлено ​​к Уведомлению Счета с помощью шорткода "
+"[admin_note]."
+
+#: controllers/invoices/Invoices_Template.php:67
+#: views/templates/invoice/invoice.php:48
+msgid "Pay Deposit"
+msgstr "Оплатить Задаток"
+
+#: controllers/invoices/Invoices_Template.php:67
+#: views/templates/invoice/invoice.php:48
+msgid "Pay Invoice"
+msgstr "Оплатить Счёт"
+
+#: controllers/line-items/Line_Items.php:39
+msgid "Task"
+msgstr "Задача"
+
+#: controllers/line-items/Line_Items.php:40
+msgid "Service"
+msgstr "Сервис"
+
+#: controllers/line-items/Line_Items.php:41
+msgid "Product"
+msgstr "Товар"
+
+#: controllers/line-items/Line_Items.php:69
+msgid "Services"
+msgstr "Сервисы"
+
+#: controllers/line-items/Line_Items.php:83
+#: controllers/line-items/Line_Items.php:131
+msgid "Price"
+msgstr "Цена"
+
+#: controllers/invoices/Invoices_Admin.php:115
+msgid "Review payments."
+msgstr "Обзор платежей."
+
+#: controllers/invoices/Invoices_Admin.php:115
+#: controllers/line-items/Line_Items.php:385
+#: controllers/payments/Payments.php:45 controllers/payments/Payments.php:46
+#: controllers/payments/Payments.php:189
+#: controllers/reporting/Dashboard.php:218 importers/CSV.php:72
+#: languages/SI_Strings.php:23 views/admin/dashboards/payments-chart.php:50
+#: views/admin/dashboards/premium/balances-chart.php:64
+#: views/admin/dashboards/premium/payments-chart.php:64
+msgid "Payments"
+msgstr "Платежи"
+
+#: controllers/invoices/Invoices_Admin.php:255
+msgid "Manage Invoices"
+msgstr "Управление счетами"
+
+#: controllers/invoices/Invoices_Admin.php:256
+msgid ""
+"The status on the invoice table view can be updated without having to go the "
+"edit screen by click on the current status and selecting a new one."
+msgstr ""
+"Статус счёта на табличном виде может быть обновлен без необходимости "
+"проходить на экран редактирования, щелкните на текущем статусе и выберите "
+"новый."
+
+#: controllers/invoices/Invoices_Admin.php:256
+msgid ""
+"Payments are tallied and shown in the Paid column. Hovering over the invoice "
+"row will show a Payments link."
+msgstr ""
+"Платежи подсчитаны и показаны в колонке оплаты. При наведении курсора на "
+"строке счёта будет видна платёжная ссылка."
+
+#: controllers/invoices/Invoices_Admin.php:256
+msgid ""
+"If the invoice has an associated estimate the icon linking to the edit page "
+"of the estimate will show in the last column."
+msgstr ""
+"Если счёт имеет связанную смету значок ссылки на страницу редактирования "
+"сметы будет виден в последнем столбце."
+
+#: controllers/invoices/Invoices_Admin.php:261
+msgid "Editing Invoices"
+msgstr "Редактирование счетов"
+
+#: controllers/invoices/Invoices_Admin.php:262
+msgid ""
+"Editing invoices is intentionally easy to do but a review here would exhaust "
+"this limited space. Please review the knowledgebase for a complete overview."
+msgstr ""
+"Редактирование счетов намеренно простое, но обзор здесь, исчерпает это "
+"ограниченное пространство. Пожалуйста, ознакомьтесь с базой знаний, для "
+"полного обзора."
+
+#: controllers/invoices/Invoices_Deposit.php:33
+#: controllers/invoices/Invoices_Deposit.php:40
+msgid "Deposit Due"
+msgstr "Предоплата"
+
+#: controllers/invoices/Invoices_Edit.php:59
+msgid "Invoice Settings"
+msgstr "Настройки Счета"
+
+#: controllers/invoices/Invoices.php:169
+msgid ""
+"This payment was automatically added to settle the balance after it was "
+"marked as \"Paid\"."
+msgstr ""
+"Этот платеж был автоматически добавлен урегулировать баланс после того, как "
+"был отмечен как \"Оплачено\"."
+
+#: controllers/invoices/Invoices_Admin.php:77 languages/SI_Strings.php:26
+#: views/admin/reports/premium/estimates.php:24
+#: views/admin/reports/premium/payments.php:24
+#: views/templates/checkout/confirmation.php:57
+#: views/templates/invoice/invoice.php:72
+msgid "Invoice"
+msgstr "Счёт"
+
+#: controllers/invoices/Invoices_Admin.php:79 models/Invoice.php:77
+#: views/admin/reports/premium/invoices.php:26
+#: views/admin/reports/premium/payments.php:27
+#: views/admin/sections/invoice-status-change-drop.php:10
+#: views/templates/checkout/confirmation.php:70
+#: views/templates/invoice/invoice.php:90
+msgid "Paid"
+msgstr "Оплачено"
+
+#: controllers/invoices/Invoices_Admin.php:102
+msgid "Invoice's Estimate"
+msgstr "Счета сметы"
+
+#: controllers/invoices/Invoices_Admin.php:112
+msgid "of"
+msgstr "от"
+
+#: controllers/estimates/Estimates_Edit.php:591
+#: controllers/invoices/Invoices_Edit.php:603
+msgid "client@email.com"
+msgstr "client@email.com"
+
+#: controllers/estimates/Estimates_Edit.php:591
+#: controllers/invoices/Invoices_Edit.php:603
+msgid ""
+"Entering an email will prevent some notification shortcodes from working "
+"since there is no client."
+msgstr ""
+"Ввод адреса электронной почты предотвратит работу некоторых шорткодов "
+"уведомлений, так как нет ни одного клиента."
+
+#: controllers/estimates/Estimates_Edit.php:594
+#: controllers/invoices/Invoices_Edit.php:606
+msgid "Send me a copy"
+msgstr "Отправить себе копию"
+
+#: controllers/estimates/Estimates_Edit.php:600
+#: controllers/invoices/Invoices_Edit.php:612
+msgid "Recipients"
+msgstr "Получатели"
+
+#: controllers/estimates/Estimates_Edit.php:600
+msgid ""
+"A notification will be sent if recipients are selected and this estimate is "
+"saved."
+msgstr ""
+"Будет выслано уведомление, если выбраны получатели и эта смета сохранена."
+
+#: controllers/estimates/Estimates_Edit.php:607
+#: controllers/invoices/Invoices_Edit.php:619
+msgid "Note"
+msgstr "Примечание"
+
+#: controllers/estimates/Estimates_Edit.php:610
+msgid ""
+"This note will be added to the Estimate Notification via the [admin_note] "
+"shortcode."
+msgstr ""
+"Это примечание будет добавлено к сметному уведомлению с помощью шорткода "
+"[admin_note]."
+
+#: controllers/estimates/Estimates_Records.php:34
+#: controllers/invoices/Invoices_Records.php:31
+msgid "Status changed: %s to <b>%s</b>."
+msgstr "Статус изменился: %s до <b>%s</b>."
+
+#: controllers/estimates/Estimates_Records.php:37
+#: controllers/invoices/Invoices_Records.php:34
+msgid "Status update for %s."
+msgstr "Обновление статуса для %s."
+
+#: controllers/estimates/Estimates_Records.php:53
+msgid "Invoice Created: <a href=\"%s\">%s</a>."
+msgstr "Счёт Создан: <a href=\"%s\">%s</a>."
+
+#: controllers/estimates/Estimates_Records.php:56
+msgid "Invoice Created: %s."
+msgstr "Счёт Создан: %s."
+
+#: controllers/estimates/Estimates_Records.php:90
+msgid "Estimate viewed by %s."
+msgstr "Смета рассмотрена %s."
+
+#: controllers/i18n/Countries_States.php:578
+msgid "Select"
+msgstr "Выбирать"
+
+#: controllers/estimates/Estimates_Admin.php:136
+#: controllers/line-items/Line_Items.php:326
+#: controllers/line-items/Line_Items.php:376
+#: controllers/notifications/Notifications.php:673
+#: views/admin/reports/premium/estimates.php:26
+msgid "Total"
+msgstr "Итог"
+
+#: controllers/estimates/Estimates_Admin.php:160
+msgid "Invoice for this estimate."
+msgstr "Счет для этой сметы."
+
+#: controllers/estimates/Estimates_Admin.php:177
+#: controllers/invoices/Invoices_Admin.php:125
+msgid "No client"
+msgstr "Нет клиента"
+
+#: controllers/estimates/Estimates_Edit.php:64
+msgid "Estimate Settings"
+msgstr "Настройки Сметы"
+
+#: controllers/estimates/Estimates_Edit.php:69
+msgid "Estimate Permalink Slug"
+msgstr "Ярлык постоянной ссылки сметы"
+
+#: controllers/estimates/Estimates_Edit.php:77
+msgid "Example estimate url: %s/%s/045b41dd14ab8507d80a27b7357630a5/"
+msgstr "Пример сметной гиперссылки: %s/%s/045b41dd14ab8507d80a27b7357630a5/"
+
+#: controllers/estimates/Estimates_Edit.php:82
+#: controllers/invoices/Invoices_Edit.php:77
+msgid "Default Terms"
+msgstr "Условия по умолчанию"
+
+#: controllers/estimates/Estimates_Edit.php:86
+msgid "These are the default terms for an estimate."
+msgstr "Это условия по умолчанию для сметы"
+
+#: controllers/estimates/Estimates_Edit.php:90
+#: controllers/invoices/Invoices_Edit.php:86
+msgid "Default Note"
+msgstr "Примечание по умолчанию "
+
+#: controllers/estimates/Estimates_Edit.php:94
+msgid ""
+"These are the default notes public to a client reviewing their estimate."
+msgstr ""
+"Примечания по умолчанию опубликованные клиенту который рассматривает смету."
+
+#: controllers/estimates/Estimates_Edit.php:191
+#: controllers/invoices/Invoices_Edit.php:188
+msgid "Management"
+msgstr "Управление"
+
+#: controllers/estimates/Estimates_Edit.php:209
+#: views/admin/meta-boxes/estimates/send.php:6
+msgid "Send Estimate"
+msgstr "Отправить Смету"
+
+#: controllers/estimates/Estimates_Edit.php:218
+msgid "Estimate History"
+msgstr "Сметная История"
+
+#: controllers/estimates/Estimates_Edit.php:226
+#: controllers/invoices/Invoices_Edit.php:223
+msgid "Terms & Notes"
+msgstr "Условия и Примечания"
+
+#: controllers/estimates/Estimates_Edit.php:427
+msgid "Estimate updated by %s."
+msgstr "Смета обновлена %s."
+
+#: controllers/estimates/Estimates_Edit.php:430
+#: controllers/invoices/Invoices_Edit.php:440
+msgid "Data updated for %s."
+msgstr "Дата обновления %s."
+
+#: controllers/estimates/Estimates_Edit.php:444
+msgid "Save this estimate before sending."
+msgstr "Сохранить эту смету перед отправкой."
+
+#: controllers/estimates/Estimates_Edit.php:571
+#: controllers/invoices/Invoices_Edit.php:581
+msgid "Sender"
+msgstr "Отправитель"
+
+#: controllers/estimates/Estimates_Admin.php:134 languages/SI_Strings.php:27
+#: views/templates/estimate/estimate.php:61
+msgid "Estimate"
+msgstr "Смета"
+
+#: controllers/estimates/Estimates_Admin.php:135
+#: controllers/invoices/Invoices_Admin.php:78
+#: controllers/payments/Payments_Admin_Table.php:214
+#: views/admin/reports/premium/estimates.php:21
+#: views/admin/reports/premium/invoices.php:21
+#: views/admin/reports/premium/payments.php:21
+msgid "Status"
+msgstr "Статус"
+
+#: controllers/clients/Clients.php:610
+msgid "Full Name & Title"
+msgstr "Полное имя и Название"
+
+#: controllers/clients/Clients.php:661
+msgid "Currency Code"
+msgstr "Код валюты"
+
+#: controllers/clients/Clients.php:667
+msgid ""
+"This setting will override the setting for each payment processor that "
+"supports differing currency codes."
+msgstr ""
+"Этот параметр будет перекрывать настройки для каждой платежной системы, "
+"которая поддерживает различные коды валют."
+
+#: controllers/clients/Clients.php:687
+#: controllers/payment-processing/Payment_Processors.php:165
+msgid "Money Format"
+msgstr "Денежный Формат"
+
+#: controllers/clients/Clients.php:693
+msgid ""
+"Current format: %1$s. The default money formatting (%2$s) can be overridden "
+"for all client estimates and invoices here."
+msgstr ""
+"Текущий формат: %1$s. Денежный Формат по умолчанию (%2$s) можно "
+"переопределить для всех смет и счетов клиентов здесь."
+
+#: controllers/clients/Clients.php:1077
+#: controllers/reporting/Dashboard.php:219 importers/CSV.php:51
+#: languages/SI_Strings.php:21
+msgid "Clients"
+msgstr "Клиенты"
+
+#: controllers/clients/Clients.php:1105
+msgid "Manage Clients"
+msgstr "Управление клиентами"
+
+#: controllers/clients/Clients.php:1106
+msgid ""
+"The information here is used for estimates and invoices and includes "
+"settings to: Edit Company Name, Edit the company address, and Edit their "
+"website url."
+msgstr ""
+"Эта информация используется для смет и счетов и включает в себя настройки "
+"для: изменения Названия Компании, изменения Адреса Компании, а также "
+"изменения их адреса веб-сайта."
+
+#: controllers/clients/Clients.php:1106
+msgid ""
+"<b>Important note:</b> when clients are created new WordPress users are also "
+"created and given the “client” role. Creating users will allow for future "
+"functionality, i.e. client dashboards."
+msgstr ""
+"<b>Важное примечание:</b> когда клиенты создают новые учётные записи "
+"пользователей WordPress также создаётся \"клиент\" роль. Создание "
+"пользователей будет использовано в будущей функциональности, т.н. клиентских "
+"панелях."
+
+#: controllers/clients/Clients.php:1111
+#: views/admin/meta-boxes/clients/submit.php:21
+msgid "Associated Users"
+msgstr "Связанные Пользователи"
+
+#: controllers/clients/Clients.php:1112
+msgid ""
+"When clients are created a WP user is created and associated and clients are "
+"not limited to a single user. Not limited a client to a single user allows "
+"for you to have multiple points of contact at/for a company/client. Example, "
+"the recipients for sending estimate and invoice notifications are these "
+"associated users."
+msgstr ""
+"При создании клиента, создаётся ассоциация с пользователем WP, она может не "
+"ограничиваться одним пользователем. Не ограничивая клиента одним "
+"пользователем позволит вам иметь несколько точек соприкосновения в/для "
+"компании/клиента. Например, получатели для отправки сметы, и уведомлений "
+"счета  это связанные пользователи."
+
+#: controllers/clients/Clients.php:1117
+msgid "Client History"
+msgstr "История Клиента"
+
+#: controllers/clients/Clients.php:1118
+msgid ""
+"Important points are shown in the client history and just like estimate and "
+"invoices private notes can be added for only you and other team members to "
+"see."
+msgstr ""
+"Важные моменты показанные в истории клиента такие, как смета и счета, личные "
+"примечания могут быть добавлены только вами и другими членами команды, для "
+"просмотра."
+
+#: controllers/clients/Clients.php:1123
+msgid "Invoices and Estimates"
+msgstr "Счета и Сметы"
+
+#: controllers/clients/Clients.php:1124
+msgid ""
+"All invoices and estimates associated with the client are shown below the "
+"associated users option. This provides a quick way to jump to the record you "
+"need to see."
+msgstr ""
+"Все счета и сметы, связанные с клиентом, приведенные ниже, связаны с "
+"соответствующими опциями пользователей. Это обеспечивает быстрый способ, "
+"перехода к нужной записи, для просмотра."
+
+#: controllers/developer/Logs.php:50
+msgid "Save Logs"
+msgstr "Сохранять Логи"
+
+#: controllers/developer/Logs.php:52
+msgid "Save all logs as a sprout apps records (dev_log)."
+msgstr "Сохранять все логи, как записи sprout apps (dev_log)."
+
+#: controllers/developer/Logs.php:56
+msgid ""
+"Note: This should only be used for testing and troubleshooting. Records are "
+"found under Tools."
+msgstr ""
+"Примечание: Это должно быть использовано только для тестирования и поиска "
+"неисправностей. Записи находятся в меню Инструменты."
+
+#: controllers/estimates/Estimate_Submission.php:33
+#: views/admin/sprout-invoices-dashboard.php:38
+msgid "Lead Generation"
+msgstr "Генерация Лидов"
+
+#: controllers/estimates/Estimate_Submission.php:39
+msgid "Default Submission Form"
+msgstr "Форма отправки по умолчанию"
+
+#: controllers/estimates/Estimate_Submission.php:42
+msgid "N/A in free version"
+msgstr "Недоступно в бесплатной версии"
+
+#: controllers/estimates/Estimate_Submission.php:43
+msgid ""
+"To get you started, Sprout Invoices provides a <a href=\"%s\" target=\"_blank"
+"\">fully customizable form</a> for estimate submissions. Simply add this "
+"shortcode to a page and an estimate submission form will be available to "
+"prospective clients. Notifications will be sent for each submission and a "
+"new estimate (and client) will be generated."
+msgstr ""
+"Чтобы вы начали, Sprout Invoices обеспечивает <a href=\"%s\" target=\"_blank"
+"\">полностью настраиваемую форму</a> сметных материалов. Просто добавьте "
+"шорткод на страницу и форма представления сметы будет доступна для "
+"потенциальных клиентов. Уведомления будут отправлены для каждого "
+"представления и сгенерирована новая смета (и клиент)."
+
+#: controllers/estimates/Estimate_Submission.php:47
+msgid "Gravity Forms and Ninja Forms Integration"
+msgstr "Интеграция Gravity Forms и Ninja Forms"
+
+#: controllers/estimates/Estimate_Submission.php:51
+msgid ""
+"Instead of creating our own advanced form builder we've integrated with the "
+"top WordPress form plugins. Make sure to read the <a href=\"%s\" target="
+"\"_blank\">integration guide</a> to make the best use of your custom forms."
+msgstr ""
+"Вместо того чтобы создавать наш собственный расширенный конструктор форм мы "
+"интегрировали популярные плагины форм WordPress. Обязательно прочитайте <a "
+"href=\"%s\" target=\"_blank\">инструкцию интеграции</a> , чтобы наилучшим "
+"образом использовать пользовательские формы."
+
+#: controllers/estimates/Estimate_Submission.php:63
+msgid ""
+"<strong>Upgrade Available:</strong> Enable Estimate Submission integrations "
+"and support the future of Sprout Invoices by <a href=\"%s\">upgrading</a>."
+msgstr ""
+"<strong>Доступен Апгрейд:</strong> Включить Интеграцию Отправки Смет и "
+"поддержку будущего Sprout Invoices путём <a href=\"%s\">апгрейда</a> ."
+
+#: controllers/estimates/Estimate_Submission.php:65
+msgid ""
+"<p>Estimate submissions is the start of the <a href=\"%s\">Sprout Invoices "
+"workflow</a>.</p>"
+msgstr ""
+"<p>Сметные материалы являются началом <a href=\"%s\">документооборота Sprout "
+"Invoices</a>.</p>"
+
+#: controllers/estimates/Estimate_Submission.php:75
+msgid "$0-5"
+msgstr "0-5$"
+
+#: controllers/estimates/Estimate_Submission.php:77
+msgid "Advanced Form Integration with Gravity and Ninja Forms"
+msgstr "Расширенная Форма Интеграции с Gravity и Ninja Forms"
+
+#: controllers/estimates/Estimates.php:115
+#: controllers/invoices/Invoices.php:130
+msgid "Notification Queued"
+msgstr "Уведомление в очереди"
+
+#: controllers/estimates/Estimates_Admin.php:98
+msgid "Manage Estimates"
+msgstr "Управление Сметами"
+
+#: controllers/estimates/Estimates_Admin.php:99
+msgid ""
+"The status on the estimate table view can be updated without having to go "
+"the edit screen by click on the current status and selecting a new one."
+msgstr ""
+"Статус сметы на табличном виде может быть обновлен без необходимости "
+"проходить на экран редактирования, щелкните на текущем статусе и выберите "
+"новый."
+
+#: controllers/estimates/Estimates_Admin.php:99
+msgid ""
+"If an invoice is associated an icon linking to the edit page will show in "
+"the last column."
+msgstr ""
+"Если счёт связан значок ссылки на страницу редактирования будет виден в "
+"последнем столбце."
+
+#: controllers/estimates/Estimates_Admin.php:104
+msgid "Editing Estimates"
+msgstr "Редактирование Смет"
+
+#: controllers/estimates/Estimates_Admin.php:105
+msgid ""
+"Editing estimates is intentionally easy to do but a review here would "
+"exhaust this limited space. Please review the knowledgebase for a complete "
+"overview."
+msgstr ""
+"Редактирование смет намеренно простое, но обзор здесь, исчерпает это "
+"ограниченное пространство. Пожалуйста, ознакомьтесь с базой знаний, для "
+"полного обзора."
+
+#: controllers/estimates/Estimates_Admin.php:105
+#: controllers/invoices/Invoices_Admin.php:262
+msgid "Knowledgebase Article"
+msgstr "Статья Базы знаний"
+
+#: controllers/clients/Clients.php:573
+msgid ""
+"This e-mail will be used to create a new client user. Leave blank if "
+"associating an existing user."
+msgstr ""
+"Эта электронная почта будет использоваться для создания нового клиента. "
+"Оставьте пустым, для связи с существующим пользователем."
+
+#: controllers/clients/Clients.php:580 controllers/projects/Projects.php:341
+msgid "Website"
+msgstr "Адрес сайта"
+
+#: controllers/clients/Clients.php:439
+msgid "No associated users"
+msgstr "Нет соответствующих пользователей"
+
+#: controllers/clients/Clients.php:457 controllers/clients/Clients.php:476
+#: controllers/projects/Projects.php:445 controllers/projects/Projects.php:465
+msgid "...%s of <a href=\"%s\">%s</a> most recent shown"
+msgstr "...%s из <a href=\"%s\">%s</a> последних показанных"
+
+#: controllers/clients/Clients.php:460 controllers/projects/Projects.php:449
+#: views/admin/meta-boxes/clients/submit.php:65
+#: views/admin/meta-boxes/projects/submit.php:30
+msgid "No invoices"
+msgstr "Нет счетов"
+
+#: controllers/clients/Clients.php:479 controllers/projects/Projects.php:469
+#: views/admin/meta-boxes/clients/submit.php:80
+#: views/admin/meta-boxes/projects/submit.php:44
+msgid "No estimates"
+msgstr "Нет смет"
+
+#: controllers/clients/Clients.php:515
+msgid "<a class=\"doc_link\" title=\"%s\" href=\"%s\">%s</a>"
+msgstr "<a class=\"doc_link\" title=\"%s\" href=\"%s\">%s</a>"
+
+#: controllers/clients/Clients.php:570 controllers/clients/Clients.php:617
+msgid "Email"
+msgstr "Электронная Почта"
+
+#: controllers/clients/Clients.php:392 controllers/projects/Projects.php:386
+msgid "Info"
+msgstr "Подробно"
+
+#: controllers/clients/Clients.php:393
+#: controllers/invoices/Invoices_Admin.php:227
+#: controllers/projects/Projects.php:387
+#: controllers/reporting/Dashboard.php:216 importers/CSV.php:65
+#: languages/SI_Strings.php:19
+#: views/admin/dashboards/estimates-invoices-chart.php:47
+#: views/admin/dashboards/premium/estimates-invoices-chart.php:66
+#: views/admin/meta-boxes/clients/submit.php:56
+msgid "Invoices"
+msgstr "Счета"
+
+#: controllers/clients/Clients.php:394
+#: controllers/estimates/Estimates_Admin.php:69
+#: controllers/projects/Projects.php:388
+#: controllers/reporting/Dashboard.php:217 importers/CSV.php:58
+#: languages/SI_Strings.php:20
+#: views/admin/dashboards/estimates-invoices-chart.php:37
+#: views/admin/dashboards/premium/estimates-invoices-chart.php:56
+#: views/admin/meta-boxes/clients/submit.php:71
+msgid "Estimates"
+msgstr "Сметы"
+
+#: controllers/clients/Clients.php:426
+msgid "Users"
+msgstr "Пользователи"
+
+#: controllers/checkout/Checkouts.php:156
+msgid "Confirmation"
+msgstr "Подтверждение"
+
+#: controllers/checkout/Checkouts.php:240
+msgid "Invoice ID invalid. Payments are disabled."
+msgstr "ID Счета недействительный. Платежи будут отключены."
+
+#: controllers/checkout/Checkouts.php:247
+msgid "No invoice associated with this checkout."
+msgstr "Нет счета, связанного с этим оформлением заказа."
+
+#: controllers/clients/Clients.php:104
+#: controllers/estimates/Estimates_Edit.php:200
+#: controllers/invoices/Invoices_Edit.php:197
+#: controllers/projects/Projects.php:86
+msgid "Information"
+msgstr "Информация"
+
+#: controllers/clients/Clients.php:128 controllers/projects/Projects.php:101
+msgid "History"
+msgstr "История"
+
+#: controllers/clients/Clients.php:339
+#: controllers/estimates/Estimates_Edit.php:508
+#: controllers/invoices/Invoices_Edit.php:518
+#: controllers/projects/Projects.php:240
+msgid "No history available."
+msgstr "История не доступна."
+
+#: controllers/clients/Clients.php:391
+#: controllers/estimates/Estimates_Admin.php:137
+#: controllers/invoices/Invoices_Admin.php:80
+#: controllers/notifications/Notifications.php:534
+#: controllers/notifications/Notifications.php:548
+#: controllers/notifications/Notifications.php:573
+#: controllers/payments/Payments_Admin_Table.php:109
+#: controllers/projects/Projects.php:311 controllers/projects/Projects.php:411
+#: importers/WP-Invoice.php:240 languages/SI_Strings.php:28
+#: models/Client.php:50 views/admin/reports/premium/estimates.php:25
+#: views/admin/reports/premium/invoices.php:24
+#: views/admin/reports/premium/payments.php:25
+msgid "Client"
+msgstr "Клиент"
+
+#: controllers/admin/Settings_API.php:466
+msgid "Saved"
+msgstr "Сохранено"
+
+#: controllers/checkout/Checkouts.php:148
+#: controllers/payments/Payments_Admin_Table.php:215
+#: languages/SI_Strings.php:30 template-tags/invoices.php:1004
+#: views/admin/reports/premium/payments.php:80
+msgid "Payment"
+msgstr "Оплата"
+
+#: controllers/checkout/Checkouts.php:152
+msgid "Review"
+msgstr "Рассмотрение"
+
+#: controllers/admin/Settings_API.php:462
+msgid "Cheatin&#8217; uh?"
+msgstr "Cheatin&#8217; да?"
+
+#. #-#-#-#-#  tmp-sprout-invoices.pot (Sprout Invoices 9.4)  #-#-#-#-#
+#. Author of the plugin/theme
+#: controllers/admin/Settings_API.php:170
+#: controllers/admin/Settings_API.php:171
+#: controllers/reporting/Dashboard.php:141
+msgid "Sprout Apps"
+msgstr "Sprout Apps"
+
+#: controllers/admin/Settings_API.php:171
+msgid "Updates"
+msgstr "Статусы"
+
+#: controllers/admin/Settings_API.php:419
+msgid "-- Select --"
+msgstr "-- Выбрать --"
+
+#: controllers/admin/Settings.php:654 controllers/clients/Clients.php:1130
+#: controllers/estimates/Estimates_Admin.php:111
+#: controllers/invoices/Invoices_Admin.php:268
+#: controllers/notifications/Notifications_Control.php:797
+#: controllers/payment-processing/Payment_Processors.php:598
+#: controllers/payments/Payments.php:220 controllers/projects/Projects.php:539
+#: controllers/reporting/Reporting.php:841 importers/Importer.php:166
+#: views/admin/sprout-invoices-dashboard.php:103
+msgid "Support"
+msgstr "Служба Поддержки"
+
+#: controllers/admin/Settings.php:653 controllers/clients/Clients.php:1129
+#: controllers/estimates/Estimates_Admin.php:110
+#: controllers/invoices/Invoices_Admin.php:267
+#: controllers/notifications/Notifications_Control.php:796
+#: controllers/payment-processing/Payment_Processors.php:597
+#: controllers/payments/Payments.php:219 controllers/projects/Projects.php:538
+#: controllers/reporting/Reporting.php:840 importers/Importer.php:165
+#: views/admin/sprout-invoices-dashboard.php:40
+#: views/admin/sprout-invoices-dashboard.php:46
+#: views/admin/sprout-invoices-dashboard.php:52
+#: views/admin/sprout-invoices-dashboard.php:75
+#: views/admin/sprout-invoices-dashboard.php:82
+#: views/admin/sprout-invoices-dashboard.php:88
+#: views/admin/sprout-invoices-dashboard.php:93
+#: views/admin/sprout-invoices-dashboard.php:98
+#: views/admin/sprout-invoices-dashboard.php:103
+msgid "Documentation"
+msgstr "Документация (англ.)"
+
+#: controllers/admin/Settings.php:648
+msgid ""
+"The option to Save Logs is for debugging purposes and not recommended, "
+"unless advised. It’s important to note that turning enabling this option on "
+"a live site may cause private transaction data to be saved in the DB "
+"unencrypted, i.e. CC data."
+msgstr ""
+"Опция Сохранения Логов служит для отладки и не рекомендуется, без "
+"необходимости. Важно отметить, что включение этой опции на действующем сайте "
+"может привести к передаче личных данных в незашифрованном виде, то есть CC "
+"данные."
+
+#: controllers/admin/Settings.php:652 controllers/clients/Clients.php:1128
+#: controllers/estimates/Estimates_Admin.php:109
+#: controllers/invoices/Invoices_Admin.php:266
+#: controllers/notifications/Notifications_Control.php:795
+#: controllers/payment-processing/Payment_Processors.php:596
+#: controllers/payments/Payments.php:218 controllers/projects/Projects.php:537
+#: controllers/reporting/Reporting.php:839 importers/Importer.php:164
+msgid "For more information:"
+msgstr "Для дополнительной информации:"
+
+#: controllers/admin/Settings.php:618
+msgid "Activate your license if you have not done so already."
+msgstr "Активируйте лицензию, если вы не сделали этого ранее."
+
+#: controllers/admin/Settings.php:623
+#: controllers/payment-processing/Payment_Processors.php:579
+msgid "Credit Card Processing"
+msgstr "Обработка кредитных карт"
+
+#: controllers/admin/Settings.php:624
+msgid ""
+"To get you started, Sprout Invoices provides a fully customizable form for "
+"estimate submissions. Add the shortcode below to a page to use this default "
+"form: <code>[estimate_submission]Thank you![/estimate_submission]</code>"
+msgstr ""
+"Для начала, Sprout Invoices предоставляет полностью настраиваемую форму для "
+"отправки сметы. Добавьте ниже шорткод на страницу, используя эту форму по "
+"умолчанию: <code>[estimate_submission]Спасибо![/estimate_submission]</code>"
+
+#: controllers/admin/Settings.php:624
+msgid ""
+"Additional documentation is available to customize the default estimate form "
+"and using the integration add-on."
+msgstr ""
+"Дополнительная документация доступна для настройки формы сметы по умолчанию "
+"и с помощью интеграции дополнения."
+
+#: controllers/admin/Settings.php:629
+msgid "Estimate/Invoice Settings"
+msgstr "Настройки Сметы/Счёта"
+
+#: controllers/admin/Settings.php:630
+msgid ""
+"The Default Terms and Default Notes will be added to each estimate unless an "
+"estimate has customized Terms and/or Notes."
+msgstr ""
+"Условия по умолчанию и Примечания по умолчанию будут добавлены к каждой "
+"смете, если в смете не настроены Условия и/или Примечания."
+
+#: controllers/admin/Settings.php:635
+#: controllers/notifications/Notifications_Control.php:91
+msgid "Notification Settings"
+msgstr "Настройки Уведомлений"
+
+#: controllers/admin/Settings.php:636
+msgid ""
+"The from name and from e-mail is used for all Sprout Invoice notifications. "
+"Example, “Joc Pederson” future@dodgers.com."
+msgstr ""
+"От имени и от электронной почты будет использоваться для всех уведомлений "
+"Sprout Invoice. Например, “Joc Pederson” future@dodgers.com."
+
+#: controllers/admin/Settings.php:636
+msgid ""
+"Changing the email format to “HTML” will make the default notifications "
+"unformatted and look like garbage; if you want to create some pretty HTML "
+"notifications make sure to modify all notification formatting."
+msgstr ""
+"Изменение формата электронной почты к \"HTML\" виду, сделает уведомления по "
+"умолчанию неформатированными и будет выглядеть как мусор; Если вы хотите "
+"создать несколько HTML уведомлений убедитесь, что изменили всё "
+"форматирование уведомления."
+
+#: controllers/admin/Settings.php:642
+msgid ""
+"This information is used on all estimates and invoices. You’ll want to make "
+"sure to set this information before sending out any invoices/estimates."
+msgstr ""
+"Эта информация используется на всех сметах и счетах. Проверьте эту "
+"информацию перед отправкой любых счетов/смет."
+
+#: controllers/admin/Settings.php:647 controllers/clients/Clients.php:120
+#: controllers/developer/Logs.php:45
+#: controllers/notifications/Notifications_Control.php:784
+msgid "Advanced"
+msgstr "Дополнительные"
+
+#: controllers/admin/Settings.php:320
+msgid "International Currency Symbol"
+msgstr "Международный символ валюты"
+
+#: controllers/admin/Settings.php:323
+msgid "U.S. default is <code>USD</code>"
+msgstr "По умолчанию в США <code>USD</code>"
+
+#: controllers/admin/Settings.php:327
+#: controllers/payment-processing/Payment_Processors.php:591
+msgid "Currency Symbol"
+msgstr "Знак валюты"
+
+#: controllers/admin/Settings.php:330
+msgid "U.S. default is <code>$</code>"
+msgstr "По умолчанию в США  <code>$</code>"
+
+#: controllers/admin/Settings.php:334
+msgid "Decimal Point"
+msgstr "Десятичная точка"
+
+#: controllers/admin/Settings.php:337
+msgid "U.S. default is <code>.</code>"
+msgstr "По умолчанию в США <code>.</code>"
+
+#: controllers/admin/Settings.php:341
+msgid "Thousands Separator"
+msgstr "Разделитель тысяч"
+
+#: controllers/admin/Settings.php:344
+msgid "U.S. default is <code>,</code>"
+msgstr "По умолчанию в США <code>,</code>"
+
+#: controllers/admin/Settings.php:348
+msgid "Positive Sign"
+msgstr "Положительный Знак"
+
+#: controllers/admin/Settings.php:351
+msgid "U.S. default is blank"
+msgstr "В США по умолчанию является пустым"
+
+#: controllers/admin/Settings.php:355
+msgid "Negative Sign"
+msgstr "Отрицательный знак"
+
+#: controllers/admin/Settings.php:358
+msgid "U.S. default is <code>-</code>"
+msgstr "По умолчанию в США <code>-</code>"
+
+#: controllers/admin/Settings.php:362
+msgid "Fraction Digits"
+msgstr "Знаков после запятой"
+
+#: controllers/admin/Settings.php:365
+msgid "U.S. default is <code>2</code>"
+msgstr "По умолчанию в США <code>2</code>"
+
+#: controllers/admin/Settings.php:369
+msgid "Money Grouping"
+msgstr "Денежная группировка"
+
+#: controllers/admin/Settings.php:373
+msgid "U.S. default is <code>3, 3</code>"
+msgstr "По умолчанию в США <code>3, 3</code>"
+
+#: controllers/admin/Settings.php:377
+msgid "Currency Symbol Precedes (Positive)"
+msgstr "Символ валюты предшествует (положительный)"
+
+#: controllers/admin/Settings.php:381 controllers/admin/Settings.php:397
+#: controllers/admin/Settings.php:405 controllers/admin/Settings.php:421
+msgid "U.S. default is checked."
+msgstr "Для США по умолчанию отмечено."
+
+#: controllers/admin/Settings.php:385
+msgid "Space Separation (Positive)"
+msgstr "Разделение пробелом (положительный)"
+
+#: controllers/admin/Settings.php:389 controllers/admin/Settings.php:413
+msgid "U.S. default is unchecked."
+msgstr "Для США по умолчанию не отмечено."
+
+#: controllers/admin/Settings.php:393 controllers/admin/Settings.php:417
+msgid "Positive Position"
+msgstr "Позитивная позиция"
+
+#: controllers/admin/Settings.php:401
+msgid "Currency Symbol Precedes (Negative)"
+msgstr "Символ валюты предшествует (отрицательный)"
+
+#: controllers/admin/Settings.php:409
+msgid "Space Separation (Negative)"
+msgstr "Разделение пробелом (отрицательный)"
+
+#: controllers/admin/Settings.php:467
+msgid ""
+"Select the states and countries/provinces for all forms, e.g. purchase, "
+"estimates and registration."
+msgstr ""
+"Выберите штаты и страны/провинции для всех форм, например, покупки, сметы и "
+"регистрации."
+
+#. #-#-#-#-#  tmp-sprout-invoices.pot (Sprout Invoices 9.4)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: controllers/admin/Settings.php:569 controllers/reporting/Dashboard.php:141
+#: controllers/templating/Customizer.php:59
+msgid "Sprout Invoices"
+msgstr "Sprout Invoices"
+
+#: controllers/admin/Settings.php:617
+msgid "License"
+msgstr "Лицензия"
+
+#: controllers/admin/Settings.php:104
+msgid "Getting Started"
+msgstr "Давайте начнём!"
+
+#: controllers/admin/Settings.php:116 controllers/admin/Settings.php:641
+msgid "Company Info"
+msgstr "Информация о компании"
+
+#: controllers/admin/Settings.php:129
+msgid "Currency Formatting"
+msgstr "Форматирование Валюты"
+
+#: controllers/admin/Settings.php:245
+msgid ""
+"The company name and address will be shown on the estimates and invoices."
+msgstr "Название и адрес компании будет показана на сметах и счетах."
+
+#: controllers/admin/Settings.php:258 controllers/clients/Clients.php:561
+msgid "Company Name"
+msgstr "Компания"
+
+#: controllers/admin/Settings.php:265
+msgid "Contact Email"
+msgstr "Email"
+
+#: controllers/admin/Settings.php:312
+msgid ""
+"<p>Manually set your currency formatting. More information about these "
+"settings and using a filter can be found in the <a href=\"%s"
+"\">documentation</a>.</p>"
+msgstr ""
+"<p>Настройте вручную форматирование валюты. Более подробная информация об "
+"этих настройках и использовании фильтра можно найти в <a href=\"%s"
+"\">документации</a>.</p>"
+
+#: controllers/_Controller.php:830
+msgid "Private note failed to save, try again."
+msgstr "Личную заметку не удалось сохранить, попробуйте ещё раз."
+
+#: controllers/_Controller.php:834
+#: controllers/records/Internal_Records.php:217 template-tags/invoices.php:964
+#: views/admin/meta-boxes/clients/history.php:21
+#: views/admin/meta-boxes/projects/history-premium.php:21
+#: views/admin/meta-boxes/projects/history.php:21
+msgid "Private Note"
+msgstr "Личная заметка"
+
+#: controllers/_Controller.php:835
+msgid "Just now"
+msgstr "Прямо сейчас"
+
+#: controllers/_Controller.php:967
+msgid "Something failed."
+msgstr "Что-то не удалось."
+
+#: controllers/admin/Help.php:25
+msgid ""
+"Please support the future of <strong>Sprout Invoices</strong> by rating the "
+"free version <a href=\"%1$s\" target=\"_blank\">&#9733;&#9733;&#9733;&#9733;"
+"&#9733;</a> on <a href=\"%1$s\" target=\"_blank\">WordPress.org</a>. Have an "
+"awesome %2$s!"
+msgstr ""
+"Пожалуйста, поддержите рейтингом бесплатную версию <strong>Sprout Invoices</"
+"strong> <a href=\"%1$s\" target=\"_blank\">&#9733;&#9733;&#9733;&#9733;"
+"&#9733;</a> on <a href=\"%1$s\" target=\"_blank\">WordPress.org</a>. Это "
+"удивительно %2$s!"
+
+#: controllers/admin/Help.php:137 controllers/admin/Help.php:155
+msgid "Nested Line Items"
+msgstr "Вложенные позиции"
+
+#: controllers/admin/Help.php:138 controllers/admin/Help.php:156
+msgid ""
+"Line items can be nested. Use this handle and drag the line item around to "
+"re-order or make it a sub-item."
+msgstr ""
+"Позиции могут быть вложенными. Используя эту рукоятку перетащите вокруг "
+"позиции чтобы изменить порядок или сделать подпунктом."
+
+#: controllers/admin/Help.php:203
+msgid "Need Help?"
+msgstr "Нужна Помощь?"
+
+#: controllers/admin/Help.php:204
+msgid ""
+"This help tab has a lot of great information for you to learn all about the "
+"options and settings on this page."
+msgstr ""
+"Эта вкладка помощи имеет для вас много полезной информации о всех опциях и "
+"настройках на этой странице."
+
+#: controllers/admin/Settings.php:93
+msgid "General Settings"
+msgstr "Общие Настройки"
+
+#: controllers/_Controller.php:760 controllers/_Controller.php:761
+msgid "ZIP Code"
+msgstr "Почтовый индекс"
+
+#: controllers/_Controller.php:768 controllers/_Controller.php:770
+msgid "State"
+msgstr "Статус"
+
+#: controllers/_Controller.php:777 controllers/_Controller.php:780
+msgid "Country"
+msgstr "Страна"
+
+#: controllers/_Controller.php:744 controllers/_Controller.php:745
+msgid "Street Address"
+msgstr "Адрес"
+
+#: controllers/_Controller.php:752 controllers/_Controller.php:753
+msgid "City"
+msgstr "Город"
+
+#: controllers/_Controller.php:737 controllers/_Controller.php:738
+#: controllers/clients/Clients.php:632 controllers/clients/Clients.php:633
+msgid "Last Name"
+msgstr "Фамилия"
+
+#: controllers/_Controller.php:162
+msgid "Bummer. Maybe next time?"
+msgstr "Неудача. Возможно, в следующий раз?"
+
+#: controllers/_Controller.php:282
+msgid "Once a Minute"
+msgstr "Один раз в минуту"
+
+#: controllers/_Controller.php:286
+msgid "15 Minutes"
+msgstr "15 Минут"
+
+#: controllers/_Controller.php:290
+msgid "Twice Hourly"
+msgstr "Дважды в час"
+
+#: controllers/_Controller.php:730 controllers/_Controller.php:731
+#: controllers/clients/Clients.php:625 controllers/clients/Clients.php:626
+msgid "First Name"
+msgstr "Имя"
+
+#: controllers/_Controller.php:160
+msgid "Thank you"
+msgstr "Спасибо"
+
+#: controllers/_Controller.php:161
+msgid "Updating..."
+msgstr "Обновление..."
+
+#: bundles/updates/edd_plugin_updater.class.php:175
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
+msgstr ""
+"Доступна свежая версия %1$s <a target=\"_blank\" class=\"thickbox\" href="
+"\"%2$s\">Посмотреть подробную информацию о версии  %3$s  </a>."
+
+#: bundles/updates/edd_plugin_updater.class.php:182
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
+"\">update now</a>."
+msgstr ""
+"Доступна новая версия %1$s. <a target=\"_blank\" class=\"thickbox\" href="
+"\"%2$s\">Посмотреть информацию о версии %3$s </a> или <a href=\"%4$s"
+"\">обновить сейчас</a>."
+
+#: bundles/updates/edd_plugin_updater.class.php:327
+msgid "You do not have permission to install plugin updates"
+msgstr "Вы не имеете разрешения для установки плагинов обновления"
+
+#: bundles/updates/edd_plugin_updater.class.php:327
+msgid "Error"
+msgstr "Ошибка"
+
+#: bundles/Addons.php:35
+msgid "Sprout Invoices Add-ons"
+msgstr "Дополнения Sprout Invoices"
+
+#: bundles/Addons.php:36
+msgid "Add-ons"
+msgstr "Аддоны"

@@ -1,0 +1,54 @@
+body {
+	background-color: #4D4D4D;
+}
+#outer_doc_wrap {
+	background-image: url( 'background-image.png' );
+	background-repeat: none;
+	height: 1300px;
+	margin-top: 50px;
+} 
+#login_wrap {
+	width: 300px;
+	height: auto;
+	margin-top: 25%;
+	margin-left: 25%;
+	background-color: #EEE;
+	border-radius: 5px;
+	border: 1px solid #FFF;
+	padding: 35px 50px 15px 50px;
+	box-shadow: 0px 0px 5px #000;
+}
+#login_wrap p {
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+#login_wrap label {
+	float: left;
+	width: 80px;
+	text-align: right;
+	padding-top: 12px;
+	padding-right: 20px;
+	font-weight: bold;
+}
+#login_wrap input {
+	float: none;
+	display: inline-block;
+	width: 120px;
+	font-size: 1em;
+	padding: 10px;
+	border: 1px solid #CCC;
+	box-shadow: 0px 0px 1px #ccc;
+}
+.pass_protected #login_wrap input {
+	width: 90%;
+}
+#login_wrap .button-primary {
+	background-color: #363B3F;
+	color: #FFF;
+	font-weight: 600;
+	font-size: 1em;
+	padding: 10px 20px;
+	margin: 10px 0 0 0;
+	border: none;
+	float: none;
+}

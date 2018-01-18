@@ -1,0 +1,1 @@
+<?php printf( '<li><a class="doc_status_change ready" title="%s" href="%s" data-id="%s" data-status-change="%s" data-nonce="%s">%s</a></li>', __( 'Mark Payment Due', 'sprout-invoices' ), get_edit_post_link( $doc_id ), $doc_id, 'ready', wp_create_nonce( SI_Controller::NONCE ), __( '<b>Update:</b> Payment Due', 'sprout-invoices' ) ); ?>
