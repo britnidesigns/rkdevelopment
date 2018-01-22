@@ -1,0 +1,57 @@
+// out: ../../sa_templates/sprout-invoices.css, compress: true
+
+@theme-success: #090;
+
+#header {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,.2), transparent);
+
+    .messages { min-height: 0; }
+
+    .sa-message {
+        margin-bottom: 1em;
+        padding: 1em;
+        background-color: @theme-success;
+        border: 0;
+        border-radius: 0;
+        box-shadow: 3px 3px 5px rgba(0,0,0,.25);
+        line-height: 1.75em;
+        text-transform: none;
+
+        &.error {
+            background-color: #b70;
+            border: 0;
+        }
+    }
+
+    .inner {
+        padding-bottom: 30px;
+        border-bottom: 0;
+
+        img { height: 100px; }
+
+        .intro h1 { margin-bottom: 0; }
+
+        .intro span {
+            font-size: 16px;
+            font-weight: normal;
+        }
+
+        .history_message .open {
+            margin-bottom: 0;
+            background-color: #000;
+            border-radius: 2px;
+            color: #fff;
+        }
+    }
+}
+
+header {
+    img { float: left; }
+
+    .intro, .history_message {
+        float: none;
+        text-align: right;
+    }
+}
+
+body#invoice header { color: #fff; }
