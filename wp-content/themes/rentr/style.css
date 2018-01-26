@@ -508,7 +508,7 @@ a:hover, a:active {
 .main-navigation {
 	clear: both;
 	display: block;
-	float: left;
+	/*float: left;*/
 	width: 100%;
 }
 
@@ -548,12 +548,12 @@ a:hover, a:active {
 }
 
 .main-navigation li {
-	float: left;
+	/*float: left;*/
 	position: relative;
 }
 
 .main-navigation a {
-	display: block;
+	/*display: block;*/
 	text-decoration: none;
 }
 

@@ -46,11 +46,30 @@
 		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'rentr' ); ?></button>
 			<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				) );
-			?>
+                if ( is_user_logged_in() ) {
+                    wp_nav_menu( array(
+    					'theme_location' => 'logged-in-nav',
+    					'menu_id'        => 'primary-menu',
+    					'container_class'=> 'primary-nav'
+    				) );
+
+                    global $current_user;
+                    wp_get_current_user();
+
+                    echo '<ul class="user-menu">
+                        <li>'.$current_user->display_name.'</li>
+                        <li><a href="'.wp_logout_url().'">Log Out</a></li>
+                    </ul>';
+                } else {
+                    wp_nav_menu( array(
+    					'theme_location' => 'menu-1',
+    					'menu_id'        => 'primary-menu',
+                        'container_class'=> 'primary-nav'
+    				) );
+
+                    echo '<a href="'.wp_login_url().'" class="login">Log In</a>';
+                }
+            ?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
