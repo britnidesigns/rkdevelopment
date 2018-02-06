@@ -13,7 +13,7 @@ html { font-size: 1.125em; }
 /* ---------- DEFAULTS ------------------------------ */
 
 a {
-    outline: none;
+    outline: 0;
     text-decoration: none;
 }
 
@@ -58,6 +58,7 @@ li { list-style-type: none; }
         bottom: 0;
         left: 0;
         z-index: -1;
+        display: block;
         width: 100vw;
         margin-left: calc(~'50% - 50vw');
         background-color: inherit;
@@ -74,43 +75,46 @@ li { list-style-type: none; }
 
 /* ---------- LAYOUT ------------------------------ */
 
-.site-header {
-    margin-bottom: 2rem;
-    padding: 1em 2rem;
-    background-color: @theme-primary;
+.site {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
-.custom-logo-link {
+.site-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: @bp-desktop-min;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 1em 2rem;
+    background-color: @theme-primary;
+    .strip;
+}
+
+/*.custom-logo-link {
     height: 8em;
 }
 
 .custom-logo {
     width: auto;
     height: 100%;
-}
+}*/
 
-.site-title { margin: 0 0 1em; }
+.site-title { display: none; }
 
-.site-title a {
-    color: #fff;
-    font-size: 2em;
-    line-height: 1.1em;
-    text-decoration: none;
-}
-
-.site-branding, .main-navigation {
-    max-width: @bp-desktop-min;
-    box-sizing: border-box;
-    margin: 0 auto;
+.main-navigation {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    margin-left: 2em;
 }
 
 .primary-nav {
-    margin-left: -.5em; // offset padding
+    flex-grow: 1;
 
-    li {
-        display: inline-block;
-    }
-
+    li { display: inline-block; }
     li:not(:first-child) { margin-left: 2em; }
 
     a {
@@ -121,8 +125,6 @@ li { list-style-type: none; }
 
         &:hover {
             background-color: fade(shade(@theme-primary, 15%), 50%);
-            border-color: rgba(0,0,0,.1);
-            color: #fff;
         }
     }
 }
@@ -132,23 +134,35 @@ li { list-style-type: none; }
 
     background-color: @theme-secondary;
     background-image: linear-gradient(to bottom, transparent, fade(@theme-primary, 25%));
-    color: #fff;
+
+    &:visited { color: #fff; }
 }
 
 .user-menu {
-    background-color: #333;
-    color: #aaa;
+    font-size: 16/18em;
+
+    li {
+        display: inline;
+        color: tint(@theme-primary, 65%);
+        font-weight: bold;
+    }
 
     a {
-        color: #ccc;
+        display: inline-block;
+        margin-left: 1em;
+        color: #fff;
+        font-weight: normal;
+        text-decoration: underline;
     }
 }
 
 .site-content {
+    flex-grow: 1;
+    width: 100%;
     max-width: @bp-desktop-min;
-    box-sizing: content-box;
+    box-sizing: border-box;
     margin: 0 auto;
-    padding: 0 2rem 2rem;
+    padding: 3rem 2rem;
 }
 
 .site-footer {
