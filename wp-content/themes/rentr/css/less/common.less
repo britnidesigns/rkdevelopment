@@ -183,3 +183,47 @@ footer .nav {
         color: #999;
     }
 }
+
+/* ---------- HOME ------------------------------ */
+
+body.home .site-content { padding-top: 0; }
+body.home .entry-header { display: none; }
+body.home .entry-content { margin-top: 0; }
+
+.intro {
+    margin-bottom: 4rem;
+    padding: 4rem 0;
+    background-color: #777;
+
+    h1 { margin-bottom: .5em; }
+}
+
+.property-types {
+    display: flex;
+
+    section {
+        flex-grow: 1;
+    }
+}
+
+.backend-preview {
+    min-height: 250px; // TODO: temporary until image decided
+    box-sizing: content-box;
+    margin-top: 4rem;
+    padding: 2rem 0;
+    background-color: #ccc;
+
+    img {
+        width: 300px;
+        height: 250px;
+        display: block;
+        float: left;
+        margin-right: 2rem;
+        background-color: #999; //TODO: remove
+    }
+
+    h2, p {
+        overflow: hidden;
+        clear: none;
+    }
+}
