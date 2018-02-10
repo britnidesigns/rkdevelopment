@@ -139,20 +139,26 @@ li { list-style-type: none; }
 }
 
 .user-menu {
-    font-size: 16/18em;
+    text-align: right;
 
-    li {
-        display: inline;
-        color: tint(@theme-primary, 65%);
-        font-weight: bold;
-    }
+    li { display: inline; }
 
     a {
         display: inline-block;
-        margin-left: 1em;
+        border-bottom: 1px dotted transparent;
         color: #fff;
-        font-weight: normal;
-        text-decoration: underline;
+
+        &:hover { border-bottom-color: rgba(255,255,255,.25); }
+    }
+
+    .user {
+        margin-right: .5em;
+        font-weight: bold;
+    }
+
+    .logout {
+        color: tint(@theme-primary, 65%);
+        font-size: 16/18em;
     }
 }
 

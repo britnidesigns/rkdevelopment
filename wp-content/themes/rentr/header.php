@@ -52,8 +52,8 @@
                     wp_get_current_user();
 
                     echo '<ul class="user-menu">
-                        <li>'.$current_user->display_name.'</li>
-                        <li><a href="'.wp_logout_url().'">Log Out</a></li>
+                        <li><a href="/account" class="user">'.$current_user->user_firstname.'</a></li>
+                        <li><a href="'.wp_logout_url( home_url() ).'" class="logout">Log Out</a></li>
                     </ul>';
                 } else {
                     wp_nav_menu( array(
@@ -62,7 +62,7 @@
                         'container_class'=> 'primary-nav'
     				) );
 
-                    echo '<a href="'.wp_login_url().'" class="login">Log In</a>';
+                    echo '<a href="/login" class="login">Log In</a>';
                 }
             ?>
 		</nav><!-- #site-navigation -->
