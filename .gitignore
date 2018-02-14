@@ -1,6 +1,7 @@
 wp-admin/
 wp-content/mu-plugins/gd-system-plugin.php
 wp-content/mu-plugins/
+wp-content/uploads/awesome-support/
 wp-includes/
 wp-*.php
 !wp-config.php
