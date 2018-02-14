@@ -12,10 +12,8 @@ html { font-size: 1.125em; }
 
 /* ---------- DEFAULTS ------------------------------ */
 
-a {
-    outline: 0;
-    text-decoration: none;
-}
+a { text-decoration: none; }
+a, a:link, a:visited, a:active, a:focus { outline: 0; }
 
 img { border: none; }
 h1, ul, li { margin: 0; padding: 0; }
@@ -65,6 +63,8 @@ li { list-style-type: none; }
     }
 }
 
+.post-edit-link { display: none; }
+
 /* ---------- RESPONSIVE ------------------------------ */
 
 // Breakpoints
@@ -78,7 +78,7 @@ li { list-style-type: none; }
 .site {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .site-header {
@@ -88,27 +88,33 @@ li { list-style-type: none; }
     max-width: @bp-desktop-min;
     box-sizing: border-box;
     margin: 0 auto;
-    padding: 1em 2rem;
-    background-color: @theme-primary;
+    padding: .5em 2rem;
     .strip;
+
+    &::before {
+        background-color: @theme-secondary;
+        background-image: linear-gradient(to bottom, rgba(0,0,0,.35), transparent);
+    }
 }
 
-/*.custom-logo-link {
-    height: 8em;
+.custom-logo-link {
+    display: block;
+    height: 4em;
 }
 
 .custom-logo {
+    max-width: none;
     width: auto;
     height: 100%;
-}*/
+}
 
-.site-title { display: none; }
+//.site-title { display: none; }
 
 .main-navigation {
     display: flex;
     align-items: center;
     flex-grow: 1;
-    margin-left: 2em;
+    margin-left: 3em;
 }
 
 .primary-nav {
@@ -124,7 +130,7 @@ li { list-style-type: none; }
         font-size: 1.125em;
 
         &:hover {
-            background-color: fade(shade(@theme-primary, 15%), 50%);
+            background-color: fade(@theme-primary, 50%);
         }
     }
 }
@@ -132,8 +138,8 @@ li { list-style-type: none; }
 .login {
     &:extend(.primary-nav a);
 
-    background-color: @theme-secondary;
-    background-image: linear-gradient(to bottom, transparent, fade(@theme-primary, 25%));
+    background-color: @theme-primary;
+    //background-image: linear-gradient(to bottom, transparent, fade(@theme-primary, 25%));
 
     &:visited { color: #fff; }
 }
@@ -199,7 +205,8 @@ body.home .entry-content { margin-top: 0; }
 .intro {
     margin-bottom: 4rem;
     padding: 4rem 0;
-    background-color: #777;
+    background-color: #111;
+    color: #fff;
 
     h1 { margin-bottom: .5em; }
 }
