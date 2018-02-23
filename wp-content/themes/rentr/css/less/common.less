@@ -13,12 +13,41 @@ html { font-size: 1.125em; }
 /* ---------- DEFAULTS ------------------------------ */
 
 a { text-decoration: none; }
-a, a:link, a:visited, a:active, a:focus { outline: 0; }
-
 img { border: none; }
 h1, ul, li { margin: 0; padding: 0; }
 h2, h3, h4, h5, p { margin: 0 0 1em; padding: 0; }
 li { list-style-type: none; }
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea,
+select,
+.wpas-form-control,
+.wppb-user-forms input[type="text"], .wppb-user-forms input[type="number"],
+.wppb-user-forms input[type="email"], .wppb-user-forms input[type="url"],
+.wppb-user-forms input[type="password"], .wppb-user-forms input[type="search"] {
+    color: #111;
+    padding: .6em .8em;
+	border: 1px solid #ddd;
+    border-radius: 0;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.2);
+    font-size: 16/18em;
+
+    &:focus { border-color: #999; }
+}
 
 /* ---------- VARIABLES, MIX-INS, ETC. ------------------------------ */
 
@@ -40,10 +69,13 @@ li { list-style-type: none; }
     }
 
     &.primary {
+        padding: .6em 1em;
         background-color: @theme-secondary;
-        background-image: linear-gradient(to bottom, transparent, fade(@theme-primary, 50%));
+        background-image: linear-gradient(to bottom, fade(@theme-primary, 50%), transparent);
         font-size: 1.25em;
     }
+
+    &:visited { color: #fff; }
 }
 
 .strip {
@@ -194,6 +226,14 @@ footer .nav {
     a {
         color: #999;
     }
+}
+
+/* ---------- LOGIN, ACCOUNT, ETC. ------------------------------ */
+
+.wppb-user-forms input:not([type="button"]):not([type="reset"]):not([type="submit"]),
+.wppb-user-forms select,
+.wppb-user-forms textarea {
+    font-size: 16/18em;
 }
 
 /* ---------- HOME ------------------------------ */

@@ -91,8 +91,12 @@ a {
 	background-color: transparent;
 }
 
+a,
 a:active,
-a:hover {
+a:hover,
+a:link,
+a:visited,
+a:focus {
 	outline: 0;
 }
 
@@ -395,7 +399,7 @@ table {
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
-button,
+/*button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
@@ -470,7 +474,7 @@ textarea:focus {
 
 select {
 	border: 1px solid #ccc;
-}
+}*/
 
 textarea {
 	width: 100%;
