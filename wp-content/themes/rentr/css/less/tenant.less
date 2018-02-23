@@ -38,6 +38,30 @@ button[type=submit] {
 
 /* ---------- MAINTENANCE ------------------------------ */
 
+.wpas {
+    &-btn, &-btn-default {
+        .btn;
+        border: 0;
+        font-size: inherit;
+    }
+
+    .btn.new {
+        @media @mq-no-phone {
+            position: absolute;
+            top: .5em;
+            right: 0;
+        }
+    }
+
+    &-table, div.checkbox { margin-top: 2em; }
+
+    &-ticket-details {
+        h3 {
+            margin: 2em 0 0;
+        }
+    }
+}
+
 .wpas-form-group {
     margin-top: 2rem;
 }

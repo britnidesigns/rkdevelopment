@@ -141,7 +141,7 @@ $author = get_user_by( 'id', $post->post_author );
 	if ( apply_filters('wpas_show_reply_form_front_end',true, $post ) ) {
 	?>
 
-		<h3><?php _e( 'Write a reply', 'awesome-support' ); ?></h3>
+		<h3><?php _e( 'Respond to this issue', 'awesome-support' ); ?></h3>
 
 		<?php
 		/**

@@ -16,7 +16,8 @@ if ( $wpas_tickets->have_posts() ):
 	?>
 	<div class="wpas wpas-ticket-list">
 
-		<?php wpas_get_template( 'partials/ticket-navigation' ); ?>
+		<?php //wpas_get_template( 'partials/ticket-navigation' ); ?>
+        <?php wpas_make_button( __( 'New Request', 'awesome-support' ), array( 'type' => 'link', 'link' => wpas_get_submission_page_url(), 'class' => 'btn new' ) ); ?>
 
 		<!-- Filters & Search tickets -->
 		<div class="wpas-row" id="wpas_ticketlist_filters">

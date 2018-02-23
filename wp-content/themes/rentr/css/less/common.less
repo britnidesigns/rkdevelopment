@@ -64,14 +64,15 @@ select,
     text-shadow: 1px 1px 1px fade(shade(@theme-primary,50%), 50%);
 
     &:hover{
+        background-color: darken(@theme-primary, 10%);
         color: #fff;
         text-shadow: 1px 1px 1px fade(shade(@theme-primary, 50%), 75%);
     }
 
     &.primary {
-        padding: .6em 1em;
-        background-color: @theme-secondary;
-        background-image: linear-gradient(to bottom, fade(@theme-primary, 50%), transparent);
+        //padding: .6em 1em;
+        //background-color: @theme-secondary;
+        //background-image: linear-gradient(to bottom, fade(@theme-primary, 50%), transparent);
         font-size: 1.25em;
     }
 
@@ -104,6 +105,8 @@ select,
 @bp-phone-max:           600px;
 @bp-tablet-orientation:  900px;
 @bp-desktop-min:         1200px;
+
+@mq-no-phone:      ~'screen and (min-width: '(@bp-phone-max + 1)~')';
 
 /* ---------- LAYOUT ------------------------------ */
 
@@ -206,8 +209,10 @@ select,
     max-width: @bp-desktop-min;
     box-sizing: border-box;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
 }
+
+article { position: relative; }
 
 .site-footer {
     background-color: #000;
