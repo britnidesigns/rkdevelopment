@@ -300,15 +300,6 @@ function updateMeta(value, id, element_id, nonce){
 				alert( response.error );
 			}
 			else{
-				jQuery('html, body').animate({
-					scrollTop: jQuery('#container_'+value+' #element_' + element_id).offset().top - 40 }, 700);
-	
-				jQuery('#container_'+value+' #element_' + element_id).animate({
-					backgroundColor: '#FFFF9C'
-				}, 700);
-				jQuery('#container_'+value+' #element_' + element_id).animate({
-					backgroundColor: 'none'
-				}, 700);
 				
 				jQuery('#update_container_'+value+'_'+element_id).remove();
 				
@@ -321,7 +312,18 @@ function updateMeta(value, id, element_id, nonce){
 					jQuery( '#container_' + value + " tbody" ).sortable("enable");
 				
 				jQuery('#container_'+value).parent().css('opacity','1');
-				jQuery('#mb-ajax-loading').remove();				
+				jQuery('#mb-ajax-loading').remove();
+
+				//the scroll works a little bit funny ( it goes way up then down, prob because we remove the update form ) so comment it out for now
+				/*jQuery('html, body').animate({
+					scrollTop: jQuery('#container_'+value+' #element_' + element_id).offset().top - 40 }, 700);*/
+
+				jQuery('#container_'+value+' #element_' + element_id).animate({
+					backgroundColor: '#FFFF9C'
+				}, 1000);
+				jQuery('#container_'+value+' #element_' + element_id).animate({
+					backgroundColor: 'none'
+				}, 1000);
 			}
 		});	
 }

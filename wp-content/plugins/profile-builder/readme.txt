@@ -3,8 +3,8 @@ Contributors: cozmoslabs, reflectionmedia, sareiodata, adispiac, madalin.ungurea
 Donate link: http://www.cozmoslabs.com/wordpress-profile-builder/
 Tags: user registration, user profile, user registration form, user fields, extra user fields, edit profile, user custom fields, front-end login, front-end edit profile, front-end user registration, email confirmation, login form, content restriction, restrict content
 Requires at least: 3.1
-Tested up to: 4.9.2
-Stable tag: 2.7.5
+Tested up to: 4.9.4
+Stable tag: 2.7.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,27 +40,27 @@ You can use the following shortcode list:
 Users with administrator rights have access to the following features:
 
 * drag & drop to reorder user profile fields
-* enable **Email Confirmation** (on registration users will receive a notification to confirm their email address).
-* allow users to **Log-in with their Username or Email**
+* enable **Email Confirmation** (on registration users will receive a notification to confirm their email address)
+* choose between login with **only Username, Email** or **both**
 * enforce a **minimum password length** and **minimum password strength** (using the default WordPress password strength meter)
 * assign users a specific role at registration (using **[wppb-register role="desired_role"]** shortcode argument for the register form)
 * redirect users after login, register and edit-profile using redirect_url shortcode argument ( e.g **[wppb-login redirect_url="www.example.com"]** )
 * add register and lost password links below the login form (using **[wppb-login register_url="www.example.com" lostpassword_url="www.example.com"]** shortcode arguments)
 * customizable user login widget
-* add a custom stylesheet/inherit values from the current theme or use the default one built into this plugin.
-* chose which user roles view the admin bar in the front-end of the website (Admin Bar Settings page).
-* select which profile fields users can use in frontend.
+* add a custom stylesheet/inherit values from the current theme or use the default one built into this plugin
+* **Admin Bar Settings**: choose which user roles view the admin bar in the front-end
+* select which profile fields users can use in frontend
 * extended functionality available via [Add-ons](http://www.cozmoslabs.com/profile-builder-add-ons/?utm_source=wp.org&utm_medium=pb-description-page&utm_campaign=PBFree)
-* role editor: add, remove, clone and edit roles and also capabilities for these roles.
-* reacaptcha for Profile Builder forms and WordPress default forms
-* user role select field on register and edit profile forms
-* content restriction - restrict content based on user role or logged in status
+* **Roles Editor**: add, edit, remove or clone roles and capabilities
+* **reCAPTCHA** support for Profile Builder and Wordpress default forms
+* **User Role Select** field on register and edit profile forms
+* **Content Restriction**: restrict content based on current users role or logged in status
 
 **PROFILE BUILDER PRO**
 
 The [Pro version](http://www.cozmoslabs.com/wordpress-profile-builder/?utm_source=wp.org&utm_medium=pb-description-page&utm_campaign=PBFree) has the following extra features:
 
-* Create Extra User Fields (Heading, Input, Hidden-Input, Checkbox, Agree to Terms Checkbox, Radio Buttons, DatePicker, Textareas, WYSIWYG, reCAPTCHA, Upload fields, Selects, User Role Select, Country Select, Timezone Select, Avatar Upload, Map, HTML, Phone, Time Picker, ColorPicker, Custom Validation field, Currency Select)
+* Create Extra User Fields (Heading, Input, Hidden Input, Number, Checkbox, Agree to Terms Checkbox, Radio Buttons, , Textarea, WYSIWYG, reCAPTCHA, Upload fields, Selects, User Role Select, Country Select, Timezone Select, Avatar Upload, Map, HTML, Phone, Datepicker, Timepicker, Colorpicker, Custom Validation field, Currency Select, CPT Select)
 * Add Avatar Upload for users
 * Support for Conditional Fields
 * Front-end User Listing (fully customizable, sorting included)
@@ -71,7 +71,7 @@ The [Pro version](http://www.cozmoslabs.com/wordpress-profile-builder/?utm_sourc
 * Admin Approval
 * Email Customizer (Personalize all emails sent to your users or admins; customize default WordPress registration email)
 * Advanced Modules (e.g. custom redirects, user listing, multiple registration forms etc.)
-* Access to support forums and documentation
+* Access to support and documentation
 * 1 Year of Updates / Priority Support
 
 [Find out more about Profile Builder PRO](http://www.cozmoslabs.com/wordpress-profile-builder/?utm_source=wp.org&utm_medium=pb-description-page&utm_campaign=PBFree)
@@ -163,6 +163,11 @@ This plugin adds/removes user fields in the front-end. Both default and extra pr
 12. Role Editor
 
 == Changelog ==
+= 2.7.6 =
+* Fixed some issues on the login form that prevented some users from logging in
+* When changing/recovering password we now log out of all other/all sessions
+* Increased the performance of the plugin on the frontend
+
 = 2.7.5 =
 * Improved security on forms
 * Implemented a better plugin notification system

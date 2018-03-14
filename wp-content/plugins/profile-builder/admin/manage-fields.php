@@ -9,17 +9,19 @@
 function wppb_manage_fields_submenu(){
 	// create a new sub_menu page which holds the data for the default + extra fields
 	$args = array(
-				'menu_title' 	=> __( 'Manage Fields', 'profile-builder' ),
-				'page_title' 	=> __( 'Manage Default and Extra Fields', 'profile-builder' ),
-				'menu_slug'		=> 'manage-fields',
-				'page_type'		=> 'submenu_page',
-				'capability'	=> 'manage_options',
-				'priority'		=> 5,
-				'parent_slug'	=> 'profile-builder'
-			);
-	$all_fields = new WCK_Page_Creator_PB( $args );
+		'menu_title' => __('Manage Fields', 'profile-builder'),
+		'page_title' => __('Manage Default and Extra Fields', 'profile-builder'),
+		'menu_slug' => 'manage-fields',
+		'page_type' => 'submenu_page',
+		'capability' => 'manage_options',
+		'priority' => 5,
+		'parent_slug' => 'profile-builder'
+	);
+	$manage_fields_page = new WCK_Page_Creator_PB($args);
+}
+add_action( 'admin_menu', 'wppb_manage_fields_submenu', 1 );
 
-	
+function wppb_populate_manage_fields(){
 	// populate this page
 	$manage_field_types[] = 'Default - Name (Heading)';
 	$manage_field_types[] = 'Default - Contact Info (Heading)';
@@ -195,7 +197,7 @@ function wppb_manage_fields_submenu(){
     );
     new Wordpress_Creation_Kit_PB( $args );
 }
-add_action( 'init', 'wppb_manage_fields_submenu', 11 );
+add_action( 'admin_init', 'wppb_populate_manage_fields', 1 );
 
 /**
  * Function that prepopulates the manage fields list with the default fields of WP

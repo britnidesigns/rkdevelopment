@@ -285,6 +285,11 @@ function wppb_front_end_password_recovery(){
 
                 wp_set_password( $new_pass, $userID );
 
+				/* log out of all sessions on password reset */
+				$sessions = WP_Session_Tokens::get_instance( $userID );
+				$sessions->destroy_all();
+
+
                 $user_info = get_userdata( $userID );
 
                 if( $wppb_generalSettings['loginWith'] == 'username' || $wppb_generalSettings['loginWith'] == 'usernameemail' )

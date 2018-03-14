@@ -50,11 +50,20 @@ function wppb_autologin_after_password_changed(){
                         $default_cookie_life = apply_filters('auth_cookie_expiration', (2 * DAY_IN_SECONDS), $user_id, false);
                         $remember = (($logged_in_cookie['expiration'] - time()) > $default_cookie_life);
 
-                        wp_set_auth_cookie($user_id, $remember);
+                        wp_set_auth_cookie($user_id, $remember, '', wp_get_session_token() );
                     }
                     else{
                         wp_set_password($_POST['passw1'], $user_id);
                     }
+
+                    /* log out of other sessions or all sessions if the admin is editing the profile */
+                    $sessions = WP_Session_Tokens::get_instance( $user_id );
+                    if ( $user_id === get_current_user_id() ) {                        
+                        $sessions->destroy_others( wp_get_session_token() );
+                    } else {                        
+                        $sessions->destroy_all();                        
+                    }
+                    
                 }
             }
         }

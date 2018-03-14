@@ -315,16 +315,15 @@ function wppb_front_end_login( $atts ){
 }
 
 function wppb_login_security_check( $user, $password ) {
-
-    if( isset( $_POST['wppb_login'] ) ) {
-        if( ! isset( $_POST['CSRFToken-wppb'] ) || ! wp_verify_nonce( $_POST['CSRFToken-wppb'], 'wppb_login' ) ) {
-            $errorMessage = __( 'You are not allowed to do this.', 'profile-builder' );
-
-            return new WP_Error( 'wppb_login_csrf_token_error', $errorMessage );
-        }
-    }
+	if( apply_filters( 'wppb_enable_csrf_token_login_form', false ) ){
+		if (isset($_POST['wppb_login'])) {
+			if (!isset($_POST['CSRFToken-wppb']) || !wp_verify_nonce($_POST['CSRFToken-wppb'], 'wppb_login')) {
+				$errorMessage = __('You are not allowed to do this.', 'profile-builder');
+				return new WP_Error('wppb_login_csrf_token_error', $errorMessage);
+			}
+		}
+	}
 
     return $user;
-
 }
 add_filter( 'wp_authenticate_user', 'wppb_login_security_check', 10, 2 );

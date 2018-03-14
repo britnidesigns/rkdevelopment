@@ -8,7 +8,7 @@
  * Plugin URI: http://wordpress.org/plugins/health-check/
  * Description: Checks the health of your WordPress install.
  * Author: The WordPress.org community
- * Version: 0.9.0
+ * Version: 1.0.1
  * Author URI: http://wordpress.org/plugins/health-check/
  * Text Domain: health-check
  */
@@ -21,6 +21,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Set the minimum PHP version WordPress supports.
 define( 'HEALTH_CHECK_PHP_MIN_VERSION', '5.2.4' );
 
+// Set the lowest PHP version still receiving security updates.
+define( 'HEALTH_CHECK_PHP_SUPPORTED_VERSION', '5.6' );
+
 // Set the PHP version WordPress recommends.
 define( 'HEALTH_CHECK_PHP_REC_VERSION', '7.2' );
 
@@ -31,15 +34,30 @@ define( 'HEALTH_CHECK_MYSQL_MIN_VERSION', '5.0' );
 define( 'HEALTH_CHECK_MYSQL_REC_VERSION', '5.6' );
 
 // Set the plugin version.
-define( 'HEALTH_CHECK_PLUGIN_VERSION', '0.9.0' );
+define( 'HEALTH_CHECK_PLUGIN_VERSION', '1.0.1' );
 
 // Set the absolute path for the plugin.
 define( 'HEALTH_CHECK_PLUGIN_DIRECTORY', plugin_dir_path( __FILE__ ) );
+
+// Set the current cURL version.
+define( 'HEALTH_CHECK_CURL_VERSION', '7.58' );
+
+// Set the minimum cURL version that we've tested that core works with.
+define( 'HEALTH_CHECK_CURL_MIN_VERSION', '7.38' );
 
 /**
  * Class HealthCheck
  */
 class HealthCheck {
+
+	/**
+	 * Notices to show at the head of the admin screen.
+	 *
+	 * @access public
+	 *
+	 * @var array
+	 */
+	public $admin_notices = array();
 
 	/**
 	 * HealthCheck constructor.
@@ -70,13 +88,36 @@ class HealthCheck {
 
 		add_filter( 'plugin_action_links', array( $this, 'troubeshoot_plugin_action' ), 20, 4 );
 
+		add_action( 'admin_footer', array( $this, 'show_backup_warning' ) );
+
+		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
+
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueues' ) );
 
 		add_action( 'init', array( $this, 'start_troubleshoot_mode' ) );
-		add_action( 'init', array( $this, 'start_troubleshoot_single_plugin_mode' ) );
+		add_action( 'load-plugins.php', array( $this, 'start_troubleshoot_single_plugin_mode' ) );
 
 		add_action( 'wp_ajax_health-check-loopback-no-plugins', array( 'Health_Check_Loopback', 'loopback_no_plugins' ) );
 		add_action( 'wp_ajax_health-check-loopback-individual-plugins', array( 'Health_Check_Loopback', 'loopback_test_individual_plugins' ) );
+		add_action( 'wp_ajax_health-check-files-integrity-check', array( 'Health_Check_Files_Integrity', 'run_files_integrity_check' ) );
+		add_action( 'wp_ajax_health-check-view-file-diff', array( 'Health_Check_Files_Integrity', 'view_file_diff' ) );
+		add_action( 'wp_ajax_health-check-mail-check', array( 'Health_Check_Mail_Check', 'run_mail_check' ) );
+		add_action( 'wp_ajax_health-check-confirm-warning', array( 'Health_Check_Troubleshoot', 'confirm_warning' ) );
+	}
+
+	/**
+	 * Show a warning modal about keeping backups.
+	 *
+	 * @uses Health_Check_Troubleshoot::has_seen_warning()
+	 *
+	 * @return void
+	 */
+	public function show_backup_warning() {
+		if ( Health_Check_Troubleshoot::has_seen_warning() ) {
+			return;
+		}
+
+		include_once( HEALTH_CHECK_PLUGIN_DIRECTORY . '/modals/backup-warning.php' );
 	}
 
 	/**
@@ -93,7 +134,7 @@ class HealthCheck {
 	 * @return void
 	 */
 	public function start_troubleshoot_mode() {
-		if ( ! isset( $_POST['health-check-troubleshoot-mode'] ) || ! isset( $_POST['health-check-troubleshoot-mode-confirmed'] ) || ! current_user_can( 'manage_options' ) ) {
+		if ( ! isset( $_POST['health-check-troubleshoot-mode'] ) || ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
 
@@ -124,6 +165,35 @@ class HealthCheck {
 			return;
 		}
 
+		ob_start();
+
+		$needs_credentials = false;
+
+		if ( ! Health_Check_Troubleshoot::mu_plugin_exists() ) {
+			if ( ! Health_Check_Troubleshoot::get_filesystem_credentials() ) {
+				$needs_credentials = true;
+			} else {
+				$check_output = Health_Check_Troubleshoot::setup_must_use_plugin( false );
+				if ( false === $check_output ) {
+					$needs_credentials = true;
+				}
+			}
+		} else {
+			if ( ! Health_Check_Troubleshoot::maybe_update_must_use_plugin() ) {
+				$needs_credentials = true;
+			}
+		}
+
+		$result = ob_get_clean();
+
+		if ( $needs_credentials ) {
+			$this->admin_notices[] = (object) array(
+				'message' => $result,
+				'type'    => 'warning',
+			);
+			return;
+		}
+
 		$loopback_hash = md5( rand() );
 		update_option( 'health-check-disable-plugin-hash', $loopback_hash );
 
@@ -146,7 +216,7 @@ class HealthCheck {
 	 * @return void
 	 */
 	public function load_i18n() {
-		load_plugin_textdomain( 'health-check', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'health-check', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 	}
 
 	/**
@@ -165,6 +235,14 @@ class HealthCheck {
 	public function enqueues() {
 		// Don't enqueue anything unless we're on the health check page
 		if ( ! isset( $_GET['page'] ) || 'health-check' !== $_GET['page'] ) {
+
+			/*
+			 * Special consideration, if warnings are not dismissed we need to display
+			 * our modal, and thus require our styles, in other locations, before bailing.
+			 */
+			if ( ! Health_Check_Troubleshoot::has_seen_warning() ) {
+				wp_enqueue_style( 'health-check', plugins_url( '/assets/css/health-check.css', __FILE__ ), array(), HEALTH_CHECK_PLUGIN_VERSION );
+			}
 			return;
 		}
 
@@ -174,9 +252,12 @@ class HealthCheck {
 
 		wp_localize_script( 'health-check', 'health_check', array(
 			'string' => array(
-				'please_wait' => esc_html__( 'Please wait...', 'health-check' ),
-				'copied'      => esc_html__( 'Copied', 'health-check' )
-			)
+				'please_wait'  => esc_html__( 'Please wait...', 'health-check' ),
+				'copied'       => esc_html__( 'Copied', 'health-check' ),
+			),
+			'warning' => array(
+				'seen_backup' => Health_Check_Troubleshoot::has_seen_warning(),
+			),
 		) );
 	}
 
@@ -241,8 +322,8 @@ class HealthCheck {
 		$actions['troubleshoot'] = sprintf(
 			'<a href="%s">%s</a>',
 			esc_url( add_query_arg( array(
-				'health-check-troubleshoot-plugin' => ( isset( $plugin_data['slug'] ) ? $plugin_data['slug'] : sanitize_title( $plugin_data['Name'] ) )
-			), admin_url() ) ),
+				'health-check-troubleshoot-plugin' => ( isset( $plugin_data['slug'] ) ? $plugin_data['slug'] : sanitize_title( $plugin_data['Name'] ) ),
+			), admin_url( 'plugins.php' ) ) ),
 			esc_html__( 'Troubleshoot', 'health-check' )
 		);
 
@@ -273,7 +354,8 @@ class HealthCheck {
 				'health-check' => esc_html_x( 'Health Check', 'Menu, Section and Page Title', 'health-check' ),
 				'debug'        => esc_html__( 'Debug information', 'health-check' ),
 				'troubleshoot' => esc_html__( 'Troubleshooting', 'health-check' ),
-				'phpinfo'      => esc_html__( 'PHP Information', 'health-check' )
+				'phpinfo'      => esc_html__( 'PHP Information', 'health-check' ),
+				'tools'        => esc_html__( 'Tools', 'health-check' ),
 			);
 
 			$current_tab = ( isset( $_GET['tab'] ) ? $_GET['tab'] : 'health-check' );
@@ -281,7 +363,7 @@ class HealthCheck {
 
 			<h2 class="nav-tab-wrapper wp-clearfix">
 				<?php
-				foreach( $tabs as $tab => $label ) {
+				foreach ( $tabs as $tab => $label ) {
 					printf(
 						'<a href="%s" class="nav-tab %s">%s</a>',
 						sprintf(
@@ -306,6 +388,9 @@ class HealthCheck {
 					break;
 				case 'troubleshoot':
 					include_once( dirname( __FILE__ ) . '/pages/troubleshoot.php' );
+					break;
+				case 'tools':
+					include_once( dirname( __FILE__ ) . '/pages/tools.php' );
 					break;
 				case 'health-check':
 				default:
@@ -341,6 +426,21 @@ class HealthCheck {
 	}
 
 	/**
+	 * Display admin notices if we have any queued.
+	 *
+	 * @return void
+	 */
+	public function admin_notices() {
+		foreach ( $this->admin_notices as $admin_notice ) {
+			printf(
+				'<div class="notice notice-%s"><p>%s</p></div>',
+				esc_attr( $admin_notice->type ),
+				$admin_notice->message
+			);
+		}
+	}
+
+	/**
 	 * Perform a check to see is JSON is enabled.
 	 *
 	 * @uses extension_loaded()
@@ -351,15 +451,12 @@ class HealthCheck {
 	 */
 	static function json_check() {
 		$extension_loaded = extension_loaded( 'json' );
-		$functions_exist = function_exists( 'json_encode' ) && function_exists( 'json_decode' );
-		$functions_work = function_exists( 'json_encode' ) && ( '' != json_encode( 'my test string' ) );
+		$functions_exist  = function_exists( 'json_encode' ) && function_exists( 'json_decode' );
+		$functions_work   = function_exists( 'json_encode' ) && ( '' != json_encode( 'my test string' ) );
 
 		return $extension_loaded && $functions_exist && $functions_work;
 	}
 }
-
-// Initialize our plugin.
-new HealthCheck();
 
 // Include class-files used by our plugin.
 require_once( dirname( __FILE__ ) . '/includes/class-health-check-auto-updates.php' );
@@ -367,3 +464,8 @@ require_once( dirname( __FILE__ ) . '/includes/class-health-check-wp-cron.php' )
 require_once( dirname( __FILE__ ) . '/includes/class-health-check-debug-data.php' );
 require_once( dirname( __FILE__ ) . '/includes/class-health-check-loopback.php' );
 require_once( dirname( __FILE__ ) . '/includes/class-health-check-troubleshoot.php' );
+require_once( dirname( __FILE__ ) . '/includes/class-health-check-files-integrity.php' );
+require_once( dirname( __FILE__ ) . '/includes/class-health-check-mail-check.php' );
+
+// Initialize our plugin.
+new HealthCheck();
