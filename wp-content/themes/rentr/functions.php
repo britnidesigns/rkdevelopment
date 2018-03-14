@@ -159,7 +159,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 function register_my_menus() {
     register_nav_menus(
         array(
-            'logged-in-nav' => __( 'Logged In Navigation' ),
+            'tenant-nav' => __( 'Tenant Navigation' ),
             'footer-nav' => __( 'Footer Navigation' )
         )
     );

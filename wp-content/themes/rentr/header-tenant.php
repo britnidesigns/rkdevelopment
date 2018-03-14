@@ -17,6 +17,7 @@
 
 	<?php wp_head(); ?>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/common.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/tenant.css">
 </head>
 
 <body <?php body_class(); ?>>
@@ -40,7 +41,7 @@
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'rentr' ); ?></button>
 			<?php
                 wp_nav_menu( array(
-                    'theme_location' => 'menu-1',
+                    'theme_location' => 'tenant-nav',
                     'menu_id'        => 'primary-menu',
                     'container_class'=> 'primary-nav'
                 ) );
