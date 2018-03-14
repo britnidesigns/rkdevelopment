@@ -34,6 +34,13 @@ button[type=submit] {
         display: block;
         text-decoration: underline;
     }
+
+    .balance {
+        font-size: 1.5em;
+
+        &.paid { color: green; } // TODO: define color var
+        &.unpaid { color: @theme-primary; }
+    }
 }
 
 /* ---------- MAINTENANCE ------------------------------ */

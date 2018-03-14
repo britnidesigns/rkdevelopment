@@ -65,7 +65,7 @@
                         'container_class'=> 'primary-nav'
     				) );
 
-                    echo '<a href="/login" class="login">Log In</a>';
+                    echo '<a href="'. get_site_url() .'/login" class="login">Log In</a>';
                 }
             ?>
 		</nav><!-- #site-navigation -->

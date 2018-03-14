@@ -165,3 +165,9 @@ function register_my_menus() {
     );
 }
 add_action( 'init', 'register_my_menus' );
+
+function create_tenant_dashboard() {
+    //return 'This is just a test';
+    include('tenant/dashboard.php');
+}
+add_shortcode( 'tenantdash', 'create_tenant_dashboard' );
