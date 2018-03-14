@@ -7,3 +7,5 @@ wp-*.php
 !wp-config.php
 index.php
 gd-config.php
+wp-content/updraft/backup_*
+wp-content/updraft/log*
