@@ -177,6 +177,7 @@ function wppb_pro_hobbyist_free_v2_0(){
                 $local_array['terms-of-agreement']			= '';
                 $local_array['options']						= '';
                 $local_array['labels']						= '';
+                $local_array['recaptcha-type']				= 'v2';
                 $local_array['public-key']					= '';
                 $local_array['private-key']					= '';
                 $local_array['default-value']				= '';

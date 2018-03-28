@@ -296,10 +296,13 @@ input#send_credentials_via_email{
 }
 
 
-.g-recaptcha{
+.wppb-recaptcha-element{
 	display: inline-block;
 }
-.g-recaptcha iframe{
+.wppb-recaptcha-element.wppb-invisible-recaptcha {
+    display: block !important;
+}
+.wppb-recaptcha-element iframe{
     margin-bottom: 0;
 }
 

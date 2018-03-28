@@ -72,8 +72,46 @@ function wppb_content_restriction_filter_content( $content, $post = null ) {
     return $content;
 
 }
-add_filter( 'the_content', 'wppb_content_restriction_filter_content', 12 );
+add_filter( 'the_content', 'wppb_content_restriction_filter_content', 12, 2 );
 add_filter( 'wppb_content_restriction_post_check', 'wppb_content_restriction_filter_content', 10, 2 );
+
+/**
+ * Function that checks if a post id is restricted with profile builder
+ * @param $post_id
+ * @return bool true for when the post is restricted and false for when it's not
+ */
+function wppb_check_content_restriction_on_post_id( $post_id ){
+    global $user_ID;
+
+    // Get user roles that have access to this post
+    $user_status        = get_post_meta( $post_id, 'wppb-content-restrict-user-status', true );
+    $post_user_roles    = get_post_meta( $post_id, 'wppb-content-restrict-user-role' );
+
+    if( empty( $user_status ) && empty( $post_user_roles ) ) {
+        return false;
+    } else if( $user_status == 'loggedin' ) {
+        if( is_user_logged_in() ) {
+            if( ! empty( $post_user_roles ) ) {
+                $user_data = get_userdata( $user_ID );
+                foreach( $post_user_roles as $post_user_role ) {
+                    foreach( $user_data->roles as $role ) {
+                        if( $post_user_role == $role ) {
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 
 /* Checks to see if the attachment image is restricted and returns false instead of the image if it is restricted */
 function wppb_content_restriction_filter_attachment_image_src( $image, $attachment_id ) {
@@ -194,3 +232,51 @@ function wppb_content_restriction_add_post_preview( $message, $content, $post, $
 }
 add_filter( 'wppb_content_restriction_message_logged_in', 'wppb_content_restriction_add_post_preview', 30, 4 );
 add_filter( 'wppb_content_restriction_message_logged_out', 'wppb_content_restriction_add_post_preview', 30, 4 );
+
+
+if( function_exists( 'wc_get_page_id' ) ) {
+    /**
+     * Restrict the Shop page
+     *
+     * @param $template The shop page template to return
+     * @return string
+     */
+    function wppb_woo_restrict_shop_page($template){
+
+        // check if we're on the Shop page (set under WooCommerce Settings -> Products -> Display)
+        if (is_post_type_archive('product') || is_page(wc_get_page_id('shop'))) {
+
+            // get the ID of the shop page
+            $post_id = wc_get_page_id('shop');
+
+            if (($post_id != -1) && wppb_check_content_restriction_on_post_id($post_id)) {
+
+                $shop_page = get_post($post_id);
+
+                setup_postdata($shop_page);
+
+                $template = WPPB_PLUGIN_DIR . 'features/content-restriction/templates/archive-product.php';
+
+                wp_reset_postdata();
+            }
+
+        }
+
+        return $template;
+    }
+    add_filter('template_include', 'wppb_woo_restrict_shop_page', 40);
+
+
+    /* restrict products content  */
+    add_action( 'woocommerce_before_single_product', 'wppb_woo_product_restriction_start' );
+    function wppb_woo_product_restriction_start(){
+        ob_start();
+    }
+
+    add_action( 'woocommerce_after_single_product', 'wppb_woo_product_restriction_end' );
+    function wppb_woo_product_restriction_end(){
+        $product_content = ob_get_contents();
+        ob_end_clean();
+        echo apply_filters( 'the_content', $product_content );
+    }
+}

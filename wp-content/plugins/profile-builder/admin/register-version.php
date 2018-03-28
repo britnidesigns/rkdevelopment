@@ -58,7 +58,7 @@ function wppb_register_your_version_content() {
 function wppb_serial_form($version, $fullname){
     ?>
 
-    <h2><?php _e( "Register your version of $fullname", 'profile-builder' ); ?></h2>
+    <h2><?php printf( __( "Register your version of %s", 'profile-builder' ), $fullname ); ?></h2>
 
     <form method="post" action="<?php echo get_admin_url( 1, 'options.php' ) ?>">
 

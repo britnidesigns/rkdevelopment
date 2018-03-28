@@ -102,12 +102,24 @@ function wppb_content_restriction_get_post_message( $post_id = 0 ) {
 
 /* Checks to see if the current post is restricted and if any redirect URLs are in place the user is redirected to the URL with the highest priority */
 function wppb_content_restriction_post_redirect() {
+    global $post;
 
-    if( ! is_singular() ) {
-        return;
+    if( function_exists( 'wc_get_page_id' ) ) {//redirect restriction for woocommerce shop page
+        if ( !is_singular() && !( is_post_type_archive('product') || is_page(wc_get_page_id('shop')) ) ){
+            return;
+        }
+
+        if( is_post_type_archive('product') || is_page(wc_get_page_id('shop')) ){
+            $post = get_post( wc_get_page_id('shop') );
+        }
+    }
+    else {
+        if (!is_singular()) {
+            return;
+        }
     }
 
-    global $post;
+
 
     $redirect_url             = '';
     $post_restriction_type    = get_post_meta( $post->ID, 'wppb-content-restrict-type', true );

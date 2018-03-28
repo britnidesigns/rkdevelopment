@@ -437,6 +437,7 @@ var fields 	=	{
 						'reCAPTCHA':							{	'show_rows'	:	[
 																						'.row-field-title',
 																						'.row-description',
+																						'.row-recaptcha-type',
 																						'.row-public-key',
 																						'.row-private-key',
                                                                                         '.row-captcha-pb-forms',

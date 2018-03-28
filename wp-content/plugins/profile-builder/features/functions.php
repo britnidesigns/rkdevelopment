@@ -169,7 +169,11 @@ function wppb_mail( $to, $subject, $message, $message_from = null, $context = nu
 	
 	if ( $send_email ) {
 		//we add this filter to enable html encoding
-		add_filter( 'wp_mail_content_type', create_function( '', 'return "text/html"; ' ) );
+		if ( version_compare( phpversion(), '5.3.0', '<' ) ) {
+			add_filter('wp_mail_content_type', create_function('', 'return "text/html"; '));
+		}else{
+			add_filter('wp_mail_content_type', function( $content_type ) { return 'text/html'; } );
+		}
 
 		$atts = apply_filters( 'wppb_mail', compact( 'to', 'subject', 'message', 'headers' ), $context );
 
@@ -260,11 +264,16 @@ function wppb_print_cpt_script( $hook ){
 		( $hook == 'profile-builder_page_profile-builder-register' ) ||
 		( $hook == 'profile-builder_page_profile-builder-wppb_userListing' ) ||
 		( $hook == 'profile-builder_page_custom-redirects' ) ||
-		( $hook == 'profile-builder_page_profile-builder-wppb_emailCustomizer' ) ||
-		( $hook == 'profile-builder_page_profile-builder-wppb_emailCustomizerAdmin' ) ||
+		( $hook == 'profile-builder_page_profile-builder-wppb_emailCustomizer' ) ||//?what is this
+		( $hook == 'profile-builder_page_profile-builder-wppb_emailCustomizerAdmin' ) ||//?what is this
 		( $hook == 'profile-builder_page_profile-builder-add-ons' ) ||
 		( $hook == 'profile-builder_page_profile-builder-woocommerce-sync' ) ||
         ( $hook == 'profile-builder_page_profile-builder-bbpress') ||
+        ( $hook == 'profile-builder_page_admin-email-customizer') ||
+        ( $hook == 'profile-builder_page_user-email-customizer') ||
+        ( $hook == 'profile-builder_page_profile-builder-content_restriction' ) ||
+        ( strpos( $hook, 'profile-builder_page_' ) === 0 ) ||
+        ( $hook == 'edit.php' && ( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'wppb-roles-editor' ) ) ||
 		( $hook == 'admin_page_profile-builder-pms-promo') ) {
 			wp_enqueue_style( 'wppb-back-end-style', WPPB_PLUGIN_URL . 'assets/css/style-back-end.css', false, PROFILE_BUILDER_VERSION );
 	}
@@ -289,6 +298,9 @@ function wppb_print_cpt_script( $hook ){
 		if ( ( 'wppb-epf-cpt' == $post_type ) || ( 'wppb-rf-cpt' == $post_type ) || ( 'wppb-ul-cpt' == $post_type ) ){
 			wp_enqueue_style( 'wppb-back-end-style', WPPB_PLUGIN_URL . 'assets/css/style-back-end.css', false, PROFILE_BUILDER_VERSION );
 			wp_enqueue_script( 'wppb-epf-rf', WPPB_PLUGIN_URL . 'assets/js/jquery-epf-rf.js', array(), PROFILE_BUILDER_VERSION, true );
+		}
+		else if( 'wppb-roles-editor' == $post_type ){
+			wp_enqueue_style( 'wppb-back-end-style', WPPB_PLUGIN_URL . 'assets/css/style-back-end.css', array(), PROFILE_BUILDER_VERSION );
 		}
 	}
     if ( file_exists ( WPPB_PLUGIN_DIR.'/update/update-checker.php' ) ) {

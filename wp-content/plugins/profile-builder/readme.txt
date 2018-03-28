@@ -4,7 +4,7 @@ Donate link: http://www.cozmoslabs.com/wordpress-profile-builder/
 Tags: user registration, user profile, user registration form, user fields, extra user fields, edit profile, user custom fields, front-end login, front-end edit profile, front-end user registration, email confirmation, login form, content restriction, restrict content
 Requires at least: 3.1
 Tested up to: 4.9.4
-Stable tag: 2.7.6
+Stable tag: 2.7.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,8 @@ Users with administrator rights have access to the following features:
 * **reCAPTCHA** support for Profile Builder and Wordpress default forms
 * **User Role Select** field on register and edit profile forms
 * **Content Restriction**: restrict content based on current users role or logged in status
+* Restrict WooCommerce shop page and products
+* Invisible reCAPTCHA support for both Profile Builder forms as well as default WordPress forms
 
 **PROFILE BUILDER PRO**
 
@@ -163,6 +165,20 @@ This plugin adds/removes user fields in the front-end. Both default and extra pr
 12. Role Editor
 
 == Changelog ==
+= 2.7.9 =
+* Added support for Content Restriction on WooCommerce shop page and products
+* Fixed php version 7.2 warnings
+* Modification to the recaptcha field that will eliminate some warnings
+
+= 2.7.8 =
+* Fixed issue with reCaptcha not appearing any more in some cases
+* Fixed a notice introduced in the last update
+
+= 2.7.7 =
+* Added Invisible reCAPTCHA support for both PB forms as well as default WordPress forms
+* Small CSS modification in role editor
+* Fixing some CSS issues with notifications class on some pages and addon pages
+
 = 2.7.6 =
 * Fixed some issues on the login form that prevented some users from logging in
 * When changing/recovering password we now log out of all other/all sessions

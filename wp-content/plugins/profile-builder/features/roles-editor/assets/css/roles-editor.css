@@ -72,6 +72,10 @@
     width: 25%;
 }
 
+.post-type-wppb-roles-editor .column-role .wppb-role-slug-input{
+    width:90%;
+}
+
 .post-type-wppb-roles-editor .column-capabilities {
     width: 15%;
     text-align: center;

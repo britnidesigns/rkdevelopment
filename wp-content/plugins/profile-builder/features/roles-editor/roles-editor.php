@@ -67,7 +67,7 @@ class WPPB_Roles_Editor {
             }
 
             $wp_default_styles = $this->wp_default_styles();
-            $styles_exceptions = array( 'wppb-serial-notice-css', 'acf-global' );
+            $styles_exceptions = array( 'wppb-serial-notice-css', 'acf-global', 'wppb-back-end-style' );
             foreach( $wp_styles->registered as $key => $value ) {
                 if( ! in_array( $key, $wp_default_styles ) && ! in_array( $key, $styles_exceptions ) ) {
                     wp_deregister_style( $key );

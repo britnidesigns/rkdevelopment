@@ -27,7 +27,7 @@ function wppb_basic_info_content() {
 ?>
 	<div class="wrap wppb-wrap wppb-info-wrap">
 		<div class="wppb-badge <?php echo $version; ?>"><span><?php printf( __( 'Version %s' ), PROFILE_BUILDER_VERSION ); ?></span></div>
-		<h1><?php echo __( '<strong>Profile Builder </strong>' . $version, 'profile-builder' ); ?></h1>
+		<h1><?php printf( __( '<strong>Profile Builder </strong> %s', 'profile-builder' ), $version ); ?></h1>
 		<p class="wppb-info-text"><?php printf( __( 'The best way to add front-end registration, edit profile and login forms.', 'profile-builder' ) ); ?></p>
 		<hr />
 		<h2 class="wppb-callout"><?php _e( 'For Modern User Interaction', 'profile-builder' ); ?></h2>
