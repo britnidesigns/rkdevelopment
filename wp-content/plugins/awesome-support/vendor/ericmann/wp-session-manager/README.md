@@ -31,10 +31,12 @@ Frequently Asked Questions
 
 First, make a reference to the WP_Session instance.  Then, use it like an associative array, just like `$_SESSION`:
 
-`$wp_session = WP_Session::get_instance();
+```
+$wp_session = WP_Session::get_instance();
 $wp_session['user_name'] = 'User Name';                            // A string
 $wp_session['user_contact'] = array( 'email' => 'user@name.com' ); // An array
-$wp_session['user_obj'] = new WP_User( 1 );                        // An object`
+$wp_session['user_obj'] = new WP_User( 1 );                        // An object
+```
 
 **How long do session variables live?**
 
@@ -44,6 +46,14 @@ This value can be changed by using the `wp_session_expiration` filter:
 
 `add_filter( 'wp_session_expiration', function() { return 60 * 60; } ); // Set expiration to 1 hour`
 
+**Can I use this plugin without creating new tables?**
+
+Absolutely! As of version 2.0, this plugin will create a new table for WordPress to store session data. In general, this is more efficient long-term than using options for data storage. However, if your system does not allow creating a table, add the following to `wp-config.php` to use the options table instead:
+
+```
+define( 'WP_SESSION_USE_OPTIONS', true );
+```
+
 Screenshots
 -----------
 
@@ -51,6 +61,16 @@ None
 
 Changelog
 ---------
+
+**2.0.2**
+- Fix: Wire the data storage migration to a session init hook to ensure it runs.
+- Fix: Clean up sessions when all data is removed.
+
+**2.0.1**
+- Fix: Repair data storage that was not returning actual stored session data.
+
+**2.0.0**
+- Update: Use a table instead of options for storing session data.
 
 **1.2.2**
 
@@ -99,6 +119,10 @@ Changelog
 Upgrade Notice
 --------------
 
+**2.0**
+
+This version will create a new database table for storing session data! If you do not want such a table, please set the `WP_SESSION_USE_OPTIONS` constant to `true` in `wp-config.php`! Upgrading will delete all existing sessions!
+
 **1.0**
 
 First version
@@ -107,10 +131,10 @@ Additional Information
 ----------------------
 
 **Contributors:** ericmann
-**Donate link:** http://jumping-duck.com/wordpress/plugins
+**Donate link:** https://paypal.me/eam
 **Tags:** session
-**Requires at least:** 3.4.2
-**Tested up to:** 4.7.4
-**Stable tag:** 1.2.1
+**Requires at least:** 4.7
+**Tested up to:** 4.9.1
+**Stable tag:** 2.0.2
 **License:** GPLv2 or later
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html
