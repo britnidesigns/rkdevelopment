@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit0932139d3514b7740c6d7b081ba37c9e
+class ComposerStaticInitcf4de06fa422096ec6757182af963848
 {
     public static $files = array (
         '94da49b8a6ca768bd9153ee879ff4877' => __DIR__ . '/..' . '/gambitph/titan-framework/titan-framework.php',

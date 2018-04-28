@@ -213,10 +213,8 @@
 <?php __("Wrong password!", "profile-builder"); ?>
 <?php __("Please enter a valid email!", "profile-builder"); ?>
 <?php __("You can only login on this form.<br>Register with your social account on the register form.", "profile-builder"); ?>
-<?php __("Please enter your Facebook email", "profile-builder"); ?>
 <?php __("Please enter your Facebook email!", "profile-builder"); ?>
 <?php __("Waiting for Twitter...", "profile-builder"); ?>
-<?php __("Please enter your Twitter email", "profile-builder"); ?>
 <?php __("Please enter your Twitter email!", "profile-builder"); ?>
 <?php __("Profile Builder not active!", "profile-builder"); ?>
 <?php __("General Settings", "profile-builder"); ?>
@@ -340,7 +338,7 @@
 <?php __("Double Opt-In", "profile-builder"); ?>
 <?php __("If you select double opt-in, the user will receive an e-mail to confirm the subscription", "profile-builder"); ?>
 <?php __("Send Welcome E-mail", "profile-builder"); ?>
-<?php __("If checked will send an e-mail to welcome the user to the subscribtion area", "profile-builder"); ?>
+<?php __("If checked will send an e-mail to welcome the user to the subscription area", "profile-builder"); ?>
 <?php __("MailChimp API key is empty", "profile-builder"); ?>
 <?php __("MailChimp API key is invalid", "profile-builder"); ?>
 <?php __("Something went wrong. Either the API key is invalid or we could not connect to MailChimp to validate the key.", "profile-builder"); ?>
@@ -355,7 +353,6 @@
 <?php __("Something went wrong. Either the MailChimp API key is missing or it is invalid.", "profile-builder"); ?>
 <?php __("Select...", "profile-builder"); ?>
 <?php __("Extra Options", "profile-builder"); ?>
-<?php __("If you select double opt-in, the user will receive an e-mail to confirm the subscribtion", "profile-builder"); ?>
 <?php __("Please select a list first", "profile-builder"); ?>
 <?php __("No list was found.", "profile-builder"); ?>
 <?php __("MailPoet List", "profile-builder"); ?>
@@ -376,7 +373,6 @@
 <?php __("Sign in with LinkedIn", "profile-builder"); ?>
 <?php __("Connection with twitter Failed", "profile-builder"); ?>
 <?php __("Error Receiving Request Token", "profile-builder"); ?>
-<?php __("Something went wrong. Please try again later.", "profile-builder"); ?>
 <?php __("Link with Twitter", "profile-builder"); ?>
 <?php __("Sign in with Twitter", "profile-builder"); ?>
 <?php __("Add-Ons", "profile-builder"); ?>
@@ -499,6 +495,10 @@
 <?php __("Set up a repeating group of fields on register and edit profile forms. Limit the number of repeated groups for each user role.", "profile-builder"); ?>
 <?php __(" * only available in the %1$sHobbyist and Pro versions%2$s.", "profile-builder"); ?>
 <?php __("** only available in the %1$sPro version%2$s.", "profile-builder"); ?>
+<?php __("Quick Feedback", "profile-builder"); ?>
+<?php __("Because we care about our clients, please leave us feedback on why you are no longer using our plugin.", "profile-builder"); ?>
+<?php __("Skip and Deactivate", "profile-builder"); ?>
+<?php __("Submit and Deactivate", "profile-builder"); ?>
 <?php __("Load Profile Builder's own CSS file in the front-end:", "profile-builder"); ?>
 <?php __("You can find the default file here: %1$s", "profile-builder"); ?>
 <?php __("\"Email Confirmation\" Activated:", "profile-builder"); ?>
@@ -1155,12 +1155,11 @@
 <?php __("Your account has to be confirmed by an administrator before you can log in.", "profile-builder"); ?>
 <?php __("Admin Approval", "profile-builder"); ?>
 <?php __("Do you want to", "profile-builder"); ?>
-<?php __("Your session has expired! Please refresh the page and try again", "profile-builder"); ?>
+<?php __("Your session has expired! Please refresh the page and try again.", "profile-builder"); ?>
 <?php __("User successfully approved!", "profile-builder"); ?>
 <?php __("User successfully unapproved!", "profile-builder"); ?>
 <?php __("User successfully deleted!", "profile-builder"); ?>
 <?php __("You either don't have permission for that action or there was an error!", "profile-builder"); ?>
-<?php __("Your session has expired! Please refresh the page and try again.", "profile-builder"); ?>
 <?php __("Users successfully approved!", "profile-builder"); ?>
 <?php __("Users successfully unapproved!", "profile-builder"); ?>
 <?php __("Users successfully deleted!", "profile-builder"); ?>

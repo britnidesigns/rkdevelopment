@@ -49,7 +49,7 @@ class Profile_Builder_Form_Creator{
 		$this->wppb_retrieve_custom_settings();
 
         if( ( !is_multisite() && current_user_can( 'edit_users' ) ) || ( is_multisite() && current_user_can( 'manage_network' ) ) )
-            add_action( 'wppb_before_edit_profile_fields', array( &$this, 'wppb_edit_profile_select_user_to_edit' ) );
+            add_action( 'wppb_before_edit_profile_fields', array( 'Profile_Builder_Form_Creator', 'wppb_edit_profile_select_user_to_edit' ) );
 	}
 
     /**
@@ -423,7 +423,7 @@ class Profile_Builder_Form_Creator{
 					$button_name = __( 'Update', 'profile-builder' );
 				?>
                 <?php do_action( 'wppb_form_before_submit_button', $this->args ); ?>
-				<input name="<?php echo $this->args['form_type']; ?>" type="submit" id="<?php echo $this->args['form_type']; ?>" class="<?php echo apply_filters( 'wppb_'. $this->args['form_type'] .'_submit_class', "submit button" );?>" value="<?php echo apply_filters( 'wppb_'. $this->args['form_type'] .'_button_name', $button_name ); ?>" <?php echo apply_filters( 'wppb_form_submit_button_extra_attributes', '', $this->args['form_type'] );?>/>
+				<input name="<?php echo $this->args['form_type']; ?>" type="submit" id="<?php echo $this->args['form_type']; ?>" class="<?php echo apply_filters( 'wppb_'. $this->args['form_type'] .'_submit_class', "submit button" );?>" value="<?php echo apply_filters( 'wppb_'. $this->args['form_type'] .'_button_name', $button_name, $this->args['form_name'] ); ?>" <?php echo apply_filters( 'wppb_form_submit_button_extra_attributes', '', $this->args['form_type'] );?>/>
                 <?php do_action( 'wppb_form_after_submit_button', $this->args ); ?>
 				<input name="action" type="hidden" id="action" value="<?php echo $this->args['form_type']; ?>" />
 				<input name="form_name" type="hidden" id="form_name" value="<?php echo $this->args['form_name']; ?>" />
@@ -650,7 +650,7 @@ class Profile_Builder_Form_Creator{
 		return get_current_user_id();
 	}
 
-    function wppb_edit_profile_select_user_to_edit(){
+    static function wppb_edit_profile_select_user_to_edit(){
 
         $display_edit_users_dropdown = apply_filters( 'wppb_display_edit_other_users_dropdown', true );
         if( !$display_edit_users_dropdown )

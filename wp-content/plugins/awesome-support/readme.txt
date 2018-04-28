@@ -1,10 +1,10 @@
 === Awesome Support - WordPress HelpDesk & Support Plugin ===
 
-Contributors: awesomesupport,julien731,rwkiii,elindydotcom,SiamKreative
+Contributors: awesomesupport,julien731,tahir1235,rwkiii,elindydotcom,SiamKreative
 Tags: helpdesk,ticket system,support,tickets,support ticket,support desk,help,paid support,knowledgebase,faq
 Requires at least: 4.0
 Tested up to: 4.9
-Stable tag: 5.0.0
+Stable tag: 5.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,17 +13,15 @@ The most versatile and feature-rich help desk and support plugin for WordPress. 
 == Description ==
 [Live Demo](https://asdemo.flywheelsites.com/)
 
-Awesome Support is the most versatile and feature-rich support plugin for WordPress. It's the result of three+ years of work, research, and improvement. The features are an answer to user requests for a premium, WordPress-based help desk.  But that's not the only thing that makes it the best.  Its free and premium feature-set coupled with its REST API rivals the best hosted helpdesks - without the large monthly fee!
+Awesome Support is the most versatile and feature-rich support plugin for WordPress. It is the only helpdesk & support ticketing plugin that can match the feature set of an SAAS solution such as Zendesk or Helpscout. 
+
+And your customers can be using it in just 5 mins! After installing and activating the plugin, just answer a few questions in the startup wizard and your helpdesk will be ready for your customers. 
+
+Take a product tour in the video below where you can see the extensive list of free and premium features that will be available on your new helpdesk!  (Or you can scroll down to the bottom of this page for screen shots.)
 
 **Product Tour**
 
-Get an overview of many aspects of Awesome Support
 [youtube https://youtu.be/-SV-IUD6WvI]
-
-**Quick Start Video**
-
-Get started quickly!  Just watch our quick-start video!
-[youtube https://www.youtube.com/watch?v=s9t-2PPXp-0 ]
 
 For premium one-on-one support or pre-sales questions please visit the [official site](http://getawesomesupport.com).
 
@@ -50,14 +48,14 @@ Check out the user-friendly features of this awesome plugin:
 - **Time Tracking**: basic time tracking is included!  Admins can even adjust time and all time changes are logged directly in the ticket. 
 - **Custom Labels**: sign up for our email newsletter and get our Custom Status plugin for free - unlimited color coded, customized statuses and ticket labels at your fingertips! Combined with priorities and tags you have the ultimate system for categorizing and tracking your tickets!
 - **WordPress UI**: Uses the familiar WordPress administration user interface so there is almost no learning curve!  And, because we respect the WordPress UI standards you can use any 3rd party styling tool to create the look you want (see the screenshots section for examples)
-- **REST API**: We love it when developers use our products.  The REST API is very developer friendly - easily push and pull Awesome Support ticket data with ease!
+- **REST API**: We love it when developers use our products.  The REST API is very developer friendly - push and pull Awesome Support ticket data with ease!
 - **GDPR READY**: Our registration screen can be easily configured to show GDPR related information
 - **GUTENBERG AWARE**: Compatible with the new WordPress editor known as Gutenberg
 - **WOOCOMMERCE INTEGRATION**: Includes integration into the WooCommerce dashboard along with a premium option for advanced integration
 
 **Features**
 
-Awesome Support is probably the most powerful helpdesk and support ticketing plugin on the planet. Whether you're a startup that needs just the basics or a major corporation with multiple departments requiring service level agreements and sophisticated ticket routing, we have the functions you need! Seriously - just take a look at all the features you can get (some free, some premium)
+Awesome Support is the result of three+ years of work, research, and improvement. It is probably the most powerful helpdesk and support ticketing plugin on the planet. Whether you're a startup that needs just the basics or a major corporation with multiple departments requiring service level agreements and sophisticated ticket routing, we have the functions you need! Seriously - just take a look at all the features you can get (some free, some premium)
 [View the full list of features on our website](https://getawesomesupport.com/awesome-support-features/)
 
 - Unlimited Tickets (Free)
@@ -241,17 +239,21 @@ Version 5 of Awesome Support was built with flexibility in mind; the code is cle
 
 Awesome Support is built with many reputable open-source projects including the [Titan Framework](http://www.titanframework.net/) to handle plugin options, [FlexBox Grid](http://flexboxgrid.com/) for certain styling elements, [BootStrap 4](http://getbootstrap.com/) for optional themes, [Simple Hint](http://catc.github.io/simple-hint/) for tool tips and a few others.
 
-**Translations**
+**Languages**
 
 Awesome Support is available in a variety of languages and volunteers and customers are always adding more!  Portions of the plugin have been translated into 20+ languages by our users and volunteers. These include German, Portuguese(BR), Arabic, Chinese, French, Italian, Persian, Polish, Spanish, Swedish and more!
 
 Do you want to translate Awesome Support in your language? [Head over to the POEditor.com Project](https://poeditor.com/join/project/P6HgfPnBt4)!  Alternatively you can translate Awesome Support right here on WordPress.org - [Translate Awesome Support on WordPress.org](https://translate.wordpress.org/projects/wp-plugins/awesome-support/) .
 
+**Translations**
+
 Don't see your language?  Let us know which one you would like and we will add it for you!
 
 Learn how to [download and use translations from POEDITOR.com](https://getawesomesupport.com/documentation/awesome-support/using-poeditor-com-translations/)
 
-Do you use WPML and POLYLANG?
+**Do you use WPML and POLYLANG?**
+
+We provide extensive instructions on how to configure WPML and POLYLANG when using Awesome Support.
 
 [WPML Instructions](https://getawesomesupport.com/documentation/awesome-support/wpml-introduction/)
 [POLYLANG Instructions](https://getawesomesupport.com/documentation/awesome-support/polylang-introduction/)
@@ -441,11 +443,42 @@ There are several factors that can influence e-mail notifications delivery. Plea
 77. Free Woocommerce Integration: Adds the SUBMIT TICKET and MY TICKET page links to the WooCommerce user dashboard
 
 == Changelog ==
-= 5.0.0 =
 
-The version 5.0.0 line is a MAJOR upgrade from 4.x  If you are upgrading from 4.x or or earlier versions it is strongly suggested that you test this upgrade in a stage/test environment before applying it to your production site.
+= 5.1.1 =
+
+The version 5.x line is a MAJOR upgrade from 4.x  If you are upgrading from
+ 4.x or or earlier versions it is strongly suggested that you test this upgrade in a stage/test environment before applying it to your production site.
 You will also need to upgrade premium add-ons after this upgrade - in particular POWERPACK, FAQ, DOCUMENTATION, CANNED RESPONSES, FILESTACK and CUSTOM FAQ
 At the very least you should back-up your site before applying this update!
+
+* Security Fixes
+	(none)
+	
+* Tweak
+	* Added additional post-types to our function that determines if a page is ours.
+	* Add disclosure notice in LICENSE tab about data being transmitted to our servers during license checks.
+	* Updated wpas_is_admin() function to include check for is_super_admin()
+	
+* Fix
+	* Get the remote notification client working properly.
+	* Strip slashes from outgoing emails when single quotes are used in the subject line (and other areas).
+	* Remove blank menu option that remained after the on-boarding wizard is complete
+	* Color coding priority on ticket detail screen tabs did not check to see if priorities were enabled.
+	
+* Dev
+	* Added a new parameter to the wpas_email_notifications_sender_data filter ($this).
+	* Fix name on post-render action hook inside the submission form.  It had a '-x' after the name for some reason.
+	
+= 5.1.0 =
+
+* Security Fixes
+	(none)
+	
+* New
+	* Added an onboarding wizard to get users quickly set up after activating the plugin
+	* Added option for admin to be able to set the role that a user will be registered with when using our registration page
+
+= 5.0.0 =
 
 * Security Fixes
 	* Fix: Agents can view tickets that they are not authorized to view if they know the direct URL link or ticket ID of a valid ticket.
@@ -1288,11 +1321,9 @@ Even though the plugin has been developed and is maintained by the Awesome Suppo
 
 Our key core developers on the Awesome Support Development Team in the first quarter of 2018 include:
 
-	- Robert Kramer
-	- Muhammad Tahir Nazir	
-	- Nigel Bahadur
-	- Julien Liabeuf
-
+* Muhammad Tahir Nazir	
+* Nigel Bahadur
+* Robert Kramer	
 
 == Translators == 
 	

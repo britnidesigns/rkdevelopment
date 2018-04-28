@@ -459,6 +459,8 @@ function wppb_recaptcha_login_wp_error_message($user){
                 // it's a PB login form, check if we have a reCAPTCHA on it and display error if not valid
                 if ((isset($field['captcha-pb-forms'])) && (strpos($field['captcha-pb-forms'], 'pb_login') !== false) && ($wppb_recaptcha_response == false)) {
                     $user = new WP_Error('wppb_recaptcha_error', __('Please enter a (valid) reCAPTCHA value', 'profile-builder'));
+                    remove_filter( 'authenticate', 'wp_authenticate_username_password',  20, 3 );
+                    remove_filter( 'authenticate', 'wp_authenticate_email_password',     20, 3 );
                 }
 
             }
@@ -466,6 +468,8 @@ function wppb_recaptcha_login_wp_error_message($user){
                 //reCAPTCHA error for displaying on the default WP login form
                 if (isset($field['captcha-wp-forms']) && (strpos($field['captcha-wp-forms'], 'default_wp_login') !== false) && ($wppb_recaptcha_response == false)) {
                     $user = new WP_Error('wppb_recaptcha_error', __('Please enter a (valid) reCAPTCHA value', 'profile-builder'));
+                    remove_filter( 'authenticate', 'wp_authenticate_username_password',  20, 3 );
+                    remove_filter( 'authenticate', 'wp_authenticate_email_password',     20, 3 );
                 }
 
             }
@@ -473,7 +477,7 @@ function wppb_recaptcha_login_wp_error_message($user){
     }
     return $user;
 }
-add_filter('authenticate','wppb_recaptcha_login_wp_error_message', 22);
+add_filter('authenticate','wppb_recaptcha_login_wp_error_message', 9);
 
 // Display reCAPTCHA html on default WP Recover Password form
 function wppb_display_recaptcha_default_wp_recover_password() {
