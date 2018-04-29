@@ -5,16 +5,15 @@
  * @package AuthorizeNet
  */
 
-spl_autoload_register(function($className) {
-    static $classMap;
+spl_autoload_register(function( $className ) {
+	static $classMap;
+	if ( ! isset( $classMap ) ) {
+		$classMap = require __DIR__ . DIRECTORY_SEPARATOR . 'classmap.php';
+	}
 
-    if (!isset($classMap)) {
-        $classMap = require __DIR__ . DIRECTORY_SEPARATOR . 'classmap.php';
-    }
-
-    if (isset($classMap[$className])) {
-        include $classMap[$className];
-    } else {
-        echo 'Class not loaded: ' . $className;
-    }
+	if ( isset( $classMap[ $className ] ) ) {
+		include $classMap[ $className ];
+	} else {
+		//echo 'Class not loaded: ' . $className;
+	}
 });

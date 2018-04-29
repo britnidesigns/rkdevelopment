@@ -4,7 +4,7 @@ Donate link: https://sproutapps.co/
 Tags: invoicing, estimates, payments, web invoice, bill, paypal, invoice, pay, online payment, send invoice, bill clients, credit cards, stripe, freshbooks, harvest, wp-invoice
 Requires at least: 3.8
 Tested up to: 4.9
-Stable tag: 16.7
+Stable tag: 17.0.5
 
 == Description ==
 
@@ -22,6 +22,48 @@ The plugin should already be installed at this point. If you still need help che
 **Please visit the [FAQ at Sprout Apps](https://sproutapps.co/support/knowledgebase/sprout-invoices/faqs/).**
 
 == Changelog ==
+
+= 17.0.5 =
+
+* Fix: PDF Service caching issue
+* Update: Reporting totals and column adjustments
+
+= 17.0.3 =
+
+* Fix/Update: Password protection compat for new PDF Service
+* Fix/Update: Ability to view PDF after invoice is paid (default theme)
+* Fix: Add-on caching issue
+
+= 17.0 =
+
+* NEW: PDF Service for better PDF creation!
+* Fix/Update: Status for records being updated irregularly
+* Update: Stripe API fixes
+* Update: Fix for client types
+* Update: Show the client's stored address info when using a credit card payment
+* Update: Minor updates and bug fixes
+
+= 16.8.1 =
+
+* Update: New Stripe API Changes
+
+= 16.8 =
+
+* Update: Remove all form integrations add-ons since they're now in the .org repo for free
+
+= 16.7.6 =
+
+* Update: Freemius updated for free versions
+* Fix: Removed private bundled add-on
+
+= 16.7.5 =
+
+* Update: PO updates
+* Update: Remove Ready Status add-on because of incompatibilities
+* Fix: Recurring (more) fail checks
+* Update: Plaid filter for enviroment
+* Fix: Project time tracking meta box redundancy
+* Fix: Fees should not be doubled up
 
 = 16.7 =
 

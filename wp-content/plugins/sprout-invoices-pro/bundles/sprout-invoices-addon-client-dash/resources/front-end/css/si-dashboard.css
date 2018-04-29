@@ -15,13 +15,8 @@
 	clear: left !important;
 }
 
-#si_dashboard .clearfix:before,
-#si_dashboard .clearfix:after {
-  display: table;
-  content: " ";
-}
-#si_dashboard .clearfix:after {
-  clear: both;
+#si_dashboard .clearfix {
+  overflow: auto;
 }
 
 #si_dashboard .avatar {

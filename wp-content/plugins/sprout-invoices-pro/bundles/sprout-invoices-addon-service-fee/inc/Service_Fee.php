@@ -97,7 +97,7 @@ class SI_Service_Fee extends SI_Controller {
 			self::remove_processing_fee_from_checkout( $checkout );
 			return;
 		}
-		$fee_total = $invoice->get_calculated_total() * ( $service_fee / 100 );
+		$fee_total = $invoice->get_calculated_total( false ) * ( $service_fee / 100 );
 
 		$processor_options = $checkout->get_processor()->checkout_options();
 		$label = ( isset( $processor_options['label'] ) && '' !== $processor_options['label'] ) ? $processor_options['label'] : 'Payment' ;
@@ -112,26 +112,35 @@ class SI_Service_Fee extends SI_Controller {
 		if ( $post->post_type !== SI_Invoice::POST_TYPE ) {
 			return;
 		}
+
 		$invoice = SI_Invoice::get_instance( $post_id );
 
 		$enabled_gateways = SI_Payment_Processors::doc_enabled_processors( $post_id );
 
+		// Don't allow for multiple service fees, or a fee to be added based on an existing fee that will be overriden.
+		// Example, recurring invoice with a fee is duplicated, then the new fee is based on the total including the old fee.
+		self::maybe_remove_processing_fee( $invoice );
+
 		// Don't autoamtically add a fee if more than one option
 		if ( 1 < count( $enabled_gateways ) ) {
-			self::remove_processing_fee( $invoice );
 			return;
 		}
 
 		$class = $enabled_gateways[0];
 
 		$service_fee = self::get_service_fee( $class );
-		$fee_total = $invoice->get_calculated_total() * ( $service_fee / 100 );
+		$fee_total = $invoice->get_calculated_total( false ) * ( $service_fee / 100 );
 
 		self::add_service_fee( $invoice, $fee_total );
 	}
 
 	public static function add_service_fee( SI_Invoice $invoice, $fee_total = 0.00, $label = '' ) {
 		if ( $fee_total < 0.00 ) {
+			return;
+		}
+
+		// don't add a fee for an invoice that has been paid already
+		if ( $invoice->get_status() == SI_Invoice::STATUS_PAID ) {
 			return;
 		}
 
@@ -154,11 +163,23 @@ class SI_Service_Fee extends SI_Controller {
 		}
 		$invoice = $checkout->get_invoice();
 
-		self::remove_processing_fee( $invoice );
+		self::maybe_remove_processing_fee( $invoice );
 	}
 
-	public static function remove_processing_fee( $invoice ) {
+	public static function maybe_remove_processing_fee( SI_Invoice $invoice ) {
+		// don't remove a fee for an invoice that has been paid already
+		if ( $invoice->get_status() == SI_Invoice::STATUS_PAID ) {
+			return;
+		}
+
 		$fees = $invoice->get_fees();
+
+		// check if one exists.
+		if ( ! isset( $fees['payment_service_fee'] ) ) {
+			return;
+		}
+
+		// remove fee from array
 		unset( $fees['payment_service_fee'] );
 
 		$invoice->save_post_meta( array(

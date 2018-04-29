@@ -16,7 +16,7 @@ class SI_Login extends SI_Controller {
 
 	public static function init() {
 
-		self::$default_force_login = (bool)get_option( self::FORCE_LOGIN_OPTION, 0 );
+		self::$default_force_login = (bool) get_option( self::FORCE_LOGIN_OPTION, 0 );
 
 		// Change template
 		add_action( 'si_doc_template', array( __CLASS__, 'maybe_force_login_template' ) );
@@ -55,8 +55,8 @@ class SI_Login extends SI_Controller {
 	}
 
 	public static function maybe_force_login_template( $template = '' ) {
-		if ( isset( $_POST[self::PASSWORD_INPUT] ) ) {
-			setcookie( self::COOKIE, sanitize_text_field( $_POST[self::PASSWORD_INPUT] ), time() + ( 60 * 60 * 2 ), COOKIEPATH, COOKIE_DOMAIN );
+		if ( isset( $_POST[ self::PASSWORD_INPUT ] ) ) {
+			setcookie( self::COOKIE, sanitize_text_field( $_POST[ self::PASSWORD_INPUT ] ), time() + ( 60 * 60 * 2 ), COOKIEPATH, COOKIE_DOMAIN );
 			// redirect after setting the cookie
 			wp_redirect( get_the_permalink() );
 			exit();
@@ -92,11 +92,11 @@ class SI_Login extends SI_Controller {
 							'type' => 'checkbox',
 							'value' => '1',
 							'default' => self::$default_force_login,
-							'description' => __( 'Force logins by default for all invoices and estimates.', 'sprout-invoices' )
-							)
+							'description' => __( 'Force logins by default for all invoices and estimates.', 'sprout-invoices' ),
+							),
 						),
-					)
-				)
+					),
+				),
 			);
 		do_action( 'sprout_settings', $settings, self::SETTINGS_PAGE );
 	}
@@ -105,8 +105,8 @@ class SI_Login extends SI_Controller {
 		self::load_addon_view( 'admin/meta-boxes/force-login', array(
 				'password' => self::get_doc_password( $doc->get_id() ),
 				'force_login' => self::get_doc_forced_login( $doc->get_id() ),
-				'fields' => self::meta_box_fields( $doc )
-			), false );
+				'fields' => self::meta_box_fields( $doc ),
+		), false );
 	}
 
 	public static function save_password_selection( $post_id = 0 ) {
@@ -136,7 +136,7 @@ class SI_Login extends SI_Controller {
 			'type' => 'input',
 			'default' => self::get_doc_password( $doc->get_id() ),
 			'attributes' => array( 'class' => 'small-input' ),
-			'description' => __( 'Password protection supersedes requiring the client login.', 'sprout-invoices' )
+			'description' => __( 'Password protection supersedes requiring the client login.', 'sprout-invoices' ),
 		);
 		$fields = apply_filters( 'si_force_login_meta_fields', $fields );
 		uasort( $fields, array( __CLASS__, 'sort_by_weight' ) );
@@ -193,8 +193,8 @@ class SI_Login extends SI_Controller {
 	///////////////
 
 	public static function is_client_check_cookie( $bool = false ) {
-		if ( isset( $_COOKIE[self::COOKIE] ) ) {
-			$password = $_COOKIE[self::COOKIE];
+		if ( isset( $_COOKIE[ self::COOKIE ] ) ) {
+			$password = $_COOKIE[ self::COOKIE ];
 			$set_password = self::get_doc_password();
 			return ( $password == $set_password );
 		}
@@ -205,7 +205,7 @@ class SI_Login extends SI_Controller {
 	public static function add_notification_shortcode_compatibility( $notifications = array() ) {
 		foreach ( $notifications as $key => $data ) {
 			if ( in_array( $key, array( 'send_estimate', 'send_invoice', 'deposit_payment', 'reminder_payment', 'final_payment' ) ) ) { // don't show for admin notifications
-				$notifications[$key]['shortcodes'] = array_merge( $notifications[$key]['shortcodes'], array( 'doc_password' ) );
+				$notifications[ $key ]['shortcodes'] = array_merge( $notifications[ $key ]['shortcodes'], array( 'doc_password' ) );
 			}
 		}
 		return $notifications;
@@ -215,8 +215,8 @@ class SI_Login extends SI_Controller {
 		$new_shortcodes = array(
 			'doc_password' => array(
 				'description' => __( 'Used to provide the client with the password, if one is set. Format if password present: "Password: private-key-123"', 'sprout-invoices' ),
-				'callback' => array( __CLASS__, 'shortcode_password' )
-			)
+				'callback' => array( __CLASS__, 'shortcode_password' ),
+			),
 		);
 		return array_merge( $new_shortcodes, $default_shortcodes );
 	}
@@ -256,6 +256,11 @@ class SI_Login extends SI_Controller {
 	}
 
 	public static function force_login() {
+
+		if ( apply_filters( 'si_login_bypass', false ) ) {
+			return false;
+		}
+
 		// Only doc pages
 		if ( ! is_single() ) {
 			return false;
@@ -305,6 +310,4 @@ class SI_Login extends SI_Controller {
 	public static function addons_view_path() {
 		return SA_ADDON_LOGIN_PATH . '/views/';
 	}
-
-
 }

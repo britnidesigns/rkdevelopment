@@ -57,6 +57,10 @@ class SA_NMI_Tokenized extends SI_Credit_Card_Processors {
 	}
 
 	public static function get_convenience_fee() {
+		if ( method_exists( 'SI_Service_Fee', 'get_service_fee' )	) {
+			$service_fee = SI_Service_Fee::get_service_fee( 'SA_NMI_Tokenized' );
+			return $service_fee;
+		}
 		return get_option( self::CONVENIENCE_FEE_PERCENTAGE, '2.95' );
 	}
 

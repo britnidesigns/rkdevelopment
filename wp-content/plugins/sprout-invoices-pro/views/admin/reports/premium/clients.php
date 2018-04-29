@@ -159,10 +159,10 @@
 			<tfoot>
 				<tr>
 					<th colspan="3"><?php _e( 'Totals', 'sprout-invoices' ) ?></th>
-					<th><span id="footer_estimate_count"></span>&nbsp;<?php printf( __( '(of %s)', 'sprout-invoices' ), si_get_number_format( (int) $table_total_estimate_count ) ) ?></th>
-					<th><span id="footer_estimate_complete_count"></span>&nbsp;<?php printf( __( '(of %s)', 'sprout-invoices' ), si_get_number_format( (int) $table_total_estimate_complete_count ) ) ?></th>
-					<th><span id="footer_total_invoice_count"></span>&nbsp;<?php printf( __( '(of %s)', 'sprout-invoices' ), si_get_number_format( (int) $table_total_invoice_count ) ) ?></th>
-					<th><span id="footer_invoices_complete_count"></span>&nbsp;<?php printf( __( '(of %s)', 'sprout-invoices' ), si_get_number_format( (int) $table_total_invoices_complete_count ) ) ?></th>
+					<th><span id="footer_estimate_count"></span>&nbsp;<?php printf( __( '(of %s)', 'sprout-invoices' ), si_get_number_format( (int) $table_total_estimate_count, false ) ) ?></th>
+					<th><span id="footer_estimate_complete_count"></span>&nbsp;<?php printf( __( '(of %s)', 'sprout-invoices' ), si_get_number_format( (int) $table_total_estimate_complete_count, false ) ) ?></th>
+					<th><span id="footer_total_invoice_count"></span>&nbsp;<?php printf( __( '(of %s)', 'sprout-invoices' ), si_get_number_format( (int) $table_total_invoice_count, false ) ) ?></th>
+					<th><span id="footer_invoices_complete_count"></span>&nbsp;<?php printf( __( '(of %s)', 'sprout-invoices' ), si_get_number_format( (int) $table_total_invoices_complete_count, false ) ) ?></th>
 					<th><span id="footer_total_invoiced"></span>&nbsp;<?php printf( __( '(of %s)', 'sprout-invoices' ), sa_get_formatted_money( $table_total_invoiced ) ) ?></th>
 					<th><span id="footer_total_payments"></span>&nbsp;<?php printf( __( '(of %s)', 'sprout-invoices' ), sa_get_formatted_money( $table_total_payments ) ) ?></th>
 					<th><span id="footer_total_outstanding"></span>&nbsp;<?php printf( __( '(of %s)', 'sprout-invoices' ), sa_get_formatted_money( $table_total_outstanding ) ) ?></th>
@@ -203,7 +203,7 @@
 							return intVal(a) + intVal(b);
 						}, 0 );
 					$( '#footer_estimate_count' ).html(
-						footer_estimate_count.toFixed(2)
+						footer_estimate_count.toFixed(0)
 					);
 
 					footer_estimate_complete_count = api
@@ -213,7 +213,7 @@
 							return intVal(a) + intVal(b);
 						}, 0 );
 					$( '#footer_estimate_complete_count' ).html(
-						si_js_object.currency_symbol + footer_estimate_complete_count.toFixed(2)
+						footer_estimate_complete_count.toFixed(0)
 					);
 
 					footer_total_invoice_count = api
@@ -223,7 +223,7 @@
 							return intVal(a) + intVal(b);
 						}, 0 );
 					$( '#footer_total_invoice_count' ).html(
-						footer_total_invoice_count.toFixed(2)
+						footer_total_invoice_count.toFixed(0)
 					);
 
 					footer_invoices_complete_count = api
@@ -233,7 +233,7 @@
 							return intVal(a) + intVal(b);
 						}, 0 );
 					$( '#footer_invoices_complete_count' ).html(
-						footer_invoices_complete_count.toFixed(2)
+						footer_invoices_complete_count.toFixed(0)
 					);
 
 					footer_total_invoiced = api

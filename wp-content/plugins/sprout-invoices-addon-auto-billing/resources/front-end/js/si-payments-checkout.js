@@ -9,8 +9,11 @@ var $ = jQuery.noConflict();
 
 	si.siPaymentProfiles.hideBillingFields = function() {
 		jQuery('#billing_cc_fields .sa-form-field-required').find('input, select, textarea').each( function() {
-			jQuery(this).removeAttr( 'required' );
-			jQuery(this).attr( 'disabled', true );
+			var field_name = jQuery(this).attr('name');
+			if ( 'sa_credit_payment_method' !== field_name  ) {
+				jQuery(this).removeAttr( 'required' );
+				jQuery(this).attr( 'disabled', true );
+			}
 		});
 		si.siPaymentProfiles.enablePaymentMethods();
 		return true;
@@ -18,8 +21,11 @@ var $ = jQuery.noConflict();
 
 	si.siPaymentProfiles.showBillingFields = function() {
 		jQuery('#billing_cc_fields .sa-form-field-required').find('input, select, textarea').each( function() {
-			jQuery(this).attr( 'required', true );
-			jQuery(this).removeAttr( 'disabled' );
+			var field_name = jQuery(this).attr('name');
+			if ( 'sa_credit_payment_method' !== field_name  ) {
+				jQuery(this).attr( 'required', true );
+				jQuery(this).removeAttr( 'disabled' );
+			}
 		});
 		si.siPaymentProfiles.enablePaymentMethods();
 		return true;

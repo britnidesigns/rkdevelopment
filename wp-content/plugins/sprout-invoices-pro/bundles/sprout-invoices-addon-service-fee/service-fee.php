@@ -4,14 +4,14 @@ Plugin Name: Sprout Invoices Add-on - Service Fee
 Plugin URI: https://sproutapps.co/marketplace/service-fee/
 Description: Allows for a service fee to be added based on the payment method selected at checkout.
 Author: Sprout Apps
-Version: 2.0.2
+Version: 2.0.5
 Author URI: https://sproutapps.co
 */
 
 /**
  * Plugin Info for updates
  */
-define( 'SA_ADDON_SERVICE_FEE_VERSION', '2.0.2' );
+define( 'SA_ADDON_SERVICE_FEE_VERSION', '2.0.5' );
 define( 'SA_ADDON_SERVICE_FEE_DOWNLOAD_ID', 228724 );
 define( 'SA_ADDON_SERVICE_FEE_NAME', 'Sprout Invoices Service Fee' );
 define( 'SA_ADDON_SERVICE_FEE_FILE', __FILE__ );

@@ -73,11 +73,13 @@ class SI_Invoices_Recurring_Tasks extends SI_Invoices_Recurring {
 			// If not scheduled than don't generate
 			if ( ! $scheduled_cloned_time ) {
 				do_action( 'si_error', 'Could not generate invoice from master recurring invoice. No scheduled time.', $invoice_id );
+				continue;
 			}
 
 			// Just in case the WP Query returns future invoices, or it was created by a previous task that's taking a long time.
 			if ( $scheduled_cloned_time > current_time( 'timestamp' ) ) {
 				do_action( 'si_error', 'Could not generate invoice from master recurring invoice. Future attempt.', $invoice_id );
+				continue;
 			}
 
 			$cloned_post_id = self::generate_invoice( $invoice_id );

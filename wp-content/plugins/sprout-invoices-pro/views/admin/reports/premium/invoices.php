@@ -97,10 +97,10 @@
 							<td><?php echo $client_name; ?></td>
 							<td><?php si_invoice_calculated_total() ?></td>
 							<td><?php si_invoice_payments_total() ?></td>
-							<td><?php sa_formatted_money( si_get_invoice_taxes_total() ) ?></td>
-							<td><?php sa_formatted_money( si_get_invoice_fees_total() ) ?></td>
+							<td><?php sa_formatted_money( si_get_invoice_taxes_total(), get_the_id(), '%s' ) ?></td>
+							<td><?php sa_formatted_money( si_get_invoice_fees_total(), get_the_id(), '%s' ) ?></td>
 							<?php if ( apply_filters( 'si_show_gst_in_reports', class_exists( 'SI_Hearts_Canada' ) ) ) :  ?>
-								<th><?php sa_formatted_money( $gst_for_line_item ) ?></th>
+								<th><?php sa_formatted_money( $gst_for_line_item, get_the_id(), '%s' ) ?></th>
 							<?php endif ?>
 							<td><?php si_invoice_balance() ?></td>
 						</tr>
@@ -120,7 +120,7 @@
 					<th><span id="footer_total_tax"></span>&nbsp;<?php printf( __( '(of %s)', 'sprout-invoices' ), sa_get_formatted_money( $table_total_tax ) ) ?></th>
 					<th><span id="footer_total_fees"></span>&nbsp;<?php printf( __( '(of %s)', 'sprout-invoices' ), sa_get_formatted_money( $table_total_fees ) ) ?></th>
 					<?php if ( apply_filters( 'si_show_gst_in_reports', class_exists( 'SI_Hearts_Canada' ) ) ) :  ?>
-						<th><span id="footer_total_tax"></span>&nbsp;<?php printf( __( '(of %s)', 'sprout-invoices' ), sa_get_formatted_money( $table_gst_total_tax ) ) ?></th>
+						<th><span id="footer_total_gst"></span>&nbsp;<?php printf( __( '(of %s)', 'sprout-invoices' ), sa_get_formatted_money( $table_gst_total_tax ) ) ?></th>
 					<?php endif ?>
 					<th><span id="footer_total_balance"></span>&nbsp;<?php printf( __( '(of %s)', 'sprout-invoices' ), sa_get_formatted_money( $table_total_balance ) ) ?></th>
 				</tr>
@@ -172,13 +172,44 @@
 							return intVal(a) + intVal(b);
 						}, 0 );
 
-					// Balance over this page
-					pageBalance = api
-						.column( 9, { page: 'current'} )
+					// Tax over this page
+					pageFees = api
+						.column( 8, { page: 'current'} )
 						.data()
 						.reduce( function (a, b) {
 							return intVal(a) + intVal(b);
 						}, 0 );
+
+					<?php if ( apply_filters( 'si_show_gst_in_reports', class_exists( 'SI_Hearts_Canada' ) ) ) :  ?>
+						// Balance over this page
+						pageGST = api
+							.column( 9, { page: 'current'} )
+							.data()
+							.reduce( function (a, b) {
+								return intVal(a) + intVal(b);
+							}, 0 );
+
+						$( '#footer_total_gst' ).html(
+							si_js_object.currency_symbol + pageGST.toFixed(2)
+						);
+
+						// Balance over this page
+						pageBalance = api
+							.column( 10, { page: 'current'} )
+							.data()
+							.reduce( function (a, b) {
+								return intVal(a) + intVal(b);
+							}, 0 );
+
+					<?php else : ?>
+						// Balance over this page
+						pageBalance = api
+							.column( 9, { page: 'current'} )
+							.data()
+							.reduce( function (a, b) {
+								return intVal(a) + intVal(b);
+							}, 0 );
+					<?php endif ?>
 		 
 					// Update footer
 					$( '#footer_total_invoices' ).html(
@@ -189,6 +220,9 @@
 					);
 					$( '#footer_total_tax' ).html(
 						si_js_object.currency_symbol + pageTax.toFixed(2)
+					);
+					$( '#footer_total_fees' ).html(
+						si_js_object.currency_symbol + pageFees.toFixed(2)
 					);
 					$( '#footer_total_balance' ).html(
 						si_js_object.currency_symbol + pageBalance.toFixed(2)

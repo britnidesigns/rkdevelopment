@@ -425,7 +425,13 @@ class SA_Stripe extends SI_Credit_Card_Processors {
 			'account_id' => $account_id,
 			);
 
-		$api_url = ( get_option( self::API_MODE_OPTION, self::MODE_TEST ) === self::MODE_TEST ) ? 'https://development.plaid.com/exchange_token' : 'https://api.plaid.com/exchange_token';
+		$env = apply_filters( 'si_plaid_env', '' );
+		if ( '' !== $env ) {
+			$api_url = ( 'development' === $env ) ? 'https://development.plaid.com/exchange_token' : 'https://api.plaid.com/exchange_token';
+		} else {
+			$api_url = ( get_option( self::API_MODE_OPTION, self::MODE_TEST ) === self::MODE_TEST ) ? 'https://development.plaid.com/exchange_token' : 'https://api.plaid.com/exchange_token';
+		}
+
 		$raw_response = wp_remote_post( $api_url, array(
 				'method' => 'POST',
 				'body' => $post_data,
@@ -470,6 +476,7 @@ class SA_Stripe extends SI_Credit_Card_Processors {
 
 		if ( '' !== self::$plaid_api_pub_key ) {
 			$env = ( get_option( self::API_MODE_OPTION, self::MODE_TEST ) === self::MODE_TEST ) ? 'development' : 'production';
+			$env = apply_filters( 'si_plaid_env', $env );
 			$si_js_object += array(
 				'plaid_env' => $env,
 				'callback_action' => self::AJAX_ACTION_PLAID_TOKEN,
@@ -749,13 +756,15 @@ class SA_Stripe extends SI_Credit_Card_Processors {
 			$duration = (int) SI_Subscription_Payments::get_duration( $invoice_id );
 			$price = SI_Subscription_Payments::get_renew_price( $invoice_id );
 
+			$name = get_the_title( $invoice_id );
 			// Recurring Plan the customer will be changed to.
 			$plan = \Stripe\Plan::create(
 				array(
+					'product' => array( 'name' => $name, 'id' => $invoice_id ),
+					'nickname' => sprintf( __( 'Invoice: %s', 'sprout-invoices' ), $name ),
 					'amount' => self::convert_money_to_cents( sprintf( '%0.2f', $price ), $invoice ),
 					'currency' => self::get_currency_code( $invoice_id ),
 					'interval' => $term,
-					'name' => get_the_title( $invoice_id ),
 					'id' => $invoice_id.self::convert_money_to_cents( sprintf( '%0.2f', $price ), $invoice ),
 				)
 			);

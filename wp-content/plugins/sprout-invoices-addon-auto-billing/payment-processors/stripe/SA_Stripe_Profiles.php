@@ -27,6 +27,8 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 
 	const TOKEN_INPUT_NAME = 'stripe_charge_token';
 
+	const CONVENIENCE_FEE_PERCENTAGE = 'si_stripe_service_fee';
+
 	const API_MODE_OPTION = 'si_stripe_mode';
 	const CURRENCY_CODE_OPTION = 'si_paypal_currency';
 	const PAYMENT_METHOD = 'Credit (Stripe Profiles)';
@@ -75,12 +77,22 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 		return in_array( __CLASS__, $enabled );
 	}
 
+	public static function get_convenience_fee() {
+		if ( method_exists( 'SI_Service_Fee', 'get_service_fee' )	) {
+			$service_fee = SI_Service_Fee::get_service_fee( 'SA_Stripe_Profiles' );
+			return $service_fee;
+		}
+		return get_option( self::CONVENIENCE_FEE_PERCENTAGE, false );
+	}
+
 	public static function register() {
 		self::add_payment_processor( __CLASS__, __( 'Stripe Profiles' , 'sprout-invoices' ) );
 
 		if ( ! self::is_active() ) {
 			return;
 		}
+
+		add_action( 'si_credit_card_payment_fields', array( __CLASS__, 'modify_credit_form' ) );
 
 		add_action( 'init', array( get_class(), 'modify_payment_controls' ), 1000 );
 
@@ -132,7 +144,7 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 		self::$plaid_api_secret_key = get_option( self::PLAID_API_SECRET_KEY, '' );
 
 		if ( is_admin() ) {
-			add_action( 'init', array( get_class(), 'register_options' ) );
+			add_action( 'init', array( __CLASS__, 'register_options' ) );
 		}
 
 		if ( ! self::is_active() ) {
@@ -268,6 +280,15 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 	}
 
 	/**
+	 * Add the stripe token input to be passed
+	 * @return
+	 */
+	public static function modify_credit_form() {
+		printf( '<input type="hidden" name="%s" value="">', self::TOKEN_INPUT_NAME );
+		printf( '<div id="stripe_errors" class="sa-message error"></div><!-- #stripe_errors -->' );
+	}
+
+	/**
 	 * Process a payment
 	 *
 	 * @param SI_Checkouts $checkout
@@ -322,12 +343,17 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 	public static function charge_stripe( SI_Invoice $invoice, $payment_source_id = '' ) {
 
 		$customer_id = self::get_payment_profile_by_invoice( $invoice );
-		$_service_fee = 0; // TODO
 		$payment_amount = ( si_has_invoice_deposit( $invoice->get_id() ) ) ? $invoice->get_deposit() : $invoice->get_balance();
 		if ( isset( $_POST['si_payment_amount_change'] ) && is_numeric( $_POST['si_payment_amount_option'] ) ) {
 			if ( $_POST['si_payment_amount_option'] < $payment_amount ) {
-					$amount = $_POST['si_payment_amount_option'];
+					$payment_amount = $_POST['si_payment_amount_option'];
 			}
+		}
+
+		$_service_fee = self::get_convenience_fee();
+		if ( is_numeric( $_service_fee ) && 0.00 < $_service_fee ) {
+			$service_fee = $payment_amount * ( $_service_fee / 100 );
+			$payment_amount = si_get_number_format( $payment_amount + $service_fee );
 		}
 
 		self::setup_stripe();
@@ -355,6 +381,8 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 			'amount' => $charge->amount,
 			'customer' => $charge->customer,
 			'card' => $charge->source->id,
+			'service_fee' => $service_fee,
+			'service_fee_perc' => $_service_fee,
 		);
 
 		return $receipt;
@@ -762,8 +790,8 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 	}
 
 	public static function add_plaid_js() {
-		$env = ( get_option( self::API_MODE_OPTION, self::MODE_TEST ) === self::MODE_TEST ) ? 'tartan' : 'public';
-
+		$env = ( get_option( self::API_MODE_OPTION, self::MODE_TEST ) === self::MODE_TEST ) ? 'development' : 'production';
+		$env = apply_filters( 'si_plaid_env', $env );
 		if ( '' !== self::$plaid_api_pub_key ) {
 			?>
 				<script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
@@ -883,7 +911,12 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 			'account_id' => $account_id,
 			);
 
-		$api_url = ( get_option( self::API_MODE_OPTION, self::MODE_TEST ) === self::MODE_TEST ) ? 'https://tartan.plaid.com/exchange_token' : 'https://api.plaid.com/exchange_token';
+		$env = apply_filters( 'si_plaid_env', '' );
+		if ( '' !== $env ) {
+			$api_url = ( 'development' === $env ) ? 'https://development.plaid.com/exchange_token' : 'https://api.plaid.com/exchange_token';
+		} else {
+			$api_url = ( get_option( self::API_MODE_OPTION, self::MODE_TEST ) === self::MODE_TEST ) ? 'https://development.plaid.com/exchange_token' : 'https://api.plaid.com/exchange_token';
+		}
 
 		$raw_response = wp_remote_post( $api_url, array(
 				'method' => 'POST',

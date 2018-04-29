@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Sprout Invoices Add-on - Client Set Payment Amounts
-Plugin URI: https://sproutapps.co/marketplace/predefined-client_pricing/
+Plugin URI: https://sproutapps.co/marketplace/invoice-deposits-client-set-amount/
 Description: Allows the client to set the payment amount.
 Author: Sprout Apps
 Version: 1.2

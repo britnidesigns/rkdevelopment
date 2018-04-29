@@ -21,13 +21,13 @@
 					<th><?php _e( 'Status', 'sprout-invoices' ) ?></th>
 					<th><?php _e( 'Date', 'sprout-invoices' ) ?></th>
 					<th><?php _e( 'Method', 'sprout-invoices' ) ?></th>
+					<th><?php _e( 'Payment Total', 'sprout-invoices' ) ?></th>
+					<th><?php _e( 'Voided Total', 'sprout-invoices' ) ?></th>
 					<th><?php _e( 'Invoice', 'sprout-invoices' ) ?></th>
 					<th><?php _e( 'Client', 'sprout-invoices' ) ?></th>
 					<th><?php _e( 'Invoiced', 'sprout-invoices' ) ?></th>
-					<th><?php _e( 'Paid', 'sprout-invoices' ) ?></th>
+					<th><?php _e( 'Total Paid', 'sprout-invoices' ) ?></th>
 					<th><?php _e( 'Invoice Balance', 'sprout-invoices' ) ?></th>
-					<th><?php _e( 'Payment Total', 'sprout-invoices' ) ?></th>
-					<th><?php _e( 'Voided Total', 'sprout-invoices' ) ?></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -89,13 +89,13 @@
 							<td><span class="si_status payment_status <?php echo esc_attr( $payment->get_status() ); ?>"><?php echo str_replace( 'Publish', 'Complete', ucfirst( $payment->get_status() ) ) ?></span></td>
 							<td><?php echo date( get_option( 'date_format' ), strtotime( $payment->get_post_date() ) ) ?></td>
 							<td><?php echo $payment->get_payment_method(); ?></td>
+							<td><?php echo sa_get_formatted_money( $payment_total ) ?></td>
+							<td><?php echo sa_get_formatted_money( $payment_void_total ) ?></td>
 							<td><?php echo $invoice_name; ?></td>
 							<td><?php echo $client_name; ?></td>
 							<td><?php si_invoice_calculated_total( $invoice_id ) ?></td>
 							<td><?php echo $payments_link; ?></td>
 							<td><?php si_invoice_balance( $invoice_id ) ?></td>
-							<td><?php echo sa_get_formatted_money( $payment_total ) ?></td>
-							<td><?php echo sa_get_formatted_money( $payment_void_total ) ?></td>
 						</tr> 
 						<?php
 						// Send output to browser immediately
@@ -107,12 +107,10 @@
 			</tbody>
 			<tfoot>
 				<tr>
-					<th colspan="6"><?php _e( 'Totals', 'sprout-invoices' ) ?></th>
-					<th>&nbsp;</th>
-					<th>&nbsp;</th>
-					<th>&nbsp;</th>
+					<th colspan="4"><?php _e( 'Totals', 'sprout-invoices' ) ?></th>
 					<th><span id="footer_total_paid"></span>&nbsp;<?php printf( __( '(of %s)', 'sprout-invoices' ), sa_get_formatted_money( $table_payment_total ) ) ?></th>
 					<th><span id="footer_total_voided"></span>&nbsp;<?php printf( __( '(of %s)', 'sprout-invoices' ), sa_get_formatted_money( $table_voided_payment_total ) ) ?></th>
+					<th colspan="5">&nbsp;</th>
 				</tr>
 			</tfoot>
 		</table>
@@ -137,15 +135,15 @@
 								i : 0;
 					};
 		 
-					footer_total_paid = api
-						.column( 9, { page: 'current'} )
+					totalPaid = api
+						.column( 4, { page: 'current'} )
 						.data()
 						.reduce( function (a, b) {
 							return intVal(a) + intVal(b);
 						}, 0 );
 
-					footer_total_voided = api
-						.column( 10, { page: 'current'} )
+					totalVoided = api
+						.column( 5, { page: 'current'} )
 						.data()
 						.reduce( function (a, b) {
 							return intVal(a) + intVal(b);
@@ -153,53 +151,12 @@
 		 
 					// Update footer
 					$( '#footer_total_paid' ).html(
-						si_js_object.currency_symbol + footer_total_paid.toFixed(2)
+						si_js_object.currency_symbol + totalPaid.toFixed(2)
 					);
 					$( '#footer_total_voided' ).html(
-						si_js_object.currency_symbol + footer_total_voided.toFixed(2)
+						si_js_object.currency_symbol + totalVoided.toFixed(2)
 					);
 
-					// Total over all pages
-					total = api
-						.column( 8 )
-						.data()
-						.reduce( function (a, b) {
-							return intVal(a) + intVal(b);
-						}, 0 );
-		 
-					// Total over this page
-					pageTotal = api
-						.column( 8, { page: 'current'} )
-						.data()
-						.reduce( function (a, b) {
-							return intVal(a) + intVal(b);
-						}, 0 );
-		 
-					// Update footer
-					$( api.column( 8 ).footer() ).html(
-						si_js_object.currency_symbol + pageTotal.toFixed(2) +' (' + si_js_object.currency_symbol + total.toFixed(2) +' total)'
-					);
-
-					// Total over all pages
-					total = api
-						.column( 6 )
-						.data()
-						.reduce( function (a, b) {
-							return intVal(a) + intVal(b);
-						}, 0 );
-		 
-					// Total over this page
-					pageTotal = api
-						.column( 6, { page: 'current'} )
-						.data()
-						.reduce( function (a, b) {
-							return intVal(a) + intVal(b);
-						}, 0 );
-		 
-					// Update footer
-					$( api.column( 6 ).footer() ).html(
-						si_js_object.currency_symbol + pageTotal.toFixed(2) +' (' + si_js_object.currency_symbol + total.toFixed(2) +' total)'
-					);
 				}
 			} );
 

@@ -1,6 +1,6 @@
 <div id="si_dashboard" class="wrap about-wrap">
 
-	<h1><?php printf( __( 'Starts with <a href="%s">Sprout Invoices</a>!', 'sprout-invoices' ), self::PLUGIN_URL, self::SI_VERSION ); ?></h1>
+	<h1><?php printf( __( 'Get Paid with <a href="%s">Sprout Invoices</a>!', 'sprout-invoices' ), self::PLUGIN_URL, self::SI_VERSION ); ?></h1>
 
 	<div class="about-text"><?php _e( 'Sprout Invoices is the cornerstone for Sprout Apps. We want it to streamline what could be a very complex workflow of accepting estimates and getting invoices paid. Our mission is to make you a happy user; let us hear from you.', 'sprout-invoices' ) ?></div>
 

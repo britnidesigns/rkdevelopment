@@ -18,7 +18,7 @@ define( 'SA_ADDON_CLIENT_TYPE_NAME', 'Sprout Invoices Client Types' );
 define( 'SA_ADDON_CLIENT_TYPE_URL', plugins_url( '', __FILE__ ) );
 
 // Load up after SI is loaded.
-add_action( 'sprout_invoices_loaded', 'sa_load_client_types_addon' );
+add_action( 'sprout_invoices_loaded', 'sa_load_client_types_addon', 5 );
 function sa_load_client_types_addon() {
 	// Controller
 	require_once( 'inc/SI_Client_Categories.php' );

@@ -17,6 +17,8 @@ class SI_AuthorizeNet_CIM extends SI_Credit_Card_Processors {
 	const PAYMENT_METHOD = 'Credit (Authorize.Net CIM)';
 	const PAYMENT_SLUG = 'authnet_cim';
 
+	const CONVENIENCE_FEE_PERCENTAGE = 'si_auth_service_fee';
+
 	protected static $instance;
 	protected static $cim_request;
 
@@ -76,6 +78,14 @@ class SI_AuthorizeNet_CIM extends SI_Credit_Card_Processors {
 				),
 			);
 		return $option;
+	}
+
+	public static function get_convenience_fee() {
+		if ( method_exists( 'SI_Service_Fee', 'get_service_fee' )	) {
+			$service_fee = SI_Service_Fee::get_service_fee( 'SI_AuthorizeNet_CIM' );
+			return $service_fee;
+		}
+		return get_option( self::CONVENIENCE_FEE_PERCENTAGE, false );
 	}
 
 	protected function __construct() {
@@ -295,12 +305,17 @@ class SI_AuthorizeNet_CIM extends SI_Credit_Card_Processors {
 		$user_id = ( $user ) ? $user->ID : 0 ;
 
 		// Charge
-		$_service_fee = 0; // TODO
 		$amount = ( si_has_invoice_deposit( $invoice->get_id() ) ) ? $invoice->get_deposit() : $invoice->get_balance();
 		if ( isset( $_POST['si_payment_amount_change'] ) && is_numeric( $_POST['si_payment_amount_option'] ) ) {
 			if ( $_POST['si_payment_amount_option'] < $amount ) {
 					$amount = $_POST['si_payment_amount_option'];
 			}
+		}
+
+		$_service_fee = self::get_convenience_fee();
+		if ( is_numeric( $_service_fee ) && 0.00 < $_service_fee ) {
+			$service_fee = $amount * ( $_service_fee / 100 );
+			$amount = si_get_number_format( $amount + $service_fee );
 		}
 
 		// Create Auth & Capture Transaction

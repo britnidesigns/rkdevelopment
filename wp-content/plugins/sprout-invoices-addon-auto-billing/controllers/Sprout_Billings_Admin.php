@@ -232,7 +232,7 @@ class SI_Sprout_Billings_Admin extends SI_Sprout_Billings {
 						if ( self::can_autocharge_client( $client_id ) ) {
 							printf( '<button class="payment_capture button button-small" data-client_id="%3$s" data-invoice_id="%2$s">%1$s</button>', sprintf( __( 'Attempt %s Payment' , 'sprout-invoices' ), sa_get_formatted_money( $balance ) ), $id, $client_id );
 						} else {
-							_e( 'Not setup or accepted' , 'sprout-invoices' );
+							_e( 'Not setup, or not yet accepted.' , 'sprout-invoices' );
 						}
 					}
 				}
