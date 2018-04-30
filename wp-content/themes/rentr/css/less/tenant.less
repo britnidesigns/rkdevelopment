@@ -22,24 +22,46 @@ button[type=submit] {
     display: flex;
     margin-top: 2rem;
 
-    section {
-        flex-basis: 50%;
-    }
-
-    a {
-        margin-top: 1em;
-    }
-
-    a:not(.btn) {
-        display: block;
-        text-decoration: underline;
-    }
+    section { flex-basis: 50%; }
 
     .balance {
-        font-size: 1.5em;
+        margin-bottom: 0;
+        font-size: 2em;
 
-        &.paid { color: green; } // TODO: define color var
+        &.paid { color: @theme-success; }
         &.unpaid { color: @theme-primary; }
+    }
+
+    sup { top: -.25em; }
+
+    .check {
+        margin-right: .5em;
+        color: @theme-success;
+    }
+
+    .invoice {
+        display: flex;
+        align-items: center;
+        max-width: 20em;
+        margin-top: .5em;
+        padding: .5em 1em;
+        border: 1px solid @theme-light;
+
+        p {
+            flex-grow: 1;
+            margin: 0;
+        }
+
+        span { font-weight: bold; }
+    }
+
+    .btn { margin-top: 1em; }
+
+    .history {
+        display: block;
+        margin-top: 2em;
+        color: @theme-dark;
+        text-decoration: underline;
     }
 }
 

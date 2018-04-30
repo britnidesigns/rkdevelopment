@@ -1,13 +1,13 @@
 // out: ../common.css, compress: true
 
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,700,900');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700|Raleway:400,400i,700,900');
 
 html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     color: #333;
-    font-family: Raleway, Arial, Helvetica, sans-serif;
+    font-family: Lato, Arial, Helvetica, sans-serif;
 }
 
 html { font-size: 1.125em; }
@@ -58,7 +58,10 @@ select,
 @theme-light: #e0d5ce;
 @theme-dark: #1e1819;
 
+@theme-success: #090;
+
 .boldest() { font-weight: 900; }
+.display() { font-family: Raleway, Arial, Helvetica, sans-serif; }
 
 /* ---------- ELEMENTS ------------------------------ */
 
@@ -66,6 +69,8 @@ h1 {
     font-size: 3em;
     .boldest;
 }
+
+h1, h2, h3, .btn, .btn-alt { .display; }
 
 .btn {
     display: inline-block;
@@ -89,6 +94,21 @@ h1 {
     }
 
     &:visited { color: #fff; }
+}
+
+.btn-alt {
+    display: inline-block;
+    padding: .2em .6em;
+    border: 1px solid @theme-primary;
+    color: @theme-primary;
+
+    &:hover {
+        background-color: @theme-primary;
+        color: #fff;
+    }
+
+    &:visited { color: @theme-primary; }
+    &:hover:visited { color: #fff; }
 }
 
 .strip {
@@ -163,6 +183,7 @@ h1 {
     align-items: center;
     flex-grow: 1;
     margin-left: 3em;
+    .display;
 }
 
 .primary-nav {
@@ -239,6 +260,7 @@ article { position: relative; }
 
 footer .nav {
     margin-bottom: 1em;
+    .display;
 
     li {
         display: inline-block;
