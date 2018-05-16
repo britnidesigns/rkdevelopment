@@ -153,8 +153,6 @@ h1, h2, h3, .btn, .btn-alt { .display; }
 // ----- HEADER -----
 
 .site-header {
-    display: flex;
-    align-items: center;
     width: 100%;
     max-width: @bp-desktop-min;
     box-sizing: border-box;
@@ -165,6 +163,11 @@ h1, h2, h3, .btn, .btn-alt { .display; }
     &::before {
         background-color: @theme-light;
         background-image: linear-gradient(to bottom, rgba(0,0,0,.15), transparent);
+    }
+
+    @media @mq-tabletlandscape-min {
+        display: flex;
+        align-items: center;
     }
 }
 
@@ -182,41 +185,42 @@ h1, h2, h3, .btn, .btn-alt { .display; }
 // ----- NAVIGATION -----
 
 .main-navigation {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    margin-left: 3em;
     .display;
+
+    @media @mq-tabletlandscape-min {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        margin-left: 3em;
+    }
+
+    ul { display: block; }
 }
 
 .primary-nav {
     flex-grow: 1;
 
-    li { display: inline-block; }
-    li:not(:first-child) { margin-left: 2em; }
+    li {
+        display: inline-block;
+        margin-right: .5em;
+    }
+
+    li:first-child { margin-left: -.5em; } // offset padding
 
     a {
         display: inline-block;
         padding: .25em .5em;
         color: @theme-dark;
-        font-size: 1.125em;
         font-weight: bold;
 
-        &:hover {
-            //background-color: fade(@theme-primary, 50%);
-            color: @theme-primary;
-        }
+        &:hover { color: @theme-primary; }
+    }
+
+    @media @mq-no-phone {
+        li { margin-right: 2em; }
+        a { font-size: 1.125em; }
     }
 }
-
-/*.login {
-    &:extend(.primary-nav a);
-
-    background-color: @theme-primary;
-    //background-image: linear-gradient(to bottom, transparent, fade(@theme-primary, 25%));
-
-    &:visited { color: #fff; }
-}*/
 
 .login, .login:visited { color: @theme-primary; }
 
@@ -241,6 +245,31 @@ h1, h2, h3, .btn, .btn-alt { .display; }
     .logout {
         color: @theme-primary;
         font-size: 16/18em;
+    }
+}
+
+@media screen and (max-width: (@bp-tablet-orientation - 1)) {
+    .primary-nav { margin-top: 1em; }
+
+    .user-menu {
+        position: absolute;
+        top: 2em;
+        right: 2rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .site-header {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .user-menu {
+        right: 1rem;
+        line-height: 1.2em;
+
+        li { display: block; }
+        .user { margin-right: 0; }
     }
 }
 
