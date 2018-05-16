@@ -14,6 +14,10 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
+        <a href="https://www.facebook.com/apartmentsanddevelopment/" class="facebook">
+            <i class="fab fa-facebook"></i>
+            <span>Get updates about new properties</span>
+        </a>
         <?php
             wp_nav_menu( array(
                 'theme_location' => 'footer-nav',
