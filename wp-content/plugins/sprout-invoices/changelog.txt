@@ -1,3 +1,24 @@
+= 17.0.10 =
+
+* Fix: elements collapsing instead of auto flowing 
+* Update: Alow for estimate totals cache to be reset
+
+= 17.0.9 =
+
+* Update: All Pro versions of Sprout Invoices include the advanced numbering add-on.
+* Fix: Stored PDF for notifications may not be stored with the correct file names.
+
+= 17.0.7 =
+
+* Fix: Prevent non existant users from being attributed to possible payments
+* Fix: CSS Updates
+* NEW: Notification shortcode for first_name
+* Fix: Notes not saving for estimates before sending
+* Update: PHP version check for WooCommerce integration
+* Fix: Estimate acceptance actions bug fix for invoice creation
+* Update: GMT for all history
+
+
 = 17.0.6 =
 
 * Update: Improved error messaging for PDF Service.
