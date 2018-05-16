@@ -129,6 +129,31 @@ h1, h2, h3, .btn, .btn-alt { .display; }
     }
 }
 
+a.facebook {
+    @fb: #4267b2; // Facebook brand
+
+    display: inline-flex;
+    padding: .75em 1em;
+    border: 1px solid fade(@fb, 50%);
+    color: @fb;
+
+    svg {
+        margin-right: .5em;
+        font-size: 2.4em;
+    }
+
+    span { line-height: 1.2em; }
+
+    &:hover {
+        background-color: @fb;
+        border-color: rgba(0,0,0,.2);
+        color: #fff;
+    }
+
+    .site-content & { margin-top: 3em;}
+    .site-content & span { max-width: 14em; }
+}
+
 .post-edit-link { display: none; }
 
 /* ---------- RESPONSIVE ------------------------------ */
@@ -316,36 +341,15 @@ footer .nav {
 }
 
 footer .facebook {
-    @fb: #4267b2; // Facebook brand
-
-    display: inline-flex;
     margin-bottom: 2em;
-    padding: .75em 1em;
-    border: 1px solid lighten(@theme-dark, 10%);
-    color: @fb;
+    border-color: lighten(@theme-dark, 10%);
 
-    @media screen and (min-width: 635px) {
+    @media screen and (min-width: 650px) {
         float: right;
     }
 
-    svg {
-        margin-right: .5em;
-        font-size: 2em;
-    }
-
-    span {
-        max-width: 9em;
-        color: #999;
-        line-height: 1em;
-    }
-
-    &:hover {
-        background-color: @fb;
-        border-color: rgba(0,0,0,.2);
-        color: #fff;
-
-        span { color: #fff; }
-    }
+    span { max-width: 9em; }
+    &:not(:hover) span { color: #999; }
 }
 
 /* ---------- LOGIN, ACCOUNT, ETC. ------------------------------ */
