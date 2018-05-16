@@ -199,6 +199,23 @@ var fields 	=	{
 																	}
 																},
 
+						'GDPR Checkbox':						{	'show_rows'	:	[
+																						'.row-field-title',
+																						'.row-meta-name',
+																						'.row-description',
+																						'.row-required',
+																						'.row-overwrite-existing'
+																					],
+																	'properties':	{
+																						'meta_name_value'	: 'user_consent_gdpr',
+																						'field_title'		: wppb_fields_strings.gdpr_title,
+																						'description'		: wppb_fields_strings.gdpr_description
+																					},
+																	'required'	:	[
+																						true
+																					]
+																},
+
 						'Heading':								{	'show_rows'	:	[
 																						'.row-field-title',
 																						'.row-description',
@@ -601,6 +618,12 @@ function wppb_display_needed_fields( index, container_name, current_field_select
 			if ( ( typeof properties['meta_name_value'] !== 'undefined' ) ){
 				jQuery( container_name + ' ' + '#meta-name' ).val( properties['meta_name_value'] );
 				jQuery( container_name + ' ' + '#meta-name' ).attr( 'readonly', true );
+			}
+			if ( ( typeof properties['field_title'] !== 'undefined' ) ){
+				jQuery( container_name + ' ' + '#field-title' ).val( properties['field_title'] );
+			}
+			if ( ( typeof properties['description'] !== 'undefined' ) ){
+				jQuery( container_name + ' ' + '#description' ).val( properties['description'] );
 			}
 		}
 		

@@ -52,6 +52,9 @@ function wppb_populate_manage_fields(){
 	$manage_field_types[] = 'reCAPTCHA';
 	$manage_field_types[] = 'Select (User Role)';
 
+	/* added recaptcha and user role field since version 2.8.2 */
+	$manage_field_types[] = 'GDPR Checkbox';
+
     if( PROFILE_BUILDER != 'Profile Builder Free' ) {
         $manage_field_types[] = 'Heading';
         $manage_field_types[] = 'Input';

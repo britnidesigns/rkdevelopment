@@ -336,6 +336,19 @@ label[for=blog-privacy]{
 }
 
 
+/* GDPR checkbox */
+.wppb-gdpr-checkbox.wppb-form-field label{
+    width:100%;
+    float:none;
+}
+
+.wppb-gdpr-checkbox.wppb-form-field #user_consent_gdpr{
+    float:none;
+    width:auto;
+    margin:0 10px 0 0;
+}
+
+
 /*--------------------------------------------------------------
 4.0 Errors & Notices
 --------------------------------------------------------------*/

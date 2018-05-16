@@ -3,6 +3,10 @@
 /* Verifies whether the current post or the post with the provided id has any restrictions in place */
 function wppb_content_restriction_is_post_restricted( $post_id = null ) {
 
+    //fixes some php warnings with Onfleek theme
+    if( is_array( $post_id ) && empty( $post_id ) )
+        $post_id = null;
+
     global $post, $wppb_show_content, $wppb_is_post_restricted_arr;
 
     // If we have a cached result, return it
