@@ -308,47 +308,68 @@ body.home .entry-content { margin-top: 0; }
 
 .property-types {
     display: flex;
+    justify-content: space-between;
 
     section {
-        flex-grow: 1;
-        flex-basis: 50%;
+        //flex-grow: 1;
+        flex-basis: 47.5%;
     }
 
     h2 { margin: 1em 0 .5em; }
 }
 
 .backend-preview {
-    min-height: 250px; // TODO: temporary until image decided
-    box-sizing: content-box;
-    margin-top: 4rem;
-    padding: 2rem 0;
+    margin-top: 5rem;
+    padding: 4rem 0;
     background-color: @theme-light;
 
+    h2, .coming-soon { text-align: center; }
+
+    .coming-soon {
+        margin: -1em 0 3em;
+        color: @theme-primary;
+        font-weight: bold;
+    }
+
+    div {
+        display: inline-block;
+        vertical-align: top;
+        width: 47.5%;
+
+        &:first-of-type { margin-right: 5%; }
+    }
+
     img {
-        width: 300px;
-        height: 250px;
+        width: 200px;
+        height: 150px;
         display: block;
         float: left;
         margin-right: 2rem;
         background-color: #999; //TODO: remove
     }
 
-    h2, p {
+    h3, p {
         overflow: hidden;
         clear: none;
     }
+
+    h3 { margin: 1em 0 .5em; }
 }
 
 /* ---------- STORAGE ------------------------------ */
 
 .storage-info {
-    img { margin-bottom: 2rem; }
-    p:first-of-type { font-size: 1.5em; }
-
-    a {
-        margin-top: 2em;
-        margin-right: .5em;
+    img {
+        float: left;
+        margin: 0 4rem 2em 0;
     }
+
+    p:first-of-type {
+        padding-top: 2em;
+        font-size: 1.5em;
+    }
+
+    a { margin: 2em .5em 0 0; }
 }
 
 /* ---------- CONTACT ------------------------------ */
