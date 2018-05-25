@@ -16,6 +16,8 @@ button[type=submit] {
     margin-top: 2em;
 }
 
+sup { top: -.25em; }
+
 /* ---------- DASHBOARD ------------------------------ */
 
 .dashboard {
@@ -31,8 +33,6 @@ button[type=submit] {
         &.paid { color: @theme-success; }
         &.unpaid { color: @theme-primary; }
     }
-
-    sup { top: -.25em; }
 
     .check {
         margin-right: .5em;
@@ -63,6 +63,123 @@ button[type=submit] {
         color: @theme-dark;
         text-decoration: underline;
     }
+}
+
+/* ---------- RENT ------------------------------ */
+
+.rent-list {
+    .total-balance {
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: right;
+
+        span {
+            display: block;
+            color: @theme-primary;
+            font-size: 1.25em;
+        }
+    }
+
+    > div {
+        margin-bottom: 1rem;
+        padding: 1rem 2rem;
+        border: 1px solid #ccc;
+        border-left-width: 2px;
+    }
+
+    div.status-success { border-left-color: @theme-success; }
+    div.status-danger { border-color: @theme-primary; }
+
+    @media screen and (min-width: 680px) {
+        > div {
+            display: flex;
+            align-items: center;
+        }
+
+        .payment { text-align: right; }
+    }
+
+    @media screen and (max-width: 679px) {
+        .payment { margin-top: 1em; }
+    }
+
+    @media screen and (max-width: 450px) {
+        > div { padding: 1rem; }
+    }
+
+    // --- Dates ---
+
+    h3 {
+        .display;
+        font-size: 1.5em;
+    }
+
+    h3, p { margin: 0; }
+
+    .dates { flex-grow: 1; }
+    .dates p { display: inline-block; }
+
+    .due + .issued::before {
+        content: '/';
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    .issued {
+        color: #999;
+        font-size: .75em;
+    }
+
+    // --- Payment info ---
+
+    svg { margin-right: .5em; }
+
+    .balance, a {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    @media screen and (min-width: 830px) {
+        a.details { margin-left: 3em; }
+
+        .btn {
+            margin-left: 5em;
+            font-size: 1.25em;
+        }
+    }
+
+    @media screen and (max-width: 829px) {
+        .balance.paid {
+            display: block;
+            margin-bottom: .5em;
+        }
+
+        a.details { font-size: 16/18em; }
+        .btn { margin-left: 2em; }
+    }
+
+    .balance.paid { color: @theme-success; }
+
+    .balance.unpaid {
+        color: @theme-primary;
+        font-size: 1.5em;
+    }
+
+    a.details {
+        padding: .3em .6em;
+        border: 1px solid rgba(0,0,0,.4);
+        color: lighten(@theme-dark, 25%);
+        .display;
+
+        &:hover {
+            background-color: @theme-primary;
+            border-color: transparent;
+            color: #fff;
+        }
+    }
+
+    p.temp { font-style: italic; }
 }
 
 /* ---------- MAINTENANCE ------------------------------ */
