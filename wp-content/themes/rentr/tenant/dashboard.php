@@ -32,7 +32,7 @@ foreach ( $invoices as $invoice ) {
 
         $rent_output.= '<div class="invoice">
             <p><span>$'. $balance .'</span> due '. $due_date .'</p>
-            <a href="'. $invoice_link .'" class="btn-alt">Pay</a>
+            <a href="'. $invoice_link .'" class="btn-alt"><i class="fas fa-dollar-sign"></i>Pay</a>
         </div>';
     }
 }
@@ -46,7 +46,7 @@ elseif ( $unpaid_count === 1 )
     $rent_output = '<a href="'. $invoice_link .'" class="btn">Pay Rent</a>';
 
 else
-    $rent_output.= '<a href="'. get_site_url() .'/rent" class="btn">Pay Rent</a>';
+    $rent_output.= '<a href="'. get_site_url() .'/rent" class="btn"><i class="fas fa-dollar-sign"></i>Pay Rent</a>';
 ?>
 
 <div class="dashboard">
@@ -54,12 +54,12 @@ else
 		<h2>Rent Due</h2>
         <p class="balance <?=$due_class?>"><sup>$</sup><?=number_format( $amt_due, 2 )?></p>
 		<?=$rent_output?>
-		<a href="<?=get_site_url()?>/rent" class="history">Rent History</a>
+		<a href="<?=get_site_url()?>/rent" class="history"><i class="fas fa-history"></i>Rent History</a>
 	</section>
 	<section>
 		<h2>Maintenance</h2>
 		<p>TODO: Messages overview</p>
-		<a href="<?=wpas_get_submission_page_url(); ?>" class="btn">New Request</a>
-		<a href="<?=get_site_url()?>/maintenance" class="history">Maintenance History</a>
+		<a href="<?=wpas_get_submission_page_url(); ?>" class="btn"><i class="fas fa-wrench"></i>New Request</a>
+		<a href="<?=get_site_url()?>/maintenance" class="history"><i class="fas fa-history"></i>Maintenance History</a>
 	</section>
 </div>

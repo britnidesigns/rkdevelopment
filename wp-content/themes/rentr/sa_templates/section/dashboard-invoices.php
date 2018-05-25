@@ -69,7 +69,7 @@
                     if ( $status !== 'temp' ) {
                         $url = esc_url( add_query_arg( array( 'dashboard' => 1 ), get_permalink( $invoice_id ) ) );
 
-                        if ($status === 'complete') echo '<a href="'.$url.'" class="details"><i class="fas fa-receipt"></i>View Details</a>';
+                        if ($status === 'complete') echo '<a href="'.$url.'" class="btn-alt"><i class="fas fa-receipt"></i>View Details</a>';
                         else echo '<a href="'.$url.'" class="btn"><i class="fas fa-dollar-sign"></i>Pay</a>';
                     }
 
