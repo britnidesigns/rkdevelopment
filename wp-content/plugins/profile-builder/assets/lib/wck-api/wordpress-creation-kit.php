@@ -544,6 +544,19 @@ class Wordpress_Creation_Kit_PB{
 		if ( (!is_array( $field_details ) && !isset( $field_details['options']) ) || empty( $value )){
 			return $value;
 		}
+
+        //convert field_details to single array if option groups are defined.
+        if( Wordpress_Creation_Kit_PB::wck_is_multi( $field_details['options'] ) ){
+            $select_options = array();
+            foreach($field_details['options']['optgroups'] as $optgroup) {
+                foreach($optgroup['options'] as $group_option ){
+                    $select_options[] = $group_option;
+                }
+            }
+
+            $field_details['options'] = $select_options;
+        }
+
 		foreach( $field_details['options'] as $option ){
 			if ( strpos( $option, $value ) !== false ){
 				if( strpos( $option, '%' ) === false ){
@@ -1278,6 +1291,38 @@ class Wordpress_Creation_Kit_PB{
 	static function wck_strip_script_tags(){
 
 	}
+
+    static function wck_generate_select_option($option, $values, $i, $current_value){
+        if( strpos( $option, '%' ) === false ){
+            $label = $option;
+            if( !empty( $values ) )
+                $value_attr = $values[$i];
+            else
+                $value_attr = $option;
+        }
+        else{
+            $option_parts = explode( '%', $option );
+            if( !empty( $option_parts ) ){
+                if( empty( $option_parts[0] ) && count( $option_parts ) == 3 ){
+                    $label = $option_parts[1];
+                    if( !empty( $values ) )
+                        $value_attr = $values[$i];
+                    else
+                        $value_attr = $option_parts[2];
+                }
+            }
+        }
+
+        $optionOutput = '<option value="'. esc_attr( $value_attr ) .'"  '. selected( $value_attr, $current_value, false ) .' >'. esc_html( $label ) .'</option>';
+        return $optionOutput;
+    }
+
+    static function wck_is_multi($a) {
+        foreach ($a as $v) {
+            if (is_array($v)) return true;
+        }
+        return false;
+    }
 }
 
 
@@ -1489,4 +1534,7 @@ class WCK_Page_Creator_PB{
 		<?php
 	}
 }
+
+
+
 ?>

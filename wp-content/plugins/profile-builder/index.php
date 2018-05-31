@@ -3,8 +3,8 @@
 Plugin Name: Profile Builder
 Plugin URI: https://www.cozmoslabs.com/wordpress-profile-builder/
 Description: Login, registration and edit profile shortcodes for the front-end. Also you can choose what fields should be displayed or add new (custom) ones both in the front-end and in the dashboard.
-Version: 2.8.2
-Author: Cozmoslabs, Madalin Ungureanu, Antohe Cristian, Barina Gabriel, Mihai Iova
+Version: 2.8.3
+Author: Cozmoslabs
 Author URI: https://www.cozmoslabs.com/
 Text Domain: profile-builder
 Domain Path: /translation
@@ -75,9 +75,10 @@ function wppb_free_plugin_init() {
          *
          *
          */
-        define('PROFILE_BUILDER_VERSION', '2.8.2' );
+        define('PROFILE_BUILDER_VERSION', '2.8.3' );
         define('WPPB_PLUGIN_DIR', plugin_dir_path(__FILE__));
         define('WPPB_PLUGIN_URL', plugin_dir_url(__FILE__));
+        define('WPPB_PLUGIN_BASENAME', plugin_basename(__FILE__));
         define('WPPB_SERVER_MAX_UPLOAD_SIZE_BYTE', apply_filters('wppb_server_max_upload_size_byte_constant', wppb_return_bytes(ini_get('upload_max_filesize'))));
         define('WPPB_SERVER_MAX_UPLOAD_SIZE_MEGA', apply_filters('wppb_server_max_upload_size_mega_constant', ini_get('upload_max_filesize')));
         define('WPPB_SERVER_MAX_POST_SIZE_BYTE', apply_filters('wppb_server_max_post_size_byte_constant', wppb_return_bytes(ini_get('post_max_size'))));
@@ -203,3 +204,13 @@ add_action( 'plugins_loaded', 'wppb_free_plugin_init' );
 
 if (file_exists( plugin_dir_path(__FILE__) . '/front-end/extra-fields/upload/upload_helper_functions.php'))
     include_once( plugin_dir_path(__FILE__) . '/front-end/extra-fields/upload/upload_helper_functions.php');
+
+/* add a redirect when plugin is activated */
+if( !function_exists( 'wppb_activate_plugin_redirect' ) ){
+    function wppb_activate_plugin_redirect( $plugin ) {
+        if( $plugin == plugin_basename( __FILE__ ) ) {
+            exit( wp_redirect( admin_url( 'admin.php?page=profile-builder-basic-info' ) ) );
+        }
+    }
+    add_action( 'activated_plugin', 'wppb_activate_plugin_redirect' );
+}

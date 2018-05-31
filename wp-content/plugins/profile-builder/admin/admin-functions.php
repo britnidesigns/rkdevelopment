@@ -208,6 +208,46 @@ function wppb_admin_rate_us( $footer_text ) {
 }
 add_filter('admin_footer_text','wppb_admin_rate_us');
 
+/**
+ * add links on plugin page
+ */
+add_filter( 'plugin_action_links', 'wppb_plugin_action_links', 10, 2 );
+function wppb_plugin_action_links( $links, $file ) {
+    if ( $file != WPPB_PLUGIN_BASENAME ) {
+        return $links;
+    }
+
+    if ( ! current_user_can( 'manage_options' ) ) {
+        return $links;
+    }
+
+    $settings_link = sprintf( '<a href="%1$s">%2$s</a>',
+        menu_page_url( 'profile-builder-general-settings', false ),
+        esc_html( __( 'Settings', 'profile-builder' ) ) );
+
+    array_unshift( $links, $settings_link );
+
+    return $links;
+}
+
+/**
+ * add links on plugin page 
+ */
+add_filter( 'plugin_row_meta', 'wppb_plugin_row_meta', 10, 2 );
+function wppb_plugin_row_meta( $links, $file ) {
+    if ( WPPB_PLUGIN_BASENAME == $file ) {
+        $row_meta = array(
+            'docs'    => '<a href="' . esc_url( 'https://www.cozmoslabs.com/docs/profile-builder-2/' ) . '" target="_blank" aria-label="' . esc_attr__( 'View Profile Builder documentation', 'profile-builder' ) . '">' . esc_html__( 'Docs', 'profile-builder' ) . '</a>',
+        );
+
+        return array_merge( $links, $row_meta );
+    }
+
+    return (array) $links;
+}
+
+
+
 /* In plugin notifications */
 add_action( 'admin_init', 'wppb_add_plugin_notifications' );
 function wppb_add_plugin_notifications() {

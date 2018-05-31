@@ -73,6 +73,7 @@ Class WPPB_Plugin_Notifications {
     protected function __construct() {
         add_action( 'admin_init', array( $this, 'dismiss_admin_notifications' ), 200 );
         add_action( 'admin_init', array( $this, 'add_admin_menu_notification_counts' ), 1000 );
+        //add_action( 'admin_init', array( $this, 'remove_other_plugin_notices' ), 9999 );
     }
 
 
@@ -109,6 +110,12 @@ Class WPPB_Plugin_Notifications {
             }
         }
     }
+
+    /*function remove_other_plugin_notices(){
+        if( $this->is_plugin_page() ){
+            remove_all_actions('admin_notices');
+        }
+    }*/
 
     /**
      *

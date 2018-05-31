@@ -9,8 +9,8 @@
 function wppb_manage_fields_submenu(){
 	// create a new sub_menu page which holds the data for the default + extra fields
 	$args = array(
-		'menu_title' => __('Manage Fields', 'profile-builder'),
-		'page_title' => __('Manage Default and Extra Fields', 'profile-builder'),
+		'menu_title' => __('Form Fields', 'profile-builder'),
+		'page_title' => __('Manage Form Fields', 'profile-builder'),
 		'menu_slug' => 'manage-fields',
 		'page_type' => 'submenu_page',
 		'capability' => 'manage_options',
@@ -22,67 +22,96 @@ function wppb_manage_fields_submenu(){
 add_action( 'admin_menu', 'wppb_manage_fields_submenu', 1 );
 
 function wppb_populate_manage_fields(){
-	// populate this page
-	$manage_field_types[] = 'Default - Name (Heading)';
-	$manage_field_types[] = 'Default - Contact Info (Heading)';
-	$manage_field_types[] = 'Default - About Yourself (Heading)';
-	$manage_field_types[] = 'Default - Username';
-	$manage_field_types[] = 'Default - First Name';
-	$manage_field_types[] = 'Default - Last Name';
-	$manage_field_types[] = 'Default - Nickname';
-	$manage_field_types[] = 'Default - E-mail';
-	$manage_field_types[] = 'Default - Website';
+	
+    $manage_field_types = array(
+        'optgroups' => array(
+            'default' =>
+                array(
+                    'label' 	=> __('Default'),
+                    'options'	=> array(
+                        'Default - Name (Heading)',
+                        'Default - Contact Info (Heading)',
+                        'Default - About Yourself (Heading)',
+                        'Default - Username',
+                        'Default - First Name',
+                        'Default - Last Name',
+                        'Default - Nickname',
+                        'Default - E-mail',
+                        'Default - Website',
+                        'Default - Password',
+                        'Default - Repeat Password',
+                        'Default - Biographical Info',
+                        'Default - Display name publicly as',
+                    ),
+            ),
+            'standard' =>
+                array(
+                    'label'		=> __('Standard'),
+                    'options'	=> array(),
+                ),
+            'advanced' =>
+                array(
+                    'label'		=> __('Advanced'),
+                    'options'	=> array(),
+                ),
+            'other' =>
+                array(
+                    'label'		=> __('Other'),
+                    'options'	=> array(
+                        'GDPR Checkbox', // since 2.8.2
+                    ),
+                ),
+        ),
+    );
 
-	// Default contact methods were removed in WP 3.6. A filter dictates contact methods.
-	if ( apply_filters( 'wppb_remove_default_contact_methods', get_site_option( 'initial_db_version' ) < 23588 ) ){
-		$manage_field_types[] = 'Default - AIM';
-		$manage_field_types[] = 'Default - Yahoo IM';
-		$manage_field_types[] = 'Default - Jabber / Google Talk';
-	}
+    // Default contact methods were removed in WP 3.6. A filter dictates contact methods.
+    if ( apply_filters( 'wppb_remove_default_contact_methods', get_site_option( 'initial_db_version' ) < 23588 ) ){
+        $manage_field_types['optgroups']['default']['options'][] = 'Default - AIM';
+        $manage_field_types['optgroups']['default']['options'][] = 'Default - Yahoo IM';
+        $manage_field_types['optgroups']['default']['options'][] = 'Default - Jabber / Google Talk';
+    }
 
-    $manage_field_types[] = 'Default - Password';
-    $manage_field_types[] = 'Default - Repeat Password';
-    $manage_field_types[] = 'Default - Biographical Info';
-    $manage_field_types[] = 'Default - Display name publicly as';
-	if ( wppb_can_users_signup_blog() ) {
-		$manage_field_types[] = 'Default - Blog Details';
-	}
-
-	/* added recaptcha and user role field since version 2.6.2 */
-	$manage_field_types[] = 'reCAPTCHA';
-	$manage_field_types[] = 'Select (User Role)';
-
-	/* added recaptcha and user role field since version 2.8.2 */
-	$manage_field_types[] = 'GDPR Checkbox';
+    if ( wppb_can_users_signup_blog() ) {
+        $manage_field_types['optgroups']['advanced']['options'][] = 'Default - Blog Details';
+    }
 
     if( PROFILE_BUILDER != 'Profile Builder Free' ) {
-        $manage_field_types[] = 'Heading';
-        $manage_field_types[] = 'Input';
-        $manage_field_types[] = 'Number';
-        $manage_field_types[] = 'Input (Hidden)';
-        $manage_field_types[] = 'Textarea';
-        $manage_field_types[] = 'WYSIWYG';
-        $manage_field_types[] = 'Phone';
-        $manage_field_types[] = 'Select';
-        $manage_field_types[] = 'Select (Multiple)';
-        $manage_field_types[] = 'Select (Country)';
-        $manage_field_types[] = 'Select (Timezone)';
-        $manage_field_types[] = 'Select (Currency)';
-        $manage_field_types[] = 'Select (CPT)';
-        $manage_field_types[] = 'Checkbox';
-        $manage_field_types[] = 'Checkbox (Terms and Conditions)';
-        $manage_field_types[] = 'Radio';
-        $manage_field_types[] = 'Upload';
-        $manage_field_types[] = 'Avatar';
-        $manage_field_types[] = 'Datepicker';
-        $manage_field_types[] = 'Timepicker';
-        $manage_field_types[] = 'Colorpicker';
-        $manage_field_types[] = 'Validation';
-        $manage_field_types[] = 'Map';
-        $manage_field_types[] = 'HTML';
+        $manage_field_types['optgroups']['standard']['options'][] = 'Heading';
+        $manage_field_types['optgroups']['standard']['options'][] = 'Input';
+        $manage_field_types['optgroups']['standard']['options'][] = 'Number';
+        $manage_field_types['optgroups']['standard']['options'][] = 'Input (Hidden)';
+        $manage_field_types['optgroups']['standard']['options'][] = 'Textarea';
+        $manage_field_types['optgroups']['standard']['options'][] = 'WYSIWYG';
+        $manage_field_types['optgroups']['standard']['options'][] = 'Select';
+        $manage_field_types['optgroups']['standard']['options'][] = 'Select (Multiple)';
+        $manage_field_types['optgroups']['standard']['options'][] = 'Checkbox';
+        $manage_field_types['optgroups']['standard']['options'][] = 'Radio';
+        $manage_field_types['optgroups']['standard']['options'][] = 'HTML';
+        $manage_field_types['optgroups']['standard']['options'][] = 'Upload';
+        $manage_field_types['optgroups']['standard']['options'][] = 'Avatar';
+
+        $manage_field_types['optgroups']['advanced']['options'][] = 'Phone';
+        $manage_field_types['optgroups']['advanced']['options'][] = 'Select (Country)';
+        $manage_field_types['optgroups']['advanced']['options'][] = 'Select (Timezone)';
+        $manage_field_types['optgroups']['advanced']['options'][] = 'Select (Currency)';
+        $manage_field_types['optgroups']['advanced']['options'][] = 'Select (CPT)';
+        $manage_field_types['optgroups']['advanced']['options'][] = 'Checkbox (Terms and Conditions)';
+        $manage_field_types['optgroups']['advanced']['options'][] = 'Datepicker';
+        $manage_field_types['optgroups']['advanced']['options'][] = 'Timepicker';
+        $manage_field_types['optgroups']['advanced']['options'][] = 'Colorpicker';
+        $manage_field_types['optgroups']['advanced']['options'][] = 'Validation';
+        $manage_field_types['optgroups']['advanced']['options'][] = 'Map';
     }
-	
-				
+
+    /* added recaptcha and user role field since version 2.6.2 */
+    $manage_field_types['optgroups']['advanced']['options'][] = 'reCAPTCHA';
+    $manage_field_types['optgroups']['advanced']['options'][] = 'Select (User Role)';
+
+
+    $manage_field_types['optgroups']['other']['options'] = apply_filters( 'wppb_manage_fields_types', $manage_field_types['optgroups']['other']['options'] );
+
+    $manage_field_types = apply_filters( 'wppb_all_manage_fields_types', $manage_field_types );
+
 	//Free to Pro call to action on Manage Fields page
 	$field_description = __('Choose one of the supported field types','profile-builder');
 	if( PROFILE_BUILDER == 'Profile Builder Free' ) {
@@ -178,7 +207,7 @@ function wppb_populate_manage_fields(){
 	// create the new submenu with the above options
 	$args = array(
 		'metabox_id' 	=> 'manage-fields',
-		'metabox_title' => __( 'Field Properties', 'profile-builder' ),
+		'metabox_title' => __( 'Form Field Properties', 'profile-builder' ),
 		'post_type' 	=> 'manage-fields',
 		'meta_name' 	=> 'wppb_manage_fields',
 		'meta_array' 	=> $fields,
@@ -192,7 +221,7 @@ function wppb_populate_manage_fields(){
     // create the info side meta-box
     $args = array(
         'metabox_id' 	=> 'manage-fields-info',
-        'metabox_title' => __( 'Registration & Edit Profile', 'profile-builder' ),
+        'metabox_title' => __( 'Registration & Edit Profile Forms', 'profile-builder' ),
         'post_type' 	=> 'manage-fields',
         'meta_name' 	=> 'wppb_manage_fields_info',
         'meta_array' 	=> '',
@@ -1165,7 +1194,7 @@ add_filter( 'wck_extra_message', 'wppb_check_field_on_edit_add', 10, 6 );
 
 
 /**
- * Function that calls the wppb_hide_properties_for_already_added_fields after a field-update
+ * Function that calls the wppb_hide_properties_for_already_added_fields and wppb_enable_select2 after a field-update
  *
  * @since v.2.0
  *
@@ -1175,13 +1204,14 @@ add_filter( 'wck_extra_message', 'wppb_check_field_on_edit_add', 10, 6 );
  */
 function wppb_manage_fields_after_refresh_list( $id ){
 	echo "<script type=\"text/javascript\">wppb_hide_properties_for_already_added_fields( '#container_wppb_manage_fields' );</script>";
+	echo "<script type=\"text/javascript\">wppb_enable_select2( '#wppb_manage_fields' );</script>";
+
 }
 add_action( "wck_refresh_list_wppb_manage_fields", "wppb_manage_fields_after_refresh_list" );
 add_action( "wck_refresh_entry_wppb_manage_fields", "wppb_manage_fields_after_refresh_list" );
 
-
 /**
- * Function that calls the wppb_hide_all
+ * Function that calls the wppb_hide_all and wppb_enable_select2
  *
  * @since v.2.0
  *
@@ -1189,10 +1219,11 @@ add_action( "wck_refresh_entry_wppb_manage_fields", "wppb_manage_fields_after_re
  *
  * @return string
  */
-function wppb_hide_all_after_add( $id ){
+function wppb_manage_fields_after_ajax_add_field( $id ){
 	echo "<script type=\"text/javascript\">wppb_hide_all( '#wppb_manage_fields' );</script>";
+    echo "<script type=\"text/javascript\">wppb_enable_select2( '#wppb_manage_fields' );</script>";
 }
-add_action("wck_ajax_add_form_wppb_manage_fields", "wppb_hide_all_after_add" );
+add_action("wck_ajax_add_form_wppb_manage_fields", "wppb_manage_fields_after_ajax_add_field" );
 
 /**
  * Function that modifies the table header in Manage Fields to add Field Name, Field Type, Meta Key, Required
@@ -1230,7 +1261,7 @@ function wppb_add_content_before_manage_fields(){
        if( PROFILE_BUILDER == 'Profile Builder Pro' )
            _e("If you're interested in displaying different fields in the registration and edit profile forms, please use the Multiple Registration & Edit Profile Forms Modules.", 'profile-builder');
        else
-           _e( "With Profile Builder Pro v2 you can display different fields in the registration and edit profile forms, using the Multiple Registration & Edit Profile Forms module.", "profile-builder" )
+           _e( "With Profile Builder Pro you can display different fields in the registration and edit profile forms, using the Multiple Registration & Edit Profile Forms module.", "profile-builder" )
        ?>
    </p>
 <?php
@@ -1251,8 +1282,10 @@ function wppb_remove_properties_from_added_form( $meta_name, $id, $element_id ){
     if ( ( $meta_name == 'wppb_epf_fields' ) || ( $meta_name == 'wppb_rf_fields' ) )
         echo "<script type=\"text/javascript\">wppb_disable_delete_on_default_mandatory_fields();</script>";
 
-    if ( $meta_name == 'wppb_manage_fields' )
-        echo "<script type=\"text/javascript\">wppb_edit_form_properties( '#container_wppb_manage_fields', 'update_container_wppb_manage_fields_".$element_id."' );</script>";
+    if ( $meta_name == 'wppb_manage_fields' ) {
+        echo "<script type=\"text/javascript\">wppb_edit_form_properties( '#container_wppb_manage_fields', 'update_container_wppb_manage_fields_" . $element_id . "' );</script>";
+        echo "<script type=\"text/javascript\">wppb_enable_select2( '#container_wppb_manage_fields' );</script>";
+    }
 }
 add_action("wck_after_adding_form", "wppb_remove_properties_from_added_form", 10, 3);
 

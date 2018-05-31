@@ -744,7 +744,7 @@ function wppb_handle_user_role_field( container_name ) {
 
 function wppb_initialize_live_select( container_name ){
 	wppb_hide_all( container_name );
-	jQuery(document).on( 'change', container_name + ' ' + '.mb-list-entry-fields #field', function () {
+    jQuery(document).on( 'change', container_name + ' ' + '.mb-list-entry-fields #field', function () {
 		field = jQuery(this).val();
 
 		if ( field != ''){
@@ -756,10 +756,35 @@ function wppb_initialize_live_select( container_name ){
 	});
 }
 
+
+function wppb_enable_select2(container_name){
+    // Select2 initialization on manage fields.
+
+    jQuery( container_name + ' #field').select2({
+        placeholder: 'Select an option',
+        allowClear: true
+    })
+
+    var $eventSelect = jQuery( container_name + ' #field');
+    $eventSelect.on("select2:open", function (e) {
+        jQuery('#wppb_select2_overlay').fadeIn('100')
+    });
+    $eventSelect.on("select2:close", function (e) {
+        jQuery('#wppb_select2_overlay').hide();
+    });
+}
+
+
 jQuery(function(){
  	wppb_initialize_live_select ( '#wppb_manage_fields' );
 	wppb_initialize_live_select ( '#container_wppb_manage_fields' );
 
 	wppb_hide_properties_for_already_added_fields( '#container_wppb_manage_fields' );
 	wppb_disable_add_entry_button ( '#wppb_manage_fields' );
+
+    var overlay = jQuery('<div id="wppb_select2_overlay"> </div>')
+    overlay.appendTo(document.body)
+
+    wppb_enable_select2('#wppb_manage_fields');
+
 });

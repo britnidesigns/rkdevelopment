@@ -2,7 +2,7 @@
 /* handle field output */
 function wppb_gdpr_handler( $output, $form_location, $field, $user_id, $field_check_errors, $request_data ){
     if ( $field['field'] == 'GDPR Checkbox' ){
-        if ( $form_location == 'register' ){
+        if ( $form_location != 'back_end' ){
             $item_title = apply_filters( 'wppb_'.$form_location.'_gdpr_custom_field_'.$field['id'].'_item_title', wppb_icl_t( 'plugin profile-builder-pro', 'custom_field_'.$field['id'].'_title_translation', $field['field-title'] ) );
             $item_description = wppb_icl_t( 'plugin profile-builder-pro', 'custom_field_'.$field['id'].'_description_translation', $field['description'] );
 
@@ -44,7 +44,7 @@ add_action( 'wppb_save_form_field', 'wppb_save_gdpr_value', 10, 4 );
 /* handle field validation */
 function wppb_check_gdpr_value( $message, $field, $request_data, $form_location ){
     if( $field['field'] == 'GDPR Checkbox' ){
-        if ( $form_location == 'register' ){
+        if ( $form_location != 'back_end' ){
             if ( ( ( isset( $request_data[wppb_handle_meta_name( $field['meta-name'] )] ) && ( trim( $request_data[wppb_handle_meta_name( $field['meta-name'] )] ) == '' ) ) && ( $field['required'] == 'Yes' ) ) || ( !isset( $request_data[wppb_handle_meta_name( $field['meta-name'] )] ) && ( $field['required'] == 'Yes' ) ) ){
                 return wppb_required_field_error($field["field-title"]);
             }

@@ -425,6 +425,8 @@
 <?php __("Add Field", "profile-builder"); ?>
 <?php __("Save Settings", "profile-builder"); ?>
 <?php __("If you enjoy using <strong> %1$s </strong> please <a href=\"%2$s\" target=\"_blank\">rate us on WordPress.org</a>. More happy users means more features, less bugs and better support for everyone. ", "profile-builder"); ?>
+<?php __("View Profile Builder documentation", "profile-builder"); ?>
+<?php __("Docs", "profile-builder"); ?>
 <?php __("Extend WooCommerce checkout page with support for all the Profile Builder Pro custom field types, conditional logic and repeater fields with the latest <strong>WooSync addon</strong> for Profile Builder.", "profile-builder"); ?>
 <?php __("Check it out!", "profile-builder"); ?>
 <?php __("Dismiss this notice.", "profile-builder"); ?>
@@ -528,8 +530,8 @@
 <?php __("Enter the minimum characters the password should have. Leave empty for no minimum limit", "profile-builder"); ?>
 <?php __("Minimum Password Strength:", "profile-builder"); ?>
 <?php __("Disabled", "profile-builder"); ?>
-<?php __("Manage Fields", "profile-builder"); ?>
-<?php __("Manage Default and Extra Fields", "profile-builder"); ?>
+<?php __("Form Fields", "profile-builder"); ?>
+<?php __("Manage Form Fields", "profile-builder"); ?>
 <?php __("Choose one of the supported field types", "profile-builder"); ?>
 <?php __(". Extra Field Types are available in <a href=\"%s\">Hobbyist or PRO versions</a>.", "profile-builder"); ?>
 <?php __("Use this in conjunction with WordPress functions to display the value in the page of your choosing<br/>Auto-completed but in some cases editable (in which case it must be unique)<br/>Changing this might take long in case of a very big user-count", "profile-builder"); ?>
@@ -628,8 +630,8 @@
 <?php __("Whether the field is required or not", "profile-builder"); ?>
 <?php __("Overwrite Existing", "profile-builder"); ?>
 <?php __("Selecting 'Yes' will add the field to the list, but will overwrite any other field in the database that has the same meta-name<br/>Use this at your own risk", "profile-builder"); ?>
-<?php __("Field Properties", "profile-builder"); ?>
-<?php __("Registration & Edit Profile", "profile-builder"); ?>
+<?php __("Form Field Properties", "profile-builder"); ?>
+<?php __("Registration & Edit Profile Forms", "profile-builder"); ?>
 <?php __("Usernames cannot be changed.", "profile-builder"); ?>
 <?php __("Nickname", "profile-builder"); ?>
 <?php __("Display name publicly as", "profile-builder"); ?>
@@ -1028,7 +1030,7 @@
 <?php __("<pre>Title</pre><pre>Type</pre><pre>Meta Name</pre><pre class=\"wppb-mb-head-required\">Required</pre>", "profile-builder"); ?>
 <?php __("Use these shortcodes on the pages you want the forms to be displayed:", "profile-builder"); ?>
 <?php __("If you're interested in displaying different fields in the registration and edit profile forms, please use the Multiple Registration & Edit Profile Forms Modules.", "profile-builder"); ?>
-<?php __("With Profile Builder Pro v2 you can display different fields in the registration and edit profile forms, using the Multiple Registration & Edit Profile Forms module.", "profile-builder"); ?>
+<?php __("With Profile Builder Pro you can display different fields in the registration and edit profile forms, using the Multiple Registration & Edit Profile Forms module.", "profile-builder"); ?>
 <?php __("Search Location", "profile-builder"); ?>
 <?php __("Paid Accounts", "profile-builder"); ?>
 <?php __("Paid Member Subscriptions - a free WordPress plugin", "profile-builder"); ?>
