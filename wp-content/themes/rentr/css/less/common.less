@@ -82,21 +82,17 @@ h1, h2, h3, .btn, .btn-alt { .display; }
     color: #fff;
     text-shadow: 1px 1px 1px fade(shade(@theme-primary,50%), 50%);
 
-    &:hover{
+    &:hover {
         background-color: darken(@theme-primary, 10%);
         color: #fff;
         text-shadow: 1px 1px 1px fade(shade(@theme-primary, 50%), 75%);
     }
 
-    &.primary {
-        //padding: .6em 1em;
-        //background-color: @theme-secondary;
-        //background-image: linear-gradient(to bottom, fade(@theme-primary, 50%), transparent);
-        font-size: 1.25em;
-    }
-
+    &.primary { font-size: 1.25em; }
     &:visited { color: #fff; }
 }
+
+button, input[type='submit'] { .btn; }
 
 .btn-alt {
     display: inline-block;
@@ -114,6 +110,16 @@ h1, h2, h3, .btn, .btn-alt { .display; }
 }
 
 .btn svg, .btn-alt svg { margin-right: .5em; }
+
+.text-link, p.login-register-lost-password a {
+    &, &:visited {
+        color: mix(@theme-dark, @theme-light);
+        text-decoration: underline;
+        transition: color .2s ease-in-out;
+    }
+
+    &:hover { color: @theme-primary; }
+}
 
 .strip {
     position: relative;
@@ -361,6 +367,89 @@ footer .facebook {
 .wppb-user-forms select,
 .wppb-user-forms textarea {
     font-size: 16/18em;
+}
+
+.wppb-user-forms .form-submit { margin-top: 2rem; }
+
+#loginform {
+    margin-bottom: 2rem;
+
+    // classes required for specificity
+    .login-username, .login-password {
+        label, input {
+            width: 6em;
+            display: inline-block;
+            vertical-align: middle;
+            float: none;
+        }
+
+        input {
+            width: 15em;
+            max-width: 100%;
+        }
+    }
+
+    .login-remember {
+        margin: 1em 0 2rem;
+
+        label { cursor: pointer; }
+        input { margin-right: .5em; }
+    }
+}
+
+#wppb-recover-password {
+    ul { margin: 2em 0 0; }
+
+    label, ul input {
+        width: auto;
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+    }
+
+    label { margin-right: 1em; }
+
+    ul input {
+        width: 20em;
+        max-width: 100%;
+    }
+}
+
+#select_user_to_edit_form {
+    label {
+        display: block;
+        float: none;
+    }
+
+    .select2 {
+        max-width: 100%;
+        margin-left: 0;
+    }
+}
+
+#wppb-edit-user {
+    h4 {
+        margin: 2em 0 1em;
+        font-size: 1.25em;
+    }
+
+    label, input.text-input {
+        width: 10em;
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+    }
+
+    input.text-input {
+        width: 15em;
+        max-width: 100%;
+    }
+
+    .wppb-description-delimiter, #pass-strength-result { margin-left: 5em; }
+
+    @media screen and (max-width: 500px) {
+        .wppb-description-delimiter, #pass-strength-result { margin-left: 2em; }
+    }
 }
 
 /* ---------- HOME ------------------------------ */
