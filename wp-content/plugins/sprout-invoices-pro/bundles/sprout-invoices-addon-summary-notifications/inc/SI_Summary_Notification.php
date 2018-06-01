@@ -27,7 +27,7 @@ class SI_Summary_Notification extends SI_Notifications {
 				'client_summary' => array(
 					'name' => __( 'Client Summary', 'sprout-invoices' ),
 					'description' => __( 'Customize the email sent to the client summarizing open invoices and esitmates.', 'sprout-invoices' ),
-					'shortcodes' => array( 'date', 'name', 'username', 'dashboard_link', 'summary', 'client_name', 'client_edit_url', 'client_address', 'client_company_website' ),
+					'shortcodes' => array( 'date', 'name', 'first_name', 'username', 'dashboard_link', 'summary', 'client_name', 'client_edit_url', 'client_address', 'client_company_website' ),
 					'default_title' => sprintf( __( '%s: Your Summary', 'sprout-invoices' ), get_bloginfo( 'name' ) ),
 					'default_content' => self::default_summary_notification(),
 				),

@@ -17,7 +17,7 @@
 <?php do_action( 'sb_client_meta_pre' ); ?>
 <div id="client_billing_fields" class="admin_fields clearfix">
 	<?php do_action( 'sb_client_meta' ); ?>
-	<h4><?php _e( 'Saved Payment Profiles' , 'sprout-invoices' ) ?></h4>
+	<h3><?php _e( 'Saved Payment Profiles' , 'sprout-invoices' ) ?></h3>
 	<div class="sa-control-group clearfix">
 		<span class="label_wrap">
 			<label for="sa_credit_payment_method">&nbsp;</label>
@@ -44,8 +44,17 @@
 			</span>
 		</span>
 	</div>
-	<h4><?php _e( 'Auto Bill Options' , 'sprout-invoices' ) ?></h4>
+	<h3><?php _e( 'Auto Bill Options' , 'sprout-invoices' ) ?></h3>
 	<?php sa_admin_fields( $fields ); ?>
 	<?php do_action( 'sb_client_meta_after_fields' ); ?>
 </div>
 <?php do_action( 'sb_client_meta_end' ); ?>
+<style type="text/css">
+.sa-control-group.clearfix,
+.sa-control-group.clearfix .clearfix {
+	overflow: auto;
+}
+.sa-form-field-radio.clearfix {
+	display: block;
+}
+</style>

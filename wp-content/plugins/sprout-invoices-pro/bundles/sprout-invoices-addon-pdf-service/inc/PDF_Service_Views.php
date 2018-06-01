@@ -68,10 +68,12 @@ class SI_Sprout_PDFs_Views extends SI_Sprout_PDFs_Controller {
 					overflow: auto;
 				}
 
-				.sa_invoice-template-default #header .messages {
+				body.sa_invoice-template-default #header .messages {
 					min-height: 10px;
 				}
-
+				body.sa_invoice-template-default #header .inner {
+					padding: 10px 0px !important;
+				}
 				body.sa_invoice-template-default,
 				body#invoice.sa_invoice-template-default,
 				body#estimate.sa_invoice-template-default {
@@ -79,25 +81,28 @@ class SI_Sprout_PDFs_Views extends SI_Sprout_PDFs_Controller {
 				    color: #333;
 				}
 
-				.sa_invoice-template-default .estimate .title,
-				.sa_invoice-template-default .invoice .title,
-				.sa_invoice-template-default #intro .inner .column span {
+				body.sa_invoice-template-default .estimate .title,
+				body.sa_invoice-template-default .invoice .title,
+				body.sa_invoice-template-default #intro .inner .column span {
 				    color: #afafaf
 				}
-				.sa_invoice-template-default .estimate .title:after,
-				.sa_invoice-template-default .invoice .title:after,
-				.sa_invoice-template-default #items .items .item .column h3 {
+				body.sa_invoice-template-default .estimate .title:after,
+				body.sa_invoice-template-default .invoice .title:after,
+				body.sa_invoice-template-default #items .items .item .column h3 {
 				    border-color: #eee;
 				}
-				.sa_invoice-template-default .estimate .title h2,
-				.sa_invoice-template-default .invoice .title h2 {
+				body.sa_invoice-template-default .estimate .title h2,
+				body.sa_invoice-template-default .invoice .title h2 {
 				    background-color: #eee;
 				}
-				.sa_invoice-template-default header#header {
+				body.sa_invoice-template-default header#header {
 				    background-color: #f7f7f7;
 				}
-				.sa_invoice-template-default section#paybar {
+				body.sa_invoice-template-default section#paybar {
 				    background-color: #f7f7f7;
+				}
+				#payment .inner {
+					display: none;
 				}				
 			</style>
 			<script type="text/javascript">
@@ -116,10 +121,16 @@ class SI_Sprout_PDFs_Views extends SI_Sprout_PDFs_Controller {
 		if ( ! isset( $_GET[ self::QUERY_ARG ] ) || ! $_GET[ self::QUERY_ARG ] ) {
 			return;
 		}
+
 		$file_path = SI_Sprout_PDFs_API::get_pdf();
 		$file_name = self::get_file_name();
 
-		if ( filesize( $file_path ) < 0.01 ) {
+		if ( ! $file_path ) { // error was provided via the api
+			wp_redirect( remove_query_arg( self::QUERY_ARG ) );
+			exit();
+		}
+
+		if ( filesize( $file_path ) < 0.01 ) { // no file exists
 			if ( $_SERVER['SERVER_ADDR'] === $_SERVER['REMOTE_ADDR'] ) {
 				self::set_message( __( '<b>PDF Generation Error:</b> PDF Service will not work locally.', 'sprout-invoices' ), self::MESSAGE_STATUS_ERROR );
 			} else {

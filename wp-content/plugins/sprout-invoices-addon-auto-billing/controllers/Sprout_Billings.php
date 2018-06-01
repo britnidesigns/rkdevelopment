@@ -10,6 +10,7 @@ class SI_Sprout_Billings extends SI_Controller {
 	const CLIENT_META_KEY = 'sb_default_client_bill_date';
 	const GLOBAL_META_KEY = 'sb_default_bill_date';
 	const PAYMENT_PROFILE_ID = 'sc_allow_charging';
+	const DONOT_AUTOBILL = 'sb_do_not_autobill';
 	const FAILED_ATTEMPTS_META = 'sc_failed_attempts';
 	const RECORD = 'auto_payments';
 
@@ -101,6 +102,10 @@ class SI_Sprout_Billings extends SI_Controller {
 		if ( $invoice->get_balance() < 0.01 ) {
 			return;
 		}
+		$disabled = self::is_auto_bill_disabled();
+		if ( $disabled ) {
+			return;
+		}
 		if ( ! apply_filters( 'sb_maybe_attempt_autopay', true, $invoice_id ) ) { // allow for an override, i.e. project completion.
 			return;
 		}
@@ -186,6 +191,12 @@ class SI_Sprout_Billings extends SI_Controller {
 	//////////////
 	// Utility //
 	//////////////
+
+
+	public static function is_auto_bill_disabled( $doc_id = 0 ) {
+		$option = SI_Sprout_Billings_Admin::get_invoice_autobill_option( $doc_id );
+		return ( ! $option ) ? true : false ;
+	}
 
 	/**
 	 * 24 hours

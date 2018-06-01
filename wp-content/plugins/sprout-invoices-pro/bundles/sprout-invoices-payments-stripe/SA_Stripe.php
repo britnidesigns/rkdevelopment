@@ -676,7 +676,7 @@ class SA_Stripe extends SI_Credit_Card_Processors {
 
 			}
 		}
-		return $card_data;
+		return apply_filters( 'si_stripe_purchase_data', $card_data, $checkout, $invoice );
 	}
 
 	/**

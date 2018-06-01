@@ -2,7 +2,7 @@
 /*
 Plugin Name: Sprout Invoices Add-on - PDF Service
 Plugin URI: https://sproutapps.co/sprout-invoices/sprout-pdfs/
-Description: Generates PDFs via a Sprout Apps API to create better looking PDFs.<br/><b>Note:</b> This add-on is in an alpha release, and  may be removed without notice. Any questions please reach out via support.
+Description: Generates PDFs via a Sprout Apps API to create better looking PDFs.<br/><b>Note:</b> The PDF Service will work only for current Business and Corporate license holders.
 Author: Sprout Apps
 Version: 0.1 Alpha
 Author URI: https://sproutapps.co

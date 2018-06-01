@@ -4,7 +4,7 @@ Donate link: https://sproutapps.co/
 Tags: invoicing, estimates, payments, web invoice, bill, paypal, invoice, pay, online payment, send invoice, bill clients, credit cards, stripe, freshbooks, harvest, wp-invoice
 Requires at least: 3.8
 Tested up to: 4.9
-Stable tag: 17.0.5
+Stable tag: 17.1.0.1
 
 == Description ==
 
@@ -22,6 +22,36 @@ The plugin should already be installed at this point. If you still need help che
 **Please visit the [FAQ at Sprout Apps](https://sproutapps.co/support/knowledgebase/sprout-invoices/faqs/).**
 
 == Changelog ==
+
+= 17.1.0.1 =
+
+* Fix: Stripe user defaulting to admin under specific circumstances
+* Update: Better PDF Formatting and additional filters
+
+= 17.0.10 =
+
+* Fix: elements collapsing instead of auto flowing 
+* Update: Allow for estimate totals cache to be reset
+
+= 17.0.9 =
+
+* Update: All Pro versions of Sprout Invoices include the advanced numbering add-on.
+* Fix: Stored PDF for notifications may not be stored with the correct file names.
+
+= 17.0.7 =
+
+* Fix: Prevent non existent users from being attributed to possible payments
+* Fix: CSS Updates
+* NEW: Notification shortcode for first_name
+* Fix: Notes not saving for estimates before sending
+* Update: PHP version check for WooCommerce integration
+* Fix: Estimate acceptance actions bug fix for invoice creation
+* Update: GMT for all history
+
+
+= 17.0.6 =
+
+* Update: Improved error messaging for PDF Service.
 
 = 17.0.5 =
 

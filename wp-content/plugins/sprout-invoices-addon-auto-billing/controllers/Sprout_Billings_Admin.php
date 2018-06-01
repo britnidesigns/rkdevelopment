@@ -75,7 +75,7 @@ class SI_Sprout_Billings_Admin extends SI_Sprout_Billings {
 			'si_client_auto_billing' => array(
 				'title' => __( 'Auto Payments' , 'sprout-invoices' ),
 				'show_callback' => array( __CLASS__, 'show_billing_meta_box' ),
-				'save_callback' => '',
+				'save_callback' => array( __CLASS__, 'maybe_save_invoice_option' ),
 				'context' => 'normal',
 				'priority' => 'high',
 				'save_priority' => 0,
@@ -189,6 +189,21 @@ class SI_Sprout_Billings_Admin extends SI_Sprout_Billings {
 
 		$fields = array();
 
+		$fields['do_not_autobill_divide'] = array(
+				'type' => 'bypass',
+				'weight' => 20,
+				'output' => '<hr/>',
+			);
+
+		$fields['do_not_autobill'] = array(
+			'weight' => 21,
+			'label' => __( 'Do Not Autobill', 'sprout-invoices' ),
+			'description' => __( 'Seting this option would disable the autobilling functionality for this invoice.', 'sprout-invoices' ),
+			'type' => 'checkbox',
+			'default' => self::is_auto_bill_disabled( $invoice_id ),
+			'value' => 'false',
+		);
+
 		if ( $balance > 0.00 && $client_id && $can_charge ) {
 			$fields['attempt_charge'] = array(
 				'label' => sprintf( __( 'Capture Payment' , 'sprout-invoices' ) ),
@@ -202,6 +217,31 @@ class SI_Sprout_Billings_Admin extends SI_Sprout_Billings {
 		$fields = apply_filters( 'si_sprout_billing_meta_box_fields', $fields, $invoice_id, $client_id, $balance );
 		uasort( $fields, array( __CLASS__, 'sort_by_weight' ) );
 		return $fields;
+	}
+
+	public static function maybe_save_invoice_option( $post_id, $post, $callback_args ) {
+		$doc_id = $post_id;
+		delete_post_meta( $doc_id, self::DONOT_AUTOBILL );
+
+		if ( isset( $_POST['sa_metabox_do_not_autobill'] ) && 'false' === $_POST['sa_metabox_do_not_autobill'] ) {
+			self::set_invoice_tonot_autobill( $doc_id );
+		}
+		do_action( 'sb_save_invoice_meta_box', $doc_id );
+	}
+
+
+	//////////////////////
+	// Standard Methods //
+	//////////////////////
+
+	public static function get_invoice_autobill_option( $doc_id = 0 ) {
+		$option = get_post_meta( $doc_id, self::DONOT_AUTOBILL, true );
+		return ( 'false' === $option ) ? false : true;
+	}
+
+	public static function set_invoice_tonot_autobill( $doc_id = 0 ) {
+		$willautobill = update_post_meta( $doc_id, self::DONOT_AUTOBILL, 'false' );
+		return true;
 	}
 
 	///////////////////

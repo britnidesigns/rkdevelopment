@@ -25,6 +25,9 @@ if ( ! defined( 'SI_DEV' ) ) {
 // Load up after SI is loaded.
 add_action( 'sprout_invoices_loaded', 'sa_load_woocommerce_tools' );
 function sa_load_woocommerce_tools() {
+	if ( ! version_compare( phpversion(), '5.6', '>=' ) ) {
+		return;
+	}
 	if ( ! class_exists( 'WC_Product' ) ) {
 		return;
 	}

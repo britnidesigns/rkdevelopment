@@ -42,12 +42,14 @@ jQuery(function($) {
 	}
 
 	function si_stripe_response_handler(status, response) {
-
+		
 		if (response.error) {
 			// re-enable the submit button
 			$('#credit_card_checkout_wrap #credit_card_submit').attr("disabled", false);
 
 			var error = '<p class="si_error">' + response.error.message + '</p>';
+
+			$('#stripe_errors').addClass('sa-message error');
 
 			// show the errors on the form
 			$('#stripe_errors').html(error);

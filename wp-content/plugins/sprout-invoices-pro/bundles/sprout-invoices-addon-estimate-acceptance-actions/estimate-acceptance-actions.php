@@ -4,7 +4,7 @@ Plugin Name: Sprout Invoices Add-on - Estimate Acceptance Actions
 Plugin URI: https://sproutapps.co/marketplace/time-tracking/
 Description: When an estimate is accepted there are a few things that can be done to the newly created invoice.
 Author: Sprout Apps
-Version: 1.0.3
+Version: 1.0.4
 Author URI: https://sproutapps.co
 Auto Active: true
 */
@@ -12,7 +12,7 @@ Auto Active: true
 /**
  * Plugin Info for updates
  */
-define( 'SA_ADDON_ESTIMATE_ACCEPTANCE_VERSION', '1.0.3' );
+define( 'SA_ADDON_ESTIMATE_ACCEPTANCE_VERSION', '1.0.4' );
 define( 'SA_ADDON_ESTIMATE_ACCEPTANCE_DOWNLOAD_ID', 48438 );
 define( 'SA_ADDON_ESTIMATE_ACCEPTANCE_NAME', 'Sprout Invoices Estimates Action after Acceptance' );
 define( 'SA_ADDON_ESTIMATE_ACCEPTANCE_FILE', __FILE__ );

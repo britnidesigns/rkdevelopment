@@ -27,6 +27,35 @@ class SI_Sprout_Billings_New_Invoices extends SI_Sprout_Billings {
 			return;
 		}
 
+		$auto_pay_date = (int) self::get_client_autopay_date( $client_id );
+
+		if ( 0 === $auto_pay_date ) {
+			self::charge_and_record( $invoice_id, $client_id );
+			// move along to the next client
+			return;
+		}
+
+		$todays_date = date( 'j', current_time( 'timestamp' ) );
+
+		if ( (int) $todays_date === (int) $auto_pay_date ) {
+			self::charge_and_record( $invoice_id, $client_id );
+			// don't stop...check for last day of the month
+		}
+
+		$last_day_of_month = date( 't', current_time( 'timestamp' ) );
+
+		// if today is the last day of the month process
+		// all invoices with bill dates set to after the
+		// last day of the month.
+		if ( (int) $last_day_of_month === (int) $todays_date && (int) $auto_pay_date > (int) $last_day_of_month ) {
+			self::charge_and_record( $invoice_id, $client_id );
+		}
+
+		return;
+
+	}
+
+	public static function charge_and_record( $invoice_id, $client_id ) {
 		$response = self::charge_invoice_balance( $invoice_id, $client_id );
 		$record_message = ( ! is_numeric( $response ) ) ?  __( 'Auto Payment Failed on Invoice: %s.' , 'sprout-invoices' ) : __( 'Auto Payment Succeeded on Invoice: %s.' , 'sprout-invoices' );
 		do_action( 'si_new_record',

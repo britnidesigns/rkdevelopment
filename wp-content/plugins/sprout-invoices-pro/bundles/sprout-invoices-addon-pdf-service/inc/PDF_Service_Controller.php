@@ -79,12 +79,12 @@ class SI_Sprout_PDFs_Controller extends SI_Controller {
 		$file_name = '';
 		// Invoicing
 		if ( 'invoice' === $doc_type ) {
-			$file_name = apply_filters( 'si_pdf_invoice_file_name', 'invoice_' . get_the_ID() . '.pdf' );
+			$file_name = apply_filters( 'si_pdf_invoice_file_name', 'invoice_' . $doc_id . '.pdf' );
 		}
 
 		// Estimates
 		if ( 'estimate' === $doc_type ) {
-			$file_name = apply_filters( 'si_pdf_estimate_file_name', 'estimate_' . get_the_ID() . '.pdf' );
+			$file_name = apply_filters( 'si_pdf_estimate_file_name', 'estimate_' . $doc_id . '.pdf' );
 		}
 
 		return $file_name;
@@ -153,7 +153,7 @@ class SI_Sprout_PDFs_Controller extends SI_Controller {
 		$key_info = json_decode( wp_remote_retrieve_body( $response ) );
 
 		if ( ! isset( $key_info->unique_key ) ) {
-			return 'error';
+			return $key_info;
 		}
 		$api_key = $key_info->unique_key;
 

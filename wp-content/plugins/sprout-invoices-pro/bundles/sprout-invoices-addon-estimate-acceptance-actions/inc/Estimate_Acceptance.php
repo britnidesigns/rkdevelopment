@@ -263,7 +263,7 @@ class SI_Estimate_Acceptance extends SI_Controller {
 		$invoice = SI_Invoice::get_instance( $invoice_id );
 		$invstatus = $invoice->get_status();
 		// Check if approved
-		if ( SI_Invoice::STATUS_TEMP !== $invstatus ) {
+		if ( SI_Invoice::STATUS_TEMP === $invstatus ) {
 			$invoice->set_pending();
 		}
 

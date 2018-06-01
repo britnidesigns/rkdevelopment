@@ -4,14 +4,14 @@ Plugin Name: Sprout Invoices Add-on - Sprout Billings
 Plugin URI: https://sproutapps.co/marketplace/auto-billing-invoices-payment-profiles/
 Description: A way for customers to pay their invoices automatically, while providing the ability for them to update payment methods within a dashboard.
 Author: Sprout Apps
-Version: 3.4.1
+Version: 3.5.1
 Author URI: https://sproutapps.co
 */
 
 /**
  * Plugin Info for updates
  */
-define( 'SA_ADDON_AUTO_BILLING_VERSION', '3.4.1' );
+define( 'SA_ADDON_AUTO_BILLING_VERSION', '3.5.1' );
 define( 'SA_ADDON_AUTO_BILLING_DOWNLOAD_ID', 44588 );
 define( 'SA_ADDON_AUTO_BILLING_NAME', 'Sprout Invoices Auto Billing & Payment Profiles' );
 define( 'SA_ADDON_AUTO_BILLING_FILE', __FILE__ );

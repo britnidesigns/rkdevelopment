@@ -34,13 +34,21 @@ class SI_Sprout_PDFs_API extends SI_Sprout_PDFs_Controller {
 
 		try {
 
-			$client = new \Pdfcrowd\HtmlToPdfClient( self::get_username(), self::get_api_key() );
+			$api_key = self::get_api_key();
+
+			if ( is_object( $api_key ) && isset( $api_key->error ) ) {
+				self::set_message( sprintf( __( '<b>PDF Service Unavailable:</b> %s.', 'sprout-invoices' ), wp_kses_post( $api_key->error ) ), self::MESSAGE_STATUS_ERROR );
+				return false;
+			}
+
+			$client = new \Pdfcrowd\HtmlToPdfClient( self::get_username(), $api_key );
 
 			$upload_dir = self::get_upload_path();
 			$file_name = self::get_file_name( $doc_id );
 			$uploaded_file = trailingslashit( $upload_dir ) . $file_name;
 
-			$client->setPageMargins( '0in', '0in', '0in', '0in' );
+			$margin = apply_filters( 'si_pdf_service_margins', '.2in' );
+			$client->setPageMargins( $margin, $margin, $margin, $margin );
 
 			$client->convertUrlToFile( $doc_url, $uploaded_file );
 

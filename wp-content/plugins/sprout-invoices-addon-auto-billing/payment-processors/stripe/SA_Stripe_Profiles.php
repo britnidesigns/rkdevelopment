@@ -285,7 +285,7 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 	 */
 	public static function modify_credit_form() {
 		printf( '<input type="hidden" name="%s" value="">', self::TOKEN_INPUT_NAME );
-		printf( '<div id="stripe_errors" class="sa-message error"></div><!-- #stripe_errors -->' );
+		printf( '<div id="stripe_errors"></div><!-- #stripe_errors -->' );
 	}
 
 	/**
@@ -457,7 +457,7 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 
 		$source_id = $card->id;
 
-		if ( ! isset( $_POST['sa_credit_store_payment_profile'] ) || ! isset( $checkout->cache['sa_credit_store_payment_profile'] ) ) {
+		if ( ! isset( $_POST['sa_credit_store_payment_profile'] ) && ! isset( $checkout->cache['sa_credit_store_payment_profile'] ) ) {
 			Sprout_Billings_Profiles::hide_payment_profile( $source_id, $invoice->get_id() );
 		}
 
@@ -499,7 +499,7 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 
 		$source_id = $card->id;
 
-		if ( ! isset( $_POST['sa_credit_store_payment_profile'] ) || ! isset( $checkout->cache['sa_credit_store_payment_profile'] ) ) {
+		if ( ! isset( $_POST['sa_credit_store_payment_profile'] ) && ! isset( $checkout->cache['sa_credit_store_payment_profile'] ) ) {
 			Sprout_Billings_Profiles::hide_payment_profile( $source_id, $invoice->get_id() );
 		}
 
