@@ -190,7 +190,7 @@ sup { top: -.25em; }
         font-size: inherit;
     }
 
-    .btn.new {
+    .btn.new, a.back {
         @media @mq-no-phone {
             position: absolute;
             top: .5em;
@@ -199,21 +199,22 @@ sup { top: -.25em; }
     }
 
     &-table, div.checkbox { margin-top: 2em; }
-
-    &-ticket-details {
-        h3 {
-            margin: 2em 0 0;
-        }
-    }
 }
 
-.wpas-form-group {
-    margin-top: 2rem;
+@media @mq-no-phone {
+    .ticket h1 { padding-right: 2em; }
 }
 
-.wpas-form-control {
-    height: auto;
+.wpas-alert { padding: .5em 1em; }
+
+.wpas-alert-success {
+    background-color: @theme-success;
+    border: 0;
+    color: #fff;
 }
+
+.wpas-form-group { margin-top: 2rem; }
+.wpas-form-control { height: auto; }
 
 .wpas-help-block {
     margin: 1em 0;
@@ -221,3 +222,23 @@ sup { top: -.25em; }
 
     code { font-size: inherit; }
 }
+
+.wpas-ticket-details {
+    h3 { margin: 4rem 0 0; }
+    .wpas-reply-time { color: #aaa; }
+    .checkbox label { cursor: pointer; }
+    .checkbox input { margin-right: .25em; }
+}
+
+.wpas div.mce-toolbar-grp { background-color: fade(@theme-light, 50%); }
+
+.wpas-reply-attachements {
+    background-color: fade(@theme-light, 50%);
+    border-color: @theme-light;
+
+    strong { border-bottom-color: @theme-light; }
+    li { color: darken(@theme-light, 20%); }
+    a { color: @theme-primary; }
+}
+
+#wpas-new-reply .wpas-btn-default { font-size: 1.125em; }
