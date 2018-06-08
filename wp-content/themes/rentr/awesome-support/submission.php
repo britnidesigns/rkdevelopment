@@ -83,6 +83,8 @@ global $post;
 		wp_nonce_field( 'new_ticket', 'wpas_nonce', true, true );
 		wpas_make_button( __( 'Submit Request', 'awesome-support' ), array( 'name' => 'wpas-submit', 'class' => 'btn primary' ) );
 
+        echo '<a href="'.get_site_url().'/maintenance" class="btn-alt cancel">Cancel</a>';
+
 		/**
 		 * The wpas_submission_form_inside_before hook has to be placed
 		 * right before the form closing tag.

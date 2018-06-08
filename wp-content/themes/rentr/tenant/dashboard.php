@@ -1,5 +1,7 @@
 <?php
 
+// --- Rent ---
+
 $user_id = get_current_user_id();
 $invoices = array();
 
@@ -40,7 +42,7 @@ foreach ( $invoices as $invoice ) {
 $due_class = ( $amt_due > 0 ) ? 'unpaid' : 'paid';
 
 if ( $amt_due <= 0 )
-    $rent_output = '<p><i class="fas fa-check">✔</i> All rent due has been paid</p>';
+    $rent_output = '<p><i class="fas fa-check"></i> All rent due has been paid</p>';
 
 elseif ( $unpaid_count === 1 )
     $rent_output = '<a href="'. $invoice_link .'" class="btn">Pay Rent</a>';
@@ -58,6 +60,7 @@ else
 	</section>
 	<section>
 		<h2>Maintenance</h2>
+        <?=$maintenance_output?>
 		<a href="<?=wpas_get_submission_page_url(); ?>" class="btn"><i class="fas fa-wrench"></i>New Request</a>
 		<a href="<?=get_site_url()?>/maintenance" class="history text-link"><i class="fas fa-history"></i>Maintenance History</a>
 	</section>

@@ -22,7 +22,7 @@ global $post;
 $author = get_user_by( 'id', $post->post_author );
 ?>
 <div class="wpas wpas-ticket-details">
-    <a href="/maintenance" class="back btn-alt"><i class="fas fa-caret-left"></i>Back</a>
+    <a href="<?=get_site_url()?>/maintenance" class="back btn-alt"><i class="fas fa-caret-left"></i>Back</a>
 
 	<?php //wpas_get_template( 'partials/ticket-navigation' ); ?>
 
