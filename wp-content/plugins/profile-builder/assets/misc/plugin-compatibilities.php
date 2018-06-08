@@ -312,3 +312,13 @@
             if( !empty( $post_type ) && $post_type == 'wppb-roles-editor' )
                 remove_all_actions('acf/input/admin_enqueue_scripts');
         }
+
+        /****************************************************
+         * Theme Enfold
+         * Compatibility with Enfold theme that removes the wp.media scripts from the frontend for some reason starting from version 4.3 From what I understand they only allow it on media formats or posts that contain media embeds
+         ****************************************************/
+        if( ! function_exists( 'av_video_assets_required' ) ){
+            function av_video_assets_required(){
+                return true;
+            }
+        }

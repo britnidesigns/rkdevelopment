@@ -1,28 +1,163 @@
 <?php
-// add hidden input to our form to identify that is a profile builder form
-function wppb_login_form_bottom( $form_part, $args ){
-	// we set this id in the wp_login_form() function
-	if( $args['id_submit'] == 'wppb-submit' ){
-		if( in_the_loop() )
-			$form_location = 'page';
-		else
-			$form_location = 'widget';
+add_action( 'init', 'wppb_process_login' );
+function wppb_process_login(){
 
-		$form_part = '<input type="hidden" name="wppb_login" value="true"/>';
-		$form_part .= '<input type="hidden" name="wppb_form_location" value="'. $form_location .'"/>';
+	if( !isset($_REQUEST['wppb_login']) )
+		return;
 
-		$form_part .= '<input type="hidden" name="wppb_request_url" value="'. esc_url( wppb_curpageurl() ).'"/>';
-        $form_part .= '<input type="hidden" name="wppb_lostpassword_url" value="'.esc_url( $args['lostpassword_url'] ).'"/>';
-		$form_part .= '<input type="hidden" name="wppb_redirect_priority" value="'. esc_attr( isset( $args['redirect_priority'] ) ? $args['redirect_priority'] : '' ) .'"/>';
-		$form_part .= '<input type="hidden" name="wppb_referer_url" value="'.esc_url( isset( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : '' ).'"/>';
-		$form_part .= wp_nonce_field( 'wppb_login', 'CSRFToken-wppb', true, false );
+	do_action( 'login_init' );
+	do_action( "login_form_login" );
+
+	if ( isset( $_REQUEST['redirect_to'] ) ) {
+		$redirect_to = $_REQUEST['redirect_to'];
 	}
 
-    $form_part .= '<input type="hidden" name="wppb_redirect_check" value="true"/>';
+	$user = wp_signon( array(), true );
 
-	return $form_part;
+	if ( empty( $_COOKIE[ LOGGED_IN_COOKIE ] ) ) {
+		if ( headers_sent() ) {
+			/* translators: 1: Browser cookie documentation URL, 2: Support forums URL */
+			$user = new WP_Error( 'test_cookie', sprintf( __( '<strong>ERROR</strong>: Cookies are blocked due to unexpected output. For help, please see <a href="%1$s">this documentation</a> or try the <a href="%2$s">support forums</a>.' ),
+				__( 'https://codex.wordpress.org/Cookies' ), __( 'https://wordpress.org/support/' ) ) );
+		}
+	}
+
+	$requested_redirect_to = isset( $_REQUEST['redirect_to'] ) ? $_REQUEST['redirect_to'] : '';
+	/**
+	 * Filters the login redirect URL.
+	 */
+	$redirect_to = apply_filters( 'login_redirect', $redirect_to, $requested_redirect_to, $user );
+
+	if ( !is_wp_error($user) ) {
+		if ( $redirect_to == 'wp-admin/' || $redirect_to == admin_url() ) {
+			// If the user doesn't belong to a blog, send them to user admin. If the user can't edit posts, send them to their profile.
+			if ( is_multisite() && !get_active_blog_for_user($user->ID) && !is_super_admin( $user->ID ) )
+				$redirect_to = user_admin_url();
+			elseif ( is_multisite() && !$user->has_cap('read') )
+				$redirect_to = get_dashboard_url( $user->ID );
+			elseif ( !$user->has_cap('edit_posts') )
+				$redirect_to = $user->has_cap( 'read' ) ? admin_url( 'profile.php' ) : home_url();
+
+			wp_redirect( $redirect_to );
+			exit();
+		}
+		wp_safe_redirect($redirect_to);
+		exit();
+	}
+	else{
+		wp_safe_redirect($redirect_to);
+		exit();
+	}
 }
-add_filter( 'login_form_bottom', 'wppb_login_form_bottom', 10, 2 );
+/**
+ * Provides a simple login form
+ *
+ * The login format HTML is echoed by default. Pass a false value for `$echo` to return it instead.
+ *
+ * @param array $args {
+ *     Optional. Array of options to control the form output. Default empty array.
+ *
+ *     @type bool   $echo           Whether to display the login form or return the form HTML code.
+ *                                  Default true (echo).
+ *     @type string $redirect       URL to redirect to. Must be absolute, as in "https://example.com/mypage/".
+ *                                  Default is to redirect back to the request URI.
+ *     @type string $form_id        ID attribute value for the form. Default 'loginform'.
+ *     @type string $label_username Label for the username or email address field. Default 'Username or Email Address'.
+ *     @type string $label_password Label for the password field. Default 'Password'.
+ *     @type string $label_remember Label for the remember field. Default 'Remember Me'.
+ *     @type string $label_log_in   Label for the submit button. Default 'Log In'.
+ *     @type string $id_username    ID attribute value for the username field. Default 'user_login'.
+ *     @type string $id_password    ID attribute value for the password field. Default 'user_pass'.
+ *     @type string $id_remember    ID attribute value for the remember field. Default 'rememberme'.
+ *     @type string $id_submit      ID attribute value for the submit button. Default 'wp-submit'.
+ *     @type bool   $remember       Whether to display the "rememberme" checkbox in the form.
+ *     @type string $value_username Default value for the username field. Default empty.
+ *     @type bool   $value_remember Whether the "Remember Me" checkbox should be checked by default.
+ *                                  Default false (unchecked).
+ *
+ * }
+ * @return string|void String when retrieving.
+ */
+function wppb_login_form( $args = array() ) {
+	$defaults = array(
+		'echo' => true,
+		// Default 'redirect' value takes the user back to the request URI.
+		'redirect' => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+		'form_id' => 'loginform',
+		'label_username' => __( 'Username or Email Address' ),
+		'label_password' => __( 'Password' ),
+		'label_remember' => __( 'Remember Me' ),
+		'label_log_in' => __( 'Log In' ),
+		'id_username' => 'user_login',
+		'id_password' => 'user_pass',
+		'id_remember' => 'rememberme',
+		'id_submit' => 'wp-submit',
+		'remember' => true,
+		'value_username' => '',
+		// Set 'value_remember' to true to default the "Remember me" checkbox to checked.
+		'value_remember' => false,
+	);
+
+	/**
+	 * Filters the default login form output arguments.
+	 */
+	$args = wp_parse_args( $args, apply_filters( 'login_form_defaults', $defaults ) );
+
+	/**
+	 * Filters content to display at the top of the login form.
+	 */
+	$login_form_top = apply_filters( 'login_form_top', '', $args );
+
+	/**
+	 * Filters content to display in the middle of the login form.
+	 */
+	$login_form_middle = apply_filters( 'login_form_middle', '', $args );
+
+	/**
+	 * Filters content to display at the bottom of the login form.
+	 */
+	$login_form_bottom = apply_filters( 'login_form_bottom', '', $args );
+
+	if( in_the_loop() )
+		$form_location = 'page';
+	else
+		$form_location = 'widget';
+
+	$form = '
+		<form name="' . $args['form_id'] . '" id="' . $args['form_id'] . '" action="" method="post">
+			' . $login_form_top . '
+			<p class="login-username">
+				<label for="' . esc_attr( $args['id_username'] ) . '">' . esc_html( $args['label_username'] ) . '</label>
+				<input type="text" name="log" id="' . esc_attr( $args['id_username'] ) . '" class="input" value="' . esc_attr( $args['value_username'] ) . '" size="20" />
+			</p>
+			<p class="login-password">
+				<label for="' . esc_attr( $args['id_password'] ) . '">' . esc_html( $args['label_password'] ) . '</label>
+				<input type="password" name="pwd" id="' . esc_attr( $args['id_password'] ) . '" class="input" value="" size="20" />
+			</p>
+			' . $login_form_middle . '
+			' . ( $args['remember'] ? '<p class="login-remember"><label><input name="rememberme" type="checkbox" id="' . esc_attr( $args['id_remember'] ) . '" value="forever"' . ( $args['value_remember'] ? ' checked="checked"' : '' ) . ' /> ' . esc_html( $args['label_remember'] ) . '</label></p>' : '' ) . '
+			<p class="login-submit">
+				<input type="submit" name="wp-submit" id="' . esc_attr( $args['id_submit'] ) . '" class="button button-primary" value="' . esc_attr( $args['label_log_in'] ) . '" />
+				<input type="hidden" name="redirect_to" value="' . esc_url( $args['redirect'] ) . '" />
+			</p>
+			<input type="hidden" name="wppb_login" value="true"/>
+			<input type="hidden" name="wppb_form_location" value="'. $form_location .'"/>
+			<input type="hidden" name="wppb_request_url" value="'. esc_url( wppb_curpageurl() ).'"/>
+			<input type="hidden" name="wppb_lostpassword_url" value="'.esc_url( $args['lostpassword_url'] ).'"/>
+			<input type="hidden" name="wppb_redirect_priority" value="'. esc_attr( isset( $args['redirect_priority'] ) ? $args['redirect_priority'] : '' ) .'"/>
+			<input type="hidden" name="wppb_referer_url" value="'.esc_url( isset( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : '' ).'"/>
+			'. wp_nonce_field( 'wppb_login', 'CSRFToken-wppb', true, false ) .'
+			<input type="hidden" name="wppb_redirect_check" value="true"/>
+			' . $login_form_bottom . '
+		</form>';
+
+	if ( $args['echo'] )
+		echo $form;
+	else
+		return $form;
+}
+
+
 
 // when email login is enabled we need to change the post data for the username
 function wppb_change_login_with_email(){
@@ -177,7 +312,6 @@ function wppb_login_redirect( $redirect_to, $requested_redirect_to, $user ){
             // encode the error string and send it as a GET parameter
             $arr_params = array('loginerror' => urlencode(base64_encode($error_string)), 'request_form_location' => $request_form_location);
             $redirect_to = add_query_arg($arr_params, $redirect_to);
-            wp_safe_redirect($redirect_to);
         }
 		else{
 			// we don't have an error make sure to remove the error from the query arg
@@ -253,7 +387,7 @@ function wppb_front_end_login( $atts ){
 		// build our form
 		$login_form .= '<div id="wppb-login-wrap" class="wppb-user-forms">';
         $form_args['lostpassword_url'] = $lostpassword_url;
-		$login_form .= wp_login_form( apply_filters( 'wppb_login_form_args', $form_args ) );
+		$login_form .= wppb_login_form( apply_filters( 'wppb_login_form_args', $form_args ) );
 
 		if ((!empty($register_url)) || (!empty($lostpassword_url))) {
                 $login_form .= '<p class="login-register-lost-password">';

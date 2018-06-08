@@ -279,4 +279,15 @@ if( function_exists( 'wc_get_page_id' ) ) {
         ob_end_clean();
         echo apply_filters( 'the_content', $product_content );
     }
+
+    /* remove the autop filter from the content hook on woo products so we do not modify the HTML */
+    add_filter( 'the_content', 'wppb_remove_autop_for_products', 0 );
+    function wppb_remove_autop_for_products( $content ){
+
+        if( 'product' === get_post_type() ) {
+            remove_filter('the_content', 'wpautop');
+        }
+
+        return $content;
+    }
 }

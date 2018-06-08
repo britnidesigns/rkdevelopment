@@ -318,6 +318,15 @@
 <?php __("fullname", "profile-builder"); ?>
 <?php __("Extra options", "profile-builder"); ?>
 <?php __("The Campaign Monitor API key is either missing or is invalid.", "profile-builder"); ?>
+<?php __("Communication Preferences", "profile-builder"); ?>
+<?php __("E-mail", "profile-builder"); ?>
+<?php __("Telephone", "profile-builder"); ?>
+<?php __("SMS", "profile-builder"); ?>
+<?php __("Post", "profile-builder"); ?>
+<?php __("Select which communication preferences are available on your site ( drag and drop to re-order )", "profile-builder"); ?>
+<?php __("Communication Preferences Order", "profile-builder"); ?>
+<?php __("Save the communication preferences order", "profile-builder"); ?>
+<?php __("required", "profile-builder"); ?>
 <?php __("Uploaded file is not valid json!", "profile-builder"); ?>
 <?php __("Import successfully!", "profile-builder"); ?>
 <?php __("Please select a .json file to import!", "profile-builder"); ?>
@@ -364,7 +373,6 @@
 <?php __("Select2 multi-value select boxes can set restrictions regarding the maximum number of options selected.", "profile-builder"); ?>
 <?php __("User Inputted Options", "profile-builder"); ?>
 <?php __("Check this to allow users to create their own options beside the pre-existing ones.", "profile-builder"); ?>
-<?php __("required", "profile-builder"); ?>
 <?php __("Link with Facebook", "profile-builder"); ?>
 <?php __("Sign in with Facebook", "profile-builder"); ?>
 <?php __("Link with Google+", "profile-builder"); ?>
@@ -635,7 +643,6 @@
 <?php __("Usernames cannot be changed.", "profile-builder"); ?>
 <?php __("Nickname", "profile-builder"); ?>
 <?php __("Display name publicly as", "profile-builder"); ?>
-<?php __("E-mail", "profile-builder"); ?>
 <?php __("Website", "profile-builder"); ?>
 <?php __("AIM", "profile-builder"); ?>
 <?php __("Yahoo IM", "profile-builder"); ?>
