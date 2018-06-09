@@ -9,8 +9,11 @@ jQuery(function($) {
 		$('body').on('submit', '#si_credit_card_form', function(event) {
 			// If there's no charge token than use stripe api to get one
 			if ( $('[name="'+si_stripe_js_object.token_input+'"]').val().length === 0 ) {
-				event.preventDefault();
-				si_stripe_process_card();
+				$payment_method = $('input[name=sa_credit_payment_method]:checked').val();
+				if ( 'new_credit' == $payment_method || 'new_bank' == $payment_method ) {
+					event.preventDefault();
+					si_stripe_process_card();
+				}
 			};
 		});
 

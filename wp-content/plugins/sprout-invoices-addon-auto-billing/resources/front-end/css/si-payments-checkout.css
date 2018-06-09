@@ -1,3 +1,9 @@
+.si_og_theme textarea:disabled,
+.si_og_theme input:disabled,
+.si_og_theme select:disabled {
+  background: rgba(0,0,0,0.05);
+}
+
 .cim_delete_card span { opacity: .3; } 
 .cim_delete_card:hover span { opacity: 1.0; }
 span.sa-form-field-radio.clearfix {

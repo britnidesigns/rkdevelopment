@@ -198,7 +198,7 @@ class SI_Sprout_Billings_Admin extends SI_Sprout_Billings {
 		$fields['do_not_autobill'] = array(
 			'weight' => 21,
 			'label' => __( 'Do Not Autobill', 'sprout-invoices' ),
-			'description' => __( 'Seting this option would disable the autobilling functionality for this invoice.', 'sprout-invoices' ),
+			'description' => __( 'Setting this option would disable the autobilling functionality for this invoice.', 'sprout-invoices' ),
 			'type' => 'checkbox',
 			'default' => self::is_auto_bill_disabled( $invoice_id ),
 			'value' => 'false',
