@@ -167,7 +167,17 @@ function register_my_menus() {
 add_action( 'init', 'register_my_menus' );
 
 function create_tenant_dashboard() {
-    //return 'This is just a test';
     include('tenant/dashboard.php');
 }
 add_shortcode( 'tenantdash', 'create_tenant_dashboard' );
+
+function _default_due_in_days() {
+    $now = current_time('timestamp'); // get time from WP settings instead of local time
+    $due_date = strtotime('first day of next month', $now);
+
+    $days_til_next_month = ($due_date - $now) / (DAY_IN_SECONDS);
+
+	return (int) $days_til_next_month;
+}
+add_filter( 'si_default_due_in_days', '_default_due_in_days' );
+add_filter( 'si_new_recurring_invoice_due_date_in_days', '_default_due_in_days' );
