@@ -55,12 +55,15 @@
 
             <section class="status">
                 <h3>Status</h3>
+
                 <?php if ( 'write-off' === si_get_invoice_status() ) : ?>
-                    <p><?php esc_html_e( 'Void', 'sprout-invoices' ) ?></p>
+                    <p><i class="fas fa-ban"></i><?php esc_html_e( 'Void', 'sprout-invoices' ) ?></p>
                 <?php elseif ( ! si_get_invoice_balance() ) : ?>
-                    <p><?php esc_html_e( 'Paid', 'sprout-invoices' ) ?></p>
+                    <p class="paid"><i class="fas fa-check"></i><?php esc_html_e( 'Paid', 'sprout-invoices' ) ?></p>
                 <?php elseif ( 'temp' === si_get_invoice_status() ) : ?>
                     <p><?php esc_html_e( 'Not Yet Published', 'sprout-invoices' ) ?></p>
+                <?php elseif ( si_get_invoice_due_date( $invoice_id ) < current_time( 'timestamp' ) ) : ?>
+                    <p class="overdue"><i class="fas fa-exclamation-triangle"></i><?php esc_html_e( 'Overdue', 'sprout-invoices' ) ?></p>
                 <?php else : ?>
                     <p><?php esc_html_e( 'Balance Due', 'sprout-invoices' ) ?></p>
                 <?php endif; ?>
@@ -126,7 +129,6 @@
 				<?php do_action( 'si_default_theme_no_payment_button' ) ?>
 			</div>
 		</section>
-
 	<?php endif ?>
 
 	<?php if ( apply_filters( 'si_show_invoice_history', true ) ) : ?>

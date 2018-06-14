@@ -38,14 +38,15 @@ h3 {
 .info {
     display: flex;
     align-items: top;
-    margin: 5rem 0 3rem;
+    flex-wrap: wrap;
+    margin: 0 -2.5rem 2rem;
     line-height: 1.3em;
 
-    section:not(:first-child) { margin-left: 5rem; }
+    section { margin: 1rem 2.5rem; }
     p { margin: 0; }
 }
 
-.due { font-size: 1.5em; }
+.due { font-size: 1.25em; }
 
 p.issued {
     margin-top: .25em;
@@ -61,7 +62,16 @@ p.issued {
         padding: .1em .3em;
         background-color: @theme-light;
         border-radius: 2px;
+
+        svg {
+            margin-right: .3em;
+            opacity: .5;
+        }
     }
+
+    .paid, .overdue { color: #fff; }
+    .paid { background-color: @theme-success; }
+    .overdue { background-color: @theme-primary; }
 
     a {
         display: block;
@@ -98,6 +108,8 @@ p.issued {
 .totals {
     margin-top: 1em;
     text-align: right;
+
+    .total { width: 7em; }
 }
 
 #line_total {
@@ -114,3 +126,67 @@ p.issued {
 }
 
 .site-content { padding-bottom: 10rem; }
+
+#paybar {
+    background-color: @theme-light;
+    box-shadow: 0 0 5px rgba(0,0,0,.1);
+    color: @theme-dark;
+
+    .inner {
+        width: 100%;
+        max-width: @bp-desktop-min;
+        box-sizing: border-box;
+        padding: 2em 2rem;
+    }
+
+    .inner a.button {
+        background-color: @theme-primary;
+        border-radius: 0;
+        .display;
+        text-shadow: 1px 1px 1px fade(shade(@theme-primary,50%), 50%);
+
+        &:hover {
+            background-color: darken(@theme-primary, 10%);
+            text-shadow: 1px 1px 1px fade(shade(@theme-primary, 50%), 75%);
+        }
+    }
+}
+
+#payment {
+    p {
+        font-weight: normal;
+        line-height: 1.3em;
+    }
+
+    .toggle {
+        font-size: 14px;
+        border-radius: 2px;
+    }
+
+    input[type="text"], input[type="email"], textarea, select {
+        padding: .6em .8em;
+        color: #000;
+        font-family: sans-serif;
+        font-size: 16px;
+    }
+
+    select {
+        margin: 5px 0 0;
+        padding-top: .9em;
+        padding-bottom: .9em;
+    }
+
+    button {
+        margin: 5em 0;
+        background-color: @theme-primary;
+        border-radius: 0;
+        .display;
+        font-size: 1.25em;
+        text-shadow: 1px 1px 1px fade(shade(@theme-primary,50%), 50%);
+
+        &:hover {
+            background-color: darken(@theme-primary, 10%);
+            text-shadow: 1px 1px 1px fade(shade(@theme-primary, 50%), 75%);
+        }
+    }
+}
