@@ -94,6 +94,23 @@
 
         <?php do_action( 'si_doc_line_items', get_the_id() ) ?>
 
+        <?php if ( si_get_invoice_balance() ) : ?>
+    		<?php si_payment_options_view(); ?>
+    	<?php else : ?>
+    		<section class="action">
+				<?php do_action( 'si_default_theme_inner_paybar' ) ?>
+
+				<?php if ( 'complete' === si_get_invoice_status() ) :  ?>
+					<?php printf( '<p>Total of <strong>%1$s</strong> has been <strong>paid</strong></p>', sa_get_formatted_money( si_get_invoice_total() ) ); ?>
+				<?php else : ?>
+					<?php printf( '<p>Total of <strong>%1$s</strong> has been <strong>reconciled</strong></p>', sa_get_formatted_money( si_get_invoice_total() ) ); ?>
+				<?php endif ?>
+
+				<?php do_action( 'si_default_theme_pre_no_payment_button' ) ?>
+				<?php do_action( 'si_default_theme_no_payment_button' ) ?>
+    		</section>
+    	<?php endif ?>
+
         <section class="notes">
             <?php if ( strlen( si_get_invoice_notes() ) > 1 ) : ?>
 				<h3><?php esc_html_e( 'Info &amp; Notes', 'sprout-invoices' ) ?></h3>
@@ -106,30 +123,6 @@
 			<?php endif; ?>
         </section>
     </div>
-
-	<?php if ( si_get_invoice_balance() ) : ?>
-		<?php si_payment_options_view(); ?>
-	<?php else : ?>
-		<section class="row" id="paybar">
-			<div class="inner">
-				<?php do_action( 'si_default_theme_inner_paybar' ) ?>
-
-				<?php if ( 'complete' === si_get_invoice_status() ) :  ?>
-					<?php printf( 'Total of <strong>%1$s</strong> has been <strong>Paid</strong>', sa_get_formatted_money( si_get_invoice_total() ) ); ?>
-				<?php else : ?>
-					<?php printf( 'Total of <strong>%1$s</strong> has been <strong>Reconciled</strong>', sa_get_formatted_money( si_get_invoice_total() ) ); ?>
-				<?php endif ?>
-
-				<?php do_action( 'si_default_theme_pre_no_payment_button' ) ?>
-
-				<?php do_action( 'si_pdf_button' ) ?>
-
-				<?php do_action( 'si_signature_button' ) ?>
-
-				<?php do_action( 'si_default_theme_no_payment_button' ) ?>
-			</div>
-		</section>
-	<?php endif ?>
 
 	<?php if ( apply_filters( 'si_show_invoice_history', true ) ) : ?>
 		 <section class="panel closed" id="history">
@@ -185,6 +178,19 @@
 		<!--<p><?php esc_attr_e( 'Powered by Sprout Invoices', 'sprout-invoices' ) ?></p>-->
 	</div><!-- #footer_messaging -->
 
+    <footer id="colophon" class="site-footer">
+        <a href="https://www.facebook.com/apartmentsanddevelopment/" class="facebook">
+            <i class="fab fa-facebook"></i>
+            <span>Get updates about new properties</span>
+        </a>
+        <?php
+            wp_nav_menu( array(
+                'theme_location' => 'footer-nav',
+                'container_class'=> 'nav'
+            ) );
+        ?>
+		<p>&copy; 2018 RK Development LC</p>
+	</footer>
 </body>
 <?php do_action( 'si_document_footer' ) ?>
 <?php si_footer() ?>

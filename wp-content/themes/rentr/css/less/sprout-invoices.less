@@ -118,38 +118,26 @@ p.issued {
     font-size: 1.25em;
 }
 
+.action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+    padding: 1em;
+    background-color: @theme-light;
+    text-align: center;
+
+    p { margin: 1em; }
+    strong { white-space: nowrap; }
+    a { margin: 0 1em; }
+}
+
 .notes {
     margin-top: 5rem;
 
     h3:not(:first-child) { margin-top: 3rem; }
     p { line-height: 1.3em; }
-}
-
-.site-content { padding-bottom: 10rem; }
-
-#paybar {
-    background-color: @theme-light;
-    box-shadow: 0 0 5px rgba(0,0,0,.1);
-    color: @theme-dark;
-
-    .inner {
-        width: 100%;
-        max-width: @bp-desktop-min;
-        box-sizing: border-box;
-        padding: 2em 2rem;
-    }
-
-    .inner a.button {
-        background-color: @theme-primary;
-        border-radius: 0;
-        .display;
-        text-shadow: 1px 1px 1px fade(shade(@theme-primary,50%), 50%);
-
-        &:hover {
-            background-color: darken(@theme-primary, 10%);
-            text-shadow: 1px 1px 1px fade(shade(@theme-primary, 50%), 75%);
-        }
-    }
 }
 
 #payment {
