@@ -40,25 +40,22 @@
 	</a>
 
 	<div class="inner">
-
 		<h2><?php _e( 'Make a Payment', 'sprout-invoices' ) ?></h2>
+		<?php
+        $payment_options = si_payment_options();
+		do_action( 'si_default_theme_pre_payment_options' );
 
-		<?php $payment_options = si_payment_options(); ?>
+		if ( count( $payment_options ) === 0 ) : ?>
 
-		<?php do_action( 'si_default_theme_pre_payment_options' ) ?>
-
-		<?php if ( count( $payment_options ) === 0 ) : ?>
-
-			<p><?php _e( 'Oh no! So sorry. There are no payment options available for you to make a payment. Please contact let me know so I can figure out why.', 'sprout-invoices' ) ?></p>
-
+			<p><?php _e( 'There are no payment options available for you to make a payment. Please contact us to make a payment.', 'sprout-invoices' ) ?></p>
 			<?php do_action( 'si_default_theme_no_payment_options_desc' ) ?>
 
 		<?php else : ?>
 
 			<?php if ( count( $payment_options ) > 1 ) : ?>
-				<p><?php _e( 'Please select your payment type and then enter your payment information below to pay this invoice. A receipt for your records will be sent to you. Thank you very much!', 'sprout-invoices' ) ?></p>
+				<p><?php _e( 'Please select your payment type and then enter your payment information below. A receipt for your records will be sent to you.', 'sprout-invoices' ) ?></p>
 			<?php else : ?>
-				<p><?php _e( 'Please enter your payment information below to pay this invoice. A receipt for your records will be sent to you. Thank you very much!', 'sprout-invoices' ) ?></p>
+				<p><?php _e( 'Please enter your payment information below. A receipt for your records will be sent to you.', 'sprout-invoices' ) ?></p>
 			<?php endif; ?>
 
 			<?php do_action( 'si_default_theme_payment_options_desc' ) ?>
@@ -83,7 +80,6 @@
 		</div>
 
 		<?php do_action( 'si_default_theme_pre_payment_panes' ) ?>
-
 
 		<?php if ( count( $payment_options ) === 1 ) : ?>
 			<script type="text/javascript">

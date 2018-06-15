@@ -4,6 +4,7 @@
 
 html, body {
     font-family: Lato, Arial, Helvetica, sans-serif;
+    font-weight: normal;
     font-size: 18px;
 }
 
@@ -141,10 +142,17 @@ p.issued {
 }
 
 #payment {
-    p {
-        font-weight: normal;
-        line-height: 1.3em;
+    font-weight: normal;
+
+    .inner {
+        width: 100%;
+        max-width: calc(~'600px + 4rem');
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
+
+    h2 { font-weight: bold; }
+    p, label { line-height: 1.3em; }
 
     .toggle {
         font-size: 14px;
@@ -152,17 +160,34 @@ p.issued {
     }
 
     input[type="text"], input[type="email"], textarea, select {
+        box-sizing: border-box;
         padding: .6em .8em;
         color: #000;
         font-family: sans-serif;
         font-size: 16px;
     }
 
+    input[type="text"], input[type="email"], select { height: 3em; }
+    select, textarea { margin: 0; }
+
     select {
-        margin: 5px 0 0;
         padding-top: .9em;
         padding-bottom: .9em;
     }
+
+    input[type="text"], input[type="email"], textarea, select, #sa_credit_cc_cvv { margin-top: .5em; }
+    .creditstore_payment_profile label { margin-top: 1em; }
+    input[type="radio"] { margin-right: .5em; }
+
+    & .money_amount, #si_payment_option_wrap { font-weight: bold; }
+    #si_payment_option_wrap input { font-weight: normal; }
+    #si_payment_option_wrap { margin-left: .5em; }
+
+    & .sa-form-field-radio label, #modify_invoice_start_date_wrap label { white-space: normal !important; }
+    .sa-form-field-radio label span { white-space: nowrap; }
+    #modify_invoice_start_date_wrap { margin-top: 1em; }
+
+    .paytype.active { float: none; }
 
     button {
         margin: 5em 0;
@@ -176,5 +201,10 @@ p.issued {
             background-color: darken(@theme-primary, 10%);
             text-shadow: 1px 1px 1px fade(shade(@theme-primary, 50%), 75%);
         }
+    }
+
+    @media screen and (max-width: 640px) {
+        input[type="text"], input[type="email"], textarea, select { max-width: 100%; }
+        textarea { width: 100%; }
     }
 }
