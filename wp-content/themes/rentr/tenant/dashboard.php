@@ -33,7 +33,7 @@ foreach ( $invoices as $invoice ) {
         //$invoice_link = esc_url( add_query_arg( array( 'dashboard' => 'pay' ), get_permalink( $invoice ) ) );
 
         $rent_output.= '<div class="invoice">
-            <p><span>$'. $balance .'</span> due '. $due_date .'</p>
+            <p><span>$'. number_format($balance, 2) .'</span> due '. $due_date .'</p>
             <a href="'. $invoice_link .'" class="btn-alt"><i class="fas fa-credit-card"></i>Pay</a>
         </div>';
     }
@@ -45,7 +45,7 @@ if ( $amt_due <= 0 )
     $rent_output = '<p><i class="fas fa-check"></i> All rent due has been paid</p>';
 
 elseif ( $unpaid_count === 1 )
-    $rent_output = '<a href="'. $invoice_link .'" class="btn">Pay Rent</a>';
+    $rent_output = '<a href="'. $invoice_link .'" class="btn"><i class="fas fa-credit-card"></i>Pay Rent</a>';
 
 else
     $rent_output.= '<a href="'. get_site_url() .'/rent" class="btn"><i class="fas fa-credit-card"></i>Pay Rent</a>';

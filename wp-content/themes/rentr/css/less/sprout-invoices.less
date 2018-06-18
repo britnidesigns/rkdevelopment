@@ -82,7 +82,8 @@ p.issued {
     }
 }
 
-.landlord address:first-line, .name { font-weight: bold; }
+//.landlord address:first-line
+.name { font-weight: bold; }
 
 .line-items, .totals {
     display: table;
@@ -112,6 +113,8 @@ p.issued {
 
     .total { width: 7em; }
 }
+
+#line_fee_payment_service_fee { display: none; } // remove if fees are enabled
 
 #line_total {
     color: @theme-primary;
