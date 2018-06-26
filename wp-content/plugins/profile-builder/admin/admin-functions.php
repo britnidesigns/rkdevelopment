@@ -264,3 +264,43 @@ function wppb_add_plugin_notifications() {
 
     $notifications->add_notification( $notification_id, $message, 'wppb-notice wppb-narrow notice notice-info', true, array( 'profile-builder-add-ons' ) );
 }
+
+
+/* hook to create pages for out forms when a user press the create pages/setup button */
+add_action( 'admin_init', 'wppb_create_form_pages' );
+function wppb_create_form_pages(){
+    if( isset( $_GET['page'] ) && $_GET['page'] == 'profile-builder-basic-info' && isset( $_GET['wppb_create_pages'] ) && $_GET['wppb_create_pages'] == 'true' ){
+
+        $wppb_pages_created = get_option( 'wppb_pages_created' );
+
+        if( empty( $wppb_pages_created ) || ( isset( $_GET['wppb_force_create_pages'] ) && $_GET['wppb_force_create_pages'] == 'true' ) ) {
+            $register_page = array(
+                'post_title' => 'Register',
+                'post_content' => '[wppb-register]',
+                'post_status' => 'publish',
+                'post_type' => 'page'
+            );
+            $register_id = wp_insert_post($register_page);
+
+            $edit_page = array(
+                'post_title' => 'Edit Profile',
+                'post_content' => '[wppb-edit-profile]',
+                'post_status' => 'publish',
+                'post_type' => 'page'
+            );
+            $edit_id = wp_insert_post($edit_page);
+
+            $login_page = array(
+                'post_title' => 'Log In',
+                'post_content' => '[wppb-login]',
+                'post_status' => 'publish',
+                'post_type' => 'page'
+            );
+            $login_id = wp_insert_post($login_page);
+
+            update_option('wppb_pages_created', 'true' );
+
+            wp_safe_redirect( admin_url('edit.php?s=%5Bwppb-&post_status=all&post_type=page&action=-1&m=0&paged=1&action2=-1') );
+        }
+    }
+}

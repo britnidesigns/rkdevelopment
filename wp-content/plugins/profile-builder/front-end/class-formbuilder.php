@@ -129,7 +129,7 @@ class Profile_Builder_Form_Creator{
 
     function wppb_form_logic() {
         if( $this->args['form_type'] == 'register' ){
-            $registration = apply_filters ( 'wppb_register_setting_override', get_option( 'users_can_register' ) );
+            $registration = apply_filters ( 'wppb_register_setting_override', true );//used to be get_option( 'users_can_register' )
 
             if ( !is_user_logged_in() ){
                 if ( !$registration )

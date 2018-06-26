@@ -73,7 +73,7 @@ Class WPPB_Plugin_Notifications {
     protected function __construct() {
         add_action( 'admin_init', array( $this, 'dismiss_admin_notifications' ), 200 );
         add_action( 'admin_init', array( $this, 'add_admin_menu_notification_counts' ), 1000 );
-        //add_action( 'admin_init', array( $this, 'remove_other_plugin_notices' ), 9999 );
+        add_action( 'admin_init', array( $this, 'remove_other_plugin_notices' ), 1001 );
     }
 
 
@@ -111,11 +111,41 @@ Class WPPB_Plugin_Notifications {
         }
     }
 
-    /*function remove_other_plugin_notices(){
-        if( $this->is_plugin_page() ){
+    /* handle other plugin notifications on our plugin pages */
+    function remove_other_plugin_notices(){
+
+        //remove all notifications from start page
+        if( isset( $_GET['page'] ) && $_GET['page'] == 'profile-builder-basic-info' ) {
             remove_all_actions('admin_notices');
         }
-    }*/
+
+        /* remove all other plugin notifications except our own from the rest of the PB pages */
+        if( $this->is_plugin_page() ) {
+            global $wp_filter;
+            if (!empty($wp_filter['admin_notices'])) {
+                if (!empty($wp_filter['admin_notices']->callbacks)) {
+                    foreach ($wp_filter['admin_notices']->callbacks as $priority => $callbacks_level) {
+                        if (!empty($callbacks_level)) {
+                            foreach ($callbacks_level as $key => $callback) {
+                                if( is_array( $callback['function'] ) ){
+                                    if( is_object($callback['function'][0])) {//object here
+                                        if (strpos(get_class($callback['function'][0]), 'PMS_') !== 0 && strpos(get_class($callback['function'][0]), 'WPPB_') !== 0 && strpos(get_class($callback['function'][0]), 'TRP_') !== 0 && strpos(get_class($callback['function'][0]), 'WCK_') !== 0) {
+                                            unset($wp_filter['admin_notices']->callbacks[$priority][$key]);//unset everything that doesn't come from our plugins
+                                        }
+                                    }
+                                } else if( is_string( $callback['function'] ) ){//it should be a function name
+                                    if (strpos($callback['function'], 'pms_') !== 0 && strpos($callback['function'], 'wppb_') !== 0 && strpos($callback['function'], 'trp_') !== 0 && strpos($callback['function'], 'wck_') !== 0) {
+                                        unset($wp_filter['admin_notices']->callbacks[$priority][$key]);//unset everything that doesn't come from our plugins
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
 
     /**
      *

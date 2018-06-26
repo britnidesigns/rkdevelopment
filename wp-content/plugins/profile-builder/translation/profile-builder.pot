@@ -25,7 +25,7 @@ msgstr ""
 msgid "Choose (Single) User Listing to display under bbPress user Profile tab:"
 msgstr ""
 
-#: ../pb-add-on-bbpress/bbpress-page.php:82, ../pb-add-on-bbpress/bbpress-page.php:117, ../pb-add-on-woocommerce/woosync-page.php:80, ../pb-add-on-woocommerce/woosync-page.php:115, ../pb-add-on-campaign-monitor-integration/admin/cmonitor-page.php:552, ../pb-add-on-mailchimp-integration/admin/mailchimp-page.php:233, ../pb-add-on-mailchimp-integration/admin/mailchimp-page.php:308, ../profile-builder-2.0/features/content-restriction/content-restriction.php:91
+#: ../pb-add-on-bbpress/bbpress-page.php:82, ../pb-add-on-bbpress/bbpress-page.php:117, woosync-page.php:80, woosync-page.php:115, ../pb-add-on-campaign-monitor-integration/admin/cmonitor-page.php:552, ../pb-add-on-mailchimp-integration/admin/mailchimp-page.php:233, ../pb-add-on-mailchimp-integration/admin/mailchimp-page.php:308, ../profile-builder-2.0/features/content-restriction/content-restriction.php:133
 msgid "None"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Choose Edit Profile form to display under bbPress Profile Edit tab:"
 msgstr ""
 
-#: ../pb-add-on-bbpress/bbpress-page.php:118, ../pb-add-on-buddypress/buddypress-page.php:98, ../pb-add-on-woocommerce/woosync-page.php:116
+#: ../pb-add-on-bbpress/bbpress-page.php:118, ../pb-add-on-buddypress/buddypress-page.php:98, woosync-page.php:116
 msgid "Default Edit Profile"
 msgstr ""
 
@@ -85,7 +85,7 @@ msgstr ""
 msgid "Registration form:"
 msgstr ""
 
-#: ../pb-add-on-buddypress/buddypress-page.php:65, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:82
+#: ../pb-add-on-buddypress/buddypress-page.php:65, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:89
 msgid "Default Registration"
 msgstr ""
 
@@ -313,7 +313,7 @@ msgstr ""
 msgid "Login Label"
 msgstr ""
 
-#: ../pb-add-on-custom-profile-menus/index.php:180, ../pb-add-on-custom-profile-menus/index.php:302, ../pb-add-on-custom-profile-menus/wppb-custom-profile-menus.php:13, ../pb-add-on-custom-profile-menus/wppb-custom-profile-menus.php:60, ../profile-builder-2.0/admin/basic-info.php:36, ../profile-builder-2.0/features/login-widget/login-widget.php:59
+#: ../pb-add-on-custom-profile-menus/index.php:180, ../pb-add-on-custom-profile-menus/index.php:302, ../pb-add-on-custom-profile-menus/wppb-custom-profile-menus.php:13, ../pb-add-on-custom-profile-menus/wppb-custom-profile-menus.php:60, ../profile-builder-2.0/features/login-widget/login-widget.php:59
 msgid "Login"
 msgstr ""
 
@@ -365,11 +365,11 @@ msgstr ""
 msgid "Works only if Display Mode: Logged In Users is selected"
 msgstr ""
 
-#: ../pb-add-on-custom-profile-menus/index.php:305, ../pb-add-on-custom-profile-menus/wppb-custom-profile-menus.php:67, ../profile-builder-2.0/admin/basic-info.php:44
+#: ../pb-add-on-custom-profile-menus/index.php:305, ../pb-add-on-custom-profile-menus/wppb-custom-profile-menus.php:67
 msgid "Edit Profile"
 msgstr ""
 
-#: ../pb-add-on-custom-profile-menus/index.php:308, ../pb-add-on-custom-profile-menus/wppb-custom-profile-menus.php:74, ../profile-builder-2.0/front-end/class-formbuilder.php:420, ../profile-builder-2.0/front-end/login.php:397
+#: ../pb-add-on-custom-profile-menus/index.php:308, ../pb-add-on-custom-profile-menus/wppb-custom-profile-menus.php:74, ../profile-builder-2.0/front-end/class-formbuilder.php:420, ../profile-builder-2.0/front-end/login.php:415
 msgid "Register"
 msgstr ""
 
@@ -393,7 +393,7 @@ msgstr ""
 msgid "The email confirmation does not match your email address."
 msgstr ""
 
-#: ../pb-add-on-field-visibility/index.php:202, ../profile-builder-2.0/admin/admin-bar.php:58
+#: ../pb-add-on-field-visibility/index.php:202, ../profile-builder-2.0/admin/admin-bar.php:61
 msgid "Visibility"
 msgstr ""
 
@@ -653,11 +653,11 @@ msgstr ""
 msgid "Replace labels with placeholders:"
 msgstr ""
 
-#: ../pb-add-on-placeholder-labels/pbpl.php:171, ../pb-add-on-social-connect/index.php:323, ../profile-builder-2.0/admin/general-settings.php:42, ../profile-builder-2.0/admin/general-settings.php:55, ../profile-builder-2.0/admin/general-settings.php:104, ../profile-builder-2.0/admin/general-settings.php:151, ../profile-builder-2.0/admin/general-settings.php:170, ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:206, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:229, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:230, ../profile-builder-2.0/modules/user-listing/userlisting.php:2318
+#: ../pb-add-on-placeholder-labels/pbpl.php:171, ../pb-add-on-social-connect/index.php:323, ../profile-builder-2.0/admin/general-settings.php:110, ../profile-builder-2.0/admin/general-settings.php:123, ../profile-builder-2.0/admin/general-settings.php:172, ../profile-builder-2.0/admin/general-settings.php:219, ../profile-builder-2.0/features/content-restriction/content-restriction.php:86, ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:206, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:229, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:230, ../profile-builder-2.0/modules/user-listing/userlisting.php:2330
 msgid "Yes"
 msgstr ""
 
-#: ../pb-add-on-placeholder-labels/pbpl.php:172, ../pb-add-on-social-connect/index.php:324, ../profile-builder-2.0/admin/general-settings.php:56, ../profile-builder-2.0/admin/general-settings.php:105, ../profile-builder-2.0/admin/general-settings.php:150, ../profile-builder-2.0/admin/general-settings.php:169, ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:206, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:229, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:230
+#: ../pb-add-on-placeholder-labels/pbpl.php:172, ../pb-add-on-social-connect/index.php:324, ../profile-builder-2.0/admin/general-settings.php:124, ../profile-builder-2.0/admin/general-settings.php:173, ../profile-builder-2.0/admin/general-settings.php:218, ../profile-builder-2.0/features/content-restriction/content-restriction.php:85, ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:206, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:229, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:230
 msgid "No"
 msgstr ""
 
@@ -797,7 +797,7 @@ msgstr ""
 msgid "Default Social Connect CSS in the Front-end"
 msgstr ""
 
-#: ../pb-add-on-social-connect/index.php:236, ../profile-builder-2.0/admin/admin-functions.php:226
+#: ../pb-add-on-social-connect/index.php:236, ../profile-builder-2.0/admin/admin-functions.php:226, ../profile-builder-2.0/admin/general-settings.php:75, ../profile-builder-2.0/admin/general-settings.php:75
 msgid "Settings"
 msgstr ""
 
@@ -853,7 +853,7 @@ msgstr ""
 msgid "You will be redirected in 5 seconds. If not, click %%."
 msgstr ""
 
-#: ../pb-add-on-social-connect/index.php:390, ../profile-builder-2.0/features/functions.php:1036
+#: ../pb-add-on-social-connect/index.php:390, ../profile-builder-2.0/features/functions.php:1023
 msgid "here"
 msgstr ""
 
@@ -889,7 +889,7 @@ msgstr ""
 msgid "Profile Builder not active!"
 msgstr ""
 
-#: ../pb-add-on-social-connect/index.php:832, ../profile-builder-2.0/admin/admin-functions.php:37, ../profile-builder-2.0/admin/general-settings.php:10, ../profile-builder-2.0/admin/general-settings.php:10, ../profile-builder-2.0/admin/general-settings.php:35
+#: ../pb-add-on-social-connect/index.php:832, ../profile-builder-2.0/admin/admin-functions.php:37, ../profile-builder-2.0/admin/general-settings.php:8
 msgid "General Settings"
 msgstr ""
 
@@ -909,179 +909,179 @@ msgstr ""
 msgid "Your account is linked with:"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/billing-fields.php:5, ../pb-add-on-woocommerce/shipping-fields.php:5
+#: billing-fields.php:5, shipping-fields.php:5
 msgid "Country"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/billing-fields.php:6, ../pb-add-on-woocommerce/shipping-fields.php:6, ../profile-builder-2.0/admin/manage-fields.php:245
+#: billing-fields.php:6, shipping-fields.php:6, ../profile-builder-2.0/admin/manage-fields.php:245
 msgid "First Name"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/billing-fields.php:7, ../pb-add-on-woocommerce/shipping-fields.php:7, ../profile-builder-2.0/admin/manage-fields.php:246
+#: billing-fields.php:7, shipping-fields.php:7, ../profile-builder-2.0/admin/manage-fields.php:246
 msgid "Last Name"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/billing-fields.php:8, ../pb-add-on-woocommerce/shipping-fields.php:8
+#: billing-fields.php:8, shipping-fields.php:8
 msgid "Company Name"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/billing-fields.php:9, ../pb-add-on-woocommerce/shipping-fields.php:9
+#: billing-fields.php:9, shipping-fields.php:9
 msgid "Address"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/billing-fields.php:11, ../pb-add-on-woocommerce/shipping-fields.php:11
+#: billing-fields.php:11, shipping-fields.php:11
 msgid "Town / City"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/billing-fields.php:12, ../pb-add-on-woocommerce/shipping-fields.php:12
+#: billing-fields.php:12, shipping-fields.php:12
 msgid "State / County"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/billing-fields.php:13, ../pb-add-on-woocommerce/shipping-fields.php:13
+#: billing-fields.php:13, shipping-fields.php:13
 msgid "Postcode / Zip"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/billing-fields.php:14
+#: billing-fields.php:14
 msgid "Email Address"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/billing-fields.php:15
+#: billing-fields.php:15
 msgid "Phone"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/billing-fields.php:278
+#: billing-fields.php:278
 msgid "Ship to a different address?"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:160, ../pb-add-on-woocommerce/index.php:729
+#: index.php:160, index.php:729
 msgid "Billing Address"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:160
+#: index.php:160
 msgid "Displays customer billing fields in front-end. "
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:164, ../pb-add-on-woocommerce/index.php:730
+#: index.php:164, index.php:730
 msgid "Shipping Address"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:164
+#: index.php:164
 msgid "Displays customer shipping fields in front-end. "
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:239, ../pb-add-on-woocommerce/index.php:258, ../pb-add-on-woocommerce/index.php:355, ../pb-add-on-woocommerce/index.php:358, ../pb-add-on-woocommerce/index.php:785
+#: index.php:239, index.php:258, index.php:355, index.php:358, index.php:785
 msgid "Address line 2"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:247
+#: index.php:247
 msgid "Billing Fields"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:247
+#: index.php:247
 msgid "Select which WooCommerce Billing fields to display to the user ( drag and drop to re-order ) and which should be required"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:248
+#: index.php:248
 msgid "Billing Fields Order"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:248
+#: index.php:248
 msgid "Save the billing fields order from the billing fields checkboxes"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:249
+#: index.php:249
 msgid "Billing Fields Name"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:249
+#: index.php:249
 msgid "Save the billing fields names"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:266
+#: index.php:266
 msgid "Shipping Fields"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:266
+#: index.php:266
 msgid "Select which WooCommerce Shipping fields to display to the user ( drag and drop to re-order ) and which should be required"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:267
+#: index.php:267
 msgid "Shipping Fields Order"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:267
+#: index.php:267
 msgid "Save the shipping fields order from the billing fields checkboxes"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:268
+#: index.php:268
 msgid "Shipping Fields Name"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:268
+#: index.php:268
 msgid "Save the shipping fields names"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:296
+#: index.php:296
 msgid "Field Name"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:297, ../profile-builder-2.0/admin/manage-fields.php:203
+#: index.php:297, ../profile-builder-2.0/admin/manage-fields.php:203
 msgid "Required"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:360
+#: index.php:360
 msgid "Click to edit "
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:384, ../profile-builder-2.0/front-end/default-fields/email/email.php:47
+#: index.php:384, ../profile-builder-2.0/front-end/default-fields/email/email.php:47
 msgid "The email you entered is not a valid email address."
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:642
+#: index.php:642
 msgid "No options available. Please select one country."
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:661, ../pb-add-on-woocommerce/index.php:686
+#: index.php:661, index.php:686
 msgid "Billing "
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:669, ../pb-add-on-woocommerce/index.php:693
+#: index.php:669, index.php:693
 msgid "Shipping "
 msgstr ""
 
-#: ../pb-add-on-woocommerce/index.php:846
+#: index.php:846
 msgid "WooCommerce needs to be installed and activated for Profile Builder - WooCommerce Sync Add-on to work!"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/woo-checkout-field-support.php:65
+#: woo-checkout-field-support.php:65
 msgid "Display on WooCommerce Checkout"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/woo-checkout-field-support.php:65
+#: woo-checkout-field-support.php:65
 msgid "Whether the field should be added to the WooCommerce checkout form or not"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/woosync-page.php:23, ../pb-add-on-woocommerce/woosync-page.php:23, ../pb-add-on-woocommerce/woosync-page.php:70
+#: woosync-page.php:23, woosync-page.php:23, woosync-page.php:70
 msgid "WooCommerce Sync"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/woosync-page.php:76
+#: woosync-page.php:76
 msgid "Choose Register form to display on My Account page:"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/woosync-page.php:81
+#: woosync-page.php:81
 msgid "Default Register"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/woosync-page.php:104
+#: woosync-page.php:104
 msgid "Select which Profile Builder Register form to display on My Account page from WooCommerce. <br/> This will also add the Profile Builder Login form to MyAccount page."
 msgstr ""
 
-#: ../pb-add-on-woocommerce/woosync-page.php:111
+#: woosync-page.php:111
 msgid "Choose Edit Profile form to display on My Account page:"
 msgstr ""
 
-#: ../pb-add-on-woocommerce/woosync-page.php:139
+#: woosync-page.php:139
 msgid "Select which Profile Builder Edit-profile form to display on My Account page from WooCommerce."
 msgstr ""
 
@@ -1295,39 +1295,39 @@ msgstr ""
 msgid "The Campaign Monitor API key is either missing or is invalid."
 msgstr ""
 
-#: admin/manage-fields.php:29
+#: ../pb-add-on-gdpr-communication-preferences/admin/manage-fields.php:29
 msgid "Communication Preferences"
 msgstr ""
 
-#: admin/manage-fields.php:29, front-end/gdpr-communication-preferences.php:9, ../profile-builder-2.0/admin/manage-fields.php:250, ../profile-builder-2.0/front-end/recover.php:119, ../profile-builder-2.0/features/admin-approval/class-admin-approval.php:169, ../profile-builder-2.0/features/email-confirmation/class-email-confirmation.php:169, ../profile-builder-2.0/modules/user-listing/userlisting.php:117
+#: ../pb-add-on-gdpr-communication-preferences/admin/manage-fields.php:29, ../pb-add-on-gdpr-communication-preferences/front-end/gdpr-communication-preferences.php:9, ../profile-builder-2.0/admin/manage-fields.php:250, ../profile-builder-2.0/front-end/recover.php:119, ../profile-builder-2.0/features/admin-approval/class-admin-approval.php:169, ../profile-builder-2.0/features/email-confirmation/class-email-confirmation.php:169, ../profile-builder-2.0/modules/user-listing/userlisting.php:117
 msgid "E-mail"
 msgstr ""
 
-#: admin/manage-fields.php:29, front-end/gdpr-communication-preferences.php:9
+#: ../pb-add-on-gdpr-communication-preferences/admin/manage-fields.php:29, ../pb-add-on-gdpr-communication-preferences/front-end/gdpr-communication-preferences.php:9
 msgid "Telephone"
 msgstr ""
 
-#: admin/manage-fields.php:29, front-end/gdpr-communication-preferences.php:9
+#: ../pb-add-on-gdpr-communication-preferences/admin/manage-fields.php:29, ../pb-add-on-gdpr-communication-preferences/front-end/gdpr-communication-preferences.php:9
 msgid "SMS"
 msgstr ""
 
-#: admin/manage-fields.php:29, front-end/gdpr-communication-preferences.php:9
+#: ../pb-add-on-gdpr-communication-preferences/admin/manage-fields.php:29, ../pb-add-on-gdpr-communication-preferences/front-end/gdpr-communication-preferences.php:9
 msgid "Post"
 msgstr ""
 
-#: admin/manage-fields.php:29
+#: ../pb-add-on-gdpr-communication-preferences/admin/manage-fields.php:29
 msgid "Select which communication preferences are available on your site ( drag and drop to re-order )"
 msgstr ""
 
-#: admin/manage-fields.php:30
+#: ../pb-add-on-gdpr-communication-preferences/admin/manage-fields.php:30
 msgid "Communication Preferences Order"
 msgstr ""
 
-#: admin/manage-fields.php:30
+#: ../pb-add-on-gdpr-communication-preferences/admin/manage-fields.php:30
 msgid "Save the communication preferences order"
 msgstr ""
 
-#: front-end/gdpr-communication-preferences.php:44, ../pb-add-on-select2/front-end/select2-field.php:72, ../pb-add-on-select2/front-end/select2-multiple-field.php:86, ../profile-builder-2.0/front-end/extra-fields/avatar/avatar.php:74, ../profile-builder-2.0/front-end/extra-fields/checkbox/checkbox.php:45, ../profile-builder-2.0/front-end/extra-fields/colorpicker/colorpicker.php:45, ../profile-builder-2.0/front-end/extra-fields/datepicker/datepicker.php:40, ../profile-builder-2.0/front-end/extra-fields/input/input.php:30, ../profile-builder-2.0/front-end/extra-fields/input-hidden/input-hidden.php:34, ../profile-builder-2.0/front-end/extra-fields/map/map.php:51, ../profile-builder-2.0/front-end/extra-fields/number/number.php:30, ../profile-builder-2.0/front-end/extra-fields/phone/phone.php:39, ../profile-builder-2.0/front-end/extra-fields/radio/radio.php:44, ../profile-builder-2.0/front-end/extra-fields/select/select.php:51, ../profile-builder-2.0/front-end/extra-fields/select-cpt/select-cpt.php:58, ../profile-builder-2.0/front-end/extra-fields/select-multiple/select-multiple.php:46, ../profile-builder-2.0/front-end/extra-fields/select-timezone/select-timezone.php:49, ../profile-builder-2.0/front-end/extra-fields/textarea/textarea.php:30, ../profile-builder-2.0/front-end/extra-fields/upload/upload.php:70, ../profile-builder-2.0/front-end/extra-fields/wysiwyg/wysiwyg.php:33
+#: ../pb-add-on-gdpr-communication-preferences/front-end/gdpr-communication-preferences.php:44, ../pb-add-on-select2/front-end/select2-field.php:72, ../pb-add-on-select2/front-end/select2-multiple-field.php:86, ../profile-builder-2.0/front-end/extra-fields/avatar/avatar.php:74, ../profile-builder-2.0/front-end/extra-fields/checkbox/checkbox.php:45, ../profile-builder-2.0/front-end/extra-fields/colorpicker/colorpicker.php:45, ../profile-builder-2.0/front-end/extra-fields/datepicker/datepicker.php:40, ../profile-builder-2.0/front-end/extra-fields/input/input.php:30, ../profile-builder-2.0/front-end/extra-fields/input-hidden/input-hidden.php:34, ../profile-builder-2.0/front-end/extra-fields/map/map.php:51, ../profile-builder-2.0/front-end/extra-fields/number/number.php:30, ../profile-builder-2.0/front-end/extra-fields/phone/phone.php:39, ../profile-builder-2.0/front-end/extra-fields/radio/radio.php:44, ../profile-builder-2.0/front-end/extra-fields/select/select.php:51, ../profile-builder-2.0/front-end/extra-fields/select-cpt/select-cpt.php:58, ../profile-builder-2.0/front-end/extra-fields/select-multiple/select-multiple.php:46, ../profile-builder-2.0/front-end/extra-fields/select-timezone/select-timezone.php:49, ../profile-builder-2.0/front-end/extra-fields/textarea/textarea.php:30, ../profile-builder-2.0/front-end/extra-fields/upload/upload.php:70, ../profile-builder-2.0/front-end/extra-fields/wysiwyg/wysiwyg.php:33
 msgid "required"
 msgstr ""
 
@@ -1691,23 +1691,23 @@ msgstr ""
 msgid "Admin Bar Settings"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/admin-bar.php:48
+#: ../profile-builder-2.0/admin/admin-bar.php:51
 msgid "Choose which user roles view the admin bar in the front-end of the website."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/admin-bar.php:57
+#: ../profile-builder-2.0/admin/admin-bar.php:60
 msgid "User-Role"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/admin-bar.php:73, ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:206, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:230
+#: ../profile-builder-2.0/admin/admin-bar.php:76, ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:206, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:230
 msgid "Default"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/admin-bar.php:74
+#: ../profile-builder-2.0/admin/admin-bar.php:77
 msgid "Show"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/admin-bar.php:75, ../profile-builder-2.0/modules/user-listing/userlisting.php:1606
+#: ../profile-builder-2.0/admin/admin-bar.php:78, ../profile-builder-2.0/modules/user-listing/userlisting.php:1612
 msgid "Hide"
 msgstr ""
 
@@ -1727,19 +1727,19 @@ msgstr ""
 msgid "<strong>ERROR</strong>: The password must have the minimum length of %s characters"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/admin-functions.php:137, ../profile-builder-2.0/admin/general-settings.php:229
+#: ../profile-builder-2.0/admin/admin-functions.php:137, ../profile-builder-2.0/admin/general-settings.php:278
 msgid "Very weak"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/admin-functions.php:137, ../profile-builder-2.0/admin/general-settings.php:230, ../profile-builder-2.0/features/functions.php:571, ../profile-builder-2.0/features/functions.php:595
+#: ../profile-builder-2.0/admin/admin-functions.php:137, ../profile-builder-2.0/admin/general-settings.php:279, ../profile-builder-2.0/features/functions.php:571, ../profile-builder-2.0/features/functions.php:595
 msgid "Weak"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/admin-functions.php:137, ../profile-builder-2.0/admin/general-settings.php:231, ../profile-builder-2.0/features/functions.php:571, ../profile-builder-2.0/features/functions.php:595
+#: ../profile-builder-2.0/admin/admin-functions.php:137, ../profile-builder-2.0/admin/general-settings.php:280, ../profile-builder-2.0/features/functions.php:571, ../profile-builder-2.0/features/functions.php:595
 msgid "Medium"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/admin-functions.php:137, ../profile-builder-2.0/admin/general-settings.php:232, ../profile-builder-2.0/features/functions.php:571, ../profile-builder-2.0/features/functions.php:595
+#: ../profile-builder-2.0/admin/admin-functions.php:137, ../profile-builder-2.0/admin/general-settings.php:281, ../profile-builder-2.0/features/functions.php:571, ../profile-builder-2.0/features/functions.php:595
 msgid "Strong"
 msgstr ""
 
@@ -1751,7 +1751,7 @@ msgstr ""
 msgid "Add Field"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/admin-functions.php:189, ../profile-builder-2.0/features/content-restriction/content-restriction.php:117, ../profile-builder-2.0/modules/class-mustache-templates/class-mustache-templates.php:390
+#: ../profile-builder-2.0/admin/admin-functions.php:189
 msgid "Save Settings"
 msgstr ""
 
@@ -1791,259 +1791,279 @@ msgstr ""
 msgid "The best way to add front-end registration, edit profile and login forms."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:33
-msgid "For Modern User Interaction"
-msgstr ""
-
-#: ../profile-builder-2.0/admin/basic-info.php:37
-msgid "Friction-less login using %s shortcode or a widget."
+#: ../profile-builder-2.0/admin/basic-info.php:39
+msgid "Speed up the setup process by automatically creating the form pages:"
 msgstr ""
 
 #: ../profile-builder-2.0/admin/basic-info.php:40
-msgid "Registration"
+msgid "Create Form Pages"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:41
-msgid "Beautiful registration forms fully customizable using the %s shortcode."
+#: ../profile-builder-2.0/admin/basic-info.php:44
+msgid "You can see all the pages with Profile Builder form shortcodes here:"
 msgstr ""
 
 #: ../profile-builder-2.0/admin/basic-info.php:45
-msgid "Straight forward edit profile forms using %s shortcode."
+msgid "View Form Pages"
 msgstr ""
 
 #: ../profile-builder-2.0/admin/basic-info.php:51
-msgid "Extra Features"
+msgid "Login Form"
 msgstr ""
 
 #: ../profile-builder-2.0/admin/basic-info.php:52
-msgid "Features that give you more control over your users, increased security and help you fight user registration spam."
+msgid "Friction-less login using %s shortcode or a widget."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:53
-msgid "Enable extra features"
+#: ../profile-builder-2.0/admin/basic-info.php:55, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:11, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:12
+msgid "Registration Form"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:57
-msgid "Recover Password"
+#: ../profile-builder-2.0/admin/basic-info.php:56
+msgid "Beautiful registration forms fully customizable using the %s shortcode."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:58
-msgid "Allow users to recover their password in the front-end using the %s."
+#: ../profile-builder-2.0/admin/basic-info.php:59
+msgid "Edit Profile Form"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:61
-msgid "Admin Approval (*)"
-msgstr ""
-
-#: ../profile-builder-2.0/admin/basic-info.php:62
-msgid "You decide who is a user on your website. Get notified via email or approve multiple users at once from the WordPress UI."
-msgstr ""
-
-#: ../profile-builder-2.0/admin/basic-info.php:65
-msgid "Email Confirmation"
+#: ../profile-builder-2.0/admin/basic-info.php:60
+msgid "Straight forward edit profile forms using %s shortcode."
 msgstr ""
 
 #: ../profile-builder-2.0/admin/basic-info.php:66
-msgid "Make sure users sign up with genuine emails. On registration users will receive a notification to confirm their email address."
+msgid "Extra Features"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:69, ../profile-builder-2.0/features/content-restriction/content-restriction.php:17, ../profile-builder-2.0/features/content-restriction/content-restriction.php:17, ../profile-builder-2.0/features/content-restriction/content-restriction.php:44
-msgid "Content Restriction"
+#: ../profile-builder-2.0/admin/basic-info.php:67
+msgid "Features that give you more control over your users, increased security and help you fight user registration spam."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:70
-msgid "Restrict users from accessing certain pages, posts or custom post types based on user role or logged-in status."
+#: ../profile-builder-2.0/admin/basic-info.php:68
+msgid "Enable extra features"
+msgstr ""
+
+#: ../profile-builder-2.0/admin/basic-info.php:72
+msgid "Recover Password"
 msgstr ""
 
 #: ../profile-builder-2.0/admin/basic-info.php:73
-msgid "Minimum Password Length and Strength Meter"
+msgid "Allow users to recover their password in the front-end using the %s."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:74
-msgid "Eliminate weak passwords altogether by setting a minimum password length and enforcing a certain password strength."
+#: ../profile-builder-2.0/admin/basic-info.php:76
+msgid "Admin Approval (*)"
 msgstr ""
 
 #: ../profile-builder-2.0/admin/basic-info.php:77
+msgid "You decide who is a user on your website. Get notified via email or approve multiple users at once from the WordPress UI."
+msgstr ""
+
+#: ../profile-builder-2.0/admin/basic-info.php:80
+msgid "Email Confirmation"
+msgstr ""
+
+#: ../profile-builder-2.0/admin/basic-info.php:81
+msgid "Make sure users sign up with genuine emails. On registration users will receive a notification to confirm their email address."
+msgstr ""
+
+#: ../profile-builder-2.0/admin/basic-info.php:84, ../profile-builder-2.0/admin/general-settings.php:10, ../profile-builder-2.0/features/content-restriction/content-restriction.php:26, ../profile-builder-2.0/features/content-restriction/content-restriction.php:26
+msgid "Content Restriction"
+msgstr ""
+
+#: ../profile-builder-2.0/admin/basic-info.php:85
+msgid "Restrict users from accessing certain pages, posts or custom post types based on user role or logged-in status."
+msgstr ""
+
+#: ../profile-builder-2.0/admin/basic-info.php:88
+msgid "Minimum Password Length and Strength Meter"
+msgstr ""
+
+#: ../profile-builder-2.0/admin/basic-info.php:89
+msgid "Eliminate weak passwords altogether by setting a minimum password length and enforcing a certain password strength."
+msgstr ""
+
+#: ../profile-builder-2.0/admin/basic-info.php:92
 msgid "Login with Email or Username"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:78
+#: ../profile-builder-2.0/admin/basic-info.php:93
 msgid "Allow users to log in with their email or username when accessing your site."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:81, ../profile-builder-2.0/features/roles-editor/roles-editor.php:244, ../profile-builder-2.0/features/roles-editor/roles-editor.php:245, ../profile-builder-2.0/features/roles-editor/roles-editor.php:250, ../profile-builder-2.0/features/roles-editor/roles-editor.php:257
+#: ../profile-builder-2.0/admin/basic-info.php:96, ../profile-builder-2.0/features/roles-editor/roles-editor.php:244, ../profile-builder-2.0/features/roles-editor/roles-editor.php:245, ../profile-builder-2.0/features/roles-editor/roles-editor.php:250, ../profile-builder-2.0/features/roles-editor/roles-editor.php:257
 msgid "Roles Editor"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:82
+#: ../profile-builder-2.0/admin/basic-info.php:97
 msgid "Add, remove, clone and edit roles and also capabilities for these roles."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:95
+#: ../profile-builder-2.0/admin/basic-info.php:110
 msgid "Customize Your Forms The Way You Want (*)"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:96
+#: ../profile-builder-2.0/admin/basic-info.php:111
 msgid "With Extra Profile Fields you can create the exact registration form your project needs."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:98
+#: ../profile-builder-2.0/admin/basic-info.php:113
 msgid "Extra Profile Fields are available in Hobbyist or PRO versions"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:100
+#: ../profile-builder-2.0/admin/basic-info.php:115
 msgid "Get started with extra fields"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:103
+#: ../profile-builder-2.0/admin/basic-info.php:118
 msgid "Avatar Upload"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:104
+#: ../profile-builder-2.0/admin/basic-info.php:119
 msgid "Generic Uploads"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:105
+#: ../profile-builder-2.0/admin/basic-info.php:120
 msgid "Agree To Terms Checkbox"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:106
+#: ../profile-builder-2.0/admin/basic-info.php:121
 msgid "Datepicker"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:107
+#: ../profile-builder-2.0/admin/basic-info.php:122
 msgid "Timepicker"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:108
+#: ../profile-builder-2.0/admin/basic-info.php:123
 msgid "Colorpicker"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:109
+#: ../profile-builder-2.0/admin/basic-info.php:124
 msgid "reCAPTCHA"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:110
+#: ../profile-builder-2.0/admin/basic-info.php:125
 msgid "Country Select"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:111
+#: ../profile-builder-2.0/admin/basic-info.php:126
 msgid "Currency Select"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:112
+#: ../profile-builder-2.0/admin/basic-info.php:127
 msgid "Timezone Select"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:116
+#: ../profile-builder-2.0/admin/basic-info.php:131
 msgid "Input / Hidden Input"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:117
+#: ../profile-builder-2.0/admin/basic-info.php:132
 msgid "Number"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:118
+#: ../profile-builder-2.0/admin/basic-info.php:133
 msgid "Checkbox"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:119
+#: ../profile-builder-2.0/admin/basic-info.php:134
 msgid "Select"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:120
+#: ../profile-builder-2.0/admin/basic-info.php:135
 msgid "Radio Buttons"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:121
+#: ../profile-builder-2.0/admin/basic-info.php:136
 msgid "Textarea"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:122
+#: ../profile-builder-2.0/admin/basic-info.php:137
 msgid "Validation"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:123
+#: ../profile-builder-2.0/admin/basic-info.php:138
 msgid "Map"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:124
+#: ../profile-builder-2.0/admin/basic-info.php:139
 msgid "HTML"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:133
+#: ../profile-builder-2.0/admin/basic-info.php:148
 msgid "Powerful Modules (**)"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:134
+#: ../profile-builder-2.0/admin/basic-info.php:149
 msgid "Everything you will need to manage your users is probably already available using the Pro Modules."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:136
+#: ../profile-builder-2.0/admin/basic-info.php:151
 msgid "Enable your modules"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:139
+#: ../profile-builder-2.0/admin/basic-info.php:154
 msgid "Find out more about PRO Modules"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:144, ../profile-builder-2.0/modules/modules.php:89, ../profile-builder-2.0/modules/user-listing/userlisting.php:11, ../profile-builder-2.0/modules/user-listing/userlisting.php:12, ../profile-builder-2.0/modules/user-listing/userlisting.php:17, ../profile-builder-2.0/modules/user-listing/userlisting.php:23
+#: ../profile-builder-2.0/admin/basic-info.php:159, ../profile-builder-2.0/modules/modules.php:87, ../profile-builder-2.0/modules/user-listing/userlisting.php:11, ../profile-builder-2.0/modules/user-listing/userlisting.php:12, ../profile-builder-2.0/modules/user-listing/userlisting.php:17, ../profile-builder-2.0/modules/user-listing/userlisting.php:23
 msgid "User Listing"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:146
+#: ../profile-builder-2.0/admin/basic-info.php:161
 msgid "Easy to edit templates for listing your website users as well as creating single user pages. Shortcode based, offering many options to customize your listings."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:148
+#: ../profile-builder-2.0/admin/basic-info.php:163
 msgid "To create a page containing the users registered to this current site/blog, insert the following shortcode in a page of your chosing: %s."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:152
+#: ../profile-builder-2.0/admin/basic-info.php:167, ../profile-builder-2.0/admin/general-settings.php:16, ../profile-builder-2.0/modules/modules.php:94
 msgid "Email Customizer"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:153
+#: ../profile-builder-2.0/admin/basic-info.php:168
 msgid "Personalize all emails sent to your users or admins. On registration, email confirmation, admin approval / un-approval."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:156, ../profile-builder-2.0/modules/modules.php:110, ../profile-builder-2.0/modules/custom-redirects/custom_redirects_admin.php:33, ../profile-builder-2.0/modules/custom-redirects/custom_redirects_admin.php:34
+#: ../profile-builder-2.0/admin/basic-info.php:171, ../profile-builder-2.0/modules/modules.php:106, ../profile-builder-2.0/modules/custom-redirects/custom_redirects_admin.php:33, ../profile-builder-2.0/modules/custom-redirects/custom_redirects_admin.php:34
 msgid "Custom Redirects"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:157
+#: ../profile-builder-2.0/admin/basic-info.php:172
 msgid "Keep your users out of the WordPress dashboard, redirect them to the front-page after login or registration, everything is just a few clicks away."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:162, ../profile-builder-2.0/modules/modules.php:75
+#: ../profile-builder-2.0/admin/basic-info.php:177, ../profile-builder-2.0/modules/modules.php:73
 msgid "Multiple Registration Forms"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:163
+#: ../profile-builder-2.0/admin/basic-info.php:178
 msgid "Set up multiple registration forms with different fields for certain user roles. Capture different information from different types of users."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:166, ../profile-builder-2.0/modules/modules.php:82
+#: ../profile-builder-2.0/admin/basic-info.php:181, ../profile-builder-2.0/modules/modules.php:80
 msgid "Multiple Edit-profile Forms"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:167
+#: ../profile-builder-2.0/admin/basic-info.php:182
 msgid "Allow different user roles to edit their specific information. Set up multiple edit-profile forms with different fields for certain user roles."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:170, ../profile-builder-2.0/modules/modules.php:117
+#: ../profile-builder-2.0/admin/basic-info.php:185, ../profile-builder-2.0/modules/modules.php:113
 msgid "Repeater Fields"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:171
+#: ../profile-builder-2.0/admin/basic-info.php:186
 msgid "Set up a repeating group of fields on register and edit profile forms. Limit the number of repeated groups for each user role."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:207
+#: ../profile-builder-2.0/admin/basic-info.php:222
 msgid " * only available in the %1$sHobbyist and Pro versions%2$s."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/basic-info.php:208
+#: ../profile-builder-2.0/admin/basic-info.php:223
 msgid "** only available in the %1$sPro version%2$s."
 msgstr ""
 
@@ -2063,119 +2083,127 @@ msgstr ""
 msgid "Submit and Deactivate"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:39
+#: ../profile-builder-2.0/admin/general-settings.php:9
+msgid "Admin Bar"
+msgstr ""
+
+#: ../profile-builder-2.0/admin/general-settings.php:18
+msgid "User Emails"
+msgstr ""
+
+#: ../profile-builder-2.0/admin/general-settings.php:19
+msgid "Administrator Emails"
+msgstr ""
+
+#: ../profile-builder-2.0/admin/general-settings.php:96
+msgid "Profile Builder Settings"
+msgstr ""
+
+#: ../profile-builder-2.0/admin/general-settings.php:107
 msgid "Load Profile Builder's own CSS file in the front-end:"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:44
+#: ../profile-builder-2.0/admin/general-settings.php:112
 msgid "You can find the default file here: %1$s"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:51
+#: ../profile-builder-2.0/admin/general-settings.php:119
 msgid "\"Email Confirmation\" Activated:"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:59
+#: ../profile-builder-2.0/admin/general-settings.php:127
 msgid "This works with front-end forms only. Recommended to redirect WP default registration to a Profile Builder one using \"Custom Redirects\" module."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:61
+#: ../profile-builder-2.0/admin/general-settings.php:129
 msgid "You can find a list of unconfirmed email addresses %1$sUsers > All Users > Email Confirmation%2$s."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:69
+#: ../profile-builder-2.0/admin/general-settings.php:137
 msgid "\"Email Confirmation\" Landing Page:"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:74
+#: ../profile-builder-2.0/admin/general-settings.php:142
 msgid "Existing Pages"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:89
+#: ../profile-builder-2.0/admin/general-settings.php:157
 msgid "Specify the page where the users will be directed when confirming the email account. This page can differ from the register page(s) and can be changed at any time. If none selected, a simple confirmation page will be displayed for the user."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:100
+#: ../profile-builder-2.0/admin/general-settings.php:168
 msgid "\"Admin Approval\" Activated:"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:108
+#: ../profile-builder-2.0/admin/general-settings.php:176
 msgid "You can find a list of users at %1$sUsers > All Users > Admin Approval%2$s."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:115
+#: ../profile-builder-2.0/admin/general-settings.php:183
 msgid "\"Admin Approval\" on User Role:"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:134
+#: ../profile-builder-2.0/admin/general-settings.php:202
 msgid "Select on what user roles to activate Admin Approval."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:146
+#: ../profile-builder-2.0/admin/general-settings.php:214
 msgid "\"Roles Editor\" Activated:"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:154
+#: ../profile-builder-2.0/admin/general-settings.php:222
 msgid "You can add / edit user roles at %1$sUsers > Roles Editor%2$s."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:165
-msgid "\"Content Restriction\" Activated:"
-msgstr ""
-
-#: ../profile-builder-2.0/admin/general-settings.php:173
-msgid "Set your settings at %1$sProfile Builder > Content Restriction%2$s and use each page / post / custom post type individual meta-box to restrict content."
-msgstr ""
-
-#: ../profile-builder-2.0/admin/general-settings.php:184
+#: ../profile-builder-2.0/admin/general-settings.php:233
 msgid "\"Admin Approval\" Feature:"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:187
+#: ../profile-builder-2.0/admin/general-settings.php:236
 msgid "You decide who is a user on your website. Get notified via email or approve multiple users at once from the WordPress UI. Enable Admin Approval by upgrading to %1$sHobbyist or PRO versions%2$s."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:194
+#: ../profile-builder-2.0/admin/general-settings.php:243
 msgid "Allow Users to Log in With:"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:198
+#: ../profile-builder-2.0/admin/general-settings.php:247
 msgid "Username and Email"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:199, ../profile-builder-2.0/admin/manage-fields.php:244, ../profile-builder-2.0/front-end/login.php:223, ../profile-builder-2.0/front-end/login.php:237, ../profile-builder-2.0/front-end/login.php:365, ../profile-builder-2.0/features/admin-approval/class-admin-approval.php:166, ../profile-builder-2.0/features/email-confirmation/class-email-confirmation.php:168, ../profile-builder-2.0/modules/custom-redirects/custom_redirects_admin.php:60, ../profile-builder-2.0/modules/email-customizer/email-customizer.php:28, ../profile-builder-2.0/modules/user-listing/userlisting.php:111, ../profile-builder-2.0/modules/user-listing/userlisting.php:303, ../profile-builder-2.0/modules/user-listing/userlisting.php:769, ../profile-builder-2.0/modules/user-listing/userlisting.php:2269
+#: ../profile-builder-2.0/admin/general-settings.php:248, ../profile-builder-2.0/admin/manage-fields.php:244, ../profile-builder-2.0/front-end/login.php:241, ../profile-builder-2.0/front-end/login.php:255, ../profile-builder-2.0/front-end/login.php:383, ../profile-builder-2.0/features/admin-approval/class-admin-approval.php:166, ../profile-builder-2.0/features/email-confirmation/class-email-confirmation.php:168, ../profile-builder-2.0/modules/custom-redirects/custom_redirects_admin.php:60, ../profile-builder-2.0/modules/email-customizer/email-customizer.php:28, ../profile-builder-2.0/modules/user-listing/userlisting.php:111, ../profile-builder-2.0/modules/user-listing/userlisting.php:303, ../profile-builder-2.0/modules/user-listing/userlisting.php:769, ../profile-builder-2.0/modules/user-listing/userlisting.php:2281
 msgid "Username"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:200, ../profile-builder-2.0/front-end/login.php:362, ../profile-builder-2.0/modules/email-customizer/email-customizer.php:29, ../profile-builder-2.0/modules/user-listing/userlisting.php:775, ../profile-builder-2.0/modules/user-listing/userlisting.php:2270
+#: ../profile-builder-2.0/admin/general-settings.php:249, ../profile-builder-2.0/front-end/login.php:380, ../profile-builder-2.0/modules/email-customizer/email-customizer.php:29, ../profile-builder-2.0/modules/user-listing/userlisting.php:775, ../profile-builder-2.0/modules/user-listing/userlisting.php:2282
 msgid "Email"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:203
+#: ../profile-builder-2.0/admin/general-settings.php:252
 msgid "\"Username and Email\" - users can Log In with both Username and Email."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:204
+#: ../profile-builder-2.0/admin/general-settings.php:253
 msgid "\"Username\" - users can Log In only with Username."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:205
+#: ../profile-builder-2.0/admin/general-settings.php:254
 msgid "\"Email\" - users can Log In only with Email."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:212
+#: ../profile-builder-2.0/admin/general-settings.php:261
 msgid "Minimum Password Length:"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:217
+#: ../profile-builder-2.0/admin/general-settings.php:266
 msgid "Enter the minimum characters the password should have. Leave empty for no minimum limit"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:224
+#: ../profile-builder-2.0/admin/general-settings.php:273
 msgid "Minimum Password Strength:"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/general-settings.php:228
+#: ../profile-builder-2.0/admin/general-settings.php:277
 msgid "Disabled"
 msgstr ""
 
@@ -2591,7 +2619,7 @@ msgstr ""
 msgid "Usernames cannot be changed."
 msgstr ""
 
-#: ../profile-builder-2.0/admin/manage-fields.php:247, ../profile-builder-2.0/modules/user-listing/userlisting.php:808, ../profile-builder-2.0/modules/user-listing/userlisting.php:2277
+#: ../profile-builder-2.0/admin/manage-fields.php:247, ../profile-builder-2.0/modules/user-listing/userlisting.php:808, ../profile-builder-2.0/modules/user-listing/userlisting.php:2289
 msgid "Nickname"
 msgstr ""
 
@@ -2599,7 +2627,7 @@ msgstr ""
 msgid "Display name publicly as"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/manage-fields.php:251, ../profile-builder-2.0/modules/email-customizer/email-customizer.php:33, ../profile-builder-2.0/modules/user-listing/userlisting.php:120, ../profile-builder-2.0/modules/user-listing/userlisting.php:790, ../profile-builder-2.0/modules/user-listing/userlisting.php:2271
+#: ../profile-builder-2.0/admin/manage-fields.php:251, ../profile-builder-2.0/modules/email-customizer/email-customizer.php:33, ../profile-builder-2.0/modules/user-listing/userlisting.php:120, ../profile-builder-2.0/modules/user-listing/userlisting.php:790, ../profile-builder-2.0/modules/user-listing/userlisting.php:2283
 msgid "Website"
 msgstr ""
 
@@ -2615,7 +2643,7 @@ msgstr ""
 msgid "Jabber / Google Talk"
 msgstr ""
 
-#: ../profile-builder-2.0/admin/manage-fields.php:261, ../profile-builder-2.0/modules/user-listing/userlisting.php:123, ../profile-builder-2.0/modules/user-listing/userlisting.php:793, ../profile-builder-2.0/modules/user-listing/userlisting.php:2272
+#: ../profile-builder-2.0/admin/manage-fields.php:261, ../profile-builder-2.0/modules/user-listing/userlisting.php:123, ../profile-builder-2.0/modules/user-listing/userlisting.php:793, ../profile-builder-2.0/modules/user-listing/userlisting.php:2284
 msgid "Biographical Info"
 msgstr ""
 
@@ -4389,7 +4417,7 @@ msgstr ""
 msgid "Incorrect phone number"
 msgstr ""
 
-#: ../profile-builder-2.0/features/functions.php:730, ../pb-add-on-labels-edit/assets/lib/wck-api/wordpress-creation-kit.php:402, ../profile-builder-2.0/assets/lib/wck-api/wordpress-creation-kit.php:394
+#: ../profile-builder-2.0/features/functions.php:730, ../profile-builder-2.0/features/content-restriction/content-restriction.php:159, ../profile-builder-2.0/modules/class-mustache-templates/class-mustache-templates.php:390, ../pb-add-on-labels-edit/assets/lib/wck-api/wordpress-creation-kit.php:402, ../profile-builder-2.0/assets/lib/wck-api/wordpress-creation-kit.php:394
 msgid "Save Changes"
 msgstr ""
 
@@ -4397,23 +4425,15 @@ msgstr ""
 msgid "Content"
 msgstr ""
 
-#: ../profile-builder-2.0/features/functions.php:769
-msgid "To allow users to register for your website via Profile Builder, you first must enable user registration. Go to %1$sNetwork Settings%2$s, and under Registration Settings make sure to check “User accounts may be registered”. %3$sDismiss%4$s"
-msgstr ""
-
-#: ../profile-builder-2.0/features/functions.php:773
-msgid "To allow users to register for your website via Profile Builder, you first must enable user registration. Go to %1$sSettings -> General%2$s tab, and under Membership make sure to check “Anyone can register”. %3$sDismiss%4$s"
-msgstr ""
-
-#: ../profile-builder-2.0/features/functions.php:938
+#: ../profile-builder-2.0/features/functions.php:925
 msgid "<br><br>Also, you will be able to visit your site at "
 msgstr ""
 
-#: ../profile-builder-2.0/features/functions.php:951
+#: ../profile-builder-2.0/features/functions.php:938
 msgid "<br><br>You can visit your site at "
 msgstr ""
 
-#: ../profile-builder-2.0/features/functions.php:1037
+#: ../profile-builder-2.0/features/functions.php:1024
 msgid "You will soon be redirected automatically. If you see this page for more than %1$d seconds, please click %2$s.%3$s"
 msgstr ""
 
@@ -4449,7 +4469,7 @@ msgstr ""
 msgid "You must be logged in to edit your profile."
 msgstr ""
 
-#: ../profile-builder-2.0/front-end/class-formbuilder.php:263, ../profile-builder-2.0/front-end/login.php:455
+#: ../profile-builder-2.0/front-end/class-formbuilder.php:263, ../profile-builder-2.0/front-end/login.php:473
 msgid "You are not allowed to do this."
 msgstr ""
 
@@ -4489,59 +4509,59 @@ msgstr ""
 msgid "Something went wrong. Please try again!"
 msgstr ""
 
-#: ../profile-builder-2.0/front-end/login.php:285, ../profile-builder-2.0/front-end/login.php:292, ../profile-builder-2.0/front-end/login.php:306, ../profile-builder-2.0/front-end/recover.php:17, ../profile-builder-2.0/front-end/recover.php:249, ../profile-builder-2.0/front-end/extra-fields/extra-fields.php:92
+#: ../profile-builder-2.0/front-end/login.php:303, ../profile-builder-2.0/front-end/login.php:310, ../profile-builder-2.0/front-end/login.php:324, ../profile-builder-2.0/front-end/recover.php:17, ../profile-builder-2.0/front-end/recover.php:249, ../profile-builder-2.0/front-end/extra-fields/extra-fields.php:92
 msgid "ERROR"
 msgstr ""
 
-#: ../profile-builder-2.0/front-end/login.php:285
+#: ../profile-builder-2.0/front-end/login.php:303
 msgid "The password you entered is incorrect."
 msgstr ""
 
-#: ../profile-builder-2.0/front-end/login.php:286, ../profile-builder-2.0/front-end/login.php:293
+#: ../profile-builder-2.0/front-end/login.php:304, ../profile-builder-2.0/front-end/login.php:311
 msgid "Password Lost and Found."
 msgstr ""
 
-#: ../profile-builder-2.0/front-end/login.php:286, ../profile-builder-2.0/front-end/login.php:293
+#: ../profile-builder-2.0/front-end/login.php:304, ../profile-builder-2.0/front-end/login.php:311
 msgid "Lost your password"
 msgstr ""
 
-#: ../profile-builder-2.0/front-end/login.php:292
+#: ../profile-builder-2.0/front-end/login.php:310
 msgid "Invalid username."
 msgstr ""
 
-#: ../profile-builder-2.0/front-end/login.php:297, ../profile-builder-2.0/front-end/login.php:301
+#: ../profile-builder-2.0/front-end/login.php:315, ../profile-builder-2.0/front-end/login.php:319
 msgid "username"
 msgstr ""
 
-#: ../profile-builder-2.0/front-end/login.php:297
+#: ../profile-builder-2.0/front-end/login.php:315
 msgid "email"
 msgstr ""
 
-#: ../profile-builder-2.0/front-end/login.php:301
+#: ../profile-builder-2.0/front-end/login.php:319
 msgid "username or email"
 msgstr ""
 
-#: ../profile-builder-2.0/front-end/login.php:306
+#: ../profile-builder-2.0/front-end/login.php:324
 msgid "Both fields are empty."
 msgstr ""
 
-#: ../profile-builder-2.0/front-end/login.php:369
+#: ../profile-builder-2.0/front-end/login.php:387
 msgid "Username or Email"
 msgstr ""
 
-#: ../profile-builder-2.0/front-end/login.php:403
+#: ../profile-builder-2.0/front-end/login.php:421
 msgid "Lost your password?"
 msgstr ""
 
-#: ../profile-builder-2.0/front-end/login.php:442, ../profile-builder-2.0/front-end/logout.php:25
+#: ../profile-builder-2.0/front-end/login.php:460, ../profile-builder-2.0/front-end/logout.php:25
 msgid "Log out of this account"
 msgstr ""
 
-#: ../profile-builder-2.0/front-end/login.php:442
+#: ../profile-builder-2.0/front-end/login.php:460
 msgid "Log out"
 msgstr ""
 
-#: ../profile-builder-2.0/front-end/login.php:443
+#: ../profile-builder-2.0/front-end/login.php:461
 msgid "You are currently logged in as %1$s. %2$s"
 msgstr ""
 
@@ -4681,36 +4701,28 @@ msgstr ""
 msgid "There was an error while trying to activate the user."
 msgstr ""
 
-#: ../profile-builder-2.0/modules/modules.php:11, ../profile-builder-2.0/modules/modules.php:11, ../profile-builder-2.0/modules/modules.php:58
+#: ../profile-builder-2.0/modules/modules.php:11, ../profile-builder-2.0/modules/modules.php:11, ../profile-builder-2.0/modules/modules.php:56
 msgid "Modules"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/modules.php:59
+#: ../profile-builder-2.0/modules/modules.php:57
 msgid "Here you can activate / deactivate available modules for Profile Builder."
 msgstr ""
 
-#: ../profile-builder-2.0/modules/modules.php:69
+#: ../profile-builder-2.0/modules/modules.php:67
 msgid "Name/Description"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/modules.php:70
+#: ../profile-builder-2.0/modules/modules.php:68
 msgid "Status"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/modules.php:77, ../profile-builder-2.0/modules/modules.php:84, ../profile-builder-2.0/modules/modules.php:91, ../profile-builder-2.0/modules/modules.php:98, ../profile-builder-2.0/modules/modules.php:105, ../profile-builder-2.0/modules/modules.php:112, ../profile-builder-2.0/modules/modules.php:119
+#: ../profile-builder-2.0/modules/modules.php:75, ../profile-builder-2.0/modules/modules.php:82, ../profile-builder-2.0/modules/modules.php:89, ../profile-builder-2.0/modules/modules.php:101, ../profile-builder-2.0/modules/modules.php:108, ../profile-builder-2.0/modules/modules.php:115
 msgid "Active"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/modules.php:78, ../profile-builder-2.0/modules/modules.php:85, ../profile-builder-2.0/modules/modules.php:92, ../profile-builder-2.0/modules/modules.php:99, ../profile-builder-2.0/modules/modules.php:106, ../profile-builder-2.0/modules/modules.php:113, ../profile-builder-2.0/modules/modules.php:120
+#: ../profile-builder-2.0/modules/modules.php:76, ../profile-builder-2.0/modules/modules.php:83, ../profile-builder-2.0/modules/modules.php:90, ../profile-builder-2.0/modules/modules.php:102, ../profile-builder-2.0/modules/modules.php:109, ../profile-builder-2.0/modules/modules.php:116
 msgid "Inactive"
-msgstr ""
-
-#: ../profile-builder-2.0/modules/modules.php:96, ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:11, ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:12
-msgid "Admin Email Customizer"
-msgstr ""
-
-#: ../profile-builder-2.0/modules/modules.php:103, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:11, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:12
-msgid "User Email Customizer"
 msgstr ""
 
 #: ../profile-builder-2.0/assets/misc/plugin-compatibilities.php:237
@@ -4813,15 +4825,15 @@ msgstr ""
 msgid "Approve"
 msgstr ""
 
-#: ../profile-builder-2.0/features/admin-approval/class-admin-approval.php:167, ../profile-builder-2.0/modules/user-listing/userlisting.php:304, ../profile-builder-2.0/modules/user-listing/userlisting.php:781, ../profile-builder-2.0/modules/user-listing/userlisting.php:2274
+#: ../profile-builder-2.0/features/admin-approval/class-admin-approval.php:167, ../profile-builder-2.0/modules/user-listing/userlisting.php:304, ../profile-builder-2.0/modules/user-listing/userlisting.php:781, ../profile-builder-2.0/modules/user-listing/userlisting.php:2286
 msgid "Firstname"
 msgstr ""
 
-#: ../profile-builder-2.0/features/admin-approval/class-admin-approval.php:168, ../profile-builder-2.0/modules/user-listing/userlisting.php:784, ../profile-builder-2.0/modules/user-listing/userlisting.php:2275
+#: ../profile-builder-2.0/features/admin-approval/class-admin-approval.php:168, ../profile-builder-2.0/modules/user-listing/userlisting.php:784, ../profile-builder-2.0/modules/user-listing/userlisting.php:2287
 msgid "Lastname"
 msgstr ""
 
-#: ../profile-builder-2.0/features/admin-approval/class-admin-approval.php:170, ../profile-builder-2.0/features/roles-editor/roles-editor.php:255, ../profile-builder-2.0/modules/user-listing/userlisting.php:159, ../profile-builder-2.0/modules/user-listing/userlisting.php:305, ../profile-builder-2.0/modules/user-listing/userlisting.php:811, ../profile-builder-2.0/modules/user-listing/userlisting.php:2279
+#: ../profile-builder-2.0/features/admin-approval/class-admin-approval.php:170, ../profile-builder-2.0/features/roles-editor/roles-editor.php:255, ../profile-builder-2.0/modules/user-listing/userlisting.php:159, ../profile-builder-2.0/modules/user-listing/userlisting.php:305, ../profile-builder-2.0/modules/user-listing/userlisting.php:811, ../profile-builder-2.0/modules/user-listing/userlisting.php:2291
 msgid "Role"
 msgstr ""
 
@@ -4889,15 +4901,15 @@ msgstr ""
 msgid "Display Options"
 msgstr ""
 
-#: ../profile-builder-2.0/features/content-restriction/content-restriction-meta-box.php:36, ../profile-builder-2.0/features/content-restriction/content-restriction.php:56
+#: ../profile-builder-2.0/features/content-restriction/content-restriction-meta-box.php:36, ../profile-builder-2.0/features/content-restriction/content-restriction.php:98
 msgid "Message"
 msgstr ""
 
-#: ../profile-builder-2.0/features/content-restriction/content-restriction-meta-box.php:36, ../profile-builder-2.0/features/content-restriction/content-restriction.php:61, ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:206, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:230
+#: ../profile-builder-2.0/features/content-restriction/content-restriction-meta-box.php:36, ../profile-builder-2.0/features/content-restriction/content-restriction.php:103, ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:206, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:230
 msgid "Redirect"
 msgstr ""
 
-#: ../profile-builder-2.0/features/content-restriction/content-restriction-meta-box.php:41, ../profile-builder-2.0/features/content-restriction/content-restriction.php:51
+#: ../profile-builder-2.0/features/content-restriction/content-restriction-meta-box.php:41, ../profile-builder-2.0/features/content-restriction/content-restriction.php:93
 msgid "Type of Restriction"
 msgstr ""
 
@@ -4957,39 +4969,51 @@ msgstr ""
 msgid "Messages for logged-in users"
 msgstr ""
 
-#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:64
+#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:62
+msgid "Content Restriction Settings"
+msgstr ""
+
+#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:82
+msgid "Enable Content Restriction"
+msgstr ""
+
+#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:88
+msgid "Activate Content Restriction"
+msgstr ""
+
+#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:106
 msgid "If you select \"Message\", the post's content will be protected by being replaced with a custom message."
 msgstr ""
 
-#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:65
+#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:107
 msgid "If you select \"Redirect\", the post's content will be protected by redirecting the user to the URL you specify. The redirect happens only when accessing a single post. On archive pages the restriction message will be displayed, instead of the content."
 msgstr ""
 
-#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:70, ../profile-builder-2.0/modules/custom-redirects/custom_redirects_admin.php:68, ../profile-builder-2.0/modules/custom-redirects/custom_redirects_admin.php:98, ../profile-builder-2.0/modules/custom-redirects/custom_redirects_admin.php:117, ../profile-builder-2.0/modules/custom-redirects/custom_redirects_admin.php:142
+#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:112, ../profile-builder-2.0/modules/custom-redirects/custom_redirects_admin.php:68, ../profile-builder-2.0/modules/custom-redirects/custom_redirects_admin.php:98, ../profile-builder-2.0/modules/custom-redirects/custom_redirects_admin.php:117, ../profile-builder-2.0/modules/custom-redirects/custom_redirects_admin.php:142
 msgid "Redirect URL"
 msgstr ""
 
-#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:75
+#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:117
 msgid "Message for logged-out users"
 msgstr ""
 
-#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:80
+#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:122
 msgid "Message for logged-in users"
 msgstr ""
 
-#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:85
+#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:127
 msgid "Restricted Posts Preview"
 msgstr ""
 
-#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:100
+#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:142
 msgid "Show the first %s words of the post's content"
 msgstr ""
 
-#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:108
+#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:150
 msgid "Show the content before the \"more\" tag"
 msgstr ""
 
-#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:112
+#: ../profile-builder-2.0/features/content-restriction/content-restriction.php:154
 msgid "Show a portion of the restricted post to logged-out users or users that are not allowed to see it."
 msgstr ""
 
@@ -5069,7 +5093,7 @@ msgstr ""
 msgid "There was an error while trying to activate the user"
 msgstr ""
 
-#: ../profile-builder-2.0/features/email-confirmation/email-confirmation.php:522, ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:69
+#: ../profile-builder-2.0/features/email-confirmation/email-confirmation.php:522, ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:76
 msgid "A new subscriber has (been) registered!"
 msgstr ""
 
@@ -5081,7 +5105,7 @@ msgstr ""
 msgid "[%1$s] Your new account information"
 msgstr ""
 
-#: ../profile-builder-2.0/features/email-confirmation/email-confirmation.php:580, ../profile-builder-2.0/features/email-confirmation/email-confirmation.php:589, ../profile-builder-2.0/modules/email-customizer/email-customizer.php:494, ../profile-builder-2.0/modules/email-customizer/email-customizer.php:501, ../profile-builder-2.0/modules/email-customizer/email-customizer.php:515
+#: ../profile-builder-2.0/features/email-confirmation/email-confirmation.php:580, ../profile-builder-2.0/features/email-confirmation/email-confirmation.php:589, ../profile-builder-2.0/modules/email-customizer/email-customizer.php:498, ../profile-builder-2.0/modules/email-customizer/email-customizer.php:505, ../profile-builder-2.0/modules/email-customizer/email-customizer.php:519
 msgid "Your selected password at signup"
 msgstr ""
 
@@ -5393,31 +5417,39 @@ msgstr ""
 msgid "You can't add duplicate redirects!"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:38
+#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:11
+msgid "Admin Email Customizer"
+msgstr ""
+
+#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:12
+msgid "Admin Email Customizer Settings"
+msgstr ""
+
+#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:45
 msgid "These settings are also replicated in the \"User Email Customizer\" settings-page upon save."
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:38, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:38
+#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:45, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:45
 msgid "Valid tags {{reply_to}} and {{site_name}}"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:41, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:41
+#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:48, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:48
 msgid "From (name)"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:49, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:49
+#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:56, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:56
 msgid "From (reply-to email)"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:54, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:54
+#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:61, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:61
 msgid "Must be a valid email address or the tag {{reply_to}} which defaults to the administrator email"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:57, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:57
+#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:64, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:64
 msgid "Common Settings"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:60
+#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:67
 msgid ""
 "<p>New subscriber on {{site_name}}.</p>\n"
 "<p>Username:{{username}}</p>\n"
@@ -5425,15 +5457,15 @@ msgid ""
 ""
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:65, ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:89, ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:113, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:68, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:92, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:117, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:141, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:166, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:191, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:216, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:243
+#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:72, ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:96, ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:120, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:75, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:99, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:124, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:148, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:173, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:198, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:223, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:250
 msgid "Email Subject"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:80
+#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:87
 msgid "Default Registration & Registration with Email Confirmation"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:83
+#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:90
 msgid ""
 "<p>New subscriber on {{site_name}}.</p>\n"
 "<p>Username:{{username}}</p>\n"
@@ -5442,18 +5474,18 @@ msgid ""
 "so please remember that you need to approve this user before he/she can log in!</p>"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:104, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:132
+#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:111, ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:139
 msgid "Registration with Admin Approval"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:107
+#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:114
 msgid ""
 "<p>{{username}} has requested a password change via the password reset feature.</p>\n"
 "<p>His/her new password is: {{password}}</p>\n"
 ""
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:128
+#: ../profile-builder-2.0/modules/email-customizer/admin-email-customizer.php:135
 msgid "Admin Notification for User Password Reset"
 msgstr ""
 
@@ -5521,22 +5553,30 @@ msgstr ""
 msgid "Approve User Link"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/email-customizer.php:486
+#: ../profile-builder-2.0/modules/email-customizer/email-customizer.php:490
 msgid "The users selected password at signup"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:38
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:11
+msgid "User Email Customizer"
+msgstr ""
+
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:12
+msgid "User Email Customizer Settings"
+msgstr ""
+
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:45
 msgid "These settings are also replicated in the \"Admin Email Customizer\" settings-page upon save."
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:64
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:71
 msgid ""
 "<h3>Welcome to {{site_name}}!</h3>\n"
 "<p>Your username is:{{username}} and password:{{password}}</p>\n"
 ""
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:88
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:95
 msgid ""
 "<p>To activate your user, please click the following link:<br/>\n"
 "{{{activation_link}}}</p>\n"
@@ -5544,15 +5584,15 @@ msgid ""
 ""
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:96
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:103
 msgid "[{{site_name}}] Activate {{username}}"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:107
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:114
 msgid "Registration with Email Confirmation"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:113
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:120
 msgid ""
 "<h3>Welcome to {{site_name}}!</h3>\n"
 "<p>Your username is:{{username}} and password:{{password}}</p>\n"
@@ -5560,41 +5600,41 @@ msgid ""
 ""
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:121
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:128
 msgid "A new account has been created for you on {{site_name}}"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:137
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:144
 msgid ""
 "<h3>Good News!</h3>\n"
 "<p>An administrator has just approved your account: {{username}} on {{site_name}}.</p>\n"
 ""
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:145
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:152
 msgid "Your account on {{site_name}} has been approved!"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:156
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:163
 msgid "User Approval Notification"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:161
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:168
 msgid ""
 "<h3>Hello,</h3>\n"
 "<p>Unfortunatelly an administrator has just unapproved your account: {{username}} on {{site_name}}.</p>\n"
 ""
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:170
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:177
 msgid "Your account on {{site_name}} has been unapproved!"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:181
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:188
 msgid "Unapproved User Notification"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:187
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:194
 msgid ""
 "<p>Someone requested that the password be reset for the following account: {{site_name}}<br/>\n"
 "Username: {{username}}</p>\n"
@@ -5604,29 +5644,29 @@ msgid ""
 ""
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:195
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:202
 msgid "[{{site_name}}] Password Reset"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:206
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:213
 msgid "Password Reset Email"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:212
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:219
 msgid ""
 "<p>You have successfully reset your password.</p>\n"
 ""
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:220
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:227
 msgid "[{{site_name}}] Password Reset Successfully"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:231
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:238
 msgid "Password Reset Success Email"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:239
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:246
 msgid ""
 "<h3>Hi {{username}},</h3>\n"
 "<p>This notice confirms that your email was changed on {{site_name}}.</p>\n"
@@ -5637,11 +5677,11 @@ msgid ""
 "<a href=\"{{site_url}}\">{{site_url}}</a></p>"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:247
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:254
 msgid "[{{site_name}}] Notice of Email Change"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:258
+#: ../profile-builder-2.0/modules/email-customizer/user-email-customizer.php:265
 msgid "Changed Email Address Notification"
 msgstr ""
 
@@ -5685,27 +5725,27 @@ msgstr ""
 msgid "No Edit-profile Forms found in trash"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:135, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:138, ../profile-builder-2.0/modules/user-listing/userlisting.php:2165
+#: ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:135, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:138, ../profile-builder-2.0/modules/user-listing/userlisting.php:2177
 msgid "Shortcode"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:155, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:159, ../profile-builder-2.0/modules/user-listing/userlisting.php:2186
+#: ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:155, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:159, ../profile-builder-2.0/modules/user-listing/userlisting.php:2198
 msgid "(no title)"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:175, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:178, ../profile-builder-2.0/modules/user-listing/userlisting.php:2206
+#: ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:175, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:178, ../profile-builder-2.0/modules/user-listing/userlisting.php:2218
 msgid "The shortcode will be available after you publish this form."
 msgstr ""
 
-#: ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:177, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:180, ../profile-builder-2.0/modules/user-listing/userlisting.php:2208
+#: ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:177, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:180, ../profile-builder-2.0/modules/user-listing/userlisting.php:2220
 msgid "Use this shortcode on the page you want the form to be displayed:"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:181, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:184, ../profile-builder-2.0/modules/user-listing/userlisting.php:2212
+#: ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:181, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:184, ../profile-builder-2.0/modules/user-listing/userlisting.php:2224
 msgid "<span style=\"color:red;\">Note:</span> changing the form title also changes the shortcode!"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:187, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:190, ../profile-builder-2.0/modules/user-listing/userlisting.php:2245
+#: ../profile-builder-2.0/modules/multiple-forms/edit-profile-forms.php:187, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:190, ../profile-builder-2.0/modules/user-listing/userlisting.php:2257
 msgid "Form Shortcode"
 msgstr ""
 
@@ -5755,10 +5795,6 @@ msgstr ""
 
 #: ../profile-builder-2.0/modules/multiple-forms/multiple-forms.php:406
 msgid "Delete all items"
-msgstr ""
-
-#: ../profile-builder-2.0/modules/multiple-forms/register-forms.php:11, ../profile-builder-2.0/modules/multiple-forms/register-forms.php:12
-msgid "Registration Form"
 msgstr ""
 
 #: ../profile-builder-2.0/modules/multiple-forms/register-forms.php:14
@@ -5857,11 +5893,11 @@ msgstr ""
 msgid "Display name as"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:161, ../profile-builder-2.0/modules/user-listing/userlisting.php:2273
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:161, ../profile-builder-2.0/modules/user-listing/userlisting.php:2285
 msgid "Registration Date"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:162, ../profile-builder-2.0/modules/user-listing/userlisting.php:2278
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:162, ../profile-builder-2.0/modules/user-listing/userlisting.php:2290
 msgid "Number of Posts"
 msgstr ""
 
@@ -5897,7 +5933,7 @@ msgstr ""
 msgid "Search all Fields"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:227, ../profile-builder-2.0/modules/user-listing/userlisting.php:2360
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:227, ../profile-builder-2.0/modules/user-listing/userlisting.php:2372
 msgid "Faceted Menus"
 msgstr ""
 
@@ -5949,271 +5985,271 @@ msgstr ""
 msgid "First/Lastname"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:787, ../profile-builder-2.0/modules/user-listing/userlisting.php:2276
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:787, ../profile-builder-2.0/modules/user-listing/userlisting.php:2288
 msgid "Display Name"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:799, ../profile-builder-2.0/modules/user-listing/userlisting.php:2283
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:799, ../profile-builder-2.0/modules/user-listing/userlisting.php:2295
 msgid "Aim"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:802, ../profile-builder-2.0/modules/user-listing/userlisting.php:2284
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:802, ../profile-builder-2.0/modules/user-listing/userlisting.php:2296
 msgid "Yim"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:805, ../profile-builder-2.0/modules/user-listing/userlisting.php:2285
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:805, ../profile-builder-2.0/modules/user-listing/userlisting.php:2297
 msgid "Jabber"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1077, ../profile-builder-2.0/modules/user-listing/userlisting.php:1537, ../profile-builder-2.0/modules/user-listing/userlisting.php:2003, ../profile-builder-2.0/modules/user-listing/userlisting.php:2480
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1083, ../profile-builder-2.0/modules/user-listing/userlisting.php:1543, ../profile-builder-2.0/modules/user-listing/userlisting.php:2015, ../profile-builder-2.0/modules/user-listing/userlisting.php:2492
 msgid "Search Users by All Fields"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1342
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1348
 msgid "Click here to see more information about this user"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1342, ../profile-builder-2.0/modules/user-listing/userlisting.php:1342
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1348, ../profile-builder-2.0/modules/user-listing/userlisting.php:1348
 msgid "More..."
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1345
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1351
 msgid "Click here to see more information about this user."
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1372
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1378
 msgid "View Map"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1491, ../profile-builder-2.0/modules/user-listing/userlisting.php:1494
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1497, ../profile-builder-2.0/modules/user-listing/userlisting.php:1500
 msgid "Click here to go back"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1491, ../profile-builder-2.0/modules/user-listing/userlisting.php:1491
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1497, ../profile-builder-2.0/modules/user-listing/userlisting.php:1497
 msgid "Back"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1524
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1530
 msgid "&laquo;&laquo; First"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1525
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1531
 msgid "&laquo; Prev"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1526
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1532
 msgid "Next &raquo; "
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1527
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1533
 msgid "Last &raquo;&raquo;"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1556
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1562
 msgid "You don't have any pagination settings on this userlisting!"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1605
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1611
 msgid "Show All"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1673
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1685
 msgid "Choose..."
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1762
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1774
 msgid "No options available"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1911
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:1923
 msgid "Remove All Filters"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2020
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2032
 msgid "Search"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2021
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2033
 msgid "Clear Results"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2215, ../profile-builder-2.0/modules/user-listing/userlisting.php:2219
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2227, ../profile-builder-2.0/modules/user-listing/userlisting.php:2231
 msgid "Extra shortcode parameters"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2217
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2229
 msgid "View all extra shortcode parameters"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2222
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2234
 msgid "displays users having a certain meta-value within a certain (extra) meta-field"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2223
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2235
 msgid "Example:"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2225
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2237
 msgid "Remember though, that the field-value combination must exist in the database."
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2231
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2243
 msgid "displays only the users that you specified the user_id for"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2237
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2249
 msgid "displays all users except the ones you specified the user_id for"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2300
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2312
 msgid "Random (very slow on large databases > 10K user)"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2303
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2315
 msgid "Ascending"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2304
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2316
 msgid "Descending"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2312
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2324
 msgid "Roles to Display"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2312
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2324
 msgid "Restrict the userlisting to these selected roles only<br/>If not specified, defaults to all existing roles"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2313
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2325
 msgid "Number of Users/Page"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2313
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2325
 msgid "Set the number of users to be displayed on every paginated part of the all-userlisting"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2314
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2326
 msgid "Default Sorting Criteria"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2314
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2326
 msgid "Set the default sorting criteria<br/>This can temporarily be changed for each new session"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2315
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2327
 msgid "Default Sorting Order"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2315
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2327
 msgid "Set the default sorting order<br/>This can temporarily be changed for each new session"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2316
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2328
 msgid "Avatar Size (All-userlisting)"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2316
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2328
 msgid "Set the avatar size on the all-userlisting only"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2317
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2329
 msgid "Avatar Size (Single-userlisting)"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2317
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2329
 msgid "Set the avatar size on the single-userlisting only"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2318
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2330
 msgid "Visible only to logged in users?"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2318
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2330
 msgid "The userlisting will only be visible only to the logged in users"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2319
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2331
 msgid "Visible to following Roles"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2319
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2331
 msgid "The userlisting will only be visible to the following roles"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2325
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2337
 msgid "Userlisting Settings"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2350
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2362
 msgid "Label"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2350
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2362
 msgid "Choose the facet name that appears on the frontend"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2351
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2363
 msgid "Facet Type"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2351
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2363
 msgid "Choose the facet menu type"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2352
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2364
 msgid "Facet Meta"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2352
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2364
 msgid "Choose the meta field for the facet menu"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2353
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2365
 msgid "Behaviour"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2353
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2365
 msgid "Narrow the results"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2353
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2365
 msgid "Expand the results"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2353
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2365
 msgid "Choose how multiple selections affect the results"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2354
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2366
 msgid "Visible choices"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2354
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2366
 msgid "Show a toggle link after this many choices. Leave blank for all"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2379
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2391
 msgid "Search Fields"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2379
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2391
 msgid "Choose the fields in which the Search Field will look in"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2384
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2396
 msgid "Search Settings"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2456
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2468
 msgid "You need to activate the Userlisting feature from within the \"Modules\" tab!"
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2456
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2468
 msgid "You can find it in the Profile Builder menu."
 msgstr ""
 
-#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2619
+#: ../profile-builder-2.0/modules/user-listing/userlisting.php:2631
 msgid "No results found!"
 msgstr ""
 

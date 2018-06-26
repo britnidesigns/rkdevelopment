@@ -331,6 +331,17 @@
 	width: 67%;
 	margin:0;
 }
+
+.wppb-2-1-col > div {
+    float:left;
+    width:67%;
+    margin-right:5%;
+}
+.wppb-2-1-col > div:last-child{
+    float:right;
+    width: 28%;
+    margin:0;
+}
 /* Extra Form Styles */
 .wppb-text{
     min-width: 16.4em;
@@ -768,4 +779,45 @@ div.wppb-notice .notice-dismiss {
     .profile-builder_page_manage-fields .select2-results{
         max-height: 800px;
     }
+}
+
+.wppb-auto-form-creation{
+    margin:50px 0 30px;
+    padding:20px;
+    background-color: #fff9e8;
+    border: 1px solid #ffba00;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.wppb-auto-form-creation.wppb-forms-created{
+    background-color: #edffe8;
+    border: 1px solid #46b450;
+}
+
+.wppb-auto-form-creation a.button{
+    margin-top: 5px;
+}
+
+.wppb-subtabs{
+    padding:7px 0 8px;
+    float:none;
+}
+
+.wppb-subtabs li{
+    padding:0 5px;
+    border-right:1px solid #ddd;
+}
+
+.wppb-subtabs li:last-child{
+    border-right:none;
+}
+
+.wppb-subtabs a{
+    letter-spacing:0 !important;
+    font-size:14px;
+}
+
+.profile-builder_page_user-email-customizer #poststuff, .profile-builder_page_admin-email-customizer  #poststuff{
+    padding:0;
 }

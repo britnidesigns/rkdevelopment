@@ -1,21 +1,39 @@
 <?php
 
 $wppb_generalSettings = get_option( 'wppb_general_settings', 'not_found' );
-if( $wppb_generalSettings != 'not_found' ) {
-    if( ! empty( $wppb_generalSettings['contentRestriction'] ) && ( $wppb_generalSettings['contentRestriction'] == 'yes' ) ) {
-        include_once 'content-restriction-meta-box.php';
-        include_once 'content-restriction-functions.php';
-        include_once 'content-restriction-filtering.php';
-
-        add_action( 'admin_menu', 'wppb_content_restriction_submenu', 10 );
-        add_action( 'admin_enqueue_scripts', 'wppb_content_restriction_scripts_styles' );
+$wppb_content_restriction_settings = get_option( 'wppb_content_restriction_settings', 'not_found' );
+if( $wppb_generalSettings != 'not_found' || $wppb_content_restriction_settings != 'not_found' ) {
+    global $content_restriction_activated;
+    $content_restriction_activated = 'no';
+    if( !empty( $wppb_content_restriction_settings['contentRestriction'] ) ){
+        $content_restriction_activated = $wppb_content_restriction_settings['contentRestriction'];
     }
+    elseif( !empty( $wppb_generalSettings['contentRestriction'] ) ){
+        $content_restriction_activated = $wppb_generalSettings['contentRestriction'];
+    }
+    if( $content_restriction_activated == 'yes' ) {
+        include_once 'content-restriction-meta-box.php';
+        include_once 'content-restriction-filtering.php';
+    }
+    include_once 'content-restriction-functions.php';
 }
+
+add_action( 'admin_menu', 'wppb_content_restriction_submenu', 10 );
+add_action( 'admin_enqueue_scripts', 'wppb_content_restriction_scripts_styles' );
 
 function wppb_content_restriction_submenu() {
 
     add_submenu_page( 'profile-builder', __( 'Content Restriction', 'profile-builder' ), __( 'Content Restriction', 'profile-builder' ), 'manage_options', 'profile-builder-content_restriction', 'wppb_content_restriction_content' );
 
+}
+
+/* hide the menu item for Content restriction if it is disabled...in v 2.8.9 or 2.9.0 we should remove all the unnecessary tab menus */
+add_action( 'admin_head', 'wppb_hide_content_restriction_menu' );
+function wppb_hide_content_restriction_menu(){
+    global $content_restriction_activated;
+    if( $content_restriction_activated == 'no' ){
+        echo '<style type="text/css">a[href="admin.php?page=profile-builder-content_restriction"]{display:none !important;}</style>';
+    }
 }
 
 function wppb_content_restriction_settings_defaults() {
@@ -41,12 +59,36 @@ function wppb_content_restriction_content() {
 
     ?>
     <div class="wrap wppb-content-restriction-wrap">
-        <h2><?php _e( 'Content Restriction', 'profile-builder' ); ?></h2>
+        <h2><?php _e( 'Content Restriction Settings', 'profile-builder' ); ?></h2>
+
+        <?php wppb_generate_settings_tabs() ?>
 
         <form method="post" action="options.php">
             <?php settings_fields( 'wppb_content_restriction_settings' ); ?>
 
             <div id="wppb-settings-content-restriction">
+
+                <?php
+                    $wppb_generalSettings = get_option( 'wppb_general_settings' );
+                    $content_restriction_activated = 'no';
+                    if( !empty( $wppb_content_restriction_settings['contentRestriction'] ) ){
+                        $content_restriction_activated = $wppb_content_restriction_settings['contentRestriction'];
+                    }
+                    elseif( !empty( $wppb_generalSettings['contentRestriction'] ) ){
+                        $content_restriction_activated = $wppb_generalSettings['contentRestriction'];
+                    }
+                    ?>
+                     <div class="wppb-restriction-fields-group">                        
+                         <label class="wppb-restriction-label" for="contentRestrictionSelect"><?php _e( 'Enable Content Restriction', 'profile-builder' ); ?></label>
+                         <div class="wppb-restriction-activated">
+                            <select id="contentRestrictionSelect" name="wppb_content_restriction_settings[contentRestriction]">
+                                <option value="no" <?php if( $content_restriction_activated == 'no' ) echo 'selected'; ?>><?php _e( 'No', 'profile-builder' ); ?></option>
+                                <option value="yes" <?php if( $content_restriction_activated == 'yes' ) echo 'selected'; ?>><?php _e( 'Yes', 'profile-builder' ); ?></option>
+                            </select>
+                             <p class="description"><?php _e( 'Activate Content Restriction', 'profile-builder' ); ?></p>
+                        </div>
+                     </div>
+
                 <div class="wppb-restriction-fields-group">
                     <label class="wppb-restriction-label"><?php _e( 'Type of Restriction', 'profile-builder' ); ?></label>
 
@@ -114,7 +156,7 @@ function wppb_content_restriction_content() {
                 </div>
             </div>
 
-            <?php submit_button( __( 'Save Settings', 'profile-builder' ) ); ?>
+            <?php submit_button( __( 'Save Changes', 'profile-builder' ) ); ?>
         </form>
     </div>
     <?php

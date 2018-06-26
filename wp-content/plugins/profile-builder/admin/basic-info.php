@@ -30,18 +30,33 @@ function wppb_basic_info_content() {
 		<h1><?php printf( __( '<strong>Profile Builder </strong> %s', 'profile-builder' ), $version ); ?></h1>
 		<p class="wppb-info-text"><?php printf( __( 'The best way to add front-end registration, edit profile and login forms.', 'profile-builder' ) ); ?></p>
 		<hr />
-		<h2 class="wppb-callout"><?php _e( 'For Modern User Interaction', 'profile-builder' ); ?></h2>
+		<?php
+		$wppb_pages_created = get_option( 'wppb_pages_created' );
+		$shortcode_pages_query = new WP_Query( array( 'post_type' => 'page', 's' => '[wppb-' ) );
+		if( empty( $wppb_pages_created ) && !$shortcode_pages_query->have_posts() ){
+		?>
+			<div class="wppb-auto-form-creation wppb-2-1-col">
+				<div><h3><?php _e( 'Speed up the setup process by automatically creating the form pages:', 'profile-builder' ); ?></h3></div>
+				<div><a href="<?php echo admin_url('admin.php?page=profile-builder-basic-info&wppb_create_pages=true') ?>" class="button primary button-primary button-hero"><?php _e( 'Create Form Pages', 'profile-builder' ); ?></a></div>
+			</div>
+		<?php }else{ ?>
+			<div class="wppb-auto-form-creation wppb-forms-created wppb-2-1-col">
+				<div><h3><?php _e( 'You can see all the pages with Profile Builder form shortcodes here:', 'profile-builder' ); ?></h3></div>
+				<div><a href="<?php echo admin_url('edit.php?s=%5Bwppb-&post_status=all&post_type=page&action=-1&m=0&paged=1&action2=-1') ?>" class="button primary button-primary button-hero"><?php _e( 'View Form Pages', 'profile-builder' ); ?></a></div>
+			</div>
+		<?php } ?>
+
 		<div class="wppb-row wppb-3-col">
 			<div>
-				<h3><?php _e( 'Login', 'profile-builder' ); ?></h3>
+				<h3><?php _e( 'Login Form', 'profile-builder' ); ?></h3>
 				<p><?php printf( __( 'Friction-less login using %s shortcode or a widget.', 'profile-builder' ), '<strong class="nowrap">[wppb-login]</strong>' ); ?></p>
 			</div>
 			<div>
-				<h3><?php _e( 'Registration', 'profile-builder'  ); ?></h3>
+				<h3><?php _e( 'Registration Form', 'profile-builder'  ); ?></h3>
 				<p><?php printf( __( 'Beautiful registration forms fully customizable using the %s shortcode.', 'profile-builder' ), '<strong class="nowrap">[wppb-register]</strong>' ); ?></p>
 			</div>
 			<div>
-				<h3><?php _e( 'Edit Profile', 'profile-builder' ); ?></h3>
+				<h3><?php _e( 'Edit Profile Form', 'profile-builder' ); ?></h3>
 				<p><?php printf( __( 'Straight forward edit profile forms using %s shortcode.', 'profile-builder' ), '<strong class="nowrap">[wppb-edit-profile]</strong>' ); ?></p>
 			</div>
 		</div>

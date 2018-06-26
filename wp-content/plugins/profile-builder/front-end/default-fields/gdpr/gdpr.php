@@ -6,7 +6,10 @@ function wppb_gdpr_handler( $output, $form_location, $field, $user_id, $field_ch
             $item_title = apply_filters( 'wppb_'.$form_location.'_gdpr_custom_field_'.$field['id'].'_item_title', wppb_icl_t( 'plugin profile-builder-pro', 'custom_field_'.$field['id'].'_title_translation', $field['field-title'] ) );
             $item_description = wppb_icl_t( 'plugin profile-builder-pro', 'custom_field_'.$field['id'].'_description_translation', $field['description'] );
 
-            $input_value = ( isset( $request_data[wppb_handle_meta_name( $field['meta-name'] )] ) ? trim( $request_data[wppb_handle_meta_name( $field['meta-name'] )] ) : '' );
+            if( $form_location != 'register' )
+                $input_value = ((wppb_user_meta_exists($user_id, $field['meta-name']) != null) ? get_user_meta($user_id, $field['meta-name'], true) : '');
+            else
+                $input_value = ( isset( $request_data[wppb_handle_meta_name( $field['meta-name'] )] ) ? trim( $request_data[wppb_handle_meta_name( $field['meta-name'] )] ) : '' );
 
             $error_mark = ( ( $field['required'] == 'Yes' ) ? '<span class="wppb-required" title="'.wppb_required_field_error($field["field-title"]).'">*</span>' : '' );
             if ( array_key_exists( $field['id'], $field_check_errors ) )
@@ -33,7 +36,7 @@ add_filter( 'wppb_output_form_field_gdpr-checkbox', 'wppb_gdpr_handler', 10, 6 )
 /* handle field save */
 function wppb_save_gdpr_value( $field, $user_id, $request_data, $form_location ){
     if( $field['field'] == 'GDPR Checkbox' ){
-        if ( $form_location == 'register' ){
+        if ( $form_location == 'register' || $form_location == 'edit_profile' ){
             if ( isset( $request_data[wppb_handle_meta_name( $field['meta-name'] )] ) )
                 update_user_meta( $user_id, $field['meta-name'], $request_data[wppb_handle_meta_name( $field['meta-name'] )] );
         }

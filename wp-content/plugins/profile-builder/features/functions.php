@@ -762,19 +762,6 @@ add_filter('wck_metabox_content_header_wppb_rf_page_settings', 'wppb_change_meta
 add_filter('wck_metabox_content_header_wppb_epf_page_settings', 'wppb_change_metabox_content_header', 1);
 
 
-/* Add a notice if people are not able to register via Profile Builder; Membership -> "Anyone can register" checkbox is not checked under WordPress admin UI -> Settings -> General tab */
-if ( (get_option('users_can_register') == false) && (!class_exists('PMS_Add_General_Notices')) ) {
-    if( is_multisite() ) {
-        new WPPB_Add_General_Notices('wppb_anyone_can_register',
-            sprintf(__('To allow users to register for your website via Profile Builder, you first must enable user registration. Go to %1$sNetwork Settings%2$s, and under Registration Settings make sure to check “User accounts may be registered”. %3$sDismiss%4$s', 'profile-builder'), "<a href='" . network_admin_url('settings.php') . "'>", "</a>", "<a href='" . esc_url( add_query_arg('wppb_anyone_can_register_dismiss_notification', '0') ) . "'>", "</a>"),
-            'update-nag');
-    }else{
-        new WPPB_Add_General_Notices('wppb_anyone_can_register',
-            sprintf(__('To allow users to register for your website via Profile Builder, you first must enable user registration. Go to %1$sSettings -> General%2$s tab, and under Membership make sure to check “Anyone can register”. %3$sDismiss%4$s', 'profile-builder'), "<a href='" . admin_url('options-general.php') . "'>", "</a>", "<a href='" . esc_url( add_query_arg('wppb_anyone_can_register_dismiss_notification', '0') ) . "'>", "</a>"),
-            'update-nag');
-    }
-}
-
 /*Filter default WordPress notices ("Post published. Post updated."), add post type name for User Listing, Registration Forms and Edit Profile Forms*/
 function wppb_change_default_post_updated_messages($messages){
     global $post;

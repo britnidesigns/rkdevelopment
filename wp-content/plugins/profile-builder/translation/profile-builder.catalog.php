@@ -441,10 +441,15 @@
 <?php __("Basic Information", "profile-builder"); ?>
 <?php __("<strong>Profile Builder </strong> %s", "profile-builder"); ?>
 <?php __("The best way to add front-end registration, edit profile and login forms.", "profile-builder"); ?>
-<?php __("For Modern User Interaction", "profile-builder"); ?>
+<?php __("Speed up the setup process by automatically creating the form pages:", "profile-builder"); ?>
+<?php __("Create Form Pages", "profile-builder"); ?>
+<?php __("You can see all the pages with Profile Builder form shortcodes here:", "profile-builder"); ?>
+<?php __("View Form Pages", "profile-builder"); ?>
+<?php __("Login Form", "profile-builder"); ?>
 <?php __("Friction-less login using %s shortcode or a widget.", "profile-builder"); ?>
-<?php __("Registration", "profile-builder"); ?>
+<?php __("Registration Form", "profile-builder"); ?>
 <?php __("Beautiful registration forms fully customizable using the %s shortcode.", "profile-builder"); ?>
+<?php __("Edit Profile Form", "profile-builder"); ?>
 <?php __("Straight forward edit profile forms using %s shortcode.", "profile-builder"); ?>
 <?php __("Extra Features", "profile-builder"); ?>
 <?php __("Features that give you more control over your users, increased security and help you fight user registration spam.", "profile-builder"); ?>
@@ -509,6 +514,10 @@
 <?php __("Because we care about our clients, please leave us feedback on why you are no longer using our plugin.", "profile-builder"); ?>
 <?php __("Skip and Deactivate", "profile-builder"); ?>
 <?php __("Submit and Deactivate", "profile-builder"); ?>
+<?php __("Admin Bar", "profile-builder"); ?>
+<?php __("User Emails", "profile-builder"); ?>
+<?php __("Administrator Emails", "profile-builder"); ?>
+<?php __("Profile Builder Settings", "profile-builder"); ?>
 <?php __("Load Profile Builder's own CSS file in the front-end:", "profile-builder"); ?>
 <?php __("You can find the default file here: %1$s", "profile-builder"); ?>
 <?php __("\"Email Confirmation\" Activated:", "profile-builder"); ?>
@@ -523,8 +532,6 @@
 <?php __("Select on what user roles to activate Admin Approval.", "profile-builder"); ?>
 <?php __("\"Roles Editor\" Activated:", "profile-builder"); ?>
 <?php __("You can add / edit user roles at %1$sUsers > Roles Editor%2$s.", "profile-builder"); ?>
-<?php __("\"Content Restriction\" Activated:", "profile-builder"); ?>
-<?php __("Set your settings at %1$sProfile Builder > Content Restriction%2$s and use each page / post / custom post type individual meta-box to restrict content.", "profile-builder"); ?>
 <?php __("\"Admin Approval\" Feature:", "profile-builder"); ?>
 <?php __("You decide who is a user on your website. Get notified via email or approve multiple users at once from the WordPress UI. Enable Admin Approval by upgrading to %1$sHobbyist or PRO versions%2$s.", "profile-builder"); ?>
 <?php __("Allow Users to Log in With:", "profile-builder"); ?>
@@ -1084,8 +1091,6 @@
 <?php __("Incorrect phone number", "profile-builder"); ?>
 <?php __("Save Changes", "profile-builder"); ?>
 <?php __("Content", "profile-builder"); ?>
-<?php __("To allow users to register for your website via Profile Builder, you first must enable user registration. Go to %1$sNetwork Settings%2$s, and under Registration Settings make sure to check “User accounts may be registered”. %3$sDismiss%4$s", "profile-builder"); ?>
-<?php __("To allow users to register for your website via Profile Builder, you first must enable user registration. Go to %1$sSettings -> General%2$s tab, and under Membership make sure to check “Anyone can register”. %3$sDismiss%4$s", "profile-builder"); ?>
 <?php __("<br><br>Also, you will be able to visit your site at ", "profile-builder"); ?>
 <?php __("<br><br>You can visit your site at ", "profile-builder"); ?>
 <?php __("You will soon be redirected automatically. If you see this page for more than %1$d seconds, please click %2$s.%3$s", "profile-builder"); ?>
@@ -1161,8 +1166,6 @@
 <?php __("Status", "profile-builder"); ?>
 <?php __("Active", "profile-builder"); ?>
 <?php __("Inactive", "profile-builder"); ?>
-<?php __("Admin Email Customizer", "profile-builder"); ?>
-<?php __("User Email Customizer", "profile-builder"); ?>
 <?php __("Your account has to be confirmed by an administrator before you can log in.", "profile-builder"); ?>
 <?php __("Admin Approval", "profile-builder"); ?>
 <?php __("Do you want to", "profile-builder"); ?>
@@ -1224,6 +1227,9 @@
 <?php __("Check if you wish to add custom messages for this %s.", "profile-builder"); ?>
 <?php __("Messages for logged-out users", "profile-builder"); ?>
 <?php __("Messages for logged-in users", "profile-builder"); ?>
+<?php __("Content Restriction Settings", "profile-builder"); ?>
+<?php __("Enable Content Restriction", "profile-builder"); ?>
+<?php __("Activate Content Restriction", "profile-builder"); ?>
 <?php __("If you select \"Message\", the post's content will be protected by being replaced with a custom message.", "profile-builder"); ?>
 <?php __("If you select \"Redirect\", the post's content will be protected by redirecting the user to the URL you specify. The redirect happens only when accessing a single post. On archive pages the restriction message will be displayed, instead of the content.", "profile-builder"); ?>
 <?php __("Redirect URL", "profile-builder"); ?>
@@ -1333,6 +1339,8 @@
 <?php __("the URL sanitized version of the username, the user nicename can be safely used in URLs since it can't contain special characters or spaces.", "profile-builder"); ?>
 <?php __("the URL of the previously visited page", "profile-builder"); ?>
 <?php __("You can't add duplicate redirects!", "profile-builder"); ?>
+<?php __("Admin Email Customizer", "profile-builder"); ?>
+<?php __("Admin Email Customizer Settings", "profile-builder"); ?>
 <?php __("These settings are also replicated in the \"User Email Customizer\" settings-page upon save.", "profile-builder"); ?>
 <?php __("Valid tags {{reply_to}} and {{site_name}}", "profile-builder"); ?>
 <?php __("From (name)", "profile-builder"); ?>
@@ -1363,6 +1371,8 @@
 <?php __("Approve User Url", "profile-builder"); ?>
 <?php __("Approve User Link", "profile-builder"); ?>
 <?php __("The users selected password at signup", "profile-builder"); ?>
+<?php __("User Email Customizer", "profile-builder"); ?>
+<?php __("User Email Customizer Settings", "profile-builder"); ?>
 <?php __("These settings are also replicated in the \"Admin Email Customizer\" settings-page upon save.", "profile-builder"); ?>
 <?php __("<h3>Welcome to {{site_name}}!</h3>\n<p>Your username is:{{username}} and password:{{password}}</p>\n", "profile-builder"); ?>
 <?php __("<p>To activate your user, please click the following link:<br/>\n{{{activation_link}}}</p>\n<p>After you activate, you will receive another email with your credentials.</p>\n", "profile-builder"); ?>
@@ -1413,7 +1423,6 @@
 <?php __("You need to specify the title of the form before creating it", "profile-builder"); ?>
 <?php __("<pre>Title (Type)</pre>", "profile-builder"); ?>
 <?php __("Delete all items", "profile-builder"); ?>
-<?php __("Registration Form", "profile-builder"); ?>
 <?php __("Add new Registration Form", "profile-builder"); ?>
 <?php __("Edit the Registration Forms", "profile-builder"); ?>
 <?php __("New Registration Form", "profile-builder"); ?>
