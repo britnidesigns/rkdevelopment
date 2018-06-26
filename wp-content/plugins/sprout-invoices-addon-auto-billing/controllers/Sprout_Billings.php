@@ -102,7 +102,7 @@ class SI_Sprout_Billings extends SI_Controller {
 		if ( $invoice->get_balance() < 0.01 ) {
 			return;
 		}
-		$disabled = self::is_auto_bill_disabled();
+		$disabled = self::is_auto_bill_disabled( $invoice_id );
 		if ( $disabled ) {
 			return;
 		}

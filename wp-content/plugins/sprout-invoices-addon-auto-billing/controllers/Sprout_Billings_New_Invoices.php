@@ -22,6 +22,12 @@ class SI_Sprout_Billings_New_Invoices extends SI_Sprout_Billings {
 
 	public static function maybe_auto_pay_new_invoice( $invoice ) {
 		$invoice_id = $invoice->get_id();
+
+		$disabled = self::is_auto_bill_disabled( $invoice_id );
+		if ( $disabled ) {
+			return;
+		}
+
 		$client_id = self::get_client_id( $invoice_id );
 		if ( ! self::can_autocharge_client( $client_id ) ) {
 			return;
