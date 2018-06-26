@@ -3,7 +3,7 @@ Tags: health check
 Contributors: wordpressdotorg, westi, pento, Clorith
 Requires at least: 3.8
 Tested up to: 4.9
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,6 +34,9 @@ In the future we may introduce more checks, and welcome feedback both through th
 3. The generic PHP information tab, when more detailed information is required.
 
 == Changelog ==
+
+= v 1.1.1 =
+* Fixed a fatal error that would occur if a user had an older version of Troubleshooting Mode on their system.
 
 = v 1.1.0 =
 * Check for theme, plugin and WordPress updates when visiting the debug tab.
