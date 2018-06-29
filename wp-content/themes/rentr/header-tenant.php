@@ -27,8 +27,14 @@
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
-			<?php the_custom_logo();?>
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+            <?php
+                $custom_logo_id = get_theme_mod( 'custom_logo' );
+                $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+            ?>
+            <a href="<?php echo site_url(); ?>/dashboard/" class="custom-logo-link">
+                <img src="<?php echo esc_url( $logo[0] ); ?>" alt="RK Development LC" class="custom-logo">
+            </a>
+			<h1 class="site-title"><a href="<?php echo site_url(); ?>/dashboard/" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 
 			<?php
 			$description = get_bloginfo( 'description', 'display' );
