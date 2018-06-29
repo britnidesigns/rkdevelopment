@@ -11,27 +11,20 @@ html, body {
 .messages { min-height: 0; }
 
 .sa-message {
+    .alert;
     margin-bottom: .5em;
-    padding: .5em 1em;
     background-color: @theme-success;
-    border: 0;
     border-radius: 0;
-    box-shadow: 3px 3px 5px rgba(0,0,0,.25);
-    color: #fff;
-    line-height: 1.75em;
     text-transform: none;
 
-    &.error {
-        background-color: @theme-primary;
-        border: 0;
-    }
+    &.error { background-color: @theme-danger; }
 }
 
 h1 span { color: @theme-primary; }
 
 h3 {
     margin-bottom: .5em;
-    color: mix(@theme-light, @theme-dark);
+    color: @theme-medium;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -51,7 +44,7 @@ h3 {
 
 p.issued {
     margin-top: .25em;
-    color: mix(@theme-light, @theme-dark);
+    color: @theme-medium;
     font-size: .875em;
 }
 
@@ -72,7 +65,7 @@ p.issued {
 
     .paid, .overdue { color: #fff; }
     .paid { background-color: @theme-success; }
-    .overdue { background-color: @theme-primary; }
+    .overdue { background-color: @theme-danger; }
 
     a {
         display: block;
@@ -252,6 +245,4 @@ div#login_wrap {
     }
 }
 
-#login_form > p b {
-    font-size: 1.25em;
-}
+#login_form > p b { font-size: 1.25em; }

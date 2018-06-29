@@ -26,7 +26,7 @@ sup { top: -.25em; }
         font-size: 2em;
 
         &.paid { color: @theme-success; }
-        &.unpaid { color: @theme-primary; }
+        &.unpaid { color: @theme-danger; }
     }
 
     .fa-check {
@@ -85,7 +85,7 @@ sup { top: -.25em; }
     }
 
     div.status-success { border-left-color: @theme-success; }
-    div.status-danger { border-color: @theme-primary; }
+    div.status-danger { border-color: @theme-danger; }
 
     @media screen and (min-width: 680px) {
         > div {
@@ -158,7 +158,7 @@ sup { top: -.25em; }
     .balance.paid { color: @theme-success; }
 
     .balance.unpaid {
-        color: @theme-primary;
+        color: @theme-danger;
         font-size: 1.5em;
     }
 
@@ -202,13 +202,8 @@ sup { top: -.25em; }
     .ticket h1 { padding-right: 2em; }
 }
 
-.wpas-alert { padding: .5em 1em; }
-
-.wpas-alert-success {
-    background-color: @theme-success;
-    border: 0;
-    color: #fff;
-}
+.wpas-alert { .alert; }
+.wpas-alert-success { background-color: @theme-success; }
 
 .wpas-form-group { margin-top: 2rem; }
 .wpas-form-control { height: auto; }

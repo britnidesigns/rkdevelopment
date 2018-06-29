@@ -15,6 +15,7 @@ html { font-size: 1.125em; }
 /* ---------- DEFAULTS ------------------------------ */
 
 a { text-decoration: none; }
+a, a:link, a:focus, a:active { outline: none; }
 img { border: none; }
 h1, ul, li { margin: 0; padding: 0; }
 h2, h3, h4, h5, p { margin: 0 0 1em; padding: 0; }
@@ -54,11 +55,12 @@ select,
 /* ---------- VARIABLES, MIX-INS, ETC. ------------------------------ */
 
 @theme-primary: #be1e2d;
-//@theme-secondary: darken(@theme-primary, 15%);
 @theme-light: #e0d5ce;
+@theme-medium: mix(@theme-light, @theme-dark);
 @theme-dark: #1e1819;
 
 @theme-success: #090;
+@theme-danger: @theme-primary;
 
 .boldest() { font-weight: 900; }
 .display() { font-family: Raleway, Arial, Helvetica, sans-serif; }
@@ -111,9 +113,9 @@ button, input[type='submit'] { .btn; }
 
 .btn svg, .btn-alt svg { margin-right: .5em; }
 
-.text-link, p.login-register-lost-password a {
+.text-link, p.login-register-lost-password a, a.wppb-logout-url {
     &, &:visited {
-        color: mix(@theme-dark, @theme-light);
+        color: @theme-medium;
         text-decoration: underline;
         transition: color .2s ease-in-out;
     }
@@ -168,6 +170,14 @@ a.facebook {
 .empty-list, .page-template-tenant .entry-content p:only-child {
     margin: 2em 0;
     font-style: italic;
+}
+
+.alert() {
+    padding: .5em 1em;
+    border: 0;
+    box-shadow: 3px 3px 5px rgba(0,0,0,.25);
+    color: #fff;
+    line-height: 1.75em;
 }
 
 /* ---------- RESPONSIVE ------------------------------ */
@@ -375,6 +385,18 @@ footer .facebook {
 .wppb-user-forms textarea {
     font-size: 16/18em;
 }
+
+.wppb-success, .wppb-error, .wppb-warning {
+    .alert;
+
+    a {
+        color: #fff;
+        text-decoration: underline;
+    }
+}
+
+.wppb-success { background-color: @theme-success; }
+.wppb-error, .wppb-warning { background-color: @theme-danger; }
 
 .wppb-user-forms .form-submit { margin-top: 2rem; }
 
