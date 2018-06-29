@@ -166,6 +166,14 @@ function register_my_menus() {
 }
 add_action( 'init', 'register_my_menus' );
 
+function add_footer_home_link ( $items, $args ) {
+    if ($args->theme_location == 'footer-nav') {
+        $items = '<li><a href="'.site_url().'"><i class="fas fa-home"></i></a></li>'.$items;
+    }
+    return $items;
+}
+add_filter( 'wp_nav_menu_items', 'add_footer_home_link', 10, 2 );
+
 function create_tenant_dashboard() {
     include('tenant/dashboard.php');
 }
