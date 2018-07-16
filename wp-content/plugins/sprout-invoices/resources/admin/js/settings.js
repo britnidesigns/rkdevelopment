@@ -77,6 +77,8 @@ new Vue( {
 
 			this.isSaving = true;
 
+			this.vm['si_license_key'] = $license_key;
+
 			jQuery.ajax( {
 
 					url: ajaxurl,
@@ -249,7 +251,7 @@ new Vue( {
 		// Save the options to the database
 		activateAddOn: function( addOn, event ) {
 
-			var addOnEl = $(event.target),
+			var addOnEl = jQuery(event.target),
 				action = { 'activate': addOn };
 
 			// Don't enable an add-on that was already enabled.
