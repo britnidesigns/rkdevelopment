@@ -12,9 +12,7 @@ class SI_Service_Fee extends SI_Controller {
 	public static function init() {
 
 		// settings
-		if ( is_admin() ) {
-			add_action( 'init', array( __CLASS__, 'register_options' ) );
-		}
+		add_filter( 'si_payment_settings', array( __CLASS__, 'register_options' ) );
 
 		// add fee on checkout
 		add_action( 'si_checkout_action_'.SI_Checkouts::PAYMENT_PAGE, array( __CLASS__, 'maybe_add_processing_fee_from_checkout' ), -100, 1 );
@@ -25,7 +23,10 @@ class SI_Service_Fee extends SI_Controller {
 		add_action( 'save_post', array( __CLASS__, 'maybe_add_service_fee_auto' ), 10, 2 );
 
 		// Stripe compatible
-		add_filter( 'si_stripe_js_data_attributes', array( __CLASS__, 'adjust_stripe_total' ), 10, 2 );
+		if ( class_exists( 'SA_Stripe' ) ) {
+			add_filter( 'si_stripe_js_data_attributes', array( __CLASS__, 'adjust_stripe_total' ), 10, 2 );
+			add_action( 'payment_complete', array( __CLASS__, 'add_fee_after_stripe_payment' ) );
+		}
 
 		add_action( 'si_default_theme_payment_options_desc', array( __CLASS__, 'add_service_fee_info_to_payment_options' ) );
 		add_action( 'si_doc_line_items', array( __CLASS__, 'add_service_fee_info_to_payment_options' ), 100 );
@@ -57,15 +58,13 @@ class SI_Service_Fee extends SI_Controller {
 	 * Hooked on init add the settings page and options.
 	 *
 	 */
-	public static function register_options() {
+	public static function register_options( $settings = array() ) {
 		// Settings
-		$settings = array(
-			'si_service_fee_settings' => array(
+		$settings['si_service_fee_settings'] = array(
 				'title' => __( 'Service Fee Options', 'sprout-invoices' ),
 				'weight' => 300,
-				'tab' => SI_Payment_Processors::get_settings_page( false ),
+				// 'tab' => SI_Payment_Processors::get_settings_page( false ),
 				'settings' => array(),
-				),
 			);
 
 		$enabled_gateways = SI_Payment_Processors::enabled_processors();
@@ -85,7 +84,7 @@ class SI_Service_Fee extends SI_Controller {
 						),
 					);
 		}
-		do_action( 'sprout_settings', $settings, SI_Payment_Processors::SETTINGS_PAGE );
+		return $settings;
 	}
 
 	public static function maybe_add_processing_fee_from_checkout( SI_Checkouts $checkout ) {
@@ -97,7 +96,7 @@ class SI_Service_Fee extends SI_Controller {
 			self::remove_processing_fee_from_checkout( $checkout );
 			return;
 		}
-		$fee_total = $invoice->get_calculated_total( false ) * ( $service_fee / 100 );
+		$fee_total = $invoice->get_calculated_total( false ) * ( $service_fee / 100 ); //
 
 		$processor_options = $checkout->get_processor()->checkout_options();
 		$label = ( isset( $processor_options['label'] ) && '' !== $processor_options['label'] ) ? $processor_options['label'] : 'Payment' ;
@@ -148,6 +147,7 @@ class SI_Service_Fee extends SI_Controller {
 		$fees['payment_service_fee'] = array(
 			'label' => ( '' === $label ) ? __( 'Payment Service Fee', 'sprout-invoices' ) : $label,
 			'always_show' => true,
+			'delete_option' => true,
 			'total' => (float) $fee_total,
 			'weight' => 26,
 		);
@@ -172,40 +172,50 @@ class SI_Service_Fee extends SI_Controller {
 			return;
 		}
 
-		$fees = $invoice->get_fees();
+		$fees = $invoice->remove_fee( 'payment_service_fee' );
 
-		// check if one exists.
-		if ( ! isset( $fees['payment_service_fee'] ) ) {
-			return;
-		}
-
-		// remove fee from array
-		unset( $fees['payment_service_fee'] );
-
-		$invoice->save_post_meta( array(
-			'_fees' => $fees,
-		) );
-		$invoice->reset_totals();
 	}
-
-
 
 	public static function adjust_stripe_total( $data_attributes = array() ) {
 		$invoice_id = get_the_id();
 		$invoice = SI_Invoice::get_instance( $invoice_id );
 
-		$service_fee = self::get_service_fee( 'SA_Stripe' );
-		$amount = ( si_has_invoice_deposit( $invoice->get_id() ) ) ? $invoice->get_deposit() : $invoice->get_balance();
-		$fee_total = floatval( $amount * ( $service_fee / 100 ) );
+		$fee_total = self::get_stripe_fee_total( $invoice );
 
-		self::add_service_fee( $invoice, $fee_total, __( 'Credit Card Service Fee', 'sprout-invoices' ) );
+		$subtotal = ( si_has_invoice_deposit( $invoice->get_id() ) ) ? $invoice->get_deposit() : $invoice->get_balance();
 
-		$payment_amount = ( si_has_invoice_deposit( $invoice->get_id() ) ) ? $invoice->get_deposit() : $invoice->get_balance();
+		$payment_amount = $subtotal + $fee_total;
 
 		$payment_in_cents = ( round( $payment_amount, 2 ) * 100 );
 		$data_attributes['amount'] = $payment_in_cents;
 
 		return $data_attributes;
+	}
+
+	public static function get_stripe_fee_total( $invoice ) {
+		$service_fee = self::get_service_fee( 'SA_Stripe' );
+		$amount = ( si_has_invoice_deposit( $invoice->get_id() ) ) ? $invoice->get_deposit() : $invoice->get_balance();
+		$fee_total = floatval( $amount * ( $service_fee / 100 ) );
+		return $fee_total;
+	}
+
+	public static function add_fee_after_stripe_payment( SI_Payment $payment ) {
+
+		if ( $payment->get_payment_method() !== SA_Stripe::PAYMENT_METHOD ) {
+			return;
+		}
+
+		$invoice_id = $payment->get_invoice_id();
+		$invoice = SI_Invoice::get_instance( $invoice_id );
+
+		$fees = $invoice->get_fees();
+		if ( isset( $fees['payment_service_fee'] ) ) {
+			return;
+		}
+
+		$fee_total = self::get_stripe_fee_total( $invoice );
+		self::add_service_fee( $invoice, $fee_total, __( 'Credit Card Service Fee', 'sprout-invoices' ) );
+
 	}
 
 

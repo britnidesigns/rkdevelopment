@@ -5,6 +5,7 @@ Plugin URI: https://sproutapps.co/marketplace/estimateinvoice-line-item-commenti
 Description: Allows for invoices and estimates to be commented on.
 Author: Sprout Apps
 Version: 2.0
+ID: 14750
 Author URI: https://sproutapps.co
 Auto Active: true
 */

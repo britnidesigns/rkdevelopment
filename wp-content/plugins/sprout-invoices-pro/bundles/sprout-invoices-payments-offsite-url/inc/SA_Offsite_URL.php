@@ -62,6 +62,22 @@ class SA_Payment_Redirect extends SI_Offsite_Processors {
 	}
 
 
+	/**
+	 * Hooked on init add the settings page and options.
+	 *
+	 */
+	public static function register_settings( $settings = array() ) {
+		// Settings
+		$settings['payments'] = array(
+			'si_custom_url_settings' => array(
+				'title' => __( 'Custom Payment URLs' , 'sprout-invoices' ),
+				'description' => __( 'There are no settings for Custom Payment URLs here. Instead after activating you will enter the payment url on the invoice admin (within the information section).' , 'sprout-invoices' ),
+				'weight' => 200,
+			),
+		);
+		return $settings;
+	}
+
 	public static function meta_add_redirect_url( $doc ) {
 		$fields = self::meta_box_fields( $doc );
 		?>

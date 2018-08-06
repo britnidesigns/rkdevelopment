@@ -5,6 +5,7 @@ Plugin URI: https://sproutapps.co/marketplace/client-dashboard/
 Description: Allows for a client to login and view their invoices, estimates and payments.
 Author: Sprout Apps
 Version: 1.1
+ID: 10589
 Author URI: https://sproutapps.co
 Auto Active: true
 */

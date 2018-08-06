@@ -35,7 +35,7 @@ class SI_Woo_Payment_Processor extends SI_Offsite_Processors {
 		}
 
 		if ( self::is_processor_enabled( __CLASS__ ) ) {
-			add_action( 'woocommerce_order_status_completed', array( __CLASS__, 'maybe_create_payment_for_woo_payment_completed' ) );
+			add_action( 'woocommerce_order_status_changed', array( __CLASS__, 'maybe_create_payment_for_woo_payment_completed' ), 10, 3 );
 			add_action( 'woocommerce_thankyou', array( __CLASS__, 'redirect_to_invoice_after_payment' ) );
 		}
 	}
@@ -300,7 +300,11 @@ class SI_Woo_Payment_Processor extends SI_Offsite_Processors {
 		// Nothing, since the user is not returned.
 	}
 
-	public static function maybe_create_payment_for_woo_payment_completed( $order_id ) {
+	public static function maybe_create_payment_for_woo_payment_completed( $order_id, $from_status = '', $to_status = '' ) {
+
+		if ( 'completed' !== $to_status ) {
+			return;
+		}
 
 		$order = wc_get_order( $order_id );
 

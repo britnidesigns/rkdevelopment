@@ -2,9 +2,9 @@
 Contributors: dancameron, sproutapps
 Donate link: https://sproutapps.co/
 Tags: invoicing, estimates, payments, web invoice, bill, paypal, invoice, pay, online payment, send invoice, bill clients, credit cards, stripe, freshbooks, harvest, wp-invoice
-Requires at least: 3.8
+Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 17.1.0.1
+Stable tag: 18.0.9
 
 == Description ==
 
@@ -22,6 +22,56 @@ The plugin should already be installed at this point. If you still need help che
 **Please visit the [FAQ at Sprout Apps](https://sproutapps.co/support/knowledgebase/sprout-invoices/faqs/).**
 
 == Changelog ==
+
+= 18.0.9 =
+
+* Update: Notification previews respect which format is selected
+
+= 18.0.7 =
+
+* Update: Test notifications brought back
+* Fixed: WooCommerce Add-on description updated
+
+= 18.0.6 =
+
+= 18.0.5 =
+
+* NEW: New filter for invoice total - si_use_total_for_calculated_total
+* NEW: Add-ons settings no longer blank
+* Fixed: License key being reset after certain conditions
+* Fixed: Account Credits add-on unavailable
+
+= 18.0.9 =
+
+* Fixed: CC Settings not saving
+
+= 18.0.4 =
+
+* Fixed: Some js admin callbacks not working under some setups
+* Fixed: More Responize Admin
+* Fixed: Deprecated PHP Support
+* Fixed: Typos
+
+= 18.0 =
+
+* New: Completely New Admin
+* New: Integrated Support
+* New: Manual Notifications
+* New: Improved Invoices List Admin
+* New: New Notifications: Payment Cleared, and Recurring Invoice
+* New: Additional Importer (Sliced)
+
+More information found [here](https://sproutapps.co/news/summer-update-brings-all-new-sprout-invoices-admin/).
+
+= 17.2.1 =
+
+* Update/Fix: Reset totals after invoices are cloned for subscriptions and recurring. This should address when servers cache the balance and it's not reset before the invoice is viewed.
+* Fix: PayPal Recurring payments causing a view error since recent template change.
+
+= 17.2 =
+
+* Update/New/Fix: New WYSIWYG Editor 
+* Update: Sprout Billings styling updates 
 
 = 17.1.0.1 =
 

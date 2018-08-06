@@ -4,7 +4,7 @@
 	</div><!-- #tt_body -->
 	<div id="tt_save">
 		<p>
-			<a href="javascript:void(0)" id="create_expense_category" class="button button-large button-primary"><?php _e( 'Create Category', 'sprout-invoices' ) ?></a>
+			<a href="javascript:void(0)" id="create_expense_category" class="si_admin_button"><?php _e( 'Create Category', 'sprout-invoices' ) ?></a>
 		</p>
 	</div><!-- #tt_save -->
 

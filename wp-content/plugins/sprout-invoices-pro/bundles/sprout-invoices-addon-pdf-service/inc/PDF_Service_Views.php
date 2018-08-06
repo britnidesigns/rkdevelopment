@@ -37,6 +37,7 @@ class SI_Sprout_PDFs_Views extends SI_Sprout_PDFs_Controller {
 				li,
 				.line_item,
 				.sa_invoice-template-default .item,
+				.sa_estimate-template-default .item,
 				#line_items_footer,
 				#totals { 
 					page-break-inside:avoid
@@ -57,6 +58,7 @@ class SI_Sprout_PDFs_Views extends SI_Sprout_PDFs_Controller {
 				#doc_history,
 				.purchase_button:after,
 				.sa_invoice-template-default .row.history_message,
+				.sa_estimate-template-default .row.history_message,
 				.li_comments_toggle  {
 					display: none;
 				}
@@ -68,37 +70,44 @@ class SI_Sprout_PDFs_Views extends SI_Sprout_PDFs_Controller {
 					overflow: auto;
 				}
 
-				body.sa_invoice-template-default #header .messages {
+				body.sa_invoice-template-default #header .messages,
+				body.sa_estimate-template-default #header .messages {
 					min-height: 10px;
 				}
-				body.sa_invoice-template-default #header .inner {
+				body.sa_invoice-template-default #header .inner,
+				body.sa_estimate-template-default #header .inner {
 					padding: 10px 0px !important;
 				}
+				body.sa_estimate-template-default,
+				body#estimate.sa_estimate-template-default,
 				body.sa_invoice-template-default,
-				body#invoice.sa_invoice-template-default,
-				body#estimate.sa_invoice-template-default {
+				body#invoice.sa_invoice-template-default {
 				    background-color: #fff;
 				    color: #333;
 				}
 
-				body.sa_invoice-template-default .estimate .title,
-				body.sa_invoice-template-default .invoice .title,
-				body.sa_invoice-template-default #intro .inner .column span {
+				body.sa_invoice-template-default .title,
+				body.sa_invoice-template-default #intro .inner .column span,
+				body.sa_estimate-template-default .title,
+				body.sa_estimate-template-default #intro .inner .column span {
 				    color: #afafaf
 				}
-				body.sa_invoice-template-default .estimate .title:after,
-				body.sa_invoice-template-default .invoice .title:after,
-				body.sa_invoice-template-default #items .items .item .column h3 {
+				body.sa_invoice-template-default .title:after,
+				body.sa_invoice-template-default #items .items .item .column h3,
+				body.sa_estimate-template-default .title:after,
+				body.sa_estimate-template-default #items .items .item .column h3 {
 				    border-color: #eee;
 				}
-				body.sa_invoice-template-default .estimate .title h2,
-				body.sa_invoice-template-default .invoice .title h2 {
+				body.sa_invoice-template-default .title h2,
+				body.sa_estimate-template-default .title h2 {
 				    background-color: #eee;
 				}
-				body.sa_invoice-template-default header#header {
+				body.sa_invoice-template-default header#header,
+				body.sa_estimate-template-default header#header {
 				    background-color: #f7f7f7;
 				}
-				body.sa_invoice-template-default section#paybar {
+				body.sa_invoice-template-default section#paybar,
+				body.sa_estimate-template-default section#paybar {
 				    background-color: #f7f7f7;
 				}
 				#payment .inner {
@@ -108,6 +117,7 @@ class SI_Sprout_PDFs_Views extends SI_Sprout_PDFs_Controller {
 			<script type="text/javascript">
 				jQuery(document).ready(function() {
 					jQuery('#invoice.sa_invoice-template-default').find('.clearfix').removeClass( 'clearfix' ).addClass( 'newcf' );
+					jQuery('#estimate.sa_estimate-template-default').find('.clearfix').removeClass( 'clearfix' ).addClass( 'newcf' );
 					jQuery("a[href='#payment']").attr("href", "<?php echo get_permalink() ?>");
 					jQuery(".button.primary_button.purchase_button").attr("href", "<?php echo get_permalink() ?>");
 				});

@@ -30,8 +30,6 @@ class SI_Notifications_Premium extends SI_Notifications_Control {
 		if ( apply_filters( 'suppress_notifications', false ) ) {
 			return;
 		}
-		// Lead generation
-		add_action( 'estimate_submitted', array( __CLASS__, 'estimate_submitted_notification' ), 10, 1 );
 		// payments
 		add_action( 'payment_complete', array( __CLASS__, 'deposit_notification' ), 10, 2 );
 		// payment reminder
@@ -40,21 +38,10 @@ class SI_Notifications_Premium extends SI_Notifications_Control {
 		} else {
 			add_action( self::CRON_HOOK, array( __CLASS__, 'maybe_send_invoice_payment_reminder' ) );
 		}
-
-		// Admin
-		add_action( 'estimate_submitted', array( __CLASS__, 'admin_lead_submitted' ), 10, 2 );
 	}
 
 	public static function register_notifications( $notifications = array() ) {
 		$default_notifications = array(
-				// Lead Generation
-				'estimate_received' => array(
-					'name' => __( 'Lead Received', 'sprout-invoices' ),
-					'description' => __( 'Customize the email that is sent to a prospective client after a lead is submitted.', 'sprout-invoices' ),
-					'shortcodes' => array( 'date', 'name', 'username', 'lead_entries', 'estimate_id', 'estimate_edit_url', 'client_name', 'client_edit_url', 'estimate_total', 'estimate_subtotal' ),
-					'default_title' => sprintf( __( '%s: Estimate Request Received', 'sprout-invoices' ), get_bloginfo( 'name' ) ),
-					'default_content' => self::load_view_to_string( 'notifications/request-received', null ),
-				),
 				// Payments
 				'deposit_payment' => array(
 					'name' => __( 'Deposit Payment Received', 'sprout-invoices' ),
@@ -71,14 +58,6 @@ class SI_Notifications_Premium extends SI_Notifications_Control {
 					'default_content' => self::load_view_to_string( 'notifications/payment-reminder', null ),
 					'default_disabled' => true,
 				),
-				// Admin Notifications
-				'estimate_submitted' => array(
-					'name' => __( 'Lead Submitted', 'sprout-invoices' ),
-					'description' => __( 'Customize the email that is sent to the site admin after an lead is submitted.', 'sprout-invoices' ),
-					'shortcodes' => array( 'date', 'name', 'username', 'lead_entries', 'line_item_table', 'line_item_list','estimate_subject', 'estimate_id', 'estimate_edit_url', 'estimate_url', 'estimate_issue_date', 'estimate_po_number', 'estimate_total', 'estimate_subtotal', 'client_name', 'client_edit_url' ),
-					'default_title' => sprintf( __( '%s: Estimate Request Received', 'sprout-invoices' ), get_bloginfo( 'name' ) ),
-					'default_content' => self::load_view_to_string( 'notifications/admin-request-submitted', null ),
-				),
 			);
 		return array_merge( $notifications, $default_notifications );
 	}
@@ -86,22 +65,6 @@ class SI_Notifications_Premium extends SI_Notifications_Control {
 	/////////////////////////////
 	// notification callbacks //
 	/////////////////////////////
-
-	public static function estimate_submitted_notification( SI_Estimate $estimate, $submission = array() ) {
-		$client = $estimate->get_client();
-		$client_users = self::get_document_recipients( $estimate );
-		foreach ( array_unique( $client_users ) as $user_id ) {
-			$to = self::get_user_email( $user_id );
-			$data = array(
-				'user_id' => $user_id,
-				'estimate' => $estimate,
-				'client' => $client,
-				'submission_fields' => $submission,
-				'to' => $to,
-			);
-			self::send_notification( 'estimate_received', $data, $to );
-		}
-	}
 
 	public static function deposit_notification( SI_Payment $payment, $args = array() ) {
 		$invoice_id = $payment->get_invoice_id();
@@ -138,6 +101,7 @@ class SI_Notifications_Premium extends SI_Notifications_Control {
 		$last_send = get_option( $option_key, 0 );
 
 		// Send once per day
+		// $last send > 12am
 		if ( $last_send > strtotime( 'Today',  current_time( 'timestamp' ) ) ) {
 			return;
 		}
@@ -148,6 +112,14 @@ class SI_Notifications_Premium extends SI_Notifications_Control {
 
 		// no overdue invoices.
 		if ( empty( $recently_overdue ) ) {
+
+			$data = array(
+				'query_return' => $recently_overdue,
+				'after' => $after,
+				'before' => apply_filters( 'si_get_overdue_before_timestamp', $after + DAY_IN_SECONDS ),
+			);
+			do_action( 'si_log', 'No Payment Reminders to Send', $data );
+
 			update_option( $option_key, current_time( 'timestamp' ) );
 			return;
 		}
@@ -169,23 +141,5 @@ class SI_Notifications_Premium extends SI_Notifications_Control {
 			}
 		}
 		update_option( $option_key, current_time( 'timestamp' ) );
-	}
-
-	/**
-	 * Estimate request received.
-	 * @param  SI_Estimate $estimate
-	 * @param  array       $submission
-	 * @return
-	 */
-	public static function admin_lead_submitted( SI_Estimate $estimate, $submission = array() ) {
-		// Admin email
-		$data = array(
-			'user_id' => $estimate->get_user_id(),
-			'estimate' => $estimate,
-			'client' => $estimate->get_client(),
-			'submission_fields' => $submission,
-		);
-		$admin_to = self::admin_email( $data );
-		self::send_notification( 'estimate_submitted', $data, $admin_to );
 	}
 }

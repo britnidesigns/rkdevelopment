@@ -5,6 +5,7 @@ Plugin URI: https://sproutapps.co/marketplace/attachments-downloads/
 Description: Allows for an admin to add an attachment for download after an invoice is paid (with a filter to show attachments at all times).
 Author: Sprout Apps
 Version: 1.2
+ID: 62854
 Author URI: https://sproutapps.co
 */
 

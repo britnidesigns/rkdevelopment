@@ -114,10 +114,6 @@ class SI_Paypal_EC extends SI_Offsite_Processors {
 			self::$cancel_url = esc_url_raw( $url );
 		}
 
-		if ( is_admin() ) {
-			add_action( 'init', array( get_class(), 'register_options' ) );
-		}
-
 		add_action( 'si_checkout_action_'.SI_Checkouts::PAYMENT_PAGE, array( $this, 'send_offsite' ), 0, 1 );
 		add_action( 'si_checkout_action_'.SI_Checkouts::REVIEW_PAGE, array( $this, 'back_from_paypal' ), 0, 1 );
 		add_action( 'checkout_completed', array( $this, 'post_checkout_redirect' ), 10, 2 );
@@ -133,13 +129,12 @@ class SI_Paypal_EC extends SI_Offsite_Processors {
 	 * Hooked on init add the settings page and options.
 	 *
 	 */
-	public static function register_options() {
+	public static function register_settings( $settings = array() ) {
 		// Settings
-		$settings = array(
+		$settings['payments'] = array(
 			'si_paypal_settings' => array(
 				'title' => __( 'PayPal Payments Standard', 'sprout-invoices' ),
 				'weight' => 200,
-				'tab' => self::get_settings_page( false ),
 				'settings' => array(
 					self::API_MODE_OPTION => array(
 						'label' => __( 'Mode', 'sprout-invoices' ),
@@ -191,7 +186,7 @@ class SI_Paypal_EC extends SI_Offsite_Processors {
 					),
 				),
 			);
-		do_action( 'sprout_settings', $settings, self::SETTINGS_PAGE );
+		return $settings;
 	}
 
 	/**
@@ -909,11 +904,7 @@ class SI_Paypal_EC extends SI_Offsite_Processors {
 		}
 		$data = $payment->get_data();
 		if ( isset( $data['api_response']['PROFILEID'] ) ) {
-
-			$invoice_id = $payment->get_invoice_id();
-			$invoice = SI_Invoice::get_instance( $invoice_id );
-
-			printf( __( '<b>Current Payment Status:</b> <code>%s</code>', 'sprout-invoices' ), self::verify_recurring_payment( $invoice ) );
+			printf( __( '<b>Current Payment Status:</b> <code>%s</code>', 'sprout-invoices' ), self::verify_recurring_payment( $payment ) );
 			echo ' &mdash; ';
 			_e( 'Paypal Profile ID: ', 'sprout-invoices' );
 			if ( isset( $data['live'] ) && ! $data['live'] ) {

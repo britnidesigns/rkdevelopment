@@ -5,6 +5,7 @@ Plugin URI: https://sproutapps.co/marketplace/predefined-departments/
 Description: Add department selections to invoices and estimates
 Author: Sprout Apps
 Version: 1.1
+ID: 44585
 Author URI: https://sproutapps.co
 */
 

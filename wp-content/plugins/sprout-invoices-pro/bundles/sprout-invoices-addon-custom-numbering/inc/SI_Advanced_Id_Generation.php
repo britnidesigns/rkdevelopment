@@ -27,8 +27,8 @@ class SI_Advanced_Id_Generation extends SI_Controller {
 		self::$invoices_padd = self::invoices_sequence_padd();
 		self::$estimates_padd = self::estimates_sequence_padd();
 
-		// Add options
-		self::register_settings();
+		// Register Settings
+		add_filter( 'si_settings', array( __CLASS__, 'register_settings' ) );
 
 		// Filter id in admin
 		add_filter( 'load_view_args_admin/meta-boxes/invoices/information.php', array( __CLASS__, '_si_information_meta_box_args' ) );
@@ -45,10 +45,10 @@ class SI_Advanced_Id_Generation extends SI_Controller {
 		add_action( 'si_woocommerce_payment',  array( __CLASS__, 'change_id_when_created_via_wc' ), 10, 2 );
 
 		// Estimate submissions
-		add_filter( 'estimate_submitted_from_adv_form', array( __CLASS__, 'change_estimate_id_when_created_from_inv_submission' ), 10, 2 );
+		add_action( 'si_estimate_submitted_from_adv_form', array( __CLASS__, 'change_estimate_id_when_created_from_submission' ), 10, 2 );
 
 		// Invoice submissions
-		add_filter( 'invoice_submitted_from_adv_form', array( __CLASS__, 'change_invoice_id_when_created_from_inv_submission' ), 10, 2 );
+		add_action( 'si_invoice_submitted_from_adv_form', array( __CLASS__, 'change_invoice_id_when_created_from_submission' ), 10, 2 );
 
 	}
 
@@ -99,22 +99,31 @@ class SI_Advanced_Id_Generation extends SI_Controller {
 	 * Hooked on init add the settings page and options.
 	 *
 	 */
-	public static function register_settings() {
-
+	public static function register_settings( $settings = array() ) {
 		// Settings
-		$settings = array(
-			'advanced_numbering' => array(
+		$settings['advanced_numbering'] = array(
 				'title' => __( 'Advanced Numbering', 'sprout-invoices' ),
+				'description' => sprintf( __( 'Adjust the format with some dynamic tags. Example: PREFIX-{Y}-{m}-{d}-INV#{count}, would result in %s.', 'sprout-invoices' ), sprintf( '<code>PREFIX-%s-%s-%s-INV#142</code>', date_i18n( 'Y' ), date_i18n( 'm' ), date_i18n( 'd' ) ) ),
 				'weight' => 1010, // Add-on settings are 1000 plus
-				'tab' => 'settings',
+				'tab' => 'addons',
 				'callback' => array( __CLASS__, 'display_advanced_numbering_messaging' ),
 				'settings' => array(
 					self::INV_FORMAT => array(
 						'label' => __( 'Invoice Numbering Format', 'sprout-invoices' ),
 						'option' => array(
 							'type' => 'input',
+							'attributes' => array( 'class' => 'medium-input' ),
 							'default' => self::invoices_format(),
-							'description' => sprintf( __( 'Adjust the format with some dynamic tags. Example: PREFIX-{Y}-{m}-{d}-INV#{count}, would result in %s. %s', 'sprout-invoices' ), sprintf( '<code>PREFIX-%s-%s-%s-INV#142</code>', date_i18n( 'Y' ), date_i18n( 'm' ), date_i18n( 'd' ) ), self::display_dynamic_tags() ),
+							'description' => __( 'Adjust the format with some dynamic tags.', 'sprout-invoices' ) . self::display_dynamic_tags(),
+							),
+						),
+					self::EST_FORMAT => array(
+						'label' => __( 'Estimate Numbering Format', 'sprout-invoices' ),
+						'option' => array(
+							'type' => 'input',
+							'attributes' => array( 'class' => 'medium-input' ),
+							'default' => self::estimates_format(),
+							'description' => __( 'Adjust the format with some dynamic tags.', 'sprout-invoices' ) . self::display_dynamic_tags(),
 							),
 						),
 					self::INV_START => array(
@@ -131,14 +140,6 @@ class SI_Advanced_Id_Generation extends SI_Controller {
 							'type' => 'small-input',
 							'default' => self::invoices_sequence_padd(),
 							'description' => __( 'The sequence length. So that the {seq} could be 00000123 and not lead to 123, this example uses a length of 8.', 'sprout-invoices' ),
-							),
-						),
-					self::EST_FORMAT => array(
-						'label' => __( 'Estimate Numbering Format', 'sprout-invoices' ),
-						'option' => array(
-							'type' => 'input',
-							'default' => self::estimates_format(),
-							'description' => __( 'Adjust the format with some dynamic tags.', 'sprout-invoices' ) . self::display_dynamic_tags(),
 							),
 						),
 					self::EST_START => array(
@@ -158,9 +159,8 @@ class SI_Advanced_Id_Generation extends SI_Controller {
 							),
 						),
 					),
-				),
 			);
-		do_action( 'sprout_settings', $settings, self::SETTINGS_PAGE );
+		return $settings;
 	}
 
 	public static function display_advanced_numbering_messaging() {
@@ -184,7 +184,7 @@ class SI_Advanced_Id_Generation extends SI_Controller {
 		$tags['seq'] = __( 'Uses the sequential number option.', 'sprout-invoices' );
 		$tags['count'] = __( 'Current count of invoices/estimates.', 'sprout-invoices' );
 		$tags['count_y'] = __( 'Current count of invoices/estimates, for the current year.', 'sprout-invoices' );
-		$tags['count_today'] = __( 'Current count of invoices/estimates, for the today.', 'sprout-invoices' );
+		$tags['count_today'] = __( 'Current count of invoices/estimates, for today.', 'sprout-invoices' );
 		$tags['count_m'] = __( 'Current count of invoices/estimates, for the current month.', 'sprout-invoices' );
 		$tags['Y'] = __( 'Current year (date_i18n() format).', 'sprout-invoices' );
 		$tags['y'] = __( 'Current year (date_i18n() format).', 'sprout-invoices' );
@@ -296,35 +296,35 @@ class SI_Advanced_Id_Generation extends SI_Controller {
 			return;
 		}
 
-		$cloned_doc = si_get_doc_object( $cloned_post_id );
-		$doc = si_get_doc_object( $new_post_id );
+		$old_doc = si_get_doc_object( $cloned_post_id );
+		$new_doc = si_get_doc_object( $new_post_id );
 
-		if ( is_a( $doc, 'SI_Invoice' ) ) {
+		if ( is_a( $new_doc, 'SI_Invoice' ) ) {
 			$new_id = self::filter_invoice_id( $new_post_id );
-			$doc->set_invoice_id( $new_id );
+			$new_doc->set_invoice_id( $new_id );
 
-			$clonded_id = $cloned_doc->get_invoice_id();
-			$invoice_title = $doc->get_title();
+			$old_doc_id = $old_doc->get_invoice_id();
+			$invoice_title = $new_doc->get_title();
 			// Does new invoice title have an old id
-			if ( strpos( $invoice_title, $clonded_id ) !== false ) {
-				$new_invoice_title = str_replace( $clonded_id, $new_id, $invoice_title );
+			if ( strpos( $invoice_title, $old_doc_id ) !== false ) {
+				$new_invoice_title = str_replace( $old_doc_id, $new_id, $invoice_title );
 				if ( $invoice_title !== $new_invoice_title ) {
-					$doc->set_title( $new_invoice_title );
+					$new_doc->set_title( $new_invoice_title );
 				}
 			}
 
 		}
-		elseif ( is_a( $doc, 'SI_Estimate' ) ) {
+		elseif ( is_a( $new_doc, 'SI_Estimate' ) ) {
 			$new_id = self::filter_estimate_id( $new_post_id );
-			$doc->set_estimate_id( $new_id );
+			$new_doc->set_estimate_id( $new_id );
 
-			$clonded_id = $cloned_doc->get_estimate_id();
-			$estimate_title = $doc->get_title();
+			$old_doc_id = $old_doc->get_estimate_id();
+			$estimate_title = $new_doc->get_title();
 			// Does new invoice title have an old id
-			if ( strpos( $estimate_title, $clonded_id ) !== false ) {
-				$new_est_title = str_replace( $clonded_id, $new_id, $estimate_title );
+			if ( strpos( $estimate_title, $old_doc_id ) !== false ) {
+				$new_est_title = str_replace( $old_doc_id, $new_id, $estimate_title );
 				if ( $estimate_title !== $new_est_title ) {
-					$doc->set_title( $new_est_title );
+					$new_doc->set_title( $new_est_title );
 				}
 			}
 
@@ -351,7 +351,7 @@ class SI_Advanced_Id_Generation extends SI_Controller {
 		return $id;
 	}
 
-	public static function change_estimate_id_when_created_from_inv_submission( $estimate, $args = array() ) {
+	public static function change_estimate_id_when_created_from_submission( $estimate, $args = array() ) {
 		if ( ! is_a( $estimate, 'SI_Estimate' ) ) {
 			return;
 		}
@@ -359,7 +359,7 @@ class SI_Advanced_Id_Generation extends SI_Controller {
 		return $estimate->set_estimate_id( $new_id );
 	}
 
-	public static function change_invoice_id_when_created_from_inv_submission( $invoice, $args = array() ) {
+	public static function change_invoice_id_when_created_from_submission( $invoice, $args = array() ) {
 		if ( ! is_a( $invoice, 'SI_Invoice' ) ) {
 			return;
 		}

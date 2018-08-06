@@ -3,6 +3,7 @@
 Plugin Name: Sprout Invoices Add-on - Time Tracking
 Plugin URI: https://sproutapps.co/marketplace/time-tracking/
 Description: Adds the ability to track time on projects and then import time to invoices.
+ID: 7157
 Author: Sprout Apps
 Version: 3.2
 Author URI: https://sproutapps.co

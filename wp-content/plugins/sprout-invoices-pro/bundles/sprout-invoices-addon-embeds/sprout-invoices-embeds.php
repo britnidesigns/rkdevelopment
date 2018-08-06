@@ -5,6 +5,7 @@ Plugin URI: http://docs.sproutapps.co/article/104-invoice-and-estimate-shortcode
 Description: Embed an invoice/estimate view into any WordPress page. Button to duplicate an invoice/estimate with a single click.
 Author: Sprout Apps
 Version: 1
+ID: 0
 Author URI: https://sproutapps.co
 */
 
@@ -12,7 +13,7 @@ Author URI: https://sproutapps.co
  * Plugin Info for updates
  */
 define( 'SA_ADDON_EMBEDS_VERSION', '1.0' );
-define( 'SA_ADDON_EMBEDS_DOWNLOAD_ID', 7970 );
+define( 'SA_ADDON_EMBEDS_DOWNLOAD_ID', 0 );
 define( 'SA_ADDON_EMBEDS_NAME', 'Sprout Invoices Embeds' );
 define( 'SA_ADDON_EMBEDS_FILE', __FILE__ );
 define( 'SA_ADDON_EMBEDS_PATH', dirname( __FILE__ ) );

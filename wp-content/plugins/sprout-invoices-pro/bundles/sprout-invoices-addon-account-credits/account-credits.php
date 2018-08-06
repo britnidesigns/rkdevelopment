@@ -1,9 +1,10 @@
 <?php
 /*
-Plugin Name: Sprout Invoices Add-on - Account_Credits
+Plugin Name: Sprout Invoices Add-on - Account Credits
 Plugin URI: https://sproutapps.co/news/sprout-invoices-v10-account-credits-client-summary-notifications/
 Description: Adds the ability to track credit on invoices and then import credit to invoices.
 Author: Sprout Apps
+ID: 0
 Version: 1.2.1
 Author URI: https://sproutapps.co
 */
@@ -12,7 +13,7 @@ Author URI: https://sproutapps.co
  * Plugin Info for updates
  */
 define( 'SA_ADDON_ACCOUNT_CREDITS_VERSION', '1.2.1' );
-define( 'SA_ADDON_ACCOUNT_CREDITS_DOWNLOAD_ID', 7157 );
+define( 'SA_ADDON_ACCOUNT_CREDITS_DOWNLOAD_ID', 0 );
 define( 'SA_ADDON_ACCOUNT_CREDITS_NAME', 'Sprout Invoices Credit Tracker' );
 define( 'SA_ADDON_ACCOUNT_CREDITS_FILE', __FILE__ );
 define( 'SA_ADDON_ACCOUNT_CREDITS_PATH', dirname( __FILE__ ) );

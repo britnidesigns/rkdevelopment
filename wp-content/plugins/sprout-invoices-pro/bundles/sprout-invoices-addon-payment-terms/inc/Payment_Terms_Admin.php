@@ -151,6 +151,7 @@ class SI_Payment_Terms_Admin extends SI_Payment_Terms {
 	public static function maybe_add_payment_term() {
 		if ( isset( $_REQUEST['doc_id'] ) ) {
 			$doc_id = $_REQUEST['doc_id'];
+			$doc = si_get_doc_object( $doc_id );
 		}
 		if ( ! $doc_id ) {
 			wp_send_json_error( array( 'message' => __( 'No doc id provided!', 'sprout-invoices' ) ) );
@@ -160,8 +161,7 @@ class SI_Payment_Terms_Admin extends SI_Payment_Terms {
 		if ( isset( $_REQUEST['fee'] ) ) {
 			$fee = floatval( $_REQUEST['fee'] );
 		}
-
-		if ( ! $fee ) {
+		if ( ! is_numeric( $fee ) ) {
 			wp_send_json_error( array( 'message' => __( 'No fee provided!', 'sprout-invoices' ) ) );
 		}
 
@@ -191,6 +191,11 @@ class SI_Payment_Terms_Admin extends SI_Payment_Terms {
 		if ( isset( $_REQUEST['time'] ) ) {
 			$args['time'] = (int) strtotime( $_REQUEST['time'] );
 			$args['post_date'] = (int) strtotime( $_REQUEST['time'] );
+
+			// Set the due date if set before this new payment term due date
+			if ( $args['time'] > $doc->get_due_date() ) {
+				$doc->set_due_date( $args['time'] );
+			}
 		}
 
 		$args['complete'] = false;

@@ -32,6 +32,13 @@ class Subscription_Invoices extends SI_Subscription_Payments {
 	/////////////////////
 
 	public static function create_invoice_reciepts() {
+
+		if ( doing_action( 'si_create_invoice_reciepts' ) ) {
+			return;
+		}
+
+		do_action( 'si_create_invoice_reciepts', current_time( 'timestamp' ) );
+
 		$args = array(
 			'post_type' => SI_Invoice::POST_TYPE,
 			'post_status' => array_keys( SI_Invoice::get_statuses() ),
@@ -61,7 +68,14 @@ class Subscription_Invoices extends SI_Subscription_Payments {
 		$invoice_ids = get_posts( $args );
 
 		foreach ( $invoice_ids as $invoice_id ) {
+
 			$invoice = SI_Invoice::get_instance( $invoice_id );
+
+			$next_check = (int) $invoice->get_post_meta( self::$meta_keys['next_time'] );
+			if ( ! $next_check || ( $next_check > current_time( 'timestamp' ) ) ) {
+				continue;
+			}
+
 			$recurring_payment = SI_Payment_Processors::get_recurring_payment( $invoice );
 			if ( ! $recurring_payment ) {
 				continue;
@@ -87,19 +101,22 @@ class Subscription_Invoices extends SI_Subscription_Payments {
 		$reciept_id = self::clone_post( $invoice_id, SI_Invoice::STATUS_PAID, SI_Invoice::POST_TYPE );
 		$reciept = SI_Invoice::get_instance( $reciept_id );
 
-		// payment amount is the balance of the cloned invoice.
-		$payment_amount = $reciept->get_calculated_total();
-
-		// Create a payment
-		SI_Admin_Payment::create_admin_payment( $reciept_id, $payment_amount, '', 'Now', __( 'This payment was automatically added to settle a subscription payment.', 'sprout-invoices' ) );
-
 		// Issue date is today.
 		$reciept->set_issue_date( time() );
+		$reciept->set_due_date( time() );
 
 		// adjust the clone time for the next receipt
 		self::schedule_next_reciept( $invoice_id, current_time( 'timestamp' ) );
 
 		self::set_parent( $reciept_id, $invoice_id );
+
+		// payment amount is the balance of the cloned invoice.
+		$receipt->reset_totals();
+		$payment_amount = $reciept->get_calculated_total();
+
+		// Create a payment
+		SI_Admin_Payment::create_admin_payment( $reciept_id, $payment_amount, '', 'Now', __( 'This payment was automatically added to settle a subscription payment.', 'sprout-invoices' ) );
+
 		do_action( 'si_subscription_invoice_reciept_created', $invoice_id, $reciept_id );
 	}
 

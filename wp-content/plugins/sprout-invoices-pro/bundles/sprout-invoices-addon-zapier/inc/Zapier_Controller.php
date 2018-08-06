@@ -192,6 +192,7 @@ class Zapier_Controller extends SI_Controller {
 			'notes' => $estimate->get_notes(),
 			'line_items' => self::format_line_items( $estimate ),
 			'user_id' => $estimate->get_user_id(),
+			'permalink' => get_permalink( $estimate->get_id() ),
 			);
 		if ( $estimate->get_client_id() ) {
 			$client = SI_Client::get_instance( $estimate->get_client_id() );
@@ -231,6 +232,7 @@ class Zapier_Controller extends SI_Controller {
 			'line_items' => self::format_line_items( $invoice ),
 			'user_id' => $invoice->get_user_id(),
 			'payment_ids' => $invoice->get_payments(),
+			'permalink' => get_permalink( $invoice->get_id() ),
 			);
 		if ( $invoice->get_client_id() ) {
 			$client = SI_Client::get_instance( $invoice->get_client_id() );
@@ -286,6 +288,7 @@ class Zapier_Controller extends SI_Controller {
 			'company_name' => $client->get_title(),
 			'address' => $client->get_address(),
 			'user_ids' => $associated_users,
+			'user_email' => ( is_array( $emails ) ) ? $emails[0] : '',
 			'user_emails' => $emails,
 			'phone' => $client->get_phone(),
 			'website' => $client->get_website(),

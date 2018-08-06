@@ -5,6 +5,7 @@ Plugin URI: http://docs.sproutapps.co/article/105-dynamic-text-for-line-items
 Description: Use dynamic variables within line items to be shown to your clients.
 Author: Sprout Apps
 Version: 1
+ID: 0
 Author URI: https://sproutapps.co
 Auto Active: true
 */
@@ -13,7 +14,7 @@ Auto Active: true
  * Plugin Info for updates
  */
 define( 'SA_ADDON_DYNAMIC_TEXT_VERSION', '1.1' );
-define( 'SA_ADDON_DYNAMIC_TEXT_DOWNLOAD_ID', 7970 );
+define( 'SA_ADDON_DYNAMIC_TEXT_DOWNLOAD_ID', 0 );
 define( 'SA_ADDON_DYNAMIC_TEXT_NAME', 'Sprout Invoices Dynamic Text' );
 define( 'SA_ADDON_DYNAMIC_TEXT_FILE', __FILE__ );
 define( 'SA_ADDON_DYNAMIC_TEXT_PATH', dirname( __FILE__ ) );

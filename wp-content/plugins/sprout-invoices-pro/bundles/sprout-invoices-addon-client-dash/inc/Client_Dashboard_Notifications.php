@@ -51,7 +51,7 @@ class Client_Dashboard_Notifications extends SI_Notifications {
 					'shortcodes' => array( 'date', 'name', 'username', 'password', 'dashboard_link' ),
 					'default_title' => sprintf( __( '%s: Client Account Created', 'sprout-invoices' ), get_bloginfo( 'name' ) ),
 					'default_content' => self::default_user_notification(),
-					'default_disabled' => true
+					'default_disabled' => true,
 				),
 			);
 		return array_merge( $notifications, $default_notifications );
@@ -65,14 +65,14 @@ class Client_Dashboard_Notifications extends SI_Notifications {
 			'user_id' => $user_id,
 			'client' => $client,
 			'user_args' => $args,
-			'to' => $to
+			'to' => $to,
 		);
 		self::send_notification( 'user_notification', $data, $to );
 	}
 
 	public static function add_notification_shortcode_compatibility( $notifications = array() ) {
 		foreach ( $notifications as $key => $data ) {
-			if ( ! in_array( $key, array( 'estimate_submitted', 'accepted_estimate', 'declined_estimate', 'payment_notification' ) ) ) { // don't show for admin notifications
+			if ( ! in_array( $key, array( 'accepted_estimate', 'declined_estimate', 'payment_notification' ) ) ) { // don't show for admin notifications
 				$notifications[ $key ]['shortcodes'] = array_merge( $notifications[ $key ]['shortcodes'], array( 'dashboard_link' ) );
 			}
 		}
@@ -83,12 +83,12 @@ class Client_Dashboard_Notifications extends SI_Notifications {
 		$new_shortcodes = array(
 			'dashboard_link' => array(
 				'description' => __( 'Used to provide the client with a private url for them to view their private dashboard without logging in. Without this private link the user/client will need to login with a password.', 'sprout-invoices' ),
-				'callback' => array( __CLASS__, 'shortcode_dashboard_link' )
+				'callback' => array( __CLASS__, 'shortcode_dashboard_link' ),
 			),
 			'password' => array(
 				'description' => __( 'Used to provide the client with a their login. This is only used on the User Created notification which is disabled by default since the client should simply receive the [dashboard_link] in all notifications instead. Sending passwords is a potential security risk for your users.', 'sprout-invoices' ),
-				'callback' => array( __CLASS__, 'shortcode_password' )
-			)
+				'callback' => array( __CLASS__, 'shortcode_password' ),
+			),
 		);
 		return array_merge( $new_shortcodes, $default_shortcodes );
 	}
@@ -123,11 +123,9 @@ class Client_Dashboard_Notifications extends SI_Notifications {
 		$password = __( 'N/A', 'sprout-invoices' );
 		if ( isset( $data['user_args']['user_pass'] ) ) {
 			$password = $data['user_args']['user_pass'];
-		}
-		elseif ( isset( $data['user_args']['password'] ) ) {
+		} elseif ( isset( $data['user_args']['password'] ) ) {
 			$password = $data['user_args']['password'];
-		}
-		elseif ( isset( $data['password'] ) ) {
+		} elseif ( isset( $data['password'] ) ) {
 			$password = $data['password'];
 		}
 
@@ -135,7 +133,10 @@ class Client_Dashboard_Notifications extends SI_Notifications {
 	}
 
 	public static function default_user_notification() {
-		return SI_Client_Dashboard::load_addon_view_to_string( 'notifications/user-created', array(
-				), true );
+		if ( class_exists( 'SI_HTML_Notifications' ) ) {
+			return SI_Client_Dashboard::load_addon_view_to_string( 'notifications/user-created-html', array(), true );
+		} else {
+			return SI_Client_Dashboard::load_addon_view_to_string( 'notifications/user-created', array(), true );
+		}
 	}
 }

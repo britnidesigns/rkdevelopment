@@ -5,6 +5,7 @@ Plugin URI: https://sproutapps.co/marketplace/time-tracking/
 Description: Integrates ApproveMe with the Sprout Invoices
 Author: Sprout Apps
 Version: 1.1
+ID: 63999
 Author URI: https://sproutapps.co
 */
 

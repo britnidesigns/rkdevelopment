@@ -9,8 +9,8 @@
 class SI_HTML_Notifications extends SI_Controller {
 
 	public static function init() {
-		// register settings
-		self::register_settings();
+		// Register Settings
+		add_filter( 'si_notification_settings', array( __CLASS__, 'register_settings' ) );
 
 		add_action( 'wp_ajax_si_load_html_templates', array( __CLASS__, 'maybe_load_html_templates' ) );
 
@@ -27,50 +27,34 @@ class SI_HTML_Notifications extends SI_Controller {
 	 * Hooked on init add the settings page and options.
 	 *
 	 */
-	public static function register_settings() {
+	public static function register_settings( $settings = array() ) {
 		// Settings
-		$settings = array(
-			'html_notifications' => array(
-				'weight' => 30.15,
-				'tab' => 'settings',
-				'settings' => array(
-					'load_html_templates' => array(
-						'label' => __( 'HTML Notifications', 'sprout-invoices' ),
-						'option' => array(
-							'type' => 'bypass',
-							'output' => self::load_html_templates(),
-							'description' => __( 'Loading the templates will delete the content of your existing notifications with pretty HTML templates.', 'sprout-invoices' ),
-							),
+		$settings['html_notifications'] = array(
+			'title' => __( 'Load HTML Templates', 'sprout-invoices' ),
+			'description' => __( 'Load all the default HTML notifications from the add-on.', 'sprout-invoices' ),
+			'weight' => 30.15,
+			'tab' => 'notifications',
+			'settings' => array(
+				'load_html_templates' => array(
+					'option' => array(
+						'type' => 'bypass',
+						'output' => self::load_html_templates(),
+						'description' => __( 'Loading the templates will delete the content of your existing notifications with pretty HTML templates.', 'sprout-invoices' ),
 						),
 					),
 				),
 			);
-		do_action( 'sprout_settings', $settings, self::SETTINGS_PAGE );
+		return $settings;
 	}
 
 	public static function load_html_templates() {
 		ob_start();
 		?>
-			<span class="button" id="load_html_templates"><?php _e( 'Load HTML Templates', 'sprout-invoices' ) ?></span>
-			<script type="text/javascript">
-				//<![CDATA[
-				jQuery("#load_html_templates").on('click', function(event) {
-					event.preventDefault();
-					
-					jQuery("#load_html_templates").html(si_js_object.inline_spinner);
-
-					if( confirm( '<?php _e( 'Are you sure? This will delete any customized notifications and replace them with the default HTML templates.', 'sprout-invoices' ) ?>' ) ) {
-						jQuery.post( ajaxurl, { action: 'si_load_html_templates' },
-							function( data ) {
-								jQuery("#load_html_templates").removeClass('button');
-								jQuery("#load_html_templates").html('<?php _e( 'All done', 'sprout-invoices' ) ?>');
-								jQuery('[name="si_notification_format"]').val('HTML');
-							}
-						);
-					}
-				});
-				//]]>
-			</script>
+			<label for="load_html_templates" class="si_input_label"><?php _e( 'HTML Notifications', 'sprout-invoices' ) ?></label>
+			<span class="button" id="load_html_templates" @click='loadHTMLTemplates'><?php _e( 'Load HTML Templates', 'sprout-invoices' ) ?></span>
+			<img
+				v-if='isLoading == true'
+				id='load_html_templates_loading_indicator' src='<?php echo get_site_url() ?>/wp-admin/images/wpspin_light-2x.gif' alt='Loading indicator' />
 		<?php
 		return ob_get_clean();
 	}
@@ -80,6 +64,7 @@ class SI_HTML_Notifications extends SI_Controller {
 			return;
 		}
 		self::load_templates();
+		die( '1' );
 	}
 
 	public static function load_templates() {
@@ -98,7 +83,7 @@ class SI_HTML_Notifications extends SI_Controller {
 				'post_status' => 'publish',
 				'post_type' => SI_Notification::POST_TYPE,
 				'post_title' => $data['default_title'],
-				'post_content' => self::notification_content( $notification_id ),
+				'post_content' => self::notification_content( $notification_id, $data ),
 			) );
 			$notification = SI_Notification::get_instance( $post_id );
 			SI_Notifications_Control::save_meta_box_notification_submit( $post_id, $notification->get_post(), array(), $notification_id );
@@ -112,8 +97,16 @@ class SI_HTML_Notifications extends SI_Controller {
 		}
 	}
 
-	public static function notification_content( $notification_id ) {
-		$content = self::load_addon_view_to_string( 'notifications/'.$notification_id.'.php', array() );
+	public static function notification_content( $notification_id, $data ) {
+		$content = '';
+		if ( file_exists( self::addons_view_path() . 'notifications/'.$notification_id.'.php' ) ) {
+			$content = self::load_addon_view_to_string( 'notifications/'.$notification_id.'.php', array() );
+		} elseif ( isset( $data['default_content'] ) ) {
+			$content = $data['default_content'];
+		} else {
+			return __( "I'm so sorry, I couldn't find a template", 'sprout-invoices' );
+		}
+
 		$address = SI_Admin_Settings::get_site_address();
 		$content = str_replace(
 			array(

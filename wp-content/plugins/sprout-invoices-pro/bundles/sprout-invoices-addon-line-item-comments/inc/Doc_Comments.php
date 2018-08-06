@@ -263,7 +263,7 @@ class SI_Doc_Comments extends SI_Controller {
 		}
 
 		$doc = si_get_doc_object( $doc_id );
-		if ( ! is_a( $doc, 'SI_Estimate' ) && ! is_a( $doc, 'SI_Invoice' ) ) {
+		if ( ! is_a( $doc, 'SI_Estimate' ) || ! is_a( $doc, 'SI_Invoice' ) ) {
 			return 0;
 		}
 

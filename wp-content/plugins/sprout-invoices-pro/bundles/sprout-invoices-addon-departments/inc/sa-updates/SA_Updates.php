@@ -7,11 +7,10 @@
  * @subpackage Updates
  */
 class SA_Tasks_and_Product_Updates extends SI_Updates {
-	
+
 	public static function init() {
 		self::$license_key = trim( get_option( self::LICENSE_KEY_OPTION, '' ) );
 		self::$license_status = get_option( self::LICENSE_STATUS, false );
-		self::register_settings();
 
 		if ( is_admin() ) {
 			add_action( 'admin_init', array( __CLASS__, 'init_edd_udpater' ) );
@@ -26,7 +25,7 @@ class SA_Tasks_and_Product_Updates extends SI_Updates {
 				'version' 	=> SA_ADDON_DEPARTMENTS_VERSION,		// current version number
 				'license' 	=> self::license_key(),	 		// license key (used get_option above to retrieve from DB)
 				'department_name' => SA_ADDON_DEPARTMENTS_NAME, 		// name of this plugin
-				'author' 	=> 'Sprout Apps' 				// author of this plugin
+				'author' 	=> 'Sprout Apps',// author of this plugin
 			)
 		);
 
@@ -35,7 +34,5 @@ class SA_Tasks_and_Product_Updates extends SI_Updates {
 		// uncomment this line for testing
 		// set_site_transient( 'update_plugins', null );
 	}
-
-	
 }
 SA_Tasks_and_Product_Updates::init();

@@ -6,7 +6,7 @@
 
 	<?php screen_icon(); ?>
 	<h2 class="nav-tab-wrapper">
-		<?php do_action( 'sprout_settings_tabs' ); ?>
+		<?php do_action( 'sprout_settings_header' ); ?>
 	</h2>
 	<div class="clearfix">
 		<?php do_action( 'si_settings_page_sub_heading_'.$_GET['page'] ); ?>

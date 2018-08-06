@@ -2,17 +2,18 @@
 /*
 Plugin Name: Sprout Invoices Add-on - PDF Service
 Plugin URI: https://sproutapps.co/sprout-invoices/sprout-pdfs/
-Description: Generates PDFs via a Sprout Apps API to create better looking PDFs.<br/><b>Note:</b> The PDF Service will work only for current Business and Corporate license holders.
+Description: Generates PDFs via a Sprout Apps API to create better looking PDFs.<br/><b>Note:</b> The PDF Service is now free for all pro license holders.
 Author: Sprout Apps
-Version: 0.1 Alpha
+ID: 3445
+Version: 1
 Author URI: https://sproutapps.co
 */
 
 /**
  * Plugin Info for updates
  */
-define( 'SA_ADDON_SPROUT_PDFS_VERSION', '0.1' );
-define( 'SA_ADDON_SPROUT_PDFS_DOWNLOAD_ID', 577436 );
+define( 'SA_ADDON_SPROUT_PDFS_VERSION', '1.0' );
+define( 'SA_ADDON_SPROUT_PDFS_DOWNLOAD_ID', 3445 );
 define( 'SA_ADDON_SPROUT_PDFS_NAME', 'Sprout Invoices PDF Service (beta)' );
 define( 'SA_ADDON_SPROUT_PDFS_FILE', __FILE__ );
 define( 'SA_ADDON_SPROUT_PDFS_PATH', dirname( __FILE__ ) );

@@ -98,9 +98,6 @@ class SA_NMI extends SI_Credit_Card_Processors {
 		self::$currency_code = get_option( self::CURRENCY_CODE_OPTION, 'USD' );
 		self::$api_mode = get_option( self::API_MODE_OPTION, self::MODE_TEST );
 
-		if ( is_admin() ) {
-			add_action( 'init', array( get_class(), 'register_options' ) );
-		}
 		// Remove pages
 		add_filter( 'si_checkout_pages', array( $this, 'remove_checkout_pages' ) );
 	}
@@ -132,13 +129,12 @@ class SA_NMI extends SI_Credit_Card_Processors {
 	 * Hooked on init add the settings page and options.
 	 *
 	 */
-	public static function register_options() {
+	public static function register_settings( $settings = array() ) {
 		// Settings
-		$settings = array(
+		$settings['payments'] = array(
 			'si_nmi_settings' => array(
 				'title' => __( 'NMI' , 'sprout-invoices' ),
 				'weight' => 200,
-				'tab' => self::get_settings_page( false ),
 				'settings' => array(
 					self::API_MODE_OPTION => array(
 						'label' => __( 'Mode' , 'sprout-invoices' ),
@@ -183,7 +179,7 @@ class SA_NMI extends SI_Credit_Card_Processors {
 					),
 				),
 			);
-		do_action( 'sprout_settings', $settings, self::SETTINGS_PAGE );
+		return $settings;
 	}
 
 	/**

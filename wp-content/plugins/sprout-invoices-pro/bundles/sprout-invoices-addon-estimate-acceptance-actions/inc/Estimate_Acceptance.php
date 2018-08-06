@@ -91,7 +91,7 @@ class SI_Estimate_Acceptance extends SI_Controller {
 		$fields['deposit'] = array(
 			'weight' => 30,
 			'label' => __( 'Invoice Deposit', 'sprout-invoices' ),
-			'type' => 'input',
+			'type' => 'small-input',
 			'default' => $deposit,
 			'placeholder' => 0,
 			'attributes' => array( 'class' => 'small-input' ),

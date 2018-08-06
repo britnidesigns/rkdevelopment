@@ -4,6 +4,7 @@ Plugin Name: Sprout Invoices Add-on - Time Tracking w/ Toggl
 Plugin URI: https://sproutapps.co/marketplace/time-tracking/
 Description: Integrates Toggl with the Time Tracking. Automatically imports time to your SI projects to be later invoiced.
 Author: Sprout Apps
+ID: 0
 Version: 1 Beta
 Author URI: https://sproutapps.co
 */

@@ -4,6 +4,7 @@ Plugin Name: Sprout Invoices Add-on - Recurring (aka Subscription) Payments
 Plugin URI: https://sproutapps.co/marketplace/recurring-subscription-payments/
 Description: Setup an invoice to automatically bill a client over an extended period, like a subscription payment.
 Author: Sprout Apps
+ID: 0
 Version: 1.1
 Author URI: https://sproutapps.co
 */

@@ -5,6 +5,7 @@ Plugin URI: https://sproutapps.co/marketplace/html-notifications/
 Description: Use some beautiful HTML notifications for your e-mail communications.
 Author: Sprout Apps
 Version: 2.1.1
+ID: 7970
 Author URI: https://sproutapps.co
 Auto Active: true
 */

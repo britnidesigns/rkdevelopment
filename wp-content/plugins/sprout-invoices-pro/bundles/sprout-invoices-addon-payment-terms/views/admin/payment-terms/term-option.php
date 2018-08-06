@@ -5,7 +5,7 @@
 	</div><!-- #tt_body -->
 	<div id="tt_save">
 		<p>
-			<button href="javascript:void(0)" id="create_fees_entry" class="button button-large button-primary"><?php _e( 'Log fees', 'sprout-invoices' ) ?></button>
+			<button href="javascript:void(0)" id="create_fees_entry" class="si_admin_button"><?php _e( 'Log fees', 'sprout-invoices' ) ?></button>
 		</p>
 	</div><!-- #tt_save -->
 </div><!-- #fees_tracker_wrap -->

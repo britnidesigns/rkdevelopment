@@ -5,6 +5,7 @@ Plugin URI: https://sproutapps.co/marketplace/advanced-id-generation/
 Description: ID generation options for estimates and invoices.
 Author: Sprout Apps
 Version: 1.7
+ID: 108035
 Author URI: https://sproutapps.co
 Auto Active: true
 */

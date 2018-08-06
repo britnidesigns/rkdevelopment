@@ -16,8 +16,9 @@ class ApproveMe_Settings extends ApproveMe_Controller {
 		self::$agreement_doc = self::get_agreement_doc();
 		self::$agreement_doc_estimates = self::get_agreement_doc_estimates();
 		if ( is_admin() ) {
-			// register settings
-			self::register_settings();
+
+			// Register Settings
+			add_filter( 'si_settings', array( __CLASS__, 'register_settings' ) );
 
 			// meta boxes
 			add_action( 'doc_information_meta_box_client_row_last', array( __CLASS__, 'add_agreement_option' ) );
@@ -54,18 +55,17 @@ class ApproveMe_Settings extends ApproveMe_Controller {
 	 * Hooked on init add the settings page and options.
 	 *
 	 */
-	public static function register_settings() {
+	public static function register_settings( $settings = array() ) {
 
 		$page_options = array();
 		$page_options[0] = __( 'Select an Agreement Document (disabled)', 'sprout-invoices' );
 		$page_options += self::esig_get_sad_pages();
 
 		// Settings
-		$settings = array(
-			'approveme' => array(
+		$settings['approveme'] = array(
 				'title' => __( 'E-Signature Integration Settings', 'sprout-invoices' ),
 				'weight' => 1010, // Add-on settings are 1000 plus
-				'tab' => 'settings',
+				'tab' => 'addons',
 				'callback' => array( __CLASS__, 'display_integration_info_for_global_options' ),
 				'settings' => array(
 					self::DOC_ID => array(
@@ -87,9 +87,8 @@ class ApproveMe_Settings extends ApproveMe_Controller {
 							),
 						),
 					),
-				),
 			);
-		do_action( 'sprout_settings', $settings, self::SETTINGS_PAGE );
+		return $settings;
 	}
 
 	public static function display_integration_info_for_global_options() {

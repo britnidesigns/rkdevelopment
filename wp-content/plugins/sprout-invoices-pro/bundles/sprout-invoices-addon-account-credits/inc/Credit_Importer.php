@@ -12,8 +12,8 @@ class SI_Account_Credits_Importer extends SI_Importer {
 	const FILE_OPTION = 'si_credit_csv_upload';
 
 	public static function init() {
-		self::register_settings();
-		self::save_options();
+		// Register Settings
+		add_filter( 'si_settings', array( __CLASS__, 'register_settings' ) );
 
 		// Maybe process import
 		self::maybe_process_import();
@@ -28,13 +28,11 @@ class SI_Account_Credits_Importer extends SI_Importer {
 	 * Register the credit settings
 	 * @return
 	 */
-	public static function register_settings() {
+	public static function register_settings( $settings = array() ) {
 		// Settings
-		$settings = array(
-			'si_csv_credit_importer_settings' => array(
+		$settings['si_csv_credit_importer_settings'] = array(
 				'title' => 'CSV Import Settings',
 				'weight' => 0,
-				'tab' => self::get_settings_page( false ),
 				'settings' => array(
 					self::FILE_OPTION => array(
 						'label' => __( 'Credits', 'sprout-invoices' ),
@@ -50,9 +48,8 @@ class SI_Account_Credits_Importer extends SI_Importer {
 						),
 					),
 				),
-			),
 		);
-		do_action( 'sprout_settings', $settings, self::SETTINGS_PAGE );
+		return $settings;
 	}
 
 	public static function save_options() {

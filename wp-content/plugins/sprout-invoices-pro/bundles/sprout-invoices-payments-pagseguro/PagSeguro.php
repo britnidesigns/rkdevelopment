@@ -78,10 +78,6 @@ class SA_PagSeguro extends SI_Offsite_Processors {
 		self::$api_email = get_option( self::API_EMAIL_OPTION, 'vendedor@lojamodelo.com.br' );
 		self::$api_token = get_option( self::API_TOKEN_OPTION, 'E231B2C9BCC8474DA2E260B6C8CF60D3' ); // E231B2C9BC
 
-		if ( is_admin() ) {
-			add_action( 'init', array( get_class(), 'register_options' ) );
-		}
-
 		add_action( 'si_checkout_action_'.SI_Checkouts::REVIEW_PAGE, array( $this, 'back_from_pg' ), 0, 1 );
 		add_action( 'checkout_completed', array( $this, 'post_checkout_redirect' ), 10, 2 );
 	}
@@ -101,13 +97,12 @@ class SA_PagSeguro extends SI_Offsite_Processors {
 	 * Hooked on init add the settings page and options.
 	 *
 	 */
-	public static function register_options() {
+	public static function register_settings( $settings = array() ) {
 		// Settings
-		$settings = array(
+		$settings['payments'] = array(
 			'si_pagseguro_settings' => array(
 				'title' => __( 'PagSeguro Settings' , 'sprout-invoices' ),
 				'weight' => 200,
-				'tab' => self::get_settings_page( false ),
 				'settings' => array(
 					self::API_MODE_OPTION => array(
 						'label' => __( 'Mode' , 'sprout-invoices' ),
@@ -145,7 +140,7 @@ class SA_PagSeguro extends SI_Offsite_Processors {
 					),
 				),
 			);
-		do_action( 'sprout_settings', $settings, self::SETTINGS_PAGE );
+		return $settings;
 	}
 
 	/**

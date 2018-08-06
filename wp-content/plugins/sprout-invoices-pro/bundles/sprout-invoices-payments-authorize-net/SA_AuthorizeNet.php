@@ -60,7 +60,8 @@ class SA_AuthorizeNet extends SI_Credit_Card_Processors {
 				SI_URL . '/resources/front-end/img/visa.png',
 				SI_URL . '/resources/front-end/img/mastercard.png',
 				SI_URL . '/resources/front-end/img/amex.png',
-				SI_URL . '/resources/front-end/img/discover.png' ),
+				SI_URL . '/resources/front-end/img/discover.png',
+			),
 			'label' => __( 'Credit Card' , 'sprout-invoices' ),
 			'accepted_cards' => array(
 				'visa',
@@ -70,7 +71,7 @@ class SA_AuthorizeNet extends SI_Credit_Card_Processors {
 				// 'discover',
 				'jcb',
 				// 'maestro'
-				)
+				),
 			);
 		return $option;
 	}
@@ -80,10 +81,6 @@ class SA_AuthorizeNet extends SI_Credit_Card_Processors {
 		self::$api_username = get_option( self::API_USERNAME_OPTION, '' );
 		self::$api_password = get_option( self::API_PASSWORD_OPTION, '' );
 		self::$api_mode = get_option( self::API_MODE_OPTION, self::MODE_TEST );
-
-		if ( is_admin() ) {
-			add_action( 'init', array( get_class(), 'register_options') );
-		}
 
 		// Remove pages
 		add_filter( 'si_checkout_pages', array( $this, 'remove_checkout_pages' ) );
@@ -96,7 +93,7 @@ class SA_AuthorizeNet extends SI_Credit_Card_Processors {
 	 * @return array
 	 */
 	public function remove_checkout_pages( $pages ) {
-		unset( $pages[SI_Checkouts::REVIEW_PAGE] );
+		unset( $pages[ SI_Checkouts::REVIEW_PAGE ] );
 		return $pages;
 	}
 
@@ -104,13 +101,12 @@ class SA_AuthorizeNet extends SI_Credit_Card_Processors {
 	 * Hooked on init add the settings page and options.
 	 *
 	 */
-	public static function register_options() {
+	public static function register_settings( $settings = array() ) {
 		// Settings
-		$settings = array(
+		$settings['payments'] = array(
 			'si_authorizenet_settings' => array(
 				'title' => __( 'Authorize.net' , 'sprout-invoices' ),
 				'weight' => 200,
-				'tab' => self::get_settings_page( false ),
 				'settings' => array(
 					self::API_MODE_OPTION => array(
 						'label' => __( 'Mode' , 'sprout-invoices' ),
@@ -120,27 +116,27 @@ class SA_AuthorizeNet extends SI_Credit_Card_Processors {
 								self::MODE_LIVE => __( 'Live' , 'sprout-invoices' ),
 								self::MODE_TEST => __( 'Sandbox' , 'sprout-invoices' ),
 								),
-							'default' => self::$api_mode
-							)
+							'default' => self::$api_mode,
+							),
 						),
 					self::API_USERNAME_OPTION => array(
 						'label' => __( 'API Login ID' , 'sprout-invoices' ),
 						'option' => array(
 							'type' => 'text',
-							'default' => get_option( self::API_USERNAME_OPTION, '' )
-							)
+							'default' => get_option( self::API_USERNAME_OPTION, '' ),
+							),
 						),
 					self::API_PASSWORD_OPTION => array(
 						'label' => __( 'Transaction Key' , 'sprout-invoices' ),
 						'option' => array(
 							'type' => 'text',
-							'default' => get_option( self::API_PASSWORD_OPTION, '' )
-							)
-						)
-					)
-				)
+							'default' => get_option( self::API_PASSWORD_OPTION, '' ),
+							),
+						),
+					),
+				),
 			);
-		do_action( 'sprout_settings', $settings, self::SETTINGS_PAGE );
+		return $settings;
 	}
 
 	/**
@@ -172,8 +168,8 @@ class SA_AuthorizeNet extends SI_Credit_Card_Processors {
 				'httpversion' => '1.1',
 				'body' => $post_string,
 				'timeout' => apply_filters( 'http_request_timeout', 30 ),
-				'sslverify' => false
-			) );
+				'sslverify' => false,
+		) );
 		do_action( 'si_log', __CLASS__ . '::' . __FUNCTION__ . ' - AuthorizeNet RAW $response', $response );
 
 		if ( is_wp_error( $response ) ) {
@@ -192,14 +188,14 @@ class SA_AuthorizeNet extends SI_Credit_Card_Processors {
 		// Success
 
 		$payment_id = SI_Payment::new_payment( array(
-				'payment_method' => $this->get_payment_method(),
-				'invoice' => $invoice->get_id(),
-				'amount' => $post_data['x_amount'],
-				'data' => array(
-					'live' => ( self::$api_mode == self::MODE_LIVE ),
-					'api_response' => $response,
-				),
-			), SI_Payment::STATUS_AUTHORIZED );
+			'payment_method' => $this->get_payment_method(),
+			'invoice' => $invoice->get_id(),
+			'amount' => $post_data['x_amount'],
+			'data' => array(
+			'live' => ( self::$api_mode == self::MODE_LIVE ),
+			'api_response' => $response,
+			),
+		), SI_Payment::STATUS_AUTHORIZED );
 		if ( ! $payment_id ) {
 			return false;
 		}

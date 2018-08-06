@@ -4,6 +4,7 @@ Plugin Name: Sprout Invoices Add-on - Login
 Plugin URI: https://sproutapps.co/marketplace/login/
 Description: Force clients to login (or enter password) before viewing an invoice or estimate of theirs.
 Author: Sprout Apps
+ID: 16242
 Version: 1.1.1
 Author URI: https://sproutapps.co
 */

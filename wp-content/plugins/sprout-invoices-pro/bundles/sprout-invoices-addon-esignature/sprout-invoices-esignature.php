@@ -5,6 +5,7 @@ Plugin URI: https://sproutapps.co/marketplace/time-tracking/
 Description: Adds the requirement for client's to digitally sign docs before payment or acceptance.
 Author: Sprout Apps
 Version: 1.1
+ID: 577436
 Author URI: https://sproutapps.co
 */
 

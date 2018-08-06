@@ -77,10 +77,6 @@ class SA_eWAY extends SI_Offsite_Processors {
 		self::$api_password = get_option( self::API_PASSWORD_OPTION, '' );
 		self::$api_mode = get_option( self::API_MODE_OPTION, self::MODE_TEST );
 
-		if ( is_admin() ) {
-			add_action( 'init', array( get_class(), 'register_options' ) );
-		}
-
 		add_action( 'si_checkout_action_'.SI_Checkouts::REVIEW_PAGE, array( $this, 'back_from_eway' ), 0, 1 );
 
 		add_action( 'checkout_completed', array( $this, 'post_checkout_redirect' ), 10, 2 );
@@ -98,13 +94,12 @@ class SA_eWAY extends SI_Offsite_Processors {
 	 * Hooked on init add the settings page and options.
 	 *
 	 */
-	public static function register_options() {
+	public static function register_settings( $settings = array() ) {
 		// Settings
-		$settings = array(
+		$settings['payments'] = array(
 			'si_eway_settings' => array(
 				'title' => __( 'eWay' , 'sprout-invoices' ),
 				'weight' => 200,
-				'tab' => self::get_settings_page( false ),
 				'settings' => array(
 					self::API_MODE_OPTION => array(
 						'label' => __( 'Mode' , 'sprout-invoices' ),
@@ -141,7 +136,7 @@ class SA_eWAY extends SI_Offsite_Processors {
 					),
 				),
 			);
-		do_action( 'sprout_settings', $settings, self::SETTINGS_PAGE );
+		return $settings;
 	}
 
 	public static function payment_button( $invoice_id = 0 ) {

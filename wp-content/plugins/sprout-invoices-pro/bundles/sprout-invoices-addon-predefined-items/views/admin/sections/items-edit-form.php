@@ -4,7 +4,7 @@
 	</div><!-- #tt_body -->
 	<div id="tt_save">
 		<p>
-			<a href="javascript:void(0)" id="edit_predefined_item" class="button button-large button-primary"><?php _e( 'Edit Item', 'sprout-invoices' ) ?></a>
+			<a href="javascript:void(0)" id="edit_predefined_item" class="si_admin_button"><?php _e( 'Edit Item', 'sprout-invoices' ) ?></a>
 			<a href="javascript:void(0)" id="manage_items" class="button" data-item-id="0"><?php _e( 'Manage Items', 'sprout-invoices' ) ?></a>
 		</p>
 

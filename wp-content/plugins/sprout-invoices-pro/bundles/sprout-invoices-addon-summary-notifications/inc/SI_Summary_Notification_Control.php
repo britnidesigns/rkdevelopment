@@ -19,8 +19,8 @@ class SI_Summary_Notification_Control extends SI_Controller {
 		self::$last_send = get_option( self::LAST_SEND, 0 );
 		self::$next_send = get_option( self::NEXT_SEND, 0 );
 
-		// register settings
-		self::register_settings();
+		// Register Settings
+		add_filter( 'si_notification_settings', array( __CLASS__, 'register_settings' ) );
 
 		// Schedule next send when options are saved/updated
 		add_action( 'update_option_' . self::DOW, array( __CLASS__, 'set_next_send_time_on_dow_save' ), 10, 2 );
@@ -76,54 +76,55 @@ class SI_Summary_Notification_Control extends SI_Controller {
 	 * Hooked on init add the settings page and options.
 	 *
 	 */
-	public static function register_settings() {
+	public static function register_settings( $settings = array() ) {
 
 		if ( self::$next_send ) {
 			$description = sprintf( '%s<br/><code>%s</code>', __( 'Select a frequency for the client summary notifications.', 'sprout-invoices' ), sprintf( __( 'Next scheduled send is: %s', 'sprout-invoices' ), date( 'l jS \of F Y h:i:s A', self::$next_send ) ) );
 		} else {
 			$description = sprintf( '%s', __( 'Select a frequency for the client summary notifications.', 'sprout-invoices' ) );
 		}
+
 		// Settings
-		$settings = array(
-			'notifications_summary' => array(
-				'weight' => 30.2,
-				'tab' => 'settings',
-				'settings' => array(
-					self::FREQ => array(
-						'label' => __( 'Client Summary Frequency', 'sprout-invoices' ),
-						'option' => array(
-							'type' => 'select',
-							'options' => array(
-								'disabled' => __( 'Disabled', 'sprout-invoices' ),
-								'weekly' => __( 'Weekly', 'sprout-invoices' ),
-								'bi-weekly' => __( 'Bi-weekly', 'sprout-invoices' ),
-								'monthly' => __( 'Monthly', 'sprout-invoices' ),
-								),
-							'default' => self::get_frequency(),
-							'description' => $description,
-						),
+		$settings['notifications_summary'] = array(
+			'title' => __( 'Summary Notification Settings', 'sprout-invoices' ),
+			'description' => __( 'Adjust the settings from the summary notification add-on.', 'sprout-invoices' ),
+			'weight' => 30.2,
+			'tab' => 'settings',
+			'settings' => array(
+				self::FREQ => array(
+					'label' => __( 'Client Summary Frequency', 'sprout-invoices' ),
+					'option' => array(
+						'type' => 'select',
+						'options' => array(
+							'disabled' => __( 'Disabled', 'sprout-invoices' ),
+							'weekly' => __( 'Weekly', 'sprout-invoices' ),
+							'bi-weekly' => __( 'Bi-weekly', 'sprout-invoices' ),
+							'monthly' => __( 'Monthly', 'sprout-invoices' ),
+							),
+						'default' => self::get_frequency(),
+						'description' => $description,
 					),
-					self::DOW => array(
-						'label' => __( 'Client Summary Day of Week', 'sprout-invoices' ),
-						'option' => array(
-							'type' => 'select',
-							'options' => array(
-								'sun' => __( 'Sunday', 'sprout-invoices' ),
-								'mon' => __( 'Monday', 'sprout-invoices' ),
-								'tue' => __( 'Tuesday', 'sprout-invoices' ),
-								'wed' => __( 'Wednesday', 'sprout-invoices' ),
-								'thur' => __( 'Thursday', 'sprout-invoices' ),
-								'fri' => __( 'Friday', 'sprout-invoices' ),
-								'sat' => __( 'Saturday', 'sprout-invoices' ),
-								),
-							'default' => self::get_dayofweek(),
-							'description' => __( 'Select the day of the week the summaries should be sent. Any updates will reset the next send date to the latest day of the week.', 'sprout-invoices' ),
-						),
+				),
+				self::DOW => array(
+					'label' => __( 'Client Summary Day of Week', 'sprout-invoices' ),
+					'option' => array(
+						'type' => 'select',
+						'options' => array(
+							'sun' => __( 'Sunday', 'sprout-invoices' ),
+							'mon' => __( 'Monday', 'sprout-invoices' ),
+							'tue' => __( 'Tuesday', 'sprout-invoices' ),
+							'wed' => __( 'Wednesday', 'sprout-invoices' ),
+							'thur' => __( 'Thursday', 'sprout-invoices' ),
+							'fri' => __( 'Friday', 'sprout-invoices' ),
+							'sat' => __( 'Saturday', 'sprout-invoices' ),
+							),
+						'default' => self::get_dayofweek(),
+						'description' => __( 'Select the day of the week the summaries should be sent. Any updates will reset the next send date to the latest day of the week.', 'sprout-invoices' ),
 					),
 				),
 			),
 		);
-		do_action( 'sprout_settings', $settings, self::SETTINGS_PAGE );
+		return $settings;
 	}
 
 	public static function maybe_send_summary_notifications() {

@@ -5,6 +5,7 @@ Plugin URI: https://sproutapps.co/marketplace/client-types/
 Description: Custom Client types with a numbering tag option.
 Author: Sprout Apps
 Version: 1.0.4
+ID: 108044
 Author URI: https://sproutapps.co
 */
 

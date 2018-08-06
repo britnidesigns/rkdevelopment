@@ -4,6 +4,7 @@ Plugin Name: Sprout Invoices Add-on - Expense Tracking
 Plugin URI: https://sproutapps.co/marketplace/expense-tracking/
 Description: Adds the ability to track expense on projects and then import expenses to invoices.
 Author: Sprout Apps
+ID: 413528
 Version: 1.0.2
 Author URI: https://sproutapps.co
 */

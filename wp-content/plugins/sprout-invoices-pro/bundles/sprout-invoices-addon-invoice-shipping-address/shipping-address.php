@@ -5,6 +5,7 @@ Plugin URI: https://sproutapps.co/marketplace/shipping-address/
 Description: Allow for clients to set their shipping, and allow them to modify it per invoice.
 Author: Sprout Apps
 Version: 1.0
+ID: 0
 Author URI: https://sproutapps.co
 */
 

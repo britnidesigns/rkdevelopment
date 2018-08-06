@@ -5,6 +5,7 @@ Plugin URI: https://sproutapps.co/marketplace/time-tracking/
 Description: Allows for the estimate and invoice admins to be filtered and adds some bulk actions
 Author: Sprout Apps
 Version: 1
+ID: 0
 Author URI: https://sproutapps.co
 Auto Active: true
 */

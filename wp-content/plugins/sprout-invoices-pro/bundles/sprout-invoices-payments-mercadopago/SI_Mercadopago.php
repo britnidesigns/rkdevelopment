@@ -66,7 +66,7 @@ class SI_Mercadopago extends SI_Offsite_Processors {
 			'icon' => 'https://s3.amazonaws.com/checkout_images/466be15d-fdb2-4d70-9717-b2b267f296cc.png',
 			'label' => __( 'Mercadopago' , 'sprout-invoices' ),
 			'cc' => array(),
-			'purchase_button_callback' => array( __CLASS__, 'payment_button' )
+			'purchase_button_callback' => array( __CLASS__, 'payment_button' ),
 			);
 		return apply_filters( 'si_mercadopago_checkout_options', $option );
 	}
@@ -77,7 +77,6 @@ class SI_Mercadopago extends SI_Offsite_Processors {
 		self::$client_secret = get_option( self::API_SECRET_OPTION, '' );
 		self::$site_id = get_option( self::SITE_ID_OPTION, 'MLA' );
 		self::$currency_code = get_option( self::CURRENCY_CODE_OPTION, 'BRL' );
-		add_action( 'init', array( get_class(), 'register_options') );
 
 		add_action( 'si_checkout_action_'.SI_Checkouts::REVIEW_PAGE, array( $this, 'back_from_mercadopago' ), 0, 1 );
 
@@ -92,27 +91,26 @@ class SI_Mercadopago extends SI_Offsite_Processors {
 	 * Hooked on init add the settings page and options.
 	 *
 	 */
-	public static function register_options() {
+	public static function register_settings( $settings = array() ) {
 		// Settings
-		$settings = array(
+		$settings['payments'] = array(
 			'si_mercadopago_settings' => array(
 				'title' => __( 'Mercadopago' , 'sprout-invoices' ),
 				'weight' => 200,
-				'tab' => self::get_settings_page( false ),
 				'settings' => array(
 					self::API_ID_OPTION => array(
 						'label' => __( 'Client Id' , 'sprout-invoices' ),
 						'option' => array(
 							'type' => 'text',
 							'default' => self::$client_id,
-							)
+							),
 						),
 					self::API_SECRET_OPTION => array(
 						'label' => __( 'Client Secret' , 'sprout-invoices' ),
 						'option' => array(
 							'type' => 'text',
 							'default' => self::$client_secret,
-							)
+							),
 						),
 					self::SITE_ID_OPTION => array(
 						'label' => __( 'Site id' , 'sprout-invoices' ),
@@ -120,7 +118,7 @@ class SI_Mercadopago extends SI_Offsite_Processors {
 							'type' => 'text',
 							'default' => self::$site_id,
 							'description' => 'Argentina: MLA; Brasil: MLB',
-							)
+							),
 						),
 					self::CURRENCY_CODE_OPTION => array(
 						'label' => __( 'Currency Code' , 'sprout-invoices' ),
@@ -128,13 +126,13 @@ class SI_Mercadopago extends SI_Offsite_Processors {
 							'type' => 'select',
 							'options' => array( 'BRL' => 'Real', 'USD' => 'Dollar', 'ARS' => 'Pesos Argentinos', 'MXN' => 'Peso mexicano', 'VEB' => 'Peso venezuelano' ),
 							'default' => self::$currency_code,
-							'attributes' => array( 'class' => 'small-text' )
-							)
+							'attributes' => array( 'class' => 'small-text' ),
+							),
 						),
-					)
-				)
+					),
+				),
 			);
-		do_action( 'sprout_settings', $settings, self::SETTINGS_PAGE );
+		return $settings;
 	}
 
 	public static function payment_button( $invoice_id = 0 ) {
@@ -162,7 +160,7 @@ class SI_Mercadopago extends SI_Offsite_Processors {
 		<?php
 	}
 
-	public static function get_mp_link( $invoice_id = 0  ) {
+	public static function get_mp_link( $invoice_id = 0 ) {
 		$checkout = SI_Checkouts::get_instance();
 		$invoice = SI_Invoice::get_instance( $invoice_id );
 		$client = $invoice->get_client();
@@ -185,7 +183,7 @@ class SI_Mercadopago extends SI_Offsite_Processors {
 					'description' => $invoice->get_title(),
 					'quantity' => (int) 1,
 					'unit_price' => (float) si_get_number_format( $payment_amount ),
-					'currency_id' => self::get_currency_code( $invoice->get_id() )
+					'currency_id' => self::get_currency_code( $invoice->get_id() ),
 				),
 			),
 			'payer' => array(
@@ -338,15 +336,15 @@ class SI_Mercadopago extends SI_Offsite_Processors {
 		$payment_amount = ( si_has_invoice_deposit( $invoice->get_id() ) ) ? $invoice->get_deposit() : $invoice->get_balance();
 		// create new payment
 		$payment_id = SI_Payment::new_payment( array(
-				'payment_method' => self::get_payment_method(),
-				'invoice' => $invoice->get_id(),
-				'amount' => si_get_number_format( $payment_amount ),
-				'data' => array(
-					'live' => ( ! self::SANDBOX ),
-					'api_response' => wp_parse_args( $_GET ),
-					'payment_token' => self::get_token( $invoice->get_id() ),
-				),
-			), SI_Payment::STATUS_AUTHORIZED );
+			'payment_method' => self::get_payment_method(),
+			'invoice' => $invoice->get_id(),
+			'amount' => si_get_number_format( $payment_amount ),
+			'data' => array(
+			'live' => ( ! self::SANDBOX ),
+			'api_response' => wp_parse_args( $_GET ),
+			'payment_token' => self::get_token( $invoice->get_id() ),
+			),
+		), SI_Payment::STATUS_AUTHORIZED );
 		if ( ! $payment_id ) {
 			return false;
 		}

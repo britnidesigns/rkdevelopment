@@ -4,6 +4,7 @@ Plugin Name: Sprout Invoices Add-on - Point of Contact for Clients
 Plugin URI: https://sproutapps.co/marketplace/
 Description: Select a single associated user as the point of contact for all automated notifications.
 Author: Sprout Apps
+ID: 564648
 Version: 1.0
 Author URI: https://sproutapps.co
 */

@@ -24,6 +24,13 @@ class SI_Invoices_Recurring_Tasks extends SI_Invoices_Recurring {
 	/////////////////////
 
 	public static function maybe_create_new_invoices() {
+
+		if ( doing_action( 'si_maybe_create_new_invoices' ) ) {
+			return;
+		}
+
+		do_action( 'si_maybe_create_new_invoices', current_time( 'timestamp' ) );
+
 		$args = array(
 			'post_type' => SI_Invoice::POST_TYPE,
 			'post_status' => array_keys( SI_Invoice::get_statuses() ),
@@ -53,6 +60,20 @@ class SI_Invoices_Recurring_Tasks extends SI_Invoices_Recurring {
 
 		$invoice_ids = get_posts( $args );
 		foreach ( $invoice_ids as $invoice_id ) {
+
+			$invoice = SI_Invoice::get_instance( $invoice_id );
+
+			// double check in case the meta query is being dumb
+			$cloned_from = (int) $invoice->get_post_meta( self::$meta_keys['cloned_from'] );
+			if ( $cloned_from ) {
+				continue;
+			}
+
+			// double check in case the meta query is being dumb
+			$next_check = (int) $invoice->get_post_meta( self::$meta_keys['clone_time'] );
+			if ( ! $next_check || ( $next_check > current_time( 'timestamp' ) ) ) {
+				continue;
+			}
 
 			// determine if the duration has been met
 			$duration = self::get_duration( $invoice_id );
@@ -92,14 +113,17 @@ class SI_Invoices_Recurring_Tasks extends SI_Invoices_Recurring {
 		$scheduled_cloned_time = self::get_clone_time( $invoice_id );
 
 		$cloned_post_id = self::clone_post( $invoice_id, SI_Invoice::STATUS_PENDING, SI_Invoice::POST_TYPE );
+		$cloned_invoice = SI_Invoice::get_instance( $cloned_post_id );
 
 		// Issue date is today.
-		$cloned_invoice = SI_Invoice::get_instance( $cloned_post_id );
 		$cloned_invoice->set_issue_date( $scheduled_cloned_time );
 
 		// Due date is in the future
 		$due_date = apply_filters( 'si_new_recurring_invoice_due_date_in_days', 14 );
 		$cloned_invoice->set_due_date( $scheduled_cloned_time + (DAY_IN_SECONDS * $due_date) );
+
+		// reset totals
+		$cloned_invoice->reset_totals();
 
 		// save as child
 		self::set_parent( $cloned_post_id, $invoice_id );
@@ -116,7 +140,7 @@ class SI_Invoices_Recurring_Tasks extends SI_Invoices_Recurring {
 		}
 		$client_users = $client->get_associated_users();
 		if ( ! empty( $client_users ) && apply_filters( 'si_send_invoice_notifciation_for_newly_created_recurring_invoices', true ) ) {
-			do_action( 'send_invoice', $cloned_invoice, $client_users );
+			do_action( 'send_recurring_invoice', $cloned_invoice, $client_users );
 		}
 
 		do_action( 'si_recurring_invoice_created_post_send', $invoice_id, $cloned_post_id );

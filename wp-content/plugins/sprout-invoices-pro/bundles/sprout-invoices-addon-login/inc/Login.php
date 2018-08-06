@@ -26,10 +26,10 @@ class SI_Login extends SI_Controller {
 		add_filter( 'sprout_notifications', array( __CLASS__, 'add_notification_shortcode_compatibility' ), 100 );
 		add_filter( 'sprout_notification_shortcodes', array( __CLASS__, 'add_notification_shortcode' ), 100 );
 
-		if ( is_admin() ) {
+		// Register Settings
+		add_filter( 'si_settings', array( __CLASS__, 'register_settings' ) );
 
-			// register settings
-			add_action( 'init', array( __CLASS__, 'register_settings' ) );
+		if ( is_admin() ) {
 
 			// meta boxes
 			add_action( 'doc_information_meta_box_client_row_last', array( __CLASS__, 'meta_add_pass_protection' ) );
@@ -78,12 +78,12 @@ class SI_Login extends SI_Controller {
 	 * Hooked on init add the settings page and options.
 	 *
 	 */
-	public static function register_settings() {
+	public static function register_settings( $settings = array() ) {
 		// Settings
-		$settings = array(
-			'force_login' => array(
+		$settings['force_login'] = array(
+				'title' => __( 'Force Login Settings', 'sprout-invoices' ),
 				'weight' => 2001,
-				'tab' => 'settings',
+				'tab' => 'addons',
 				'settings' => array(
 					self::FORCE_LOGIN_OPTION => array(
 						'label' => __( 'Force Login', 'sprout-invoices' ),
@@ -96,9 +96,8 @@ class SI_Login extends SI_Controller {
 							),
 						),
 					),
-				),
 			);
-		do_action( 'sprout_settings', $settings, self::SETTINGS_PAGE );
+		return $settings;
 	}
 
 	public static function meta_add_pass_protection( $doc ) {

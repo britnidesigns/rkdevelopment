@@ -23,6 +23,7 @@ class SI_Invoices_Recurring extends SI_Controller {
 		SI_Invoices_Recurring_Settings::init();
 		SI_Invoices_Recurring_Tasks::init();
 		SI_Invoices_Recurring_Addons::init();
+		SI_Invoices_Recurring_Notifications::init();
 	}
 
 	///////////
@@ -284,6 +285,12 @@ class SI_Invoices_Recurring extends SI_Controller {
 		$view = self::load_view( $view, $args, $allow_theme_override );
 		remove_filter( 'si_views_path', array( __CLASS__, 'addons_view_path' ) );
 		return $view;
+	}
+
+	public static function load_addon_view_to_string( $view, $args, $allow_theme_override = true ) {
+		ob_start();
+		self::load_addon_view( $view, $args, $allow_theme_override );
+		return ob_get_clean();
 	}
 
 	public static function addons_view_path() {

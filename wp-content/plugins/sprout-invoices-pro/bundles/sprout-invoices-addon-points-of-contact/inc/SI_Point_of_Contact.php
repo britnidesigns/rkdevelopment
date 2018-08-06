@@ -22,7 +22,7 @@ class SI_Point_of_Contact extends SI_Controller {
 			return true; // true is to disable
 		}
 
-		if ( in_array( $notification_name, array( 'estimate_submitted', 'accepted_estimate', 'declined_estimate', 'payment_notification', 'admin_comment_notification_estimate', 'admin_comment_notification_invoice' ) ) ) {
+		if ( in_array( $notification_name, array( 'accepted_estimate', 'declined_estimate', 'payment_notification', 'admin_comment_notification_estimate', 'admin_comment_notification_invoice' ) ) ) {
 			return $bool;
 		}
 

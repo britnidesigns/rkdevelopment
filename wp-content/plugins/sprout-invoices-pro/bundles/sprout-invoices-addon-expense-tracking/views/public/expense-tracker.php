@@ -21,7 +21,7 @@
 					<?php sa_admin_fields( $fields, 'expense' ); ?>
 				</div><!-- #tt_body -->
 				<div id="tt_save" class="clearfix">
-					<button href="javascript:void(0)" id="create_expense_entry" class="button button-large button-primary"><?php _e( 'Log Expense', 'sprout-invoices' ) ?></button>
+					<button href="javascript:void(0)" id="create_expense_entry" class="si_admin_button"><?php _e( 'Log Expense', 'sprout-invoices' ) ?></button>
 				</div><!-- #tt_save -->
 			</div><!-- #expense_tracker_wrap -->
 		</div>

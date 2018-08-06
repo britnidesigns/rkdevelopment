@@ -5,6 +5,7 @@ Plugin URI: https://sproutapps.co/marketplace/time-tracking/
 Description: When an estimate is accepted there are a few things that can be done to the newly created invoice.
 Author: Sprout Apps
 Version: 1.0.4
+ID: 48438
 Author URI: https://sproutapps.co
 Auto Active: true
 */

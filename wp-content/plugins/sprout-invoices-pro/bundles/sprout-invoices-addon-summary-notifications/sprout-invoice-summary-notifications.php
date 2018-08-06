@@ -4,6 +4,7 @@ Plugin Name: Sprout Invoices Add-on - Client Summary Notification
 Plugin URI: https://sproutapps.co/news/sprout-invoices-v10-account-credits-client-summary-notifications/
 Description: Sends Invoice/Estimate Summary to the Client
 Author: Sprout Apps
+ID: 0
 Version: 1.0.1
 Author URI: https://sproutapps.co
 Auto Active: true

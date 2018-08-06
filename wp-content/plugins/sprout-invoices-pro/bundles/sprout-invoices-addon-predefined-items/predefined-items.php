@@ -4,6 +4,7 @@ Plugin Name: Sprout Invoices Add-on - Pre-defined Items
 Plugin URI: https://sproutapps.co/marketplace/pre-defined-line-items/
 Description: Add pre-defined tasks and products to your items list
 Author: Sprout Apps
+ID: 14782
 Version: 2.0
 Author URI: https://sproutapps.co
 Auto Active: true

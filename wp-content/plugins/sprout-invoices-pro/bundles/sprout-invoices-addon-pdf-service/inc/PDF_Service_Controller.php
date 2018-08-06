@@ -34,6 +34,16 @@ class SI_Sprout_PDFs_Controller extends SI_Controller {
 		// login commpatibility
 		add_action( 'si_login_bypass', array( __CLASS__, 'maybe_download_pdf' ) );
 
+		// admin page
+		add_filter( 'post_row_actions', array( __CLASS__, 'admin_download_pdf' ), 10, 2 );
+
+	}
+
+	public static function admin_download_pdf( $actions, $post ) {
+		if ( SI_Estimate::POST_TYPE === $post->post_type || SI_Invoice::POST_TYPE === $post->post_type ) {
+			$actions['pdf_link'] = sprintf( '<a href="%s"  id="quick_pdf_link" class="si_pdf" title="%s" target="_blank">%s</a>', self::get_doc_pdf_url( $post->ID ), __( 'View PDF', 'sprout-invoices' ), __( 'PDF', 'sprout-invoices' ) );
+		}
+		return $actions;
 	}
 
 	public static function get_username() {

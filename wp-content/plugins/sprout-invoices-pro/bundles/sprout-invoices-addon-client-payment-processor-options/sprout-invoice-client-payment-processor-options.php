@@ -5,6 +5,7 @@ Plugin URI: https://sproutapps.co/marketplace/
 Description: Enable specific payment processors per client.
 Author: Sprout Apps
 Version: 1.0.1
+ID: 42
 Author URI: https://sproutapps.co
 */
 

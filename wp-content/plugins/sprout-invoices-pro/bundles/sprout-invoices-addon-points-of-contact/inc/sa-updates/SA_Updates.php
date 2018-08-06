@@ -11,7 +11,6 @@ class SI_Points_of_Contact_Updates extends SI_Updates {
 	public static function init() {
 		self::$license_key = trim( get_option( self::LICENSE_KEY_OPTION, '' ) );
 		self::$license_status = get_option( self::LICENSE_STATUS, false );
-		self::register_settings();
 
 		if ( is_admin() ) {
 			add_action( 'admin_init', array( __CLASS__, 'init_edd_udpater' ) );

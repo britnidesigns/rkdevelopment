@@ -5,6 +5,7 @@ Plugin URI: https://sproutapps.co/marketplace/service-fee/
 Description: Allows for a Payment Terms to be set per invoice.
 Author: Sprout Apps
 Version: 1.0
+ID: 755248
 Author URI: https://sproutapps.co
 Auto Active: true
 */
@@ -13,7 +14,7 @@ Auto Active: true
  * Plugin Info for updates
  */
 define( 'SA_ADDON_PAYMENT_TERMS_VERSION', '1.0' );
-define( 'SA_ADDON_PAYMENT_TERMS_DOWNLOAD_ID', 0000000 );
+define( 'SA_ADDON_PAYMENT_TERMS_DOWNLOAD_ID', 755248 );
 define( 'SA_ADDON_PAYMENT_TERMS_NAME', 'Sprout Invoices Payment Terms' );
 define( 'SA_ADDON_PAYMENT_TERMS_FILE', __FILE__ );
 define( 'SA_ADDON_PAYMENT_TERMS_PATH', dirname( __FILE__ ) );

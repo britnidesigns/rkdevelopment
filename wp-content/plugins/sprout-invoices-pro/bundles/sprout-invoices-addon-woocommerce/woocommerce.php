@@ -4,6 +4,7 @@ Plugin Name: Sprout Invoices Add-on - WooCommerce Tools
 Plugin URI: https://sproutapps.co/sprout-invoices/woocommerce/
 Description: Ability to have your clients pay via Woocommerce checkout, Sprout Invoices payment option for WooCommerce checkout, add WooCommerce products to your items list, and many more tools for Sprout Invoices and WooCommerce.
 Author: Sprout Apps
+ID: 1
 Version: 1.0
 Author URI: https://sproutapps.co
 */
@@ -12,7 +13,7 @@ Author URI: https://sproutapps.co
  * Plugin Info for updates
  */
 define( 'SA_ADDON_WOOCOMMERCE_VERSION', '1.0' );
-define( 'SA_ADDON_WOOCOMMERCE_DOWNLOAD_ID', 273988 );
+define( 'SA_ADDON_WOOCOMMERCE_DOWNLOAD_ID', 1 );
 define( 'SA_ADDON_WOOCOMMERCE_NAME', 'Sprout Invoices WooCommerce Products' );
 define( 'SA_ADDON_WOOCOMMERCE_FILE', __FILE__ );
 define( 'SA_ADDON_WOOCOMMERCE_PATH', dirname( __FILE__ ) );
@@ -26,6 +27,7 @@ if ( ! defined( 'SI_DEV' ) ) {
 add_action( 'sprout_invoices_loaded', 'sa_load_woocommerce_tools' );
 function sa_load_woocommerce_tools() {
 	if ( ! version_compare( phpversion(), '5.6', '>=' ) ) {
+		add_action( 'admin_head', 'si_woo_compatibility_check_fail_notices' );
 		return;
 	}
 	if ( ! class_exists( 'WC_Product' ) ) {
@@ -42,6 +44,12 @@ function sa_load_woocommerce_tools() {
 	require_once( 'template-tags/vat.php' );
 	require_once( 'inc/Woo_Tools.php' );
 	Woo_Tools::init();
+}
+
+function si_woo_compatibility_check_fail_notices() {
+	if ( ! version_compare( phpversion(), '5.6', '>=' ) ) {
+		printf( '<div class="error"><p><strong>Sprout Invoices WooCommerce Tools</strong> requires PHP version %s or higher to be installed on your server. Talk to your web host about using a secure version of PHP.</p></div>', 5.6 );
+	}
 }
 
 if ( ! apply_filters( 'is_bundle_addon', false ) ) {

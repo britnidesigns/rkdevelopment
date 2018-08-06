@@ -17,11 +17,12 @@ class Toggl_Settings extends Toggl_Controller {
 		self::$api_key = get_option( self::API_KEY, '' );
 		self::$workspace_id = get_option( self::WORKSPACE_ID, '' );
 
-		if ( is_admin() ) {
-			// register settings
-			self::register_settings();
+		// Register Settings
+		add_filter( 'si_settings', array( __CLASS__, 'register_settings' ) );
 
-			if ( self::$api_key != '' )  {
+		if ( is_admin() ) {
+
+			if ( self::$api_key != '' ) {
 				// Meta boxes
 				add_action( 'admin_init', array( __CLASS__, 'register_meta_boxes' ) );
 			}
@@ -44,7 +45,8 @@ class Toggl_Settings extends Toggl_Controller {
 	 * Hooked on init add the settings page and options.
 	 *
 	 */
-	public static function register_settings() {
+	public static function register_settings( $settings = array() ) {
+
 		$options = array( 0 => __( 'Default', 'sprout-invoices' ) );
 		if ( self::$api_key ) {
 			// Only do an API callback on the settings page.
@@ -53,26 +55,25 @@ class Toggl_Settings extends Toggl_Controller {
 				$workspaces = Toggl_API::get_workspaces();
 				if ( ! empty( $workspaces ) ) {
 					foreach ( $workspaces as $key => $workspace ) {
-						$options[$workspace->id] = $workspace->name;
+						$options[ $workspace->id ] = $workspace->name;
 					}
 				}
 			}
 		}
 
 		// Settings
-		$settings = array(
-			'toggl' => array(
+		$settings['toggl'] = array(
 				'title' => __( 'Toggl Settings', 'sprout-invoices' ),
 				'weight' => 1000, // Add-on settings are 1000 plus
-				'tab' => 'settings',
+				'tab' => 'addons',
 				'settings' => array(
 					self::API_KEY => array(
 						'label' => __( 'API Key', 'sprout-invoices' ),
 						'option' => array(
 							'type' => 'text',
 							'default' => self::$api_key,
-							'description' => __( 'This is your API token found on your profile page, not the Workspace API Token.', 'sprout-invoices' )
-							)
+							'description' => __( 'This is your API token found on your profile page, not the Workspace API Token.', 'sprout-invoices' ),
+							),
 						),
 					self::WORKSPACE_ID => array(
 						'label' => __( 'Workspace', 'sprout-invoices' ),
@@ -80,13 +81,12 @@ class Toggl_Settings extends Toggl_Controller {
 							'type' => 'select',
 							'options' => $options,
 							'default' => self::$workspace_id,
-							'description' => __( 'You can select a different workspace after saving your API Token.', 'sprout-invoices' )
-							)
+							'description' => __( 'You can select a different workspace after saving your API Token.', 'sprout-invoices' ),
+							),
 						),
-					)
-				)
+					),
 			);
-		do_action( 'sprout_settings', $settings, self::SETTINGS_PAGE );
+		return $settings;
 	}
 	/**
 	 * Regsiter meta boxes for notification editing.
@@ -101,8 +101,8 @@ class Toggl_Settings extends Toggl_Controller {
 				'save_callback' => array( __CLASS__, 'save_meta_box_time_tracking_toggl' ),
 				'context' => 'side',
 				'priority' => 'low',
-				'save_priority' => 0
-			)
+				'save_priority' => 0,
+			),
 		);
 		do_action( 'sprout_meta_box', $args, SI_Project::POST_TYPE );
 	}
@@ -119,7 +119,7 @@ class Toggl_Settings extends Toggl_Controller {
 		self::load_addon_view( 'admin/meta-boxes/projects/toggl-project', array(
 				'fields' => $fields,
 				'project_id' => $project->get_id(),
-			), false );
+		), false );
 	}
 
 	public static function save_meta_box_time_tracking_toggl( $post_id, $post, $callback_args, $invoice_id = null ) {
@@ -150,11 +150,11 @@ class Toggl_Settings extends Toggl_Controller {
 		}
 	}
 
-	public static function toggl_entry_fields( $project_id = 0  ) {
+	public static function toggl_entry_fields( $project_id = 0 ) {
 
 		$toggl_projects = array( 0 => __( 'None', 'sprout-invoices' ), 'create_new' => __( 'Create Project at Toggl', 'sprout-invoices' ) );
 		foreach ( Toggl_API::get_projects() as $key => $project ) {
-			$toggl_projects[$project->id] = $project->name;
+			$toggl_projects[ $project->id ] = $project->name;
 		}
 
 		$fields['toggl_id'] = array(
@@ -212,5 +212,4 @@ class Toggl_Settings extends Toggl_Controller {
 	public static function addons_view_path() {
 		return SA_ADDON_TIME_TRACKING_TOGGL_PATH . '/views/';
 	}
-
 }

@@ -17,7 +17,8 @@ class SI_Updates extends SI_Controller {
 		self::$license_key = trim( get_option( self::LICENSE_KEY_OPTION, '' ) );
 		self::$license_status = get_option( self::LICENSE_STATUS, false );
 
-		self::register_settings();
+		// Register Settings
+		add_filter( 'si_settings', array( __CLASS__, 'register_settings' ) );
 
 		if ( is_admin() ) {
 			add_action( 'admin_init', array( __CLASS__, 'init_edd_udpater' ) );
@@ -64,40 +65,46 @@ class SI_Updates extends SI_Controller {
 	 * Hooked on init add the settings page and options.
 	 *
 	 */
-	public static function register_settings() {
+	public static function register_settings( $settings = array() ) {
 		// Settings
-		$settings = array(
-			'so_activation' => array(
+		$settings['si_activation'] = array(
 				'title' => __( 'Sprout Invoices Activation', 'sprout-invoices' ),
-				'weight' => 0,
-				'tab' => 'settings',
+				'description' => __( 'An active license for Sprout Invoices provides support and updates. By activating your license, you can get automatic plugin updates from the WordPress dashboard. Updates provide you with the latest bug fixes and the new features each major release brings.', 'sprout-invoices' ),
+				'weight' => -PHP_INT_MAX,
+				'tab' => 'start',
 				'callback' => array( __CLASS__, 'update_setting_description' ),
 				'settings' => array(
 					self::LICENSE_KEY_OPTION => array(
 						'label' => __( 'License Key', 'sprout-invoices' ),
 						'option' => array(
 							'type' => 'bypass',
+							'default' => self::license_key(),
 							'output' => self::license_key_option(),
 							'description' => sprintf( __( 'Enter your license key to enable automatic plugin updates. Find your license key in your Sprout Apps Dashboard under the <a href="%s" target="_blank">Downloads</a> section.', 'sprout-invoices' ), si_get_sa_link( 'https://sproutapps.co/account/' ) ),
 							),
 						),
 					),
-				),
 			);
-		do_action( 'sprout_settings', $settings, self::SETTINGS_PAGE );
+		return $settings;
 
 	}
 
 	public static function license_key_option() {
 		ob_start(); ?>
-			<input type="text" name="<?php echo self::LICENSE_KEY_OPTION ?>" id="<?php echo self::LICENSE_KEY_OPTION ?>" value="<?php echo self::$license_key ?>" class="<?php echo 'license_'.self::$license_status ?>" size="40" class="text-input">
-			<?php if ( self::$license_status != false && self::$license_status == 'valid' ) : ?>
-				<button id="activate_license" class="button" disabled="disabled"><?php _e( 'Activate License', 'sprout-invoices' ) ?></button> 
-				<button id="deactivate_license" class="button"><?php _e( 'Deactivate License', 'sprout-invoices' ) ?></button>
+			<input type="text" name="<?php echo self::LICENSE_KEY_OPTION ?>" id="<?php echo self::LICENSE_KEY_OPTION ?>" value="<?php echo self::license_key() ?>" class="<?php echo 'license_'.self::$license_status ?>" size="40" class="text-input">
+			<?php if ( false != self::$license_status && self::$license_status == 'valid' ) : ?>
+				<?php if ( '' === self::license_key() ) :  ?>
+					<button id="activate_license" class="si_admin_button lg si_muted" disabled="disabled" @click="activateLicense('si_activate_license')" :disabled='isSaving'><?php _e( 'Activate Pro License', 'sprout-invoices' ) ?></button>
+				<?php endif ?>
+				<button id="deactivate_license" class="si_admin_button lg si_muted" @click="activateLicense('si_deactivate_license')" :disabled='isSaving'><?php _e( 'Deactivate License', 'sprout-invoices' ) ?></button>
 			<?php else : ?>
-				<button id="activate_license" class="button button-primary"><?php _e( 'Activate License', 'sprout-invoices' ) ?></button>
+				<button id="activate_license" class="si_admin_button lg" @click="activateLicense('si_activate_license')" :disabled='isSaving'><?php _e( 'Activate Pro License', 'sprout-invoices' ) ?></button>
 			<?php endif ?>
-			<div id="license_message" class="clearfix"></div>
+			<img
+				v-if='isSaving == true'
+				id='loading-indicator' src='<?php get_site_url() ?>/wp-admin/images/wpspin_light-2x.gif' alt='Loading indicator' />
+
+			<span id="si_html_message"></span>
 		<?php
 		$view = ob_get_clean();
 		return $view;
@@ -125,9 +132,11 @@ class SI_Updates extends SI_Controller {
 	public static function deactivate_license() {
 		$license_data = self::api( 'deactivate_license' );
 
+		// updating regardless
+		delete_option( self::LICENSE_STATUS );
+
 		// $license_data->license will be either "deactivated" or "failed"
 		if (  $license_data->license == 'deactivated' ) {
-			delete_option( self::LICENSE_STATUS );
 			return true;
 		}
 		return false;
@@ -185,7 +194,7 @@ class SI_Updates extends SI_Controller {
 			return; }
 
 		$deactivated = self::deactivate_license();
-		$message = ( $deactivated ) ? __( 'License is deactivated.', 'sprout-invoices' ) : __( 'Something went wrong. Contact support for help.', 'sprout-invoices' );
+		$message = ( $deactivated ) ? __( 'License is deactivated.', 'sprout-invoices' ) : __( 'License could not be deactivated on sproutapps.co. Contact support for help.', 'sprout-invoices' );
 		$response = array(
 				'valid' => $deactivated,
 				'response' => $message,

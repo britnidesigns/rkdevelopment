@@ -4,6 +4,7 @@ Plugin Name: Sprout Invoices Add-on - Recurring Invoices
 Plugin URI: https://sproutapps.co/marketplace/recurring-invoices/
 Description: Allows for invoices to be duplicated on a schedule.
 Author: Sprout Apps
+ID: 0
 Version: 1.0.1
 Author URI: https://sproutapps.co
 Auto Active: true
@@ -31,6 +32,7 @@ function sa_load_recurring_invoices_addon() {
 	require_once( 'inc/Invoices_Recurring_Settings.php' );
 	require_once( 'inc/Invoices_Recurring_Tasks.php' );
 	require_once( 'inc/Invoices_Recurring_Addons.php' );
+	require_once( 'inc/Invoices_Recurring_Notifications.php' );
 
 	SI_Invoices_Recurring::init();
 }
