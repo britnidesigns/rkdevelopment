@@ -53,8 +53,6 @@ class SI_Sprout_Billings_AJAX extends SI_Sprout_Billings {
 
 	public static function attempt_charge() {
 
-		// TODO security check?
-
 		$nonce = $_REQUEST['nonce'];
 		if ( ! wp_verify_nonce( $nonce, self::NONCE ) ) {
 			wp_send_json_error( array( 'message' => __( 'Not going to fall for it!' , 'sprout-invoices' ) ) );

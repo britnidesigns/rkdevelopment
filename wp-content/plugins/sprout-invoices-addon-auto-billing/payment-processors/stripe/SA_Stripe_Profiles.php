@@ -104,6 +104,9 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 	}
 
 	public static function public_name() {
+		if ( self::bank_supported() ) {
+			return __( 'Credit Card or Bank Transfer' , 'sprout-invoices' );
+		}
 		return __( 'Credit Card' , 'sprout-invoices' );
 	}
 
@@ -142,10 +145,6 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 		self::$plaid_api_client_id = get_option( self::PLAID_API_CLIENT_ID, '' );
 		self::$plaid_api_pub_key = get_option( self::PLAID_API_PUB_KEY, '' );
 		self::$plaid_api_secret_key = get_option( self::PLAID_API_SECRET_KEY, '' );
-
-		if ( is_admin() ) {
-			add_action( 'init', array( __CLASS__, 'register_options' ) );
-		}
 
 		if ( ! self::is_active() ) {
 			return;
@@ -194,13 +193,12 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 	 * Hooked on init add the settings page and options.
 	 *
 	 */
-	public static function register_options() {
+	public static function register_settings( $settings = array() ) {
 		// Settings
-		$settings = array(
+		$settings['payments'] = array(
 			'si_stripe_settings' => array(
 				'title' => __( 'Stripe Settings' , 'sprout-invoices' ),
 				'weight' => 200,
-				'tab' => self::get_settings_page( false ),
 				'settings' => array(
 					self::API_MODE_OPTION => array(
 						'label' => __( 'Mode' , 'sprout-invoices' ),
@@ -276,7 +274,7 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 				),
 			),
 		);
-		do_action( 'sprout_settings', $settings, self::SETTINGS_PAGE );
+		return $settings;
 	}
 
 	/**
@@ -285,7 +283,7 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 	 */
 	public static function modify_credit_form() {
 		printf( '<input type="hidden" name="%s" value="">', self::TOKEN_INPUT_NAME );
-		printf( '<div id="stripe_errors"></div><!-- #stripe_errors -->' );
+		echo '<div id="stripe_errors" class="sa-message error"></div><!-- #stripe_errors -->';
 	}
 
 	/**
@@ -780,7 +778,19 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 		$si_js_object = array(
 			'pub_key' => $pub_key,
 			'token_input' => self::TOKEN_INPUT_NAME,
-		);   ?>
+		);
+
+		if ( '' !== self::$plaid_api_pub_key ) {
+			$env = ( get_option( self::API_MODE_OPTION, self::MODE_TEST ) === self::MODE_TEST ) ? 'development' : 'production';
+			$env = apply_filters( 'si_plaid_env', $env );
+			$si_js_object += array(
+				'plaid_env' => $env,
+				'callback_action' => self::AJAX_ACTION_PLAID_TOKEN,
+				'plaid_pub_key' => self::$plaid_api_pub_key,
+				'clientName' => __( 'Authorize Bank Transfer', 'sprout-invoices' ),
+				'proceedMessage' => __( 'Please proceed by submitting your payment below.', 'sprout-invoices' ),
+			);
+		} ?>
 			<script type="text/javascript">
 				/* <![CDATA[ */
 				var si_stripe_js_object = <?php echo wp_json_encode( $si_js_object ); ?>;
@@ -807,66 +817,6 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 					});
 					jQuery('#sa_credit_payment_method_credit').on( 'click', function(event){
 						$auth_button_wrap.hide();
-					});
-
-					// open up the authorization
-					$plaid_auth_button.on( 'click', function(event){
-						event.preventDefault();
-						plaidHandler.open();
-					});
-
-					sbStoreAccountID = function( auth ) {
-
-						$plaid_auth_button.hide();
-						$plaid_auth_button.after( si_js_object.inline_spinner );
-					
-						jQuery.post( si_js_object.ajax_url, { action: '<?php echo self::AJAX_ACTION_PLAID_TOKEN ?>', public_token: auth.public_token, account_id: auth.account_id, nonce: si_js_object.security, invoice_id: '<?php echo get_the_id() ?>' },
-							function( response ) {
-								jQuery('.si_inline_spinner').hide();
-								if ( response.success ) {
-									jQuery('<input>').attr({
-										type: 'hidden',
-										id: '<?php echo self::TOKEN_INPUT_NAME ?>',
-										name: '<?php echo self::TOKEN_INPUT_NAME ?>',
-										value: response.data
-									}).appendTo('form#si_credit_card_form');
-									$plaid_auth_button.after( '<?php printf( '<span class="inline_message inline_success_message">%s</span>', __( 'Please proceed by submitting your payment below.', 'sprout-invoices' ) ) ?>' );
-								}
-								else {
-									$plaid_auth_button.show();
-									$plaid_auth_button.after('<span class="inline_message inline_error_message">' + response.data.message + '</span>');
-								};
-
-							}
-						);
-					};
-
-
-					var plaidHandler = Plaid.create({
-						env: '<?php echo $env ?>',
-						clientName: 'Authorize Bank Transfer',
-						key: '<?php echo self::$plaid_api_pub_key ?>',
-						product: 'auth',
-						selectAccount: true,
-						onLoad: function() {
-							// finished loading button
-						},
-						onSuccess: function(public_token, metadata) {
-							console.log('public_token: ' + public_token);
-							console.log('account ID: ' + metadata.account_id);
-							sbStoreAccountID( {
-								public_token: public_token,
-								account_id: metadata.account_id
-							} );
-						},
-						onExit: function(err, metadata) {
-							// The user exited the Link flow.
-							if (err != null) {
-								  // The user encountered a Plaid API error prior to exiting.
-							}
-							// metadata contains information about the institution
-							// that the user selected and the most recent API request IDs.
-						},
 					});
 
 				</script>
@@ -904,39 +854,89 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 
 	public static function plaid_token_exchange( $public_token = '', $account_id = '' ) {
 
+		// backwards compat for old filter
+		$env = apply_filters( 'si_plaid_env', '' );
+		if ( '' !== $env ) {
+			$api_domain = ( 'development' === $env ) ? 'https://development.plaid.com' : 'https://api.plaid.com';
+		} else {
+			$api_domain = ( get_option( self::API_MODE_OPTION, self::MODE_TEST ) === self::MODE_TEST ) ? 'https://development.plaid.com' : 'https://api.plaid.com';
+		}
+
+		// new filter
+		$api_domain = apply_filters( 'si_plaid_api_domain', $api_domain );
+
+		// exchange token
 		$post_data = array(
 			'client_id' => self::$plaid_api_client_id,
 			'secret' => self::$plaid_api_secret_key,
 			'public_token' => $public_token,
-			'account_id' => $account_id,
-			);
-
-		$env = apply_filters( 'si_plaid_env', '' );
-		if ( '' !== $env ) {
-			$api_url = ( 'development' === $env ) ? 'https://development.plaid.com/exchange_token' : 'https://api.plaid.com/exchange_token';
-		} else {
-			$api_url = ( get_option( self::API_MODE_OPTION, self::MODE_TEST ) === self::MODE_TEST ) ? 'https://development.plaid.com/exchange_token' : 'https://api.plaid.com/exchange_token';
-		}
-
-		$raw_response = wp_remote_post( $api_url, array(
+		);
+		// api
+		$raw_response = wp_remote_post( $api_domain . '/item/public_token/exchange', array(
+				'headers' => array(
+					'Content-Type' => 'application/json',
+				),
 				'method' => 'POST',
-				'body' => $post_data,
+				'body' => json_encode( $post_data ),
 				'timeout' => apply_filters( 'http_request_timeout', 30 ),
 				'sslverify' => false,
 		) );
-		$response = json_decode( wp_remote_retrieve_body( $raw_response ) );
-		if ( ! isset( $response->stripe_bank_account_token ) ) {
-			if ( isset( $response->message ) ) {
+
+		// get access token
+		$exchange_response = json_decode( wp_remote_retrieve_body( $raw_response ) );
+
+		if ( ! isset( $exchange_response->access_token ) ) {
+			if ( isset( $exchange_response->message ) ) {
 				return array(
-					'message' => $response->message,
+					'message' => $exchange_response->message,
 				);
 			} else {
+
+				do_action( 'si_error', 'Plaid Token Exchange', $post_data, false );
+				do_action( 'si_error', 'Plaid Token Exchange', $exchange_response, false );
+
 				return array(
-					'message' => __( 'Stripe may not be integrated with your Plaid account.', 'sprout-invoices' ),
+					'message' => sprintf( __( 'No access_token provided in exchange (%s). Please try again later.', 'sprout-invoices' ), $bank_response->request_id ),
 				);
 			}
 		}
-		return $response->stripe_bank_account_token;
+
+		// bank token
+		$post_data = array(
+			'client_id' => self::$plaid_api_client_id,
+			'secret' => self::$plaid_api_secret_key,
+			'access_token' => $exchange_response->access_token,
+			'account_id' => $account_id,
+		);
+		// api
+		$raw_response = wp_remote_post( $api_domain . '/processor/stripe/bank_account_token/create', array(
+				'headers' => array(
+					'Content-Type' => 'application/json',
+				),
+				'method' => 'POST',
+				'body' => json_encode( $post_data ),
+				'timeout' => apply_filters( 'http_request_timeout', 30 ),
+				'sslverify' => false,
+		) );
+
+		$bank_response = json_decode( wp_remote_retrieve_body( $raw_response ) );
+		if ( ! isset( $bank_response->stripe_bank_account_token ) ) {
+			if ( isset( $bank_response->message ) ) {
+				return array(
+					'message' => $bank_response->message,
+				);
+			} else {
+
+				do_action( 'si_error', 'Plaid Token Exchange', $post_data, false );
+				do_action( 'si_error', 'Plaid Token Exchange', $bank_response, false );
+
+				return array(
+					'message' => sprintf( __( 'A Stripe Bank Account Token was not returned (%s). Please try again later. ', 'sprout-invoices' ), $bank_response->request_id ),
+				);
+			}
+		}
+
+		return $bank_response->stripe_bank_account_token;
 	}
 
 	public static function get_plaid_account_token( $client_id = 0 ) {
@@ -956,14 +956,22 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 
 	private static function setup_stripe() {
 		if ( ! class_exists( 'Stripe' ) ) {
-			require_once 'stripe-3.20.0/init.php';
+			require_once 'stripe-php-6.13.0/init.php';
 		} else {
 			do_action( 'si_error', __CLASS__ . '::' . __FUNCTION__ . ' - the Stripe class is already included.', null );
 		}
 		try {
 			// Setup the API
 			$key = ( self::$api_mode === self::MODE_TEST ) ? self::$api_secret_key_test : self::$api_secret_key ;
+
+			\Stripe\Stripe::setAppInfo(
+				'Sprout Invoices',
+				SI_VERSION,
+				'https://sproutapps.co/sprout-invoices/'
+			);
+
 			\Stripe\Stripe::setApiKey( $key );
+
 		} catch ( Exception $e ) {
 			self::set_error_messages( $e->getMessage() );
 			return false;

@@ -10,9 +10,10 @@ class SI_Sprout_Billings_Admin extends SI_Sprout_Billings {
 
 	public static function init() {
 
+		add_action( 'si_settings_saved', array( get_class(), 'save_setting' ) );
+
 		if ( is_admin() ) {
-			// payment settings
-			add_action( 'admin_init', array( __CLASS__, 'register_options' ), -10 );
+			add_filter( 'si_payment_settings', array( __CLASS__, 'register_settings' ) );
 
 			// Add meta box button to auto bill
 			add_action( 'admin_init', array( __CLASS__, 'register_client_meta_boxes' ) );
@@ -30,11 +31,9 @@ class SI_Sprout_Billings_Admin extends SI_Sprout_Billings {
 	// Payment Settings //
 	//////////////////////
 
-	public static function register_options() {
-		$settings = array(
-			'si_billing_default_bill_date' => array(
+	public static function register_settings( $settings = array() ) {
+		$settings['si_billing_default_bill_date'] = array(
 				'title' => __( 'AutoPay Options' , 'sprout-invoices' ),
-				'tab' => SI_Payment_Processors::get_settings_page( false ),
 				'settings' => array(
 					self::GLOBAL_META_KEY => array(
 						'label' => __( 'AutoPay Billing Date/Time' , 'sprout-invoices' ),
@@ -46,9 +45,14 @@ class SI_Sprout_Billings_Admin extends SI_Sprout_Billings {
 						),
 					),
 				),
-			),
 		);
-		do_action( 'sprout_settings', $settings, SI_Payment_Processors::SETTINGS_PAGE );
+		return $settings;
+	}
+
+	public static function save_setting() {
+		if ( isset( $_POST[ self::GLOBAL_META_KEY ] ) ) {
+			update_option( self::GLOBAL_META_KEY, $_POST[ self::GLOBAL_META_KEY ] );
+		}
 	}
 
 	/////////////////
