@@ -283,7 +283,7 @@ class SA_Stripe_Profiles extends SI_Credit_Card_Processors {
 	 */
 	public static function modify_credit_form() {
 		printf( '<input type="hidden" name="%s" value="">', self::TOKEN_INPUT_NAME );
-		echo '<div id="stripe_errors" class="sa-message error"></div><!-- #stripe_errors -->';
+		echo '<div id="stripe_errors"></div><!-- #stripe_errors -->';
 	}
 
 	/**
