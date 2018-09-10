@@ -14,7 +14,7 @@
         };
 
     $(function () {
-		
+
 		/* Hide the ticket slug on the ticket details page  */
 		function hideTicketSlug() {
 			var slug = $('.post-type-ticket #edit-slug-box');  // Get all the slug rows - should only be one though.
@@ -28,8 +28,7 @@
 			slug.toggle(); 
 		}
 		
-		var btnToggleTicketSlug	= $('#wpas-toggle-ticket-slug');  			// Get a handle to the TOGGLE TICKET SLUG button in the ticket details toolbar
-		btnToggleTicketSlug.click( function() { toggleTicketSlug(); } ) ;  	// When its clicked, call our toggleTicketSlug function above.			
+                $(document).on('click', '#wpas-toggle-ticket-slug' , toggleTicketSlug ); 	// When TOGGLE TICKET SLUG button in the ticket details toolbar clicked, call our toggleTicketSlug function above.			
 
         /**
          * Automatically Link URLs, Email Addresses, Phone Numbers, etc.

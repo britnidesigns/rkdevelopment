@@ -1,10 +1,10 @@
 === Awesome Support - WordPress HelpDesk & Support Plugin ===
 
-Contributors: awesomesupport,julien731,tahir1235,rwkiii,elindydotcom,SiamKreative
+Contributors: awesomesupport,julien731,tahir1235,rwkiii,elindydotcom,SiamKreative,alaca,
 Tags: helpdesk,ticket system,support,tickets,support ticket,support desk,help,paid support,knowledgebase,faq
 Requires at least: 4.0
 Tested up to: 4.9
-Stable tag: 5.1.1
+Stable tag: 5.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,7 +17,7 @@ Awesome Support is the most versatile and feature-rich support plugin for WordPr
 
 And your customers can be using it in just 5 mins! After installing and activating the plugin, just answer a few questions in the startup wizard and your helpdesk will be ready for your customers. 
 
-Take a product tour in the video below where you can see the extensive list of free and premium features that will be available on your new helpdesk!  (Or you can scroll down to the bottom of this page for screen shots.)
+Take a product tour in the video below where you can see the extensive list of free and premium features that will be available on your new helpdesk!  You can also go hands-on with the [Live Demo](https://asdemo.flywheelsites.com/) or scroll down to the bottom of this page for screen shots.
 
 **Product Tour**
 
@@ -212,7 +212,9 @@ Now that you've seen our list of awesome features above, you already know that A
 * [Issue Tracking](https://getawesomesupport.com/addons/issue-tracking/?utm_source=wordpress.org&utm_medium=readme&utm_campaign=Extend) - Easily manage multiple related tickets.  Very useful for product recalls, bug tracking, system-down situations and more. Now, managing hundreds of support tickets related to the same problem is no problem for you at all!
 * [Custom FAQ](https://getawesomesupport.com/addons/custom-faq/?utm_source=wordpress.org&utm_medium=readme&utm_campaign=Extend) - Use any WordPress custom post type as your FAQ source.  Tightly integrates your selected CPT with Awesome Support and uses it to automatically offer topic suggestions to users as they fill out a new ticket form.
 * [Business Rules Engine With Zapier Integration](https://getawesomesupport.com/addons/awesome-support-business-rules-engine-zapier-integration-beta/?utm_source=wordpress.org&utm_medium=readme&utm_campaign=Extend) - Powerful rules engine for your tickets.  Automatically respond to tickets, change status, close tickets, send data to 3rd party systems via Zapier and more!
-
+* [Company Profiles](https://getawesomesupport.com/addons/company-profiles-shared-tickets-early-release/?utm_source=wordpress.org&utm_medium=readme&utm_campaign=Extend) - Allow multiple users from the same company to manage a single pool of tickets. 
+* [Scheduled Tickets](https://getawesomesupport.com/addons/scheduled-tickets/?utm_source=wordpress.org&utm_medium=readme&utm_campaign=Extend) - Create recurring tickets on daily/weekly/monthly/annual schedules
+* [Agent Front End](https://getawesomesupport.com/addons/agent-front-end-early-release/?utm_source=wordpress.org&utm_medium=readme&utm_campaign=Extend) - Allow untrusted agents to manage their tickets without access to wp-admin. This highly restrictive access to tickets is perfect for vendors and other help-desk non-employee support collaborators.
 Additional extensions such as EDD (integration with Easy Digital Downloads), Envato (Integration with code-canyon/envato) and Filestack (offloads attachments to the cloud) bring even more power to Awesome Support.
 
 **Bundles**
@@ -444,12 +446,161 @@ There are several factors that can influence e-mail notifications delivery. Plea
 
 == Changelog ==
 
-= 5.1.1 =
+= 5.7.1 =
+The version 5.x line is a MAJOR upgrade from 4.x  
+If you are upgrading from 4.x or or earlier versions it is strongly suggested that you test this upgrade in a stage/test environment before applying it to your production site.
+Please make sure that you back-up your site before applying this update!
 
-The version 5.x line is a MAJOR upgrade from 4.x  If you are upgrading from
- 4.x or or earlier versions it is strongly suggested that you test this upgrade in a stage/test environment before applying it to your production site.
+* Security Fixes
+	(none)
+
+* Fix
+	* Editing the opening ticket post did not respect the logging flags. It would always show the original content in the logs.
+	* PHP 5.6 error on static function when rendering the privacy popup.
+	* A variable was not declared before being used under certain circumstances (when a right to be forgotten request was being submitted).
+	
+* Tweak
+	* Better error handling for duplicate right-to-be-forgotten requests.
+	* Better styling on error messages on privacy popup screen.
+	
+= 5.7.0 =
+
+* Security Fixes
+	(none)
+	
+* New
+	* Add option to allow/deny agents setting the auto-delete attachments flag in wp-admin.
+	
+* Fix	
+	* Privacy popup was not available on single ticket page on front-end.
+	* Clean up edit history popup css
+	
+* Tweak
+	* Make edit history popup fullscreen.
+	* Move main toolbar inside the ticket opening post area so that the icons conditionally appear on hover.  Saves vertical space.
+	
+* Dev
+	* Add some new filters around the user consents so other add-ons can tie into them.
+	* Add new action hook - wpas_custom_field_filters_after - which allows another location for for add-ons to hook into the ticket listing display in wp-admin.
+
+= 5.6.0 =
+
+* Security Fixes
+	(none)
+	
+* New
+	* Added fields to hold phone numbers in the user profile.
+	
+* Fix
+	* The function that created user names would not duplicate-check a user name when handed one by the calling program.  This primarily affected the email-support premium addon when the admin chose to use a user name construction method that would result in many commonly used user names.
+	* Resolved an issue with labels and some text in the privacy popup when slashes were used.
+	* Privacy popup might appear at the bottom of some pages where it really shouldn't appear. 
+	* The page numbers at the bottom of the front-end ticket list were being wrapped unnecessarily
+	
+* Tweak
+	* Code to prevent the same email address from being added to the same notification by multiple addons. 
+	* Privacy popup is now full screen. Other styling changes were made as well.
+	* The privacy popup css was being loaded separately while also being loaded with the minimized css files.
+	
+* Dev
+	* Added a function to return a list of all support users on a ticket - wpas_get_support_users_on_ticket()
+	* Added a function to return true/false if the current page is a front-end page belonging to the plugin.  Used for the privacy pop-up fix outlined in the fix section above.
+	
+= 5.5.1 =
+The version 5.x line is a MAJOR upgrade from 4.x  
+If you are upgrading from 4.x or or earlier versions it is strongly suggested that you test this upgrade in a stage/test environment before applying it to your production site.
 You will also need to upgrade premium add-ons after this upgrade - in particular POWERPACK, FAQ, DOCUMENTATION, CANNED RESPONSES, FILESTACK and CUSTOM FAQ
 At the very least you should back-up your site before applying this update!
+
+* Security Fixes
+	(none)
+	
+* Fix
+	* A filter for the cron schedules was returning blanks which caused core WP to generate an error because it wasn't expecting void or an empty array.
+	* If an attachment is included with a reply that only has a signature (POWERPACK), we needed to let the reply go through instead of considering it a blank reply and ignoring it.
+	
+= 5.5.0 =
+
+* Security Fixes
+	(none)
+	
+* New
+	* Email template design sets
+	* Added ability to install a email template design set from the TOOLS menu
+	* Default email template set is now "blue_blocks" for new activations
+	* Added new registration option: Moderated registration allows admins to approve users before they can submit tickets.
+	* Added checkboxes to GDPR related registration fields to allow them to be mandatory or optional.
+	* Added option to log the full contents of replies before they were edited.
+	* Added option to log the full contents of deletes before they were edited.
+	* Added a message beneath replies to indicate to the user that the rely was edited
+	* Added a message beneath the opening ticket post to indicate to the user that there were replies on the ticket that were deleted
+	* Tickets imported from zendesk can now be searched and sorted on the ticket list. Thanks [nmoinvaz ](https://github.com/nmoinvaz)
+	* Add new option to not include the ticket id in the ticket title column on the front-end
+	* Added new option to show/not show the close ticket checkbox on the front-end (similar behavior as if the admin had turned off the close_ticket capability)
+	* Added the ability to PRINT tickets in wp-admin without all the sorrounding WordPress metaboxes, browser elements and such.
+	* Added the ability to drag and drop files in both the ticket and the admin
+	* Added two new email template tags related to clients - client_first_name, client_last_name
+	* Added two new email template tags related to agents - agent_first_name, agent_last_name
+	* added four new email template tags realted to authors  author_name, author_first_name, author_last_name, author_email. Thanks [nmoinvaz ](https://github.com/nmoinvaz)
+	* Added a separate help and support page where users can see their options to get help and support for the plugin
+	
+* Tweak
+	* Split out upgrade tools into its own table in the TICKETS->TOOLS->CLEANUP screen.
+	* Added an option under TICKETS->SETTINGS->ADVANCED to control whether attachments should ALWAYS be downloaded when using masked urls.
+	* Update the tracking opt-in message to include a link back to our site that discloses the information collected when you opt-in.	
+	* Added some help text to the email notifications
+	* Rearranged the GENERAL settings tab to separate front-end options from back-end options
+	* Gutenberg blocks now have a generic white background with black text
+	* Updated an internal role function to better support the arrays created by the User Role Editor plugin. Thanks [nmoinvaz ](https://github.com/nmoinvaz)
+	* Labels in user profile changed to explicitly reflect that the fields added are from Awesome Support
+
+* Fix
+	* Mandatory UPLOAD custom fields was not working properly.  Files uploaded with the REQUIRED flag set still resulted in an error message stating that the field is required.
+	* If the custom fields tab or additional interested parties tab was not visible to an agent, all fields would be reset to blank when a ticket was saved.
+	* The notification flag for tickets closed by customer was not being respected.
+	* The filter for "old" tickets was simply not working
+	* Added an empty BS4 css theme file to the awesome support BS4 theme file folder to prevent a file not found error.
+	* Cleaned up some help text.
+	* Option to hide closed tickets on the frontend was simply not working and it never could have worked.
+	* Make sure that the attachments_max option in the file uploader uses a default of 2 instead of no default or a zero default.
+	* Setting the ALLOW AGENTS TO ENTER TIME option to false will no longer disable all editors on the page.
+	* Fixed incorrect text that would display when loading more replies on the front-end in descending order
+	* When sentences are really long for some reason, wordwrap/break within the borders of the table when rendering the ticket on the front-end.
+	
+* Dev
+	* Changed a doaction hook to an apply filters hook - the wpas_show_done_tool_message hook is more usable as a filter.
+	* Added new action hook, wpas_system_tools_after, at the very end of the system-tools.php view file.
+	* Updated the wpas_reply_edited action hook to add a new parameter that makes it easy to do before and after compares.
+	* Started process of renaming all occurrences of the wpas_log help function to wpas_log_history().
+	* Removed a few pages from the wpas_is_plugin_page check because future versions of the email add-on will use the provided filters to update the array.
+	* Added optional parameter to function wpas_is_agent to pass in an agent id instead of just checking for current user.
+	* Renamed incorrectly named action hook from wpas_tikcet_after_saved to wpas_ticket_after_saved
+	* Add new filter: wpas_submission_page_url
+	* Add new filter: wpas_tickets_list_page_url
+	* Add new filter: wpas_consent_tracking
+	* Add new action hooks: wpas_track_consent_update_new, wpas_track_consent_update_new_too, wpas_track_consent_update_existing_after and wpas_track_consent_after
+	* Updated the wpas_user_can_reply_ticket filter to pass in the correct ID - the prior ID being passed was incorrect.
+	* Add new action hook at end of ticket details metabox - wpas_backend_ticket_status_after_actions
+	* New filters related to the WP 4.9.6 new personal data eraser: wpas_before_delete_ticket_via_personal_eraser and wpas_allow_personal_data_eraser
+	* Updated an internal role function to better support the arrays created by the User Role Editor plugin. Thanks [nmoinvaz ](https://github.com/nmoinvaz)
+	* Added two new filters for the standard email notifications class wpas_email_notifications_reply_types and wpas_email_notifications_post_types. Thanks [nmoinvaz ](https://github.com/nmoinvaz)
+	* Modified the standard email notifications class to handle post types other than just ticket and ticket_reply.  Thanks [nmoinvaz ](https://github.com/nmoinvaz)
+	
+	
+* New and Updated Add-ons Associated With This Release
+	* New: [Company Profiles](https://getawesomesupport.com/addons/company-profiles-shared-tickets-early-release/)
+	* New: [Agent Front-end](https://getawesomesupport.com/addons/agent-front-end-early-release/)
+	* New: [PINS](https://getawesomesupport.com/addons/pins-personal-identification-numbers/)
+	* New: [Scheduled Tickets](https://getawesomesupport.com/addons/scheduled-tickets/)
+	* New: [Smart Submit](https://getawesomesupport.com/addons/smart-ticket-submission/)
+	* Updated: [Email Support](https://getawesomesupport.com/addons/email-support/)
+	* Updated: [Service Level Agreements](https://getawesomesupport.com/addons/service-level-agreements-sla/)
+	* Updated: [FAQ](https://getawesomesupport.com/addons/faq/)
+	* Updated: [Private Notes](https://getawesomesupport.com/addons/private-notes/)
+	* Updated: [Powerpack](https://getawesomesupport.com/addons/productivity/)
+	
+
+= 5.1.1 =
 
 * Security Fixes
 	(none)
@@ -462,7 +613,7 @@ At the very least you should back-up your site before applying this update!
 * Fix
 	* Get the remote notification client working properly.
 	* Strip slashes from outgoing emails when single quotes are used in the subject line (and other areas).
-	* Remove blank menu option that remained after the on-boarding wizard is complete
+	* Remove blank menu option that remained after the on-boarding wizard is complete.
 	* Color coding priority on ticket detail screen tabs did not check to see if priorities were enabled.
 	
 * Dev
@@ -521,13 +672,13 @@ At the very least you should back-up your site before applying this update!
 	
 * Dev
 	* Explicitly UNDECLARE support for GUTENBERG metaboxes so that the NEW TICKET page will render properly even when the GUTENBERG plug-in is installed.
-	* Added a GUTENBERG template for new tickets just in case the GUTENBERG editor ends up being shown for some reason. (Under normal circumstances GUTENBERG should not be shown on Awesome Support ticket pages)
+	* Added a GUTENBERG template for new tickets just in case the GUTENBERG editor ends up being shown for some reason. (Under normal circumstances GUTENBERG should not be shown on Awesome Support ticket pages.)
 	* Added a new wp-config option (WPAS_GUTENBERG_META_BOX_COMPATIBLE) to force the GUTENBERG editor to show up on the new ticket page. This is to be used strictly for testing only!
 	* Added issuetracking and sla post types to the wpas_is_plugin_page() function.
 	* Made the CHANNEL field available to hooks earlier when adding a ticket.	
 	* Added new filter to control whether or not the list of tickets in the user profile widget is shown.  The filter name is wpas_user_profile_show_tickets.
 	* Added new function for internal use - wpas_get_current_user_role
-	* Add filters to check if user can reply or close a ticket from addons (wpas_user_can_reply_ticket and wpas_user_can_close_ticket)
+	* Add filters to check if user can reply or close a ticket from addons (wpas_user_can_reply_ticket and wpas_user_can_close_ticket.)
 	
 * Fix
 	* Modified install/upgrade routine to check to see if a variable was null before attempting to use it
@@ -1319,11 +1470,17 @@ Need to extend Awesome Support's features? We have lots of add-ons to help you s
 
 Even though the plugin has been developed and is maintained by the Awesome Support development team, we've had help from various developers around the world. You can see all the contributors on the [team page](http://getawesomesupport.com/team/?utm_source=wordpress.org&utm_medium=readme&utm_campaign=Extend). Many thanks to them all!
 
-Our key core developers on the Awesome Support Development Team in the first quarter of 2018 include:
+Our key core developers on the Awesome Support Development Team in 2018 include:
 
+* Ante Laca
 * Muhammad Tahir Nazir	
 * Nigel Bahadur
-* Robert Kramer	
+
+With contributions from customers such as:
+
+* Rolly Bueno
+* Naveen Giri
+* Nathan Moinvaziri
 
 == Translators == 
 	

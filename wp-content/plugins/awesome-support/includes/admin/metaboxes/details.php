@@ -61,6 +61,7 @@ if ( isset( $post ) ) {
 				<em><?php printf( __( '%s ago', 'awesome-support' ), $dateago ); ?></em>
 			<?php endif; ?>
 		</div>
+		
 	</div>
 	<?php do_action( 'wpas_backend_ticket_stakeholders_before', $post->ID ); ?>
 	<?php require( WPAS_PATH . 'includes/admin/metaboxes/stakeholders.php' ); ?>
@@ -114,5 +115,8 @@ if ( isset( $post ) ) {
 		<?php endif; ?>
 		<div class="clear"></div>
 	</div>
+	
+	<?php do_action( 'wpas_backend_ticket_status_after_actions', $post->ID ); ?>
+	
 </div>
 
