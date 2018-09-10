@@ -186,17 +186,20 @@ p.issued {
     .paytype.active { float: none; }
 
     button {
-        margin: 5em 0;
         background-color: @theme-primary;
         border-radius: 0;
         .display;
-        font-size: 1.25em;
         text-shadow: 1px 1px 1px fade(shade(@theme-primary,50%), 50%);
 
         &:hover {
             background-color: darken(@theme-primary, 10%);
             text-shadow: 1px 1px 1px fade(shade(@theme-primary, 50%), 75%);
         }
+    }
+
+    button[type="submit"] {
+        margin: 5em 0;
+        font-size: 1.25em;
     }
 
     @media screen and (max-width: 640px) {
