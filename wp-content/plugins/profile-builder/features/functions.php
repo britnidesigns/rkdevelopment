@@ -18,6 +18,7 @@ function wppb_register_settings() {
 	register_setting( 'reCaptchaSettings', 'reCaptchaSettings' );
 	register_setting( 'emailCustomizer', 'emailCustomizer' );
 	register_setting( 'wppb_content_restriction_settings', 'wppb_content_restriction_settings' );
+	register_setting( 'wppb_private_website_settings', 'wppb_private_website_settings' );
 }
 
 
@@ -260,6 +261,11 @@ function wppb_print_cpt_script( $hook ){
         wp_enqueue_style( 'wppb-select2-style', WPPB_PLUGIN_URL . 'assets/css/select2/select2.min.css', false, PROFILE_BUILDER_VERSION );
 	}
 
+	if ( $hook == 'admin_page_profile-builder-private-website' ){
+		wp_enqueue_script( 'wppb-select2', WPPB_PLUGIN_URL . 'assets/js/select2/select2.min.js', array(), PROFILE_BUILDER_VERSION, true );
+		wp_enqueue_style( 'wppb-select2-style', WPPB_PLUGIN_URL . 'assets/css/select2/select2.min.css', false, PROFILE_BUILDER_VERSION );
+	}
+
 	if (( $hook == 'profile-builder_page_manage-fields' ) ||
 		( $hook == 'profile-builder_page_profile-builder-basic-info' ) ||
 		( $hook == 'profile-builder_page_profile-builder-modules' ) ||
@@ -278,7 +284,8 @@ function wppb_print_cpt_script( $hook ){
         ( $hook == 'profile-builder_page_profile-builder-content_restriction' ) ||
         ( strpos( $hook, 'profile-builder_page_' ) === 0 ) ||
         ( $hook == 'edit.php' && ( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'wppb-roles-editor' ) ) ||
-		( $hook == 'admin_page_profile-builder-pms-promo') ) {
+		( $hook == 'admin_page_profile-builder-pms-promo') ||
+		( $hook == 'admin_page_profile-builder-private-website') ) {
 			wp_enqueue_style( 'wppb-back-end-style', WPPB_PLUGIN_URL . 'assets/css/style-back-end.css', false, PROFILE_BUILDER_VERSION );
 	}
 	
@@ -307,12 +314,31 @@ function wppb_print_cpt_script( $hook ){
 			wp_enqueue_style( 'wppb-back-end-style', WPPB_PLUGIN_URL . 'assets/css/style-back-end.css', array(), PROFILE_BUILDER_VERSION );
 		}
 	}
-    if ( file_exists ( WPPB_PLUGIN_DIR.'/update/update-checker.php' ) ) {
+    if ( file_exists ( WPPB_PLUGIN_DIR.'/update/update-checker.php' ) || $hook == 'admin_page_profile-builder-private-website' ) {
         wp_enqueue_script( 'wppb-sitewide', WPPB_PLUGIN_URL . 'assets/js/jquery-pb-sitewide.js', array(), PROFILE_BUILDER_VERSION, true );
     }
     wp_enqueue_style( 'wppb-serial-notice-css', WPPB_PLUGIN_URL . 'assets/css/serial-notice.css', false, PROFILE_BUILDER_VERSION );
 }
 add_action( 'admin_enqueue_scripts', 'wppb_print_cpt_script' );
+
+/**
+ * Highlight the settings page under Profile Builder in the admin menu for these pages
+ */
+//add add_action( "admin_footer-$hook", "wppb_make_setting_menu_item_highlighted" ); for other pages that don't have a parent
+add_action( "admin_footer-admin_page_profile-builder-private-website", "wppb_make_setting_menu_item_highlighted" );
+add_action( "admin_footer-profile-builder_page_profile-builder-admin-bar-settings", "wppb_make_setting_menu_item_highlighted" );
+add_action( "admin_footer-profile-builder_page_profile-builder-content_restriction", "wppb_make_setting_menu_item_highlighted" );
+add_action( "admin_footer-profile-builder_page_profile-builder-content_restriction", "wppb_make_setting_menu_item_highlighted" );
+add_action( "admin_footer-profile-builder_page_admin-email-customizer", "wppb_make_setting_menu_item_highlighted" );
+add_action( "admin_footer-profile-builder_page_user-email-customizer", "wppb_make_setting_menu_item_highlighted" );
+function wppb_make_setting_menu_item_highlighted(){
+	echo'<script type="text/javascript">
+        jQuery(document).ready( function($) {
+            $("#toplevel_page_profile-builder").addClass("current wp-has-current-submenu wp-menu-open");
+            $("a[href=\'admin.php?page=profile-builder-general-settings\']").closest("li").addClass("current");
+        });     
+        </script>';
+}
 
 
 //the function used to overwrite the avatar across the wp installation
@@ -536,6 +562,18 @@ function wppb_check_missing_http( $redirectLink ) {
 	return preg_match( '#^(?:[a-z\d]+(?:-+[a-z\d]+)*\.)+[a-z]+(?::\d+)?(?:/|$)#i', $redirectLink );
 }
 
+//function that adds missing http to a link
+function wppb_add_missing_http( $link ){
+	$http = '';
+	if ( wppb_check_missing_http( $link ) ) { //if missing http(s)		
+		$http = 'http';
+		if ((isset($_SERVER["HTTPS"])) && ($_SERVER["HTTPS"] == "on"))
+			$http .= "s";
+		$http .= "://";
+	}
+
+	return $http . $link;
+}
 
 
 //function to output the password strength checker on frontend forms
@@ -1055,3 +1093,116 @@ function wppb_get_role_name($role){
 
     return $role;
 }
+
+/**
+ * Functionality for Private Website start
+ */
+add_action( 'template_redirect', 'wppb_private_website_functionality' );
+add_action( 'login_head', 'wppb_private_website_functionality', 1 );
+function wppb_private_website_functionality(){
+	$wppb_private_website_settings = get_option( 'wppb_private_website_settings', 'not_found' );
+	if( $wppb_private_website_settings != 'not_found' ){
+		if( $wppb_private_website_settings['private_website'] == 'yes' ){
+			if( !is_user_logged_in() ){
+
+				//force wp-login.php if you accidentally get locked out
+				global $pagenow;
+				if( $pagenow === 'wp-login.php' && isset( $_GET['wppb_force_wp_login'] ) )
+					return;
+
+
+				global $post;
+				if( isset( $wppb_private_website_settings['allowed_pages'] ) )
+					$allowed_pages = $wppb_private_website_settings['allowed_pages'];
+				else{
+					$allowed_pages = array();
+				}
+
+				$redirect_to_id = $wppb_private_website_settings['redirect_to'];
+				if( !empty( $redirect_to_id ) ) {
+					$redirect_url = get_permalink($redirect_to_id);
+					$allowed_pages[] = $redirect_to_id;
+				}
+				else {
+					//don't redirect if we are already on the wp-login.php page
+					if( $pagenow === 'wp-login.php' ){
+						return;
+					}
+					else
+						$redirect_url = wp_login_url(wppb_curpageurl());
+				}
+
+				$redirect_url = apply_filters( 'wppb_private_website_redirect_url', $redirect_url );
+				$allowed_pages = apply_filters( 'wppb_private_website_allowed_pages', $allowed_pages );
+
+				if( !in_array( $post->ID, $allowed_pages ) && ( $redirect_url !== wppb_curpageurl() ) ){
+					wp_safe_redirect( $redirect_url );
+					exit;
+				}
+
+			}
+		}
+	}
+}
+
+
+/**
+ * Disable RSS
+ */
+add_action('do_feed', 'wppb_disable_feed', 1);
+add_action('do_feed_rdf', 'wppb_disable_feed', 1);
+add_action('do_feed_rss', 'wppb_disable_feed', 1);
+add_action('do_feed_rss2', 'wppb_disable_feed', 1);
+add_action('do_feed_atom', 'wppb_disable_feed', 1);
+add_action('do_feed_rss2_comments', 'wppb_disable_feed', 1);
+add_action('do_feed_atom_comments', 'wppb_disable_feed', 1);
+function wppb_disable_feed() {
+	$wppb_private_website_settings = get_option( 'wppb_private_website_settings', 'not_found' );
+	if( $wppb_private_website_settings != 'not_found' ) {
+		if ($wppb_private_website_settings['private_website'] == 'yes') {
+			if (!is_user_logged_in()) {
+				wp_die( sprintf( __('No feed available,please visit our <a href="%s">homepage</a>!', 'profile-builder' ), get_bloginfo('url') ) );
+			}
+		}
+	}
+}
+
+
+/**
+ * Disable REST
+ */
+add_filter('rest_enabled', 'wppb_disable_rest');
+add_filter('rest_jsonp_enabled', 'wppb_disable_rest');
+function wppb_disable_rest( $bool ){
+	$wppb_private_website_settings = get_option( 'wppb_private_website_settings', 'not_found' );
+	if( $wppb_private_website_settings != 'not_found' ) {
+		if ($wppb_private_website_settings['private_website'] == 'yes') {
+			if (!is_user_logged_in()) {
+				return false;
+			}
+		}
+	}
+	return $bool;
+}
+
+
+/**
+ * We can hide all menu items
+ */
+add_filter('wp_nav_menu', 'wppb_hide_menus');
+add_filter('wp_page_menu', 'wppb_hide_menus');
+function wppb_hide_menus( $menu ){
+	$wppb_private_website_settings = get_option( 'wppb_private_website_settings', 'not_found' );
+	if( $wppb_private_website_settings != 'not_found' ) {
+		if ($wppb_private_website_settings['private_website'] == 'yes') {
+			if ( !is_user_logged_in() && ( !empty($wppb_private_website_settings['hide_menus']) &&  $wppb_private_website_settings['hide_menus'] == 'yes' ) ) {
+				return '';
+			}
+		}
+	}
+	return $menu;
+}
+
+/**
+ * Functionality for Private Website end
+ */

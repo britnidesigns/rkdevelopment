@@ -8,6 +8,7 @@ function wppb_get_settings_pages(){
 		'profile-builder-general-settings' => __( 'General Settings', 'profile-builder' ),
 		'profile-builder-admin-bar-settings' => __( 'Admin Bar', 'profile-builder' ),
 		'profile-builder-content_restriction' => __( 'Content Restriction', 'profile-builder' ),
+		'profile-builder-private-website' => __( 'Private Website', 'profile-builder' ),
 	);
 
 	if (file_exists(WPPB_PLUGIN_DIR . '/modules/modules.php')) {

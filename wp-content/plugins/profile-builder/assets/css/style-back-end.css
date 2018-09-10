@@ -350,8 +350,12 @@
 	min-width:18em;
 }
 
+.wppb-select.wppb-disabled, .wppb-disabled .select2-selection--single, .wppb-disabled .select2-selection--multiple{
+    background-color: #eee;
+}
+
 .wppb-wrap .form-table th {
-	width: 400px;
+	width: 330px;
 }
 
 .wppb-metabox label{
@@ -820,4 +824,10 @@ div.wppb-notice .notice-dismiss {
 
 .profile-builder_page_user-email-customizer #poststuff, .profile-builder_page_admin-email-customizer  #poststuff{
     padding:0;
+}
+
+/* hide menu items */
+.wp-submenu a[href="admin.php?page=profile-builder-admin-bar-settings"], .wp-submenu a[href="admin.php?page=profile-builder-content_restriction"],
+.wp-submenu a[href="admin.php?page=admin-email-customizer"], .wp-submenu a[href="admin.php?page=user-email-customizer"]{
+    display:none !important;
 }

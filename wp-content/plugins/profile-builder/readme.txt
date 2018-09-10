@@ -3,8 +3,8 @@ Contributors: cozmoslabs, reflectionmedia, sareiodata, adispiac, madalin.ungurea
 Donate link: http://www.cozmoslabs.com/wordpress-profile-builder/
 Tags: user registration, user profile, user registration form, user fields, extra user fields, edit profile, user custom fields, front-end login, front-end edit profile, front-end user registration, email confirmation, login form, content restriction, restrict content
 Requires at least: 3.1
-Tested up to: 4.9.6
-Stable tag: 2.8.6
+Tested up to: 4.9.8
+Stable tag: 2.8.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,6 +57,7 @@ Users with administrator rights have access to the following features:
 * **Content Restriction**: restrict content based on current users role or logged in status
 * Restrict WooCommerce shop page and products
 * Invisible reCAPTCHA support for both Profile Builder forms as well as default WordPress forms
+* **Private Website**: If you have a WordPress website that you wish is visible only to members then this feature is what you want.
 
 **PROFILE BUILDER PRO**
 
@@ -166,6 +167,22 @@ This plugin adds/removes user fields in the front-end. Both default and extra pr
 12. Role Editor
 
 == Changelog ==
+= 2.8.9 = 
+* Added Private Website functionality
+* Added a plugin notice for Private Website
+* Removed from the admin menu the pages that have a tab on the settings page
+
+= 2.8.8 =
+* We no longer allow users to login with username is is set to login with email. added 'wppb_allow_login_with_username_when_is_set_to_email' filter to still allow it
+* Small css changes
+
+= 2.8.7 =
+* Secupress plugin compatiblity when activating "Move the login and admin pages"
+* Fixed issue with content restriction and url redirect if url was missing 'http'
+* Select2 now offers a labels tag in the Userlisting
+* Small css change
+* Reimplemented the deactivation feedback poll
+
 = 2.8.6 =
 * Implemented a tabbed settings interface
 * Content restriction activated setting is now in the Content Restriction tab

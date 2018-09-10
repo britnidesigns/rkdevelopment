@@ -322,3 +322,14 @@
                 return true;
             }
         }
+
+
+        /****************************************************
+         * Secupress Compatibility
+         * Compatibility with Secupress plugin when activating Move the login and admin pages
+         ****************************************************/
+        if( isset( $_POST['wppb_login'] ) ) {
+            remove_action('login_init', 'secupress_move_login_maybe_deny_login_page', 0);
+            remove_action('secure_auth_redirect', 'secupress_move_login_maybe_deny_login_page', 0);
+        }
+

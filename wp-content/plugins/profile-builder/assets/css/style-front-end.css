@@ -796,6 +796,6 @@ ul.wppb-faceted-list .hide-this{
 /**************************************************/
 /* This is very weird: if in  the css there is a rule on table of border-collapse:collapse; then on FFox and Edge the Media upload won't open
 /**************************************************/
-table{
+.wppb-user-forms table{
     border-collapse:separate;
 }

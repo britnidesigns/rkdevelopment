@@ -327,6 +327,8 @@
 <?php __("Communication Preferences Order", "profile-builder"); ?>
 <?php __("Save the communication preferences order", "profile-builder"); ?>
 <?php __("required", "profile-builder"); ?>
+<?php __("Date", "profile-builder"); ?>
+<?php __("Preference", "profile-builder"); ?>
 <?php __("Uploaded file is not valid json!", "profile-builder"); ?>
 <?php __("Import successfully!", "profile-builder"); ?>
 <?php __("Please select a .json file to import!", "profile-builder"); ?>
@@ -435,7 +437,7 @@
 <?php __("If you enjoy using <strong> %1$s </strong> please <a href=\"%2$s\" target=\"_blank\">rate us on WordPress.org</a>. More happy users means more features, less bugs and better support for everyone. ", "profile-builder"); ?>
 <?php __("View Profile Builder documentation", "profile-builder"); ?>
 <?php __("Docs", "profile-builder"); ?>
-<?php __("Extend WooCommerce checkout page with support for all the Profile Builder Pro custom field types, conditional logic and repeater fields with the latest <strong>WooSync addon</strong> for Profile Builder.", "profile-builder"); ?>
+<?php __("Set up a Private Website in WordPress with the help of Profile Builder. This feature is now available in all versions.", "profile-builder"); ?>
 <?php __("Check it out!", "profile-builder"); ?>
 <?php __("Dismiss this notice.", "profile-builder"); ?>
 <?php __("Basic Information", "profile-builder"); ?>
@@ -512,9 +514,20 @@
 <?php __("** only available in the %1$sPro version%2$s.", "profile-builder"); ?>
 <?php __("Quick Feedback", "profile-builder"); ?>
 <?php __("Because we care about our clients, please leave us feedback on why you are no longer using our plugin.", "profile-builder"); ?>
+<?php __("Lacking certain features", "profile-builder"); ?>
+<?php __("What feature would you like to see?", "profile-builder"); ?>
+<?php __("Hard to use", "profile-builder"); ?>
+<?php __("How can we improve our user experience ?", "profile-builder"); ?>
+<?php __("Unsatisfactory support", "profile-builder"); ?>
+<?php __("Other", "profile-builder"); ?>
+<?php __("Please tell us more", "profile-builder"); ?>
+<?php __("Poor Documentation", "profile-builder"); ?>
+<?php __("Tell us what you couldn't find", "profile-builder"); ?>
+<?php __("Submit & Deactivate", "profile-builder"); ?>
 <?php __("Skip and Deactivate", "profile-builder"); ?>
 <?php __("Submit and Deactivate", "profile-builder"); ?>
 <?php __("Admin Bar", "profile-builder"); ?>
+<?php __("Private Website", "profile-builder"); ?>
 <?php __("User Emails", "profile-builder"); ?>
 <?php __("Administrator Emails", "profile-builder"); ?>
 <?php __("Profile Builder Settings", "profile-builder"); ?>
@@ -1062,6 +1075,19 @@
 <?php __("Accept user payments, create subscription plans and restrict content on your website.", "profile-builder"); ?>
 <?php __("Step by Step Quick Setup", "profile-builder"); ?>
 <?php __("Allow your users to have <strong>paid accounts with Profile Builder</strong>. %1$sFind out how >%2$s %3$sDismiss%4$s", "profile-builder"); ?>
+<?php __("Private Website Settings", "profile-builder"); ?>
+<?php __("Enable Private Website", "profile-builder"); ?>
+<?php __("Activate Private Website. It will restrict the content, RSS and REST API for your website", "profile-builder"); ?>
+<?php __("Redirect to", "profile-builder"); ?>
+<?php __("Default WordPress login page", "profile-builder"); ?>
+<?php __("Redirects to this page if not logged in. We recommend this page contains the [wppb-login] shortcode.", "profile-builder"); ?>
+<?php __("You can force access to wp-login.php so you don't get locked out of the site by accessing the link:", "profile-builder"); ?>
+<?php __("Allowed Pages", "profile-builder"); ?>
+<?php __("Allow these pages to be accessed even if you are not logged in", "profile-builder"); ?>
+<?php __("Hide all Menus", "profile-builder"); ?>
+<?php __("Hide all menu items if you are not logged in.", "profile-builder"); ?>
+<?php __("We recommend \"<a href=\"%s\" target=\"_blank\">Custom Profile Menus</a>\" addon if you need different menu items for logged in / logged out users.", "profile-builder"); ?>
+<?php __("Save Changes", "profile-builder"); ?>
 <?php __("Register Your Version", "profile-builder"); ?>
 <?php __("Register Version", "profile-builder"); ?>
 <?php __("Profile Builder Register", "profile-builder"); ?>
@@ -1089,11 +1115,11 @@
 <?php __("This field is required", "profile-builder"); ?>
 <?php __("Please enter a (valid) reCAPTCHA value", "profile-builder"); ?>
 <?php __("Incorrect phone number", "profile-builder"); ?>
-<?php __("Save Changes", "profile-builder"); ?>
 <?php __("Content", "profile-builder"); ?>
 <?php __("<br><br>Also, you will be able to visit your site at ", "profile-builder"); ?>
 <?php __("<br><br>You can visit your site at ", "profile-builder"); ?>
 <?php __("You will soon be redirected automatically. If you see this page for more than %1$d seconds, please click %2$s.%3$s", "profile-builder"); ?>
+<?php __("No feed available,please visit our <a href=\"%s\">homepage</a>!", "profile-builder"); ?>
 <?php __("The role of the created user set to the default role. Only an administrator can register a user with the role assigned to this form.", "profile-builder"); ?>
 <?php __("Only an administrator can add new users.", "profile-builder"); ?>
 <?php __("Users can register themselves or you can manually create users here.", "profile-builder"); ?>
@@ -1316,7 +1342,7 @@
 <?php __("Select a user role.", "profile-builder"); ?>
 <?php __("User Role based Redirects", "profile-builder"); ?>
 <?php __("Global Redirects", "profile-builder"); ?>
-<?php __("Login ( wp_login.php )", "profile-builder"); ?>
+<?php __("Login ( wp-login.php )", "profile-builder"); ?>
 <?php __("Register ( wp-login.php?action=register )", "profile-builder"); ?>
 <?php __("Lost Password ( wp-login.php?action=lostpassword )", "profile-builder"); ?>
 <?php __("Author Archive ( http://sitename.com/author/admin )", "profile-builder"); ?>

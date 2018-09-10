@@ -168,7 +168,7 @@ function wppb_content_restriction_post_redirect() {
     }
 
     // Redirect
-    wp_redirect( $redirect_url );
+    wp_redirect( wppb_add_missing_http( $redirect_url ) );
     exit;
 
 }

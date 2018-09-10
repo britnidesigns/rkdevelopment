@@ -133,3 +133,34 @@ jQuery( function() {
         });
     }
 });
+
+/*
+ * Private Website Settings page
+ */
+
+jQuery( function() {
+    if( jQuery( '.wppb-private-website' ).length != 0 ) {
+        jQuery('#private-website-redirect-to-login').select2();
+        jQuery('#private-website-allowed-pages').select2();
+
+        wppbDisablePrivatePageOptions(jQuery('#private-website-enable').val());
+
+        jQuery('#private-website-enable').change(function () {
+            wppbDisablePrivatePageOptions(jQuery(this).val());
+        });
+
+
+        function wppbDisablePrivatePageOptions(value) {
+            if (value == 'no') {
+                jQuery('#private-website-redirect-to-login').closest('tr').addClass("wppb-disabled");
+                jQuery('#private-website-allowed-pages').closest('tr').addClass("wppb-disabled");
+                jQuery('#private-website-menu-hide').addClass("wppb-disabled");
+            }
+            else if (value == 'yes') {
+                jQuery('#private-website-redirect-to-login').closest('tr').removeClass("wppb-disabled");
+                jQuery('#private-website-allowed-pages').closest('tr').removeClass("wppb-disabled");
+                jQuery('#private-website-menu-hide').removeClass("wppb-disabled");
+            }
+        }
+    }
+});

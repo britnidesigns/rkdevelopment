@@ -131,16 +131,14 @@ function wppb_populate_manage_fields(){
 	// country select
 	$default_country_array = wppb_country_select_options( 'back_end' );
 	foreach( $default_country_array as $iso_country_code => $country_name ) {
-		$default_country_values[] = $iso_country_code;
-		$default_country_options[] = $country_name;
+		$default_country_options[] = '%'.$country_name.'%'.$iso_country_code;
 	}
 
     // currency select
     $default_currency_array = wppb_get_currencies( 'back_end' );
     array_unshift( $default_currency_array, '' );
     foreach( $default_currency_array as $iso_currency_code => $currency_name ) {
-        $default_currency_values[]   = $iso_currency_code;
-        $default_currency_options[]  = $currency_name;
+        $default_currency_options[]  = '%'.$currency_name.'%'.$iso_currency_code;
     }
 
 	//cpt select
@@ -180,9 +178,9 @@ function wppb_populate_manage_fields(){
         array( 'type' => 'text', 'slug' => 'default-value', 'title' => __( 'Default Value', 'profile-builder' ), 'description' => __( "Default value of the field", 'profile-builder' ) ),
         array( 'type' => 'text', 'slug' => 'default-option', 'title' => __( 'Default Option', 'profile-builder' ), 'description' => __( "Specify the option which should be selected by default", 'profile-builder' ) ),
         array( 'type' => 'text', 'slug' => 'default-options', 'title' => __( 'Default Option(s)', 'profile-builder' ), 'description' => __( "Specify the option which should be checked by default<br/>If there are multiple values, separate them with a ',' (comma)", 'profile-builder' ) ),
-		array( 'type' => 'select', 'slug' => 'default-option-country', 'title' => __( 'Default Option', 'profile-builder' ), 'values' => ( isset( $default_country_values ) ) ? $default_country_values : '', 'options' => ( isset( $default_country_options ) ) ? $default_country_options : '', 'description' => __( "Default option of the field", 'profile-builder' ) ),
+		array( 'type' => 'select', 'slug' => 'default-option-country', 'title' => __( 'Default Option', 'profile-builder' ), 'options' => ( isset( $default_country_options ) ) ? $default_country_options : '', 'description' => __( "Default option of the field", 'profile-builder' ) ),
 		array( 'type' => 'select', 'slug' => 'default-option-timezone', 'title' => __( 'Default Option', 'profile-builder' ), 'options' => wppb_timezone_select_options( 'back_end' ), 'description' => __( "Default option of the field", 'profile-builder' ) ),
-        array( 'type' => 'select', 'slug' => 'default-option-currency', 'title' => __( 'Default Option', 'profile-builder' ), 'values' => ( isset( $default_currency_values ) ) ? $default_currency_values : '', 'options' => ( isset( $default_currency_options ) ) ? $default_currency_options : '', 'description' => __( "Default option of the field", 'profile-builder' ) ),
+        array( 'type' => 'select', 'slug' => 'default-option-currency', 'title' => __( 'Default Option', 'profile-builder' ), 'options' => ( isset( $default_currency_options ) ) ? $default_currency_options : '', 'description' => __( "Default option of the field", 'profile-builder' ) ),
         array( 'type' => 'select', 'slug' => 'show-currency-symbol', 'title' => __( 'Show Currency Symbol', 'profile-builder' ), 'options' => array( 'No', 'Yes' ), 'default' => 'No', 'description' => __( 'Whether the currency symbol should be displayed after the currency name in the select option.', 'profile-builder' ) ),
         array( 'type' => 'select', 'slug' => 'cpt', 'title' => __( 'Show Post Type', 'profile-builder' ), 'options' => $post_types, 'default' => 'post', 'description' => __( 'Posts from what post type will be displayed in the select.', 'profile-builder' ) ),
         array( 'type' => 'text', 'slug' => 'validation-possible-values', 'title' => __( 'Allowable Values', 'profile-builder' ), 'description' => __( "Enter a comma separated list of possible values. Upon registration if the value provided by the user does not match one of these values, the user will not be registered.", 'profile-builder' ) ),

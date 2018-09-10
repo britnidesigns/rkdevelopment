@@ -187,21 +187,26 @@ function wppb_change_login_with_email(){
 			$_POST['log'] = apply_filters( 'wppb_before_processing_email_from_forms', $_POST['log'] );
 
 			/* since version 4.5 there is in the core the option to login with email so we don't need the bellow code but for backward compatibility we will keep it */
-			if( version_compare( $wp_version, '4.5.0' ) >= 0 )
+			if( version_compare( $wp_version, '4.5.0' ) >= 0 && apply_filters( 'wppb_allow_login_with_username_when_is_set_to_email', false ) )
 				return;
 
 			$wppb_generalSettings = get_option( 'wppb_general_settings' );
 
 			// if this setting is active, the posted username is, in fact the user's email
 			if( isset( $wppb_generalSettings['loginWith'] ) && ( $wppb_generalSettings['loginWith'] == 'email' ) ){
-				$username = $wpdb->get_var( $wpdb->prepare( "SELECT user_login FROM $wpdb->users WHERE user_email= %s LIMIT 1", sanitize_email( $_POST['log'] ) ) );
-				
-				if( !empty( $username ) )
-					$_POST['log'] = $username;
-				
+				if( !is_email( $_POST['log'] ) && !apply_filters( 'wppb_allow_login_with_username_when_is_set_to_email', false ) ){
+					$_POST['log'] = 'this_is_an_invalid_email' . time();
+				}
 				else {
-					// if we don't have a username for the email entered we can't have an empty username because we will receive a field empty error
-					$_POST['log'] = 'this_is_an_invalid_email'.time();
+					$username = $wpdb->get_var($wpdb->prepare("SELECT user_login FROM $wpdb->users WHERE user_email= %s LIMIT 1", sanitize_email($_POST['log'])));
+
+					if (!empty($username))
+						$_POST['log'] = $username;
+
+					else {
+						// if we don't have a username for the email entered we can't have an empty username because we will receive a field empty error
+						$_POST['log'] = 'this_is_an_invalid_email' . time();
+					}
 				}
 			}
 
