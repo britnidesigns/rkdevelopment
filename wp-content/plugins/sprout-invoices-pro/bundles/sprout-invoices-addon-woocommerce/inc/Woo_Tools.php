@@ -13,6 +13,10 @@ class Woo_Tools extends SI_Controller  {
 
 		// show vat on invoice
 		add_action( 'si_document_vcards', array( __CLASS__, 'add_vat_number_to_doc' ) );
+
+		// update si payment when order is updated, moved here since
+		// payment processor is not loaded all the time
+		add_action( 'woocommerce_order_status_changed', array( 'SI_Woo_Payment_Processor', 'maybe_create_payment_for_woo_payment_completed' ), 10, 3 );
 	}
 
 	public static function get_vat( SI_Client $client ) {

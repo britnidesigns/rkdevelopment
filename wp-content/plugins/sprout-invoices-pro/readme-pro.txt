@@ -4,7 +4,7 @@ Donate link: https://sproutapps.co/
 Tags: invoicing, estimates, payments, web invoice, bill, paypal, invoice, pay, online payment, send invoice, bill clients, credit cards, stripe, freshbooks, harvest, wp-invoice
 Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 18.0.9
+Stable tag: 18.1.7
 
 == Description ==
 
@@ -22,6 +22,51 @@ The plugin should already be installed at this point. If you still need help che
 **Please visit the [FAQ at Sprout Apps](https://sproutapps.co/support/knowledgebase/sprout-invoices/faqs/).**
 
 == Changelog ==
+
+= 18.1.7 =
+
+* Fix: WooCommerce correctly updating invoice after order status changed.
+* Update: Service line item type has no qty, and manage admin prevents its use.
+* Fix: Service fee not automatically added if single processor is active
+* Fix: PayPal Pro and Standard mode conflicts. 
+* Update: Updated messaging for free users
+
+= 18.1.6 =
+
+* Fix/Refactor: Line item commenting
+* New: Filter to bypass service fee
+* New: Filter for WooCommerce product import
+
+= 18.1.5 =
+
+* Fix: Notification admin optimization
+* Fix: Notification content not resetting
+* Fix: Notification content reset with HTML
+
+= 18.1.4 =
+
+* Temp: Temporarily removing comments add-on
+* Fix: PDF CSS not showing terms/info titles
+* Fix: GST not calculated on reports correctly
+* Fix: Title of Invoice/Estimate not shown
+
+= 18.1.3 =
+
+* Fix: Improved PHP 7.1 Support
+* Fix: Stripe error section shown when there are no errors
+* Fix: Stripe settings not saving correctly
+
+= 18.1.1 =
+
+* Fix: Payment receipts for subscription payments not completing under certain circumstances.
+
+= 18.1 =
+
+* Update: Stripe SDK Updated
+* Fix: Account Credit Types
+* Update: Payment options template is using the invoice balance
+* Update: Try to not record bot/se visits
+* Fix: Update old admin urls 
 
 = 18.0.9 =
 
@@ -41,7 +86,7 @@ The plugin should already be installed at this point. If you still need help che
 * Fixed: License key being reset after certain conditions
 * Fixed: Account Credits add-on unavailable
 
-= 18.0.9 =
+= 18.1.7 =
 
 * Fixed: CC Settings not saving
 

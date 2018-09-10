@@ -9,13 +9,13 @@
 class Subscription_Invoices extends SI_Subscription_Payments {
 
 	public static function init() {
-		add_action( 'si_paypal_recurring_payment_profile_created', array( __CLASS__, 'set_payment_reciept_schedule' ) );
-		add_action( 'si_stripe_recurring_payment_profile_created', array( __CLASS__, 'set_payment_reciept_schedule' ) );
-		add_action( self::CRON_HOOK, array( __CLASS__, 'create_invoice_reciepts' ) );
+		add_action( 'si_paypal_recurring_payment_profile_created', array( __CLASS__, 'set_payment_receipt_schedule' ) );
+		add_action( 'si_stripe_recurring_payment_profile_created', array( __CLASS__, 'set_payment_receipt_schedule' ) );
+		add_action( self::CRON_HOOK, array( __CLASS__, 'create_invoice_receipts' ) );
 
 	}
 
-	public static function set_payment_reciept_schedule( $payment_id ) {
+	public static function set_payment_receipt_schedule( $payment_id ) {
 		$payment = SI_Payment::get_instance( $payment_id );
 		if ( ! $payment->is_active() ) {
 			return;
@@ -23,7 +23,7 @@ class Subscription_Invoices extends SI_Subscription_Payments {
 
 		$invoice_id = $payment->get_invoice_id();
 
-		self::schedule_next_reciept( $invoice_id, current_time( 'timestamp' ) );
+		self::schedule_next_receipt( $invoice_id, current_time( 'timestamp' ) );
 	}
 
 
@@ -31,13 +31,13 @@ class Subscription_Invoices extends SI_Subscription_Payments {
 	// Scheduled Task //
 	/////////////////////
 
-	public static function create_invoice_reciepts() {
+	public static function create_invoice_receipts() {
 
-		if ( doing_action( 'si_create_invoice_reciepts' ) ) {
+		if ( doing_action( 'si_create_invoice_receipts' ) ) {
 			return;
 		}
 
-		do_action( 'si_create_invoice_reciepts', current_time( 'timestamp' ) );
+		do_action( 'si_create_invoice_receipts', current_time( 'timestamp' ) );
 
 		$args = array(
 			'post_type' => SI_Invoice::POST_TYPE,
@@ -98,30 +98,30 @@ class Subscription_Invoices extends SI_Subscription_Payments {
 	public static function create_paid_invoice_and_payment( SI_Invoice $invoice ) {
 		$invoice_id = $invoice->get_id();
 
-		$reciept_id = self::clone_post( $invoice_id, SI_Invoice::STATUS_PAID, SI_Invoice::POST_TYPE );
-		$reciept = SI_Invoice::get_instance( $reciept_id );
+		$receipt_id = self::clone_post( $invoice_id, SI_Invoice::STATUS_PAID, SI_Invoice::POST_TYPE );
+		$receipt = SI_Invoice::get_instance( $receipt_id );
 
 		// Issue date is today.
-		$reciept->set_issue_date( time() );
-		$reciept->set_due_date( time() );
+		$receipt->set_issue_date( time() );
+		$receipt->set_due_date( time() );
 
 		// adjust the clone time for the next receipt
-		self::schedule_next_reciept( $invoice_id, current_time( 'timestamp' ) );
+		self::schedule_next_receipt( $invoice_id, current_time( 'timestamp' ) );
 
-		self::set_parent( $reciept_id, $invoice_id );
+		self::set_parent( $receipt_id, $invoice_id );
 
 		// payment amount is the balance of the cloned invoice.
 		$receipt->reset_totals();
-		$payment_amount = $reciept->get_calculated_total();
+		$payment_amount = $receipt->get_calculated_total();
 
 		// Create a payment
-		SI_Admin_Payment::create_admin_payment( $reciept_id, $payment_amount, '', 'Now', __( 'This payment was automatically added to settle a subscription payment.', 'sprout-invoices' ) );
+		SI_Admin_Payment::create_admin_payment( $receipt_id, $payment_amount, '', 'Now', __( 'This payment was automatically added to settle a subscription payment.', 'sprout-invoices' ) );
 
-		do_action( 'si_subscription_invoice_reciept_created', $invoice_id, $reciept_id );
+		do_action( 'si_subscription_invoice_receipt_created', $invoice_id, $receipt_id );
 	}
 
 
-	public static function schedule_next_reciept( $invoice_id = 0, $time = 0 ) {
+	public static function schedule_next_receipt( $invoice_id = 0, $time = 0 ) {
 		$invoice = SI_Invoice::get_instance( $invoice_id );
 		if ( ! is_a( $invoice, 'SI_Invoice' ) ) {
 			return 0;

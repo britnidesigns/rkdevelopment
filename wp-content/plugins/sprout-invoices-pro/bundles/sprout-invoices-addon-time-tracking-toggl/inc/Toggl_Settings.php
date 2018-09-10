@@ -51,7 +51,7 @@ class Toggl_Settings extends Toggl_Controller {
 		if ( self::$api_key ) {
 			// Only do an API callback on the settings page.
 			// TODO register settings on the settings pages only.
-			if ( isset( $_GET['page'] ) && $_GET['page'] == 'sprout-apps/settings' && ! isset( $_GET['tab'] ) ) {
+			if ( isset( $_GET['page'] ) && $_GET['page'] == 'sprout-invoices-settings' ) {
 				$workspaces = Toggl_API::get_workspaces();
 				if ( ! empty( $workspaces ) ) {
 					foreach ( $workspaces as $key => $workspace ) {

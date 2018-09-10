@@ -15,5 +15,13 @@
 <script type="text/javascript">
 	jQuery(function() {
 		jQuery('#sa_item_description').redactor();
+		jQuery('#sa_item_type').change(function() {
+			jQuery('#sa_item_qty').prop('disabled', false);
+			var $val = jQuery('#sa_item_type').val();
+			if ( 'product' === $val ) {
+				jQuery('#sa_item_qty').val(1);
+				jQuery('#sa_item_qty').prop('disabled', true);
+			}
+		});
 	});
 </script>

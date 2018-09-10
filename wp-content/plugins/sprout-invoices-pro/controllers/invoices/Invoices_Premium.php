@@ -105,7 +105,7 @@ class SI_Invoices_Premium extends SI_Invoices {
 		} else {
 			$whom = self::get_user_ip();
 		}
-		if ( in_array( $whom, array( '127.0.0.1', '::1' ) ) ) {
+		if ( ! $whom || in_array( $whom, array( '127.0.0.1', '::1' ) ) ) {
 			return;
 		}
 

@@ -119,7 +119,7 @@ class SI_Account_Credits_AJAX extends SI_Account_Credits {
 		$args['credit_val'] = (float) si_get_number_format( (float) $credit );
 
 		if ( isset( $_REQUEST['credit_type_id'] ) ) {
-			$args['credit_type_id'] = (int) $_REQUEST['credit_type_id'];
+			$args['type_id'] = (int) $_REQUEST['credit_type_id'];
 		}
 
 		if ( isset( $_REQUEST['note'] ) ) {
@@ -132,7 +132,7 @@ class SI_Account_Credits_AJAX extends SI_Account_Credits {
 
 		$defaults = array(
 			'client_id' => (int) $client->get_id(),
-			'credit_type_id' => (int) 0,
+			'type_id' => (int) 0,
 			'credit_val' => (float) si_get_number_format( (float) 0 ),
 			'note' => '',
 			'date' => (int) current_time( 'timestamp' ),

@@ -35,7 +35,8 @@ class SI_Woo_Payment_Processor extends SI_Offsite_Processors {
 		}
 
 		if ( self::is_processor_enabled( __CLASS__ ) ) {
-			add_action( 'woocommerce_order_status_changed', array( __CLASS__, 'maybe_create_payment_for_woo_payment_completed' ), 10, 3 );
+			// controller has this filter
+			//add_action( 'woocommerce_order_status_changed', array( __CLASS__, 'maybe_create_payment_for_woo_payment_completed' ), 10, 3 );
 			add_action( 'woocommerce_thankyou', array( __CLASS__, 'redirect_to_invoice_after_payment' ) );
 		}
 	}

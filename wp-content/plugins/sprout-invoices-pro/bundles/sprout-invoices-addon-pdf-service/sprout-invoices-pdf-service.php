@@ -39,7 +39,7 @@ if ( ! function_exists( 'sa_load_si_pdf_service_addon' ) ) {
 		require_once( 'inc/PDF_Service_Attachments.php' );
 		require_once( 'inc/PDF_Service_Views.php' );
 
-		if ( SI_Updates::license_status() != false && SI_Updates::license_status() == 'valid' ) {
+		if ( ( SI_Updates::license_status() != false && SI_Updates::license_status() == 'valid' ) || SI_DEV ) {
 			SI_Sprout_PDFs_Controller::init();
 				// init sub classes
 				SI_Sprout_PDFs_API::init();

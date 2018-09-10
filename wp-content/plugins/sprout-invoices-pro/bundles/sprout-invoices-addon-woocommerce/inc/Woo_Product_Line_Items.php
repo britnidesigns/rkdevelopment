@@ -89,6 +89,8 @@ class Woo_Product_Line_Items extends SI_Controller {
 				'title' => $product->get_title(),
 			);
 
+		$product_data = apply_filters( 'si_woocommerce_get_product', $product_data );
+
 		ob_start();
 		SI_Controller::load_view( 'admin/sections/line-item-options', array(
 			'columns' => SI_Line_Items::line_item_columns( $product_data['type'] ),

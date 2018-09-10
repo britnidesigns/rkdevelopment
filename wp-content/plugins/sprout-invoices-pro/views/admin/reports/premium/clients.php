@@ -49,7 +49,7 @@
 			// Add a progress bar to show table record collection.
 			echo '<tr class="odd" id="progress_row"><td valign="top" colspan="8" class="dataTables_empty"><div id="rows_progress" style="width:100%;border:1px solid #ccc;"></div> <div id="table_progress">'.__( 'Preparing rows...', 'sprout-invoices' ).'</div></td></tr>';
 
-			$records = new WP_Query( $args );
+			$records = new WP_Query( apply_filters( 'si_clients_select_get_posts_args', $args ) );
 
 			$i = 0;
 			while ( $records->have_posts() ) : $records->the_post();

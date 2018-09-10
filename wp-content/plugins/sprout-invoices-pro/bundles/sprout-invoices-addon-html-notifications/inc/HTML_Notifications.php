@@ -14,6 +14,8 @@ class SI_HTML_Notifications extends SI_Controller {
 
 		add_action( 'wp_ajax_si_load_html_templates', array( __CLASS__, 'maybe_load_html_templates' ) );
 
+		add_action( 'si_refresh_notification', array( __CLASS__, 'maybe_load_html_on_refresh' ), 10, 2 );
+
 		// filter some shortcodes
 		add_filter( 'shortcode_line_item_table', array( __CLASS__, 'item_list_table' ), 10, 3 );
 
@@ -95,6 +97,14 @@ class SI_HTML_Notifications extends SI_Controller {
 
 			update_option( SI_Notifications_Control::EMAIL_FORMAT, 'HTML' );
 		}
+	}
+
+	public static function maybe_load_html_on_refresh( $notification, $notification_key ) {
+		if ( ! SI_Notifications_Control::html_notifications() ) {
+			return;
+		}
+		$html = self::notification_content( $notification_key, array( 'default_content' => $notification->get_content() ) );
+		$notification->set_content( $html );
 	}
 
 	public static function notification_content( $notification_id, $data ) {

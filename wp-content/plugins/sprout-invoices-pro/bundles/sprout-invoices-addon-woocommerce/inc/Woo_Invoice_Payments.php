@@ -138,15 +138,6 @@ class WC_Gateway_Sprout_Invoices extends WC_Payment_Gateway {
 				'tax' => $tax,
 				);
 		}
-		if ( 0.00 < $order->get_shipping_total()  ) {
-			$line_items[] = array(
-				'rate' => $order->get_shipping_total(),
-				'qty' => 1,
-				'desc' => __( 'Shipping', 'sprout-invoices' ),
-				'total' => $order->get_shipping_total(),
-				'tax' => 0,
-				);
-		}
 		$invoice_args = array(
 			'status' => SI_Invoice::STATUS_PENDING,
 			'subject' => sprintf( __( 'Order #%s', 'sprout-invoices' ), $order_id ),

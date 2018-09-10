@@ -73,7 +73,7 @@
 					if ( ! empty( $line_items ) ) {
 						foreach ( $line_items as $position => $data ) {
 							if ( isset( $data['tax_gst'] ) && $data['tax_gst'] ) {
-								$gst_for_line_item = SI_Hearts_Canada::calculate_tax( $data, 'tax_gst' );
+								$gst_for_line_item += SI_Hearts_Canada::calculate_tax( $data, 'tax_gst' );
 								$table_gst_total_tax += $gst_for_line_item;
 							}
 						}

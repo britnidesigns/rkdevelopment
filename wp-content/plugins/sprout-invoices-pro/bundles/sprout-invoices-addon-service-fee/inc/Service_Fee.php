@@ -125,7 +125,7 @@ class SI_Service_Fee extends SI_Controller {
 			return;
 		}
 
-		$class = $enabled_gateways[0];
+		$class = array_values( $enabled_gateways )[0];
 
 		$service_fee = self::get_service_fee( $class );
 		$fee_total = $invoice->get_calculated_total( false ) * ( $service_fee / 100 );
@@ -138,12 +138,20 @@ class SI_Service_Fee extends SI_Controller {
 			return;
 		}
 
+		if ( apply_filters( 'si_bypass_add_service_fee', false, $invoice ) ) {
+			return;
+		}
+
 		// don't add a fee for an invoice that has been paid already
 		if ( $invoice->get_status() == SI_Invoice::STATUS_PAID ) {
 			return;
 		}
 
 		$fees = $invoice->get_fees();
+
+		// remove the previous fee, i.e reset with new fee
+		unset( $fees['payment_service_fee'] );
+
 		$fees['payment_service_fee'] = array(
 			'label' => ( '' === $label ) ? __( 'Payment Service Fee', 'sprout-invoices' ) : $label,
 			'always_show' => true,
@@ -151,6 +159,7 @@ class SI_Service_Fee extends SI_Controller {
 			'total' => (float) $fee_total,
 			'weight' => 26,
 		);
+
 		$invoice->save_post_meta( array(
 			'_fees' => $fees,
 		) );

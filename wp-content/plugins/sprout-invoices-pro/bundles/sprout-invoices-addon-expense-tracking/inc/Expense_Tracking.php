@@ -692,7 +692,7 @@ class SI_Expense_Tracking_Premium extends SI_Controller {
 					}
 				}
 
-				$description = ( is_a( $category, 'SI_Expense' ) ) ? '<b>' . get_the_title( $category->get_id() ) . "</b>\n" . $expense->get_title() . "\n<small>" . date_i18n( get_option( 'date_format' ), $data['date'] ) . '</small>' : $expense->get_title() . "\n<small>" . date_i18n( get_option( 'date_format' ), $data['date'] ) . '</small>';
+				$description = ( is_a( $category, 'SI_Expense' ) ) ? '<b>' . get_the_title( $category->get_id() ) . '</b>:&nbsp;' . $expense->get_title() . "\n" . $data['note'] . "\n<small>" . date_i18n( get_option( 'date_format' ), $data['date'] ) . '</small>' : $expense->get_title() . "\n<small>" . date_i18n( get_option( 'date_format' ), $data['date'] ) . '</small>';
 				if ( isset( $data['attachments'] ) && ! empty( $data['attachments'] ) ) {
 					foreach ( $data['attachments'] as $media_id ) {
 						$file = basename( get_attached_file( $media_id ) );
@@ -722,7 +722,7 @@ class SI_Expense_Tracking_Premium extends SI_Controller {
 					'attachments' => $data['attachments'],
 					'qty' => 1,
 					'rate' => $data['expense_val'],
-					'description' => apply_filters( 'si_project_expense_imported_description', $description ),
+					'description' => apply_filters( 'si_project_expense_imported_description', $description, $expense ),
 					'category_id' => ( is_a( $category, 'SI_Expense' ) ) ? $category->get_id() : false,
 					'category' => ( is_a( $category, 'SI_Expense' ) ) ? $category->get_title() : '',
 					);

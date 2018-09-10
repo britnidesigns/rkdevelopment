@@ -89,13 +89,17 @@ class SI_Sprout_PDFs_Views extends SI_Sprout_PDFs_Controller {
 				body.sa_invoice-template-default .title,
 				body.sa_invoice-template-default #intro .inner .column span,
 				body.sa_estimate-template-default .title,
-				body.sa_estimate-template-default #intro .inner .column span {
+				body.sa_estimate-template-default #intro .inner .column span,
+				body.sa_estimate-template-default #notes .item .header h3,
+				body.sa_invoice-template-default #notes .item .header h3 {
 				    color: #afafaf
 				}
 				body.sa_invoice-template-default .title:after,
 				body.sa_invoice-template-default #items .items .item .column h3,
 				body.sa_estimate-template-default .title:after,
-				body.sa_estimate-template-default #items .items .item .column h3 {
+				body.sa_estimate-template-default #items .items .item .column h3,
+				body.sa_estimate-template-default #notes .item .header h3,
+				body.sa_invoice-template-default #notes .item .header h3 {
 				    border-color: #eee;
 				}
 				body.sa_invoice-template-default .title h2,

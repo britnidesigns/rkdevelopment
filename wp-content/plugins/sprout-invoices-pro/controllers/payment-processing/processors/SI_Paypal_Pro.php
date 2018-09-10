@@ -30,6 +30,7 @@ class SI_Paypal_Pro extends SI_Credit_Card_Processors {
 	const API_SIGNATURE_OPTION = 'si_paypal_signature';
 	const API_PASSWORD_OPTION = 'si_paypal_password';
 	const API_MODE_OPTION = 'si_paypal_mode';
+	const API_MODE_OPTION_V2 = 'si_paypal_pro_mode';
 	const CANCEL_URL_OPTION = 'si_paypal_cancel_url';
 	const RETURN_URL_OPTION = 'si_paypal_return_url';
 	const CURRENCY_CODE_OPTION = 'si_paypal_currency';
@@ -111,7 +112,8 @@ class SI_Paypal_Pro extends SI_Credit_Card_Processors {
 		self::$api_username = get_option( self::API_USERNAME_OPTION, '' );
 		self::$api_password = get_option( self::API_PASSWORD_OPTION, '' );
 		self::$api_signature = get_option( self::API_SIGNATURE_OPTION, '' );
-		self::$api_mode = get_option( self::API_MODE_OPTION, self::MODE_TEST );
+		$original = get_option( self::API_MODE_OPTION, self::MODE_TEST );
+		self::$api_mode = get_option( self::API_MODE_OPTION_V2, $original );
 		self::$currency_code = get_option( self::CURRENCY_CODE_OPTION, 'USD' );
 
 		// Remove pages
@@ -146,7 +148,7 @@ class SI_Paypal_Pro extends SI_Credit_Card_Processors {
 				'title' => __( 'PayPal Payments Pro', 'sprout-invoices' ),
 				'weight' => 200,
 				'settings' => array(
-					self::API_MODE_OPTION => array(
+					self::API_MODE_OPTION_V2 => array(
 						'label' => __( 'Mode', 'sprout-invoices' ),
 						'option' => array(
 							'type' => 'radios',

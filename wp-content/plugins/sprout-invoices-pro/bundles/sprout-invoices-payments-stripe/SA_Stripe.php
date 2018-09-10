@@ -133,7 +133,7 @@ class SA_Stripe extends SI_Credit_Card_Processors {
 				// 'maestro'
 				),
 			);
-		if ( self::$payment_modal ) {
+		if ( 'true' == self::$payment_modal ) {
 			$option['purchase_button_callback'] = array( __CLASS__, 'payment_button' );
 		}
 		return $option;
@@ -159,7 +159,7 @@ class SA_Stripe extends SI_Credit_Card_Processors {
 		// Remove pages
 		add_filter( 'si_checkout_pages', array( $this, 'remove_checkout_pages' ) );
 
-		if ( ! self::$disable_stripe_js ) {
+		if (  'true' != self::$disable_stripe_js ) {
 			add_filter( 'sa_get_form_field', array( __CLASS__, 'filter_credit_form' ), 10, 4 );
 			add_filter( 'si_valid_process_payment_page_fields', '__return_false' );
 			add_action( 'si_credit_card_payment_fields', array( __CLASS__, 'modify_credit_form' ) );
@@ -264,7 +264,7 @@ class SA_Stripe extends SI_Credit_Card_Processors {
 						'option' => array(
 							'label' => __( 'Stripe Checkout uses a slick modal pop-up to handle the credit card payment.' , 'sprout-invoices' ),
 							'type' => 'checkbox',
-							'default' => self::$payment_modal,
+							'default' => ( 'true' == self::$payment_modal ) ? 1 : 0,
 							'value' => '1',
 							'description' => __( 'Disable if you rather use the credit card form that is integrated with Sprout Invoices.' , 'sprout-invoices' ),
 							),
@@ -274,9 +274,9 @@ class SA_Stripe extends SI_Credit_Card_Processors {
 						'option' => array(
 							'label' => __( 'Disable Stripe.js' , 'sprout-invoices' ),
 							'type' => 'checkbox',
-							'default' => self::$disable_stripe_js,
 							'value' => '1',
-							'description' => __( 'Only recommended if you\'re running a site with SSL already. Don\'t bother with this setting if Stripe Checkout is used.' , 'sprout-invoices' ),
+							'default' => ( 'true' == self::$disable_stripe_js ) ? 1 : 0,
+							'description' => __( 'Only recommended if you\'re running a site with SSL already. Do not disable Stripe.js if you\'re using Stripe Checkout.' , 'sprout-invoices' ),
 							),
 						),
 					),
@@ -566,7 +566,7 @@ class SA_Stripe extends SI_Credit_Card_Processors {
 	 */
 	public static function modify_credit_form() {
 		printf( '<input type="hidden" name="%s" value="">', self::TOKEN_INPUT_NAME );
-		echo '<div id="stripe_errors" class="sa-message error"></div><!-- #stripe_errors -->';
+		echo '<div id="stripe_errors"></div><!-- #stripe_errors -->';
 	}
 	/**
 	 * Remove the input name attributes when using stripe.js to be as secure as possible.
@@ -701,7 +701,7 @@ class SA_Stripe extends SI_Credit_Card_Processors {
 			$card_data = $_POST[ self::TOKEN_INPUT_NAME ];
 		} else {
 			// check for fallback mode
-			if ( ! self::$disable_stripe_js ) {
+			if ( 'true' != self::$disable_stripe_js ) {
 				self::set_error_messages( 'Missing Stripe token. Please contact support.' );
 				return false;
 			} else {
@@ -972,13 +972,19 @@ class SA_Stripe extends SI_Credit_Card_Processors {
 
 	private static function setup_stripe() {
 		if ( ! class_exists( 'Stripe' ) ) {
-			require_once 'inc/stripe-3.20.0/init.php';
+			require_once 'inc/stripe-php-6.13.0/init.php';
 		} else {
 			do_action( 'si_error', __CLASS__ . '::' . __FUNCTION__ . ' - the Stripe class is already included.', null );
 		}
 		try {
 			// Setup the API
 			$key = ( self::$api_mode === self::MODE_TEST ) ? self::$api_secret_key_test : self::$api_secret_key ;
+
+			\Stripe\Stripe::setAppInfo(
+				'Sprout Invoices',
+				SI_VERSION,
+				'https://sproutapps.co/sprout-invoices/'
+			);
 
 			\Stripe\Stripe::setApiKey( $key );
 		} catch ( Exception $e ) {

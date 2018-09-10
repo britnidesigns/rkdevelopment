@@ -34,6 +34,8 @@ jQuery(function($) {
 
 			var error = '<p class="si_error">' + response.error.message + '</p>';
 
+			$('#stripe_errors').addClass('sa-message error');
+			
 			// show the errors on the form
 			$('#stripe_errors').html(error);
 
